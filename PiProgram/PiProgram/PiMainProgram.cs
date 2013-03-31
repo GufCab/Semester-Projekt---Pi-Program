@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace PiProgram
 {
-    class Program
+    class PiMainProgram
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
