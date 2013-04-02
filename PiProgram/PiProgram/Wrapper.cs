@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,12 @@ namespace PiProgram
         //Dette er selve de streams der skal skrives og læses fra!
         private StreamWriter _inStream;
         private StreamReader _outStream;
+        private Process _mplayer;
+        private Thread _playerThread;
         
         public Wrapper(string path)
         {
-            var mplayer = new Process();
+            _mplayer = new Process();
             var startInfo = new ProcessStartInfo();
 
             string arguments = "";
@@ -30,12 +33,28 @@ namespace PiProgram
             startInfo.RedirectStandardOutput = true;
             startInfo.UseShellExecute = false;
 
-            mplayer.StartInfo = startInfo;
-            mplayer.Start();
+            _mplayer.StartInfo = startInfo;
+            //_mplayer.Start();
 
-            _inStream = mplayer.StandardInput;
-            _outStream = mplayer.StandardOutput;
+            _inStream = _mplayer.StandardInput;
+            _outStream = _mplayer.StandardOutput;
 
+        }
+
+        public void StartMplayerThread()
+        {
+            _playerThread = new Thread(ThreadFunc);
+            _playerThread.Start();
+
+            _playerThread.Join();
+        }
+
+        private void ThreadFunc()
+        {
+            while (true)
+            {
+                _mplayer.Start();
+            }
         }
         
         public StreamReader GetOutputStream()
