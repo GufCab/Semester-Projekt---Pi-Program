@@ -46,7 +46,7 @@ namespace PiProgram
             _playerThread = new Thread(ThreadFunc);
             _playerThread.Start();
 
-            _playerThread.Join();
+            
         }
 
         private void ThreadFunc()

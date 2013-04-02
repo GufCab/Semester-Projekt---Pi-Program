@@ -17,5 +17,6 @@ namespace PiProgram
         void SetPos(int pos);
         void SetVolumeAbs(int vol);
         void SetVolumeRel(int vol);
+        void StartMplayerThread();
     }
 }
