@@ -1,1 +1,6 @@
 C:\Users\nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\PiProgram\PiProgram\bin\Debug\PiProgram.exe.config
+C:\Users\Nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\PiProgram\PiProgram\bin\Debug\PiProgram.exe
+C:\Users\Nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\PiProgram\PiProgram\bin\Debug\PiProgram.pdb
+C:\Users\Nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\PiProgram\PiProgram\obj\Debug\PiProgram.csprojResolveAssemblyReference.cache
+C:\Users\Nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\PiProgram\PiProgram\obj\Debug\PiProgram.exe
+C:\Users\Nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\PiProgram\PiProgram\obj\Debug\PiProgram.pdb
