@@ -34,8 +34,7 @@ namespace PiProgram
             startInfo.UseShellExecute = false;
 
             _mplayer.StartInfo = startInfo;
-            //_mplayer.Start();
-
+            
             _inStream = _mplayer.StandardInput;
             _outStream = _mplayer.StandardOutput;
 
