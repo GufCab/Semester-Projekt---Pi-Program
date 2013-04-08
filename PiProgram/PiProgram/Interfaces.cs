@@ -10,13 +10,13 @@ namespace PiProgram
     public interface IWrapper
     {
         StreamReader GetOutputStream();
-        int GetPos();
-        int GetTimeLeft();
+        void GetPos();
+        void GetTimeLeft();
         void PauseTrack();
-        void PlaySong(string path);
+        void PlayTrack(string path);
         void SetPos(int pos);
         void SetVolumeAbs(int vol);
         void SetVolumeRel(int vol);
-        void StartMplayerThread();
+        void StartMplayer();
     }
 }

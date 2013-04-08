@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WrapperTestMain.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="PiMainProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
