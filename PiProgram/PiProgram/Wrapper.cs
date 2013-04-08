@@ -29,7 +29,7 @@ namespace PiProgram
             _mplayer = new Process();
             var startInfo = new ProcessStartInfo();
 
-            string arguments = arguments = "-slave " + path;
+            string arguments = arguments = "-slave -quiet" + path;
             
             startInfo.FileName = "mplayer";
             startInfo.Arguments = arguments;
