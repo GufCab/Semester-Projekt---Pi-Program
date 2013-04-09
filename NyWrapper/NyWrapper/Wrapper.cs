@@ -8,11 +8,16 @@ namespace NyWrapper
 {
     public class Wrapper : IWrapper
     {
-        
+        private WrapperMPlayerCtrl _mPlayerCtrl;
 
         public Wrapper()
         {
-            
+            _mPlayerCtrl = new WrapperMPlayerCtrl();
+        }
+
+        public void PlayTrack(string path)
+        {
+            _mPlayerCtrl.PlayTrack(path);
         }
         
         public int GetPos()
@@ -27,12 +32,7 @@ namespace NyWrapper
 
         public void PauseTrack()
         {
-            
-        }
-
-        public void PlayTrack(string path)
-        {
-            
+            _mPlayerCtrl.PauseMPlayer();
         }
 
         public void SetPos(int pos)
