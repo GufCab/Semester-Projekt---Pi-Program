@@ -8,9 +8,9 @@ namespace PiProgram
 {
     public class WrapperTestMain
     {
-        public void Main()
+        static void Main()
         {
-            var testWrap = new Wrapper("LaGrange.mp3");
+            var testWrap = new Wrapper();
 
             testWrap.PlayTrack("LaGrange.mp3");
         }
