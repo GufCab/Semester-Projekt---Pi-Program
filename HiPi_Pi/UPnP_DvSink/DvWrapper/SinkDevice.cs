@@ -18,15 +18,18 @@ namespace UPnP_DvSink.DvWrapper
 		{
 			device = UPnPDevice.CreateRootDevice(1800,1.0,"\\");
 			
-			device.FriendlyName = "MediaMonkey Renderer";
-			device.Manufacturer = "Ventis Media, Inc.";
+			device.FriendlyName = "HiPi Sink";
+			device.Manufacturer = "Casper";
 			device.ManufacturerURL = "http://www.plutinosoft.com";
-			device.ModelName = "MediaMonkey Renderer";
-			device.ModelDescription = "MediaMonkey UPnP Renderer";
+			device.ModelName = "HiPi";
+			device.ModelDescription = "HiPi UPnP Renderer (Sink)";
 			device.ModelNumber = "";
 			device.HasPresentation = false;
 			device.DeviceURN = "urn:schemas-upnp-org:device:MediaRenderer:1";
+
 			DvAVTransport AVTransport = new DvAVTransport();
+
+            /*
 			AVTransport.External_GetCurrentTransportActions = new DvAVTransport.Delegate_GetCurrentTransportActions(AVTransport_GetCurrentTransportActions);
 			AVTransport.External_GetDeviceCapabilities = new DvAVTransport.Delegate_GetDeviceCapabilities(AVTransport_GetDeviceCapabilities);
 			AVTransport.External_GetMediaInfo = new DvAVTransport.Delegate_GetMediaInfo(AVTransport_GetMediaInfo);
@@ -41,13 +44,20 @@ namespace UPnP_DvSink.DvWrapper
 			AVTransport.External_SetAVTransportURI = new DvAVTransport.Delegate_SetAVTransportURI(AVTransport_SetAVTransportURI);
 			AVTransport.External_SetPlayMode = new DvAVTransport.Delegate_SetPlayMode(AVTransport_SetPlayMode);
 			AVTransport.External_Stop = new DvAVTransport.Delegate_Stop(AVTransport_Stop);
+            */
+
 			device.AddService(AVTransport);
 			DvConnectionManager ConnectionManager = new DvConnectionManager();
+
+            /*
 			ConnectionManager.External_GetCurrentConnectionIDs = new DvConnectionManager.Delegate_GetCurrentConnectionIDs(ConnectionManager_GetCurrentConnectionIDs);
 			ConnectionManager.External_GetCurrentConnectionInfo = new DvConnectionManager.Delegate_GetCurrentConnectionInfo(ConnectionManager_GetCurrentConnectionInfo);
 			ConnectionManager.External_GetProtocolInfo = new DvConnectionManager.Delegate_GetProtocolInfo(ConnectionManager_GetProtocolInfo);
+             */
+
 			device.AddService(ConnectionManager);
 			DvRenderingControl RenderingControl = new DvRenderingControl();
+            /*
 			RenderingControl.External_GetMute = new DvRenderingControl.Delegate_GetMute(RenderingControl_GetMute);
 			RenderingControl.External_GetVolume = new DvRenderingControl.Delegate_GetVolume(RenderingControl_GetVolume);
 			RenderingControl.External_GetVolumeDB = new DvRenderingControl.Delegate_GetVolumeDB(RenderingControl_GetVolumeDB);
@@ -56,6 +66,8 @@ namespace UPnP_DvSink.DvWrapper
 			RenderingControl.External_SelectPreset = new DvRenderingControl.Delegate_SelectPreset(RenderingControl_SelectPreset);
 			RenderingControl.External_SetMute = new DvRenderingControl.Delegate_SetMute(RenderingControl_SetMute);
 			RenderingControl.External_SetVolume = new DvRenderingControl.Delegate_SetVolume(RenderingControl_SetVolume);
+             */
+
 			device.AddService(RenderingControl);
 			
 			// Setting the initial value of evented variables
@@ -76,6 +88,10 @@ namespace UPnP_DvSink.DvWrapper
 			device.StopDevice();
 		}
 		
+
+
+        /*
+        //Not in use. Saved for later
 		public void AVTransport_GetCurrentTransportActions(System.UInt32 InstanceID, out System.String Actions)
 		{
 			Actions = "Sample String";
@@ -242,6 +258,7 @@ namespace UPnP_DvSink.DvWrapper
 		{
 			Console.WriteLine("RenderingControl_SetVolume(" + InstanceID.ToString() + Channel.ToString() + DesiredVolume.ToString() + ")");
 		}
+         * */
 		
 	}
 }

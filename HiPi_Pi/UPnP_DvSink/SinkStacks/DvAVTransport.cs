@@ -1,3 +1,4 @@
+using System;
 using OpenSource.UPnP;
 
 namespace UPnP_DvSink.SinkStacks
@@ -2676,7 +2677,7 @@ namespace UPnP_DvSink.SinkStacks
         public void Next(System.UInt32 InstanceID)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            Console.WriteLine("Called next");
         }
         /// <summary>
         /// Action: Pause

@@ -9,12 +9,14 @@ namespace UPnP_DvSink
 {
     class Program
     {
+        private static SinkDevice device;
+
         [STAThread]
         static void Main(string[] args)
         {
             System.Console.WriteLine("UPnP .NET Framework Stack");
             System.Console.WriteLine("Device Builder Build#1.0.4144.25068");
-            SinkDevice device = new SinkDevice();
+            device = new SinkDevice();
 
             device.Start();
 
