@@ -14,8 +14,7 @@ namespace UPnP_DvSink
         [STAThread]
         static void Main(string[] args)
         {
-            System.Console.WriteLine("UPnP .NET Framework Stack");
-            System.Console.WriteLine("Device Builder Build#1.0.4144.25068");
+            System.Console.WriteLine("HiPi Sink Device. Console applikation");
             device = new SinkDevice();
 
             device.Start();
