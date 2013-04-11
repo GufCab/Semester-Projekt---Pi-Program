@@ -11,7 +11,7 @@ namespace PiProgram
         private StreamReader _outStream;
         private Process _mplayer;
         private WrapperMOut _mOut;
-        
+
         public WrapperMPlayerCtrl()
         {
             _mOut = new WrapperMOut();
@@ -20,7 +20,7 @@ namespace PiProgram
         public void PlayTrack(string path)
         {
             SetupProcess(path);
-           // _mOut
+            _mOut.SetOutStream(_outStream);
             _mplayer.Start();
         }
 
@@ -29,7 +29,7 @@ namespace PiProgram
             _mplayer = new Process();
             var startInfo = new ProcessStartInfo();
 
-            string arguments = arguments = "-slave " + path;
+            string arguments = "-slave " + path;
 
             startInfo.FileName = "mplayer";
             startInfo.Arguments = arguments;
@@ -47,7 +47,7 @@ namespace PiProgram
 
         public void KillMPlayer()
         {
-            if(!_mplayer.HasExited)
+            if (!_mplayer.HasExited)
                 _mplayer.Kill();
         }
 
@@ -71,5 +71,21 @@ namespace PiProgram
             return _outStream;
         }
 
+        private void Subscribe()
+        {
+            _mOut.outPut += new WrapperMOut.OutHandle(DetermineOrder);
+        }
+
+        private void DetermineOrder(object e, WrapperMOut.InputData args)
+        {
+            string Data = ReadOutputClass.GetData(args.Data);
+
+            FireEvents(Data);
+        }
+
+        private void FireEvents(string data)
+        {
+            //Which events to fire..
+        }
     }
 }

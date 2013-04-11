@@ -50,6 +50,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadOutputClass.cs" />
     <Compile Include="WrapperTestMain.cs">
       <SubType>Code</SubType>
     </Compile>
