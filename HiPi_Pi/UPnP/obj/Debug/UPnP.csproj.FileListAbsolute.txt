@@ -1,0 +1,10 @@
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\bin\Debug\UPnP.dll
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\bin\Debug\UPnP.pdb
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\UPnP.csprojResolveAssemblyReference.cache
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\OpenSource.UPnP.AutoUpdate.resources
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\OpenSource.Utilities.ExceptionForm.resources
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\OpenSource.Utilities.InstanceTracker.resources
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\OpenSource.Utilities.InstanceTracker2.resources
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\UPnP.csproj.GenerateResource.Cache
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\UPnP.dll
+C:\Users\Casper\Desktop\DeveloperToolsForUPnP\Global\UPnP\obj\Debug\UPnP.pdb
