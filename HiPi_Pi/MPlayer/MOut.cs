@@ -9,7 +9,7 @@ namespace PiProgram
     {
         private StreamReader _output;
         private Thread outThread;
-
+        
         public event OutHandle outPut;
 
         public delegate void OutHandle(object e, InputData args);

@@ -4,25 +4,12 @@ namespace PiProgram
 {
     public static class ReadOutputClass
     {
-        public static string FindOutOrderType(string mplayerOutput)
+        public static string[] GetData(string data)
         {
+            var resultArray = data.Split('=');
 
-            //ToDo Nested if statements with string.Contains
-            return "";
+            return resultArray;
         }
 
-        public static string GetData(string data)
-        {
-            string orderType = FindOutOrderType(data);
-            string outPutData = GetDataFromString(orderType, data);
-
-            return "";
-        }
-
-        private static string GetDataFromString(string typeOfOrder, string streamData)
-        {
-            //ToDO String.Contains stuff..
-            return "";
-        }
     }
 }

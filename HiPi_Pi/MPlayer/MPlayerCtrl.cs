@@ -12,6 +12,14 @@ namespace PiProgram
         private Process _mplayer;
         private WrapperMOut _mOut;
 
+        public event TimePosFire timePosFired;
+
+        public delegate void TimePosFire(object e, RetValEventData args);
+
+        public event PercPosFire percPosFired;
+
+        public delegate void PercPosFire(object e, RetValEventData args);
+
         public WrapperMPlayerCtrl()
         {
             _mOut = new WrapperMOut();
@@ -78,14 +86,33 @@ namespace PiProgram
 
         private void DetermineOrder(object e, WrapperMOut.InputData args)
         {
-            string Data = ReadOutputClass.GetData(args.Data);
+            var str = ReadOutputClass.GetData(args.Data);
 
-            FireEvents(Data);
+            FireEvents(str);
         }
 
-        private void FireEvents(string data)
+        private void FireEvents(string[] data)
         {
+            var evtData = new RetValEventData();
+            evtData.Data = data[1];
+
             //Which events to fire..
+            if (data[0] == "ANS_TIME_POSITION")
+            {
+                //Fire timePosEvent.
+                timePosFired(this, evtData);
+            }
+
+            if (data[0] == "ANS_PERCENT_POSITION")
+            {
+                //Fire PercentEvent.
+                percPosFired(this, evtData);
+            }
         }
+    }
+
+    public class RetValEventData : EventArgs
+    {
+        public string Data { get; set; }
     }
 }
