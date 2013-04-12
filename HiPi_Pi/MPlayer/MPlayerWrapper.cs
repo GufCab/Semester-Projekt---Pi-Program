@@ -20,14 +20,14 @@ namespace PiProgram
             _mPlayerCtrl.PlayTrack(path);
         }
         
-        public int GetPos()
+        public string GetPos()
         {
-            return 0;
+            return "";
         }
 
-        public int GetTimeLeft()
+        public string GetTimeLeft()
         {
-            return 0;
+            return "";
         }
 
         public void PauseTrack()
