@@ -5,3 +5,5 @@ C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\UPnP.p
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.csprojResolveAssemblyReference.cache
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.exe
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.pdb
+C:\Users\Nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.exe
+C:\Users\Nikolaj\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.pdb

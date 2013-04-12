@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPnP_DvSink", "UPnP_DvSink\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPnP", "UPnP\UPnP.csproj", "{584ED187-8F2A-4B58-A266-85F3F212B092}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPlayer", "MPlayer\MPlayer.csproj", "{E3E64998-D167-4784-AB1F-53F77AA57250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{584ED187-8F2A-4B58-A266-85F3F212B092}.Release|Any CPU.Build.0 = Release|Any CPU
 		{584ED187-8F2A-4B58-A266-85F3F212B092}.Release|x64.ActiveCfg = Release|x64
 		{584ED187-8F2A-4B58-A266-85F3F212B092}.Release|x64.Build.0 = Release|x64
+		{E3E64998-D167-4784-AB1F-53F77AA57250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3E64998-D167-4784-AB1F-53F77AA57250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3E64998-D167-4784-AB1F-53F77AA57250}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E3E64998-D167-4784-AB1F-53F77AA57250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3E64998-D167-4784-AB1F-53F77AA57250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3E64998-D167-4784-AB1F-53F77AA57250}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
