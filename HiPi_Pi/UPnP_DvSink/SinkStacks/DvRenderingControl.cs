@@ -1,3 +1,4 @@
+using System;
 using OpenSource.UPnP;
 
 namespace UPnP_DvSink.SinkStacks
@@ -905,7 +906,7 @@ namespace UPnP_DvSink.SinkStacks
         public void SetVolume(System.UInt32 InstanceID, Enum_A_ARG_TYPE_Channel Channel, System.UInt16 DesiredVolume)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            Console.WriteLine("Called SetVolume From Stack");
         }
     }
 }

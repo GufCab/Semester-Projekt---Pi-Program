@@ -15,9 +15,14 @@ namespace UPnP_DvSink
         static void Main(string[] args)
         {
             System.Console.WriteLine("HiPi Sink Device. Console applikation");
+            
+            //Initiate sink device:
             device = new SinkDevice();
 
             device.Start();
+
+
+
 
             System.Console.WriteLine("Press return to stop device.");
             System.Console.ReadLine();

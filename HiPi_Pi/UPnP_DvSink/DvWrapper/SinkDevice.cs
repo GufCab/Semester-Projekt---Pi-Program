@@ -7,12 +7,47 @@ using UPnP_DvSink.SinkStacks;
 
 namespace UPnP_DvSink.DvWrapper
 {
-	/// <summary>
+    internal interface ISinkDevice
+    {
+        void Start();
+        void Stop();
+        void AVTransport_GetCurrentTransportActions(System.UInt32 InstanceID, out System.String Actions);
+        void AVTransport_GetDeviceCapabilities(System.UInt32 InstanceID, out DvAVTransport.Enum_PossiblePlaybackStorageMedia PlayMedia, out DvAVTransport.Enum_PossibleRecordStorageMedia RecMedia, out DvAVTransport.Enum_PossibleRecordQualityModes RecQualityModes);
+        void AVTransport_GetMediaInfo(System.UInt32 InstanceID, out System.UInt32 NrTracks, out System.String MediaDuration, out System.String CurrentURI, out System.String CurrentURIMetaData, out System.String NextURI, out System.String NextURIMetaData, out DvAVTransport.Enum_PlaybackStorageMedium PlayMedium, out DvAVTransport.Enum_RecordStorageMedium RecordMedium, out DvAVTransport.Enum_RecordMediumWriteStatus WriteStatus);
+        void AVTransport_GetPositionInfo(System.UInt32 InstanceID, out System.UInt32 Track, out System.String TrackDuration, out System.String TrackMetaData, out System.String TrackURI, out System.String RelTime, out System.String AbsTime, out System.Int32 RelCount, out System.Int32 AbsCount);
+        void AVTransport_GetTransportInfo(System.UInt32 InstanceID, out DvAVTransport.Enum_TransportState CurrentTransportState, out DvAVTransport.Enum_TransportStatus CurrentTransportStatus, out DvAVTransport.Enum_TransportPlaySpeed CurrentSpeed);
+        void AVTransport_GetTransportSettings(System.UInt32 InstanceID, out DvAVTransport.Enum_CurrentPlayMode PlayMode, out DvAVTransport.Enum_CurrentRecordQualityMode RecQualityMode);
+        void AVTransport_Next(System.UInt32 InstanceID);
+        void AVTransport_Pause(System.UInt32 InstanceID);
+        void AVTransport_Play(System.UInt32 InstanceID, DvAVTransport.Enum_TransportPlaySpeed Speed);
+        void AVTransport_Previous(System.UInt32 InstanceID);
+        void AVTransport_Seek(System.UInt32 InstanceID, DvAVTransport.Enum_A_ARG_TYPE_SeekMode Unit, System.String Target);
+        void AVTransport_SetAVTransportURI(System.UInt32 InstanceID, System.String CurrentURI, System.String CurrentURIMetaData);
+        void AVTransport_SetPlayMode(System.UInt32 InstanceID, DvAVTransport.Enum_CurrentPlayMode NewPlayMode);
+        void AVTransport_Stop(System.UInt32 InstanceID);
+        void ConnectionManager_GetCurrentConnectionIDs(out System.String ConnectionIDs);
+        void ConnectionManager_GetCurrentConnectionInfo(System.Int32 ConnectionID, out System.Int32 RcsID, out System.Int32 AVTransportID, out System.String ProtocolInfo, out System.String PeerConnectionManager, out System.Int32 PeerConnectionID, out DvConnectionManager.Enum_A_ARG_TYPE_Direction Direction, out DvConnectionManager.Enum_A_ARG_TYPE_ConnectionStatus Status);
+        void ConnectionManager_GetProtocolInfo(out System.String Source, out System.String Sink);
+        void RenderingControl_GetMute(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_Channel Channel, out System.Boolean CurrentMute);
+        void RenderingControl_GetVolume(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_Channel Channel, out System.UInt16 CurrentVolume);
+        void RenderingControl_GetVolumeDB(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_Channel Channel, out System.Int16 CurrentVolume);
+        void RenderingControl_GetVolumeDBRange(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_Channel Channel, out System.Int16 MinValue, out System.Int16 MaxValue);
+        void RenderingControl_ListPresets(System.UInt32 InstanceID, out DvRenderingControl.Enum_PresetNameList CurrentPresetNameList);
+        void RenderingControl_SelectPreset(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_PresetName PresetName);
+        void RenderingControl_SetMute(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_Channel Channel, System.Boolean DesiredMute);
+        void RenderingControl_SetVolume(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_Channel Channel, System.UInt16 DesiredVolume);
+    }
+
+    /// <summary>
 	/// Summary description for SampleDevice.
 	/// </summary>
 	class SinkDevice
-	{
+    {
 		private UPnPDevice device;
+
+	    private DvAVTransport AVTransport;
+	    private DvConnectionManager ConnectionManager;
+	    private DvRenderingControl RenderingControl;
 		
 		public SinkDevice()
 		{
@@ -27,9 +62,9 @@ namespace UPnP_DvSink.DvWrapper
 			device.HasPresentation = false;
 			device.DeviceURN = "urn:schemas-upnp-org:device:MediaRenderer:1";
 
-			DvAVTransport AVTransport = new DvAVTransport();
+            //Add AVTrans to service:
+			AVTransport = new DvAVTransport();
 
-            /*
 			AVTransport.External_GetCurrentTransportActions = new DvAVTransport.Delegate_GetCurrentTransportActions(AVTransport_GetCurrentTransportActions);
 			AVTransport.External_GetDeviceCapabilities = new DvAVTransport.Delegate_GetDeviceCapabilities(AVTransport_GetDeviceCapabilities);
 			AVTransport.External_GetMediaInfo = new DvAVTransport.Delegate_GetMediaInfo(AVTransport_GetMediaInfo);
@@ -44,20 +79,22 @@ namespace UPnP_DvSink.DvWrapper
 			AVTransport.External_SetAVTransportURI = new DvAVTransport.Delegate_SetAVTransportURI(AVTransport_SetAVTransportURI);
 			AVTransport.External_SetPlayMode = new DvAVTransport.Delegate_SetPlayMode(AVTransport_SetPlayMode);
 			AVTransport.External_Stop = new DvAVTransport.Delegate_Stop(AVTransport_Stop);
-            */
+            
+            device.AddService(AVTransport);
 
-			device.AddService(AVTransport);
-			DvConnectionManager ConnectionManager = new DvConnectionManager();
 
-            /*
+            //Add CM to service:
+            ConnectionManager = new DvConnectionManager();
+            
 			ConnectionManager.External_GetCurrentConnectionIDs = new DvConnectionManager.Delegate_GetCurrentConnectionIDs(ConnectionManager_GetCurrentConnectionIDs);
 			ConnectionManager.External_GetCurrentConnectionInfo = new DvConnectionManager.Delegate_GetCurrentConnectionInfo(ConnectionManager_GetCurrentConnectionInfo);
 			ConnectionManager.External_GetProtocolInfo = new DvConnectionManager.Delegate_GetProtocolInfo(ConnectionManager_GetProtocolInfo);
-             */
-
-			device.AddService(ConnectionManager);
-			DvRenderingControl RenderingControl = new DvRenderingControl();
-            /*
+            device.AddService(ConnectionManager);
+            
+			
+            //Add RC to service:
+			RenderingControl = new DvRenderingControl();
+            
 			RenderingControl.External_GetMute = new DvRenderingControl.Delegate_GetMute(RenderingControl_GetMute);
 			RenderingControl.External_GetVolume = new DvRenderingControl.Delegate_GetVolume(RenderingControl_GetVolume);
 			RenderingControl.External_GetVolumeDB = new DvRenderingControl.Delegate_GetVolumeDB(RenderingControl_GetVolumeDB);
@@ -66,10 +103,10 @@ namespace UPnP_DvSink.DvWrapper
 			RenderingControl.External_SelectPreset = new DvRenderingControl.Delegate_SelectPreset(RenderingControl_SelectPreset);
 			RenderingControl.External_SetMute = new DvRenderingControl.Delegate_SetMute(RenderingControl_SetMute);
 			RenderingControl.External_SetVolume = new DvRenderingControl.Delegate_SetVolume(RenderingControl_SetVolume);
-             */
-
+            
 			device.AddService(RenderingControl);
 			
+
 			// Setting the initial value of evented variables
 			AVTransport.Evented_LastChange = "Sample String";
 			ConnectionManager.Evented_SourceProtocolInfo = "Sample String";
@@ -88,14 +125,11 @@ namespace UPnP_DvSink.DvWrapper
 			device.StopDevice();
 		}
 		
-
-
-        /*
-        //Not in use. Saved for later
+        //AVTransport functions:
 		public void AVTransport_GetCurrentTransportActions(System.UInt32 InstanceID, out System.String Actions)
 		{
 			Actions = "Sample String";
-			Console.WriteLine("AVTransport_GetCurrentTransportActions(" + InstanceID.ToString() + ")");
+			Console.WriteLine("AVTransport_GetCurrentTransportActions(" + InstanceID.ToString() + ")"); 
 		}
 		
 		public void AVTransport_GetDeviceCapabilities(System.UInt32 InstanceID, out DvAVTransport.Enum_PossiblePlaybackStorageMedia PlayMedia, out DvAVTransport.Enum_PossibleRecordStorageMedia RecMedia, out DvAVTransport.Enum_PossibleRecordQualityModes RecQualityModes)
@@ -188,6 +222,8 @@ namespace UPnP_DvSink.DvWrapper
 			Console.WriteLine("AVTransport_Stop(" + InstanceID.ToString() + ")");
 		}
 		
+
+        //ConnectionManager functions:
 		public void ConnectionManager_GetCurrentConnectionIDs(out System.String ConnectionIDs)
 		{
 			ConnectionIDs = "Sample String";
@@ -213,6 +249,8 @@ namespace UPnP_DvSink.DvWrapper
 			Console.WriteLine("ConnectionManager_GetProtocolInfo(" + ")");
 		}
 		
+
+        //RenderingControl service:
 		public void RenderingControl_GetMute(System.UInt32 InstanceID, DvRenderingControl.Enum_A_ARG_TYPE_Channel Channel, out System.Boolean CurrentMute)
 		{
 			CurrentMute = false;
@@ -258,7 +296,6 @@ namespace UPnP_DvSink.DvWrapper
 		{
 			Console.WriteLine("RenderingControl_SetVolume(" + InstanceID.ToString() + Channel.ToString() + DesiredVolume.ToString() + ")");
 		}
-         * */
 		
 	}
 }
