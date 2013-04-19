@@ -20,6 +20,7 @@ namespace PlaybackCtrl
         public string Name;
         public int Duration;
         public string path;
+        DecoderFallback
 
 
 
