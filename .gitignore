@@ -166,3 +166,9 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+*.cache
+/HiPi_Pi/UPnP_DvSink/obj/Debug/*.exe
+/HiPi_Pi/UPnP_DvSink/obj/Debug/*.pdb
+/HiPi_Pi/UPnP_DvSink/obj/Debug/*.cache
+/HiPi_Pi/UPnP_DvSink/bin/Debug/*.exe
+/HiPi_Pi/UPnP_DvSink/bin/Debug/*.pdb
