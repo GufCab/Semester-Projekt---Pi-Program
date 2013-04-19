@@ -23,6 +23,7 @@ namespace MPlayer
         public WrapperMPlayerCtrl()
         {
             _mOut = new WrapperMOut();
+            Subscribe();
         }
 
         public void PlayTrack(string path)
@@ -108,6 +109,11 @@ namespace MPlayer
                 //Fire PercentEvent.
                 percPosFired(this, evtData);
             }
+        }
+
+        public void GetPos()
+        {
+            _inStream.WriteLine("get_time_pos");
         }
     }
 

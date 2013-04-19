@@ -13,8 +13,6 @@ namespace MPlayer
         public delegate void OutHandle(object e, InputData args);
         public event OutHandle outPut;
 
-        
-
         public WrapperMOut()
         {
             outThread = new Thread(ReadFunc);
@@ -38,7 +36,8 @@ namespace MPlayer
             {
                 if (_output != null)
                 {
-                    input = _output.ReadLine();
+                    while(_output.Peek() >= 0)
+                        input = _output.ReadLine();
                 }
 
                 if (input != "")
@@ -47,6 +46,7 @@ namespace MPlayer
                     sendData.Data = input;
 
                     outPut(this, sendData);
+                    input = "";
                 }
             }
         }
