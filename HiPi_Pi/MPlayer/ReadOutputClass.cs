@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PiProgram
+namespace MPlayer
 {
     public static class ReadOutputClass
     {

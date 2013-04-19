@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\PlaybackCtrl\PlaybackCtrl.csproj">
+      <Project>{87b9575a-b472-4b75-8078-96bce428b386}</Project>
+      <Name>PlaybackCtrl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UPnP\UPnP.csproj">
       <Project>{584ed187-8f2a-4b58-a266-85f3f212b092}</Project>
       <Name>UPnP</Name>

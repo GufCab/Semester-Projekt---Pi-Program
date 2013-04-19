@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 
 
-namespace PiProgram
+namespace MPlayer
 {
     public class WrapperMPlayerCtrl
     {

@@ -3,6 +3,7 @@
 
 using System;
 using OpenSource.UPnP;
+using Playback;
 using UPnP_DvSink.SinkStacks;
 
 namespace UPnP_DvSink.DvWrapper
@@ -48,9 +49,13 @@ namespace UPnP_DvSink.DvWrapper
 	    private DvAVTransport AVTransport;
 	    private DvConnectionManager ConnectionManager;
 	    private DvRenderingControl RenderingControl;
+
+        private PlaybackCtrl player;
 		
 		public SinkDevice()
 		{
+		    player = new PlaybackCtrl();
+
 			device = UPnPDevice.CreateRootDevice(1800,1.0,"\\");
 			
 			device.FriendlyName = "HiPi Sink";
@@ -195,6 +200,8 @@ namespace UPnP_DvSink.DvWrapper
 		public void AVTransport_Play(System.UInt32 InstanceID, DvAVTransport.Enum_TransportPlaySpeed Speed)
 		{
 			Console.WriteLine("AVTransport_Play(" + InstanceID.ToString() + Speed.ToString() + ")");
+
+		    player.Play();
 		}
 		
 		public void AVTransport_Previous(System.UInt32 InstanceID)
@@ -209,7 +216,10 @@ namespace UPnP_DvSink.DvWrapper
 		
 		public void AVTransport_SetAVTransportURI(System.UInt32 InstanceID, System.String CurrentURI, System.String CurrentURIMetaData)
 		{
-			Console.WriteLine("AVTransport_SetAVTransportURI(" + InstanceID.ToString() + CurrentURI.ToString() + CurrentURIMetaData.ToString() + ")");
+			//Console.WriteLine("AVTransport_SetAVTransportURI(" + InstanceID.ToString() + CurrentURI.ToString() + CurrentURIMetaData.ToString() + ")");
+		    Console.WriteLine("Called setURI");
+
+		    player.AddURI(CurrentURI);
 		}
 		
 		public void AVTransport_SetPlayMode(System.UInt32 InstanceID, DvAVTransport.Enum_CurrentPlayMode NewPlayMode)

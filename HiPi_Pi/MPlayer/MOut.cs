@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading;
 
 
-namespace PiProgram
+namespace MPlayer
 {
     public class WrapperMOut
     {
