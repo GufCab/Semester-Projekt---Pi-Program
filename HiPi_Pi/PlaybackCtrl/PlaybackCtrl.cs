@@ -9,28 +9,31 @@ namespace Playback
     public class PlaybackCtrl
     {
         private IWrapper MPlayer;
-
-        private List<string> NextFiveTracks; 
+        
 
         //Constructor:
         public PlaybackCtrl()
         {
             MPlayer = new Wrapper();
-            NextFiveTracks = new List<string>();
+
 
         }
         
         public void Play()
         {
-            if (NextFiveTracks.Count > 0)
-            {
-                MPlayer.PlayTrack(NextFiveTracks[0]);
-            }
+            MPlayer.PlayTrack();
+            
+        }
+
+        public string getNextTrack()
+        {
+            //todo: Look in database. What is the next track to be played?
+
         }
 
         public void AddURI(string path)
         {
-            NextFiveTracks.Add(path);
+            
         }
     }
 }
