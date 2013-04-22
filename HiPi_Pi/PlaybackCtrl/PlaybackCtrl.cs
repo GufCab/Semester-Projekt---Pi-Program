@@ -54,18 +54,18 @@ namespace Playback
 
         public double GetPos() //returns how far into the track MPlayer is
         {
-            double pos = Convert.ToDouble(MPlayer.GetPos());
+            double pos = Convert.ToDouble(MPlayer.GetPosition());
             return pos;
         }
 
         public void SetPos(int pos) //used for going back and forth in a track
         {
-            MPlayer.SetPos(pos);
+            MPlayer.SetPosition(pos);
         }
 
         public double GetVol()
         {
-            double vol = Convert.ToDouble(MPlayer.GetVolume()); //GetPos should be GetVol once implemented
+            double vol = Convert.ToDouble(MPlayer.GetVolume());
             return vol;
         }
 
