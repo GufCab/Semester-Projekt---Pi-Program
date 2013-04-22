@@ -15,7 +15,7 @@ namespace Playback
         //Constructor:
         public PlaybackCtrl()
         {
-            MPlayer = new Wrapper();
+            MPlayer = new MPlayerWrapper();
             Playlist = new DummyPlaylistHandler(/*Path to DB*/); // skal obviously ikke hedde Dummy når den er færdig
         }
         
@@ -65,7 +65,7 @@ namespace Playback
 
         public double GetVol()
         {
-            double vol = Convert.ToDouble(MPlayer.GetPos()); //GetPos should be GetVol once implemented
+            double vol = Convert.ToDouble(MPlayer.GetVolume()); //GetPos should be GetVol once implemented
             return vol;
         }
 
