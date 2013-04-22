@@ -15,11 +15,11 @@ namespace PlaybackCtrl
 
         string URI { get; set; }
 
-        public string deviceIP;
+        public string DeviceIP;
 
         public string Name;
         public int Duration;
-        public string path;
+        public string Path;
         DecoderFallback
 
 

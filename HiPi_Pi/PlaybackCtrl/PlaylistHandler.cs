@@ -29,8 +29,19 @@ namespace PlaybackCtrl
             var trk = new Track();
             trk.Name = "Jump.mp3";
 
-            trk.deviceIP = "rtsp://127.0.0.1/";
-            trk.path = "";
+            trk.DeviceIP = "rtsp://127.0.0.1/";
+            trk.Path = "";
+
+            return trk;
+        }
+
+        public ITrack GetPrevTrack()
+        {
+            var trk = new Track();
+            trk.Name = "Jump.mp3";
+
+            trk.DeviceIP = "rtsp://127.0.0.1/";
+            trk.Path = "";
 
             return trk;
         }
@@ -40,8 +51,8 @@ namespace PlaybackCtrl
             var trk = new Track();
             trk.Name = "Jump.mp3";
 
-            trk.deviceIP = "rtsp://127.0.0.1/";
-            trk.path = "";
+            trk.DeviceIP = "rtsp://127.0.0.1/";
+            trk.Path = "";
 
             return trk;
         }
