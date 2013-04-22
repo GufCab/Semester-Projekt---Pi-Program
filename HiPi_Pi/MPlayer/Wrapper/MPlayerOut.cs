@@ -12,8 +12,8 @@ namespace MPlayer
         public delegate void OutHandle(object e, InputData args);
         public event OutHandle outPut;
 
-
         InputData input = null;
+
 
         public MPlayerOut(StreamReader stream)
         {
@@ -26,10 +26,8 @@ namespace MPlayer
         {
             string ValFromStream = "";
 
-
             while (true)
             {
-                //outPut = new OutHandle
                 if (playerStream.Peek() >= 0)
                 {
                     ValFromStream = playerStream.ReadLine();
@@ -37,12 +35,9 @@ namespace MPlayer
 
                     if (outPut != null)
                         outPut(this, input);
-
                 }
             }
         }
-
-
     }
 
     public class InputData : EventArgs
@@ -55,3 +50,4 @@ namespace MPlayer
         }
     }
 }
+
