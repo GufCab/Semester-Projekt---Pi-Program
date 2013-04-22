@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPlayer", "MPlayer\MPlayer.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiPi_Pi.Tests", "HiPi_Pi.Tests\HiPi_Pi.Tests.csproj", "{B1EE84FE-F863-476C-8CCC-FAE0011AAD6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaybackCtrl", "PlaybackCtrl\PlaybackCtrl.csproj", "{87B9575A-B472-4B75-8078-96BCE428B386}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,12 @@ Global
 		{B1EE84FE-F863-476C-8CCC-FAE0011AAD6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1EE84FE-F863-476C-8CCC-FAE0011AAD6E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1EE84FE-F863-476C-8CCC-FAE0011AAD6E}.Release|x64.ActiveCfg = Release|Any CPU
+		{87B9575A-B472-4B75-8078-96BCE428B386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B9575A-B472-4B75-8078-96BCE428B386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B9575A-B472-4B75-8078-96BCE428B386}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{87B9575A-B472-4B75-8078-96BCE428B386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B9575A-B472-4B75-8078-96BCE428B386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B9575A-B472-4B75-8078-96BCE428B386}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
