@@ -174,7 +174,7 @@ namespace OpenSource.UPnP
                         ex.Data["v-url"] = url;
                         ex.Data["v-data"] = data;
                         ex.Data["checkpoint"] = checkpoint;
-                        OpenSource.UPnP.AutoUpdate.ReportCrash(System.Windows.Forms.Application.ProductName, ex);
+                        //OpenSource.UPnP.AutoUpdate.ReportCrash(System.Windows.Forms.Application.ProductName, ex);
                     }
                     return;
                 }
@@ -269,7 +269,7 @@ namespace OpenSource.UPnP
                 ex.Data["v-url"] = url;
                 ex.Data["v-data"] = data;
                 OpenSource.Utilities.EventLogger.Log(ex);
-                OpenSource.UPnP.AutoUpdate.ReportCrash(System.Windows.Forms.Application.ProductName, ex);
+               // OpenSource.UPnP.AutoUpdate.ReportCrash(System.Windows.Forms.Application.ProductName, ex);
             }
         }
 

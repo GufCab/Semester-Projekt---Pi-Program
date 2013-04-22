@@ -193,12 +193,12 @@ namespace OpenSource.Utilities
 
                 if (g_onExceptionShowMessage == true)
                 {
-                    ExceptionForm ef = new ExceptionForm(exception);
-                    if (ef.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                   // ExceptionForm ef = new ExceptionForm(exception);
+                    //if (ef.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
-                        System.Diagnostics.Debugger.Break();
+                     //   System.Diagnostics.Debugger.Break();
                     }
-                    ef.Dispose();
+                   // ef.Dispose();
                 }
             }
             catch (Exception) { }

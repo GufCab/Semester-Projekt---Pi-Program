@@ -19,6 +19,8 @@ namespace UPnP_DvSink
             //Initiate sink device:
             device = new SinkDevice();
 
+            Console.WriteLine("after new sinkdevice");
+
             device.Start();
 
             System.Console.WriteLine("Press return to stop device.");

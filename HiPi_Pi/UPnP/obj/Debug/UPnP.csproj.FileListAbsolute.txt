@@ -18,3 +18,13 @@ C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\OpenSource.Ut
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\UPnP.csproj.GenerateResource.Cache
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\UPnP.dll
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\UPnP.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\bin\Debug\UPnP.dll
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\bin\Debug\UPnP.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\OpenSource.UPnP.AutoUpdate.resources
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\OpenSource.UPnP.ExceptionForm.resources
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\OpenSource.Utilities.InstanceTracker.resources
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\OpenSource.UPnP.InstanceTracker2.resources
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\UPnP.csproj.GenerateResource.Cache
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\UPnP.dll
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\UPnP.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP\obj\Debug\UPnP.csprojResolveAssemblyReference.cache

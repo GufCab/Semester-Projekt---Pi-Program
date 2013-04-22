@@ -21,7 +21,7 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 
 namespace OpenSource.Utilities
 {
@@ -51,10 +51,11 @@ namespace OpenSource.Utilities
 		{
 			public int Compare(object x, object y)
 			{
-				ListViewItem ItemX = (ListViewItem)x;
-				ListViewItem ItemY = (ListViewItem)y;
+			//	ListViewItem ItemX = (ListViewItem)x;
+			//	ListViewItem ItemY = (ListViewItem)y;
 
-				return(ItemX.SubItems[1].Text.CompareTo(ItemY.SubItems[1].Text));
+			//	return(ItemX.SubItems[1].Text.CompareTo(ItemY.SubItems[1].Text));
+			    return 0;
 			}
 		}
 
@@ -68,7 +69,7 @@ namespace OpenSource.Utilities
 		}
 		public static void StopTimer(string s)
 		{
-			MessageBox.Show("Time to execute: " + s + " = " + new TimeSpan(DateTime.Now.Ticks-TimeValue).TotalMilliseconds.ToString());
+		//	MessageBox.Show("Time to execute: " + s + " = " + new TimeSpan(DateTime.Now.Ticks-TimeValue).TotalMilliseconds.ToString());
 		}
 
 		public new static bool Enabled = false;
@@ -79,7 +80,7 @@ namespace OpenSource.Utilities
 		private static Hashtable DataTable = new Hashtable();
 		private static Hashtable instancetable = new Hashtable();
 		private static InstanceTracker tracker = null;
-
+        /*
 		private System.Windows.Forms.StatusBar statusBar;
 		private System.Windows.Forms.MainMenu mainMenu;
 		private System.Windows.Forms.MenuItem menuItem1;
@@ -127,24 +128,24 @@ namespace OpenSource.Utilities
 		private System.Windows.Forms.MenuItem showInformationMenuItem;
 		private System.Windows.Forms.MenuItem showAuditMenuItem;
 		private System.ComponentModel.IContainer components;
-
+        */
 		public InstanceTracker()
 		{
 			//
 			// Required for Windows Form Designer support
 			//
-			InitializeComponent();
-			this.instanceListView.ListViewItemSorter = new InstanceTrackerSorter();
+			//InitializeComponent();
+			//this.instanceListView.ListViewItemSorter = new InstanceTrackerSorter();
 
 			OpenSource.Utilities.EventLogger.OnEvent += new OpenSource.Utilities.EventLogger.EventHandler(OnEventSink);
 			OpenSource.Utilities.EventLogger.Enabled = true;
 
 			if (OpenSource.Utilities.EventLogger.ShowAll == true) 
-			{
-				this.showInformationMenuItem.Checked = true;
-				this.showWarningsMenuItem.Checked = true;
-				this.showExceptionsMenuItem.Checked = true;
-				this.showAuditMenuItem.Checked = true;
+            {
+            //    this.showInformationMenuItem.Checked = true;
+            //    this.showWarningsMenuItem.Checked = true;
+            //    this.showExceptionsMenuItem.Checked = true;
+            //    this.showAuditMenuItem.Checked = true;
 			}
 		}
         private void OnEventSink(EventLogEntryType LogType, object origin, string trace, string information)
@@ -160,19 +161,19 @@ namespace OpenSource.Utilities
 				{
 					case EventLogEntryType.Information:
 						ImageIndex = 0;
-						if (!this.showInformationMenuItem.Checked){return;}
+						//if (!this.showInformationMenuItem.Checked){return;}
 						break;
 					case EventLogEntryType.Warning:
 						ImageIndex = 1;
-						if (!this.showWarningsMenuItem.Checked){return;}
+						//if (!this.showWarningsMenuItem.Checked){return;}
 						break;
 					case EventLogEntryType.Error:
 						ImageIndex = 2;
-						if (!this.showExceptionsMenuItem.Checked){return;}
+						//if (!this.showExceptionsMenuItem.Checked){return;}
 						break;
 					case EventLogEntryType.SuccessAudit:
 						ImageIndex = 3;
-						if (!this.showAuditMenuItem.Checked){return;}
+						//if (!this.showAuditMenuItem.Checked){return;}
 						break;
 					default:
 						ImageIndex = 4;
@@ -189,7 +190,7 @@ namespace OpenSource.Utilities
 					originString = origin.GetType().Name + " [" + origin.GetHashCode().ToString()+"]";
 				}
 				
-				ListViewItem i = new ListViewItem(new string[2]{originString,information},ImageIndex);
+				//ListViewItem i = new ListViewItem(new string[2]{originString,information},ImageIndex);
 				if (origin.GetType()==typeof(string))
 				{
 					originString = (string)origin;
@@ -200,13 +201,13 @@ namespace OpenSource.Utilities
 				}
 				if (trace!="")
 				{
-					i.Tag = "Origin: " + originString + "\r\nTime: " + DateTime.Now.ToString() + "\r\n\r\n" + information + "\r\n\r\nTRACE:\r\n" + trace;
+					//i.Tag = "Origin: " + originString + "\r\nTime: " + DateTime.Now.ToString() + "\r\n\r\n" + information + "\r\n\r\nTRACE:\r\n" + trace;
 				}
 				else
 				{
-					i.Tag = "Origin: " + originString + "\r\nTime: " + DateTime.Now.ToString() + "\r\n\r\n" + information;
+					//i.Tag = "Origin: " + originString + "\r\nTime: " + DateTime.Now.ToString() + "\r\n\r\n" + information;
 				}
-				EventListView.Items.Insert(0,i);
+				//EventListView.Items.Insert(0,i);
 			}
 		}
 
@@ -217,9 +218,9 @@ namespace OpenSource.Utilities
 		{
 			if ( disposing )
 			{
-				if (components != null)
+				//if (components != null)
 				{
-					components.Dispose();
+					//components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -230,7 +231,7 @@ namespace OpenSource.Utilities
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent()
+		/*private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstanceTracker));
@@ -673,7 +674,7 @@ namespace OpenSource.Utilities
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+		}*/
 		#endregion
 
 		/// <summary>
@@ -723,14 +724,14 @@ namespace OpenSource.Utilities
 
 				if (tracker != null)
 				{
-					tracker.UpdateDisplayEntry(name);
-		                    tracker.statusBar.BeginInvoke(new TrackerHandler(HandleTracker),new object[1]{o.GetType().FullName});
+					//tracker.UpdateDisplayEntry(name);
+		              //      tracker.statusBar.BeginInvoke(new TrackerHandler(HandleTracker),new object[1]{o.GetType().FullName});
 				}
 			}
 		}
 	        public static void HandleTracker(object name)
 	        {
-	    	    tracker.statusBar.Text = "Add: " + (string)name;
+	    	  //  tracker.statusBar.Text = "Add: " + (string)name;
 	        }
 
 		/// <summary>
@@ -745,7 +746,7 @@ namespace OpenSource.Utilities
 				if (tracker != null)
 				{
 					tracker.UpdateDisplayEntry(o.GetType().FullName);
-					tracker.statusBar.Text = "Remove: " + o.GetType().FullName;
+				//	tracker.statusBar.Text = "Remove: " + o.GetType().FullName;
 				}
 			}
 		}
@@ -777,16 +778,16 @@ namespace OpenSource.Utilities
         {
             lock (instancetable)
             {
-                instanceListView.Items.Clear();
+             //   instanceListView.Items.Clear();
                 foreach (string name in instancetable.Keys)
                 {
-                    instanceListView.Items.Add(new ListViewItem(new string[] { instancetable[name].ToString(), name }));
+               //     instanceListView.Items.Add(new ListViewItem(new string[] { instancetable[name].ToString(), name }));
                 }
             }
-            showExceptionsToolBarButton.Pushed = showExceptionsMenuItem.Checked;
-            showWarningEventsToolBarButton.Pushed = showWarningsMenuItem.Checked;
-            showInformationEventsToolBarButton.Pushed = showInformationMenuItem.Checked;
-            showAuditEventsToolBarButton.Pushed = showAuditMenuItem.Checked;
+            //showExceptionsToolBarButton.Pushed = showExceptionsMenuItem.Checked;
+            //showWarningEventsToolBarButton.Pushed = showWarningsMenuItem.Checked;
+            //showInformationEventsToolBarButton.Pushed = showInformationMenuItem.Checked;
+            //showAuditEventsToolBarButton.Pushed = showAuditMenuItem.Checked;
         }
 
 		private void UpdateDisplayEntry(string name) 
@@ -794,16 +795,16 @@ namespace OpenSource.Utilities
 			Recalculate(name);
 			lock (instancetable) 
 			{
-				foreach (ListViewItem li in instanceListView.Items)
-				{
-					if (li.SubItems[1].Text == name) 
-					{
-						li.SubItems[0].Text = instancetable[name].ToString();
-						return;
-					}
-				}
+                //foreach (ListViewItem li in instanceListView.Items)
+                //{
+                //    if (li.SubItems[1].Text == name) 
+                //    {
+                //        li.SubItems[0].Text = instancetable[name].ToString();
+                //        return;
+                //    }
+                //}
 
-				instanceListView.Items.Add(new ListViewItem(new string[] {instancetable[name].ToString(),name}));
+			//	instanceListView.Items.Add(new ListViewItem(new string[] {instancetable[name].ToString(),name}));
 			}
 		}
 
@@ -887,110 +888,110 @@ namespace OpenSource.Utilities
 		private void fullGcMenuItem_Click(object sender, System.EventArgs e)
 		{
 			long mem = GC.GetTotalMemory(true);
-			statusBar.Text = "Memory: " + mem.ToString();
+		//	statusBar.Text = "Memory: " + mem.ToString();
 		}
 
 		private void DetailMenuItem_Click(object sender, System.EventArgs e)
 		{
-			ListViewItem lvi = instanceListView.SelectedItems[0];
-			string CompName = lvi.SubItems[1].Text;
-			ArrayList a = (ArrayList)DataTable[CompName];
+		//	ListViewItem lvi = instanceListView.SelectedItems[0];
+		//	string CompName = lvi.SubItems[1].Text;
+		//	ArrayList a = (ArrayList)DataTable[CompName];
 			ArrayList DL = new ArrayList();
-			foreach(InstanceStruct iss in a)
-			{
-				if (iss.WR.IsAlive)
-					DL.Add(iss.StackList);
-			}
-			if (DL.Count>0)
-			{
-				InstanceTracker2 it2 = new InstanceTracker2(DL);
-				it2.Text = CompName;
-				it2.ShowDialog();
-				it2.Dispose();
-			}
-			else
-			{
-				MessageBox.Show("No details for this item");
-			}
+		//	foreach(InstanceStruct iss in a)
+            //{
+            //    if (iss.WR.IsAlive)
+            //        DL.Add(iss.StackList);
+            //}
+            //if (DL.Count>0)
+            //{
+            //    InstanceTracker2 it2 = new InstanceTracker2(DL);
+            //    it2.Text = CompName;
+            //    it2.ShowDialog();
+            //    it2.Dispose();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No details for this item");
+            //}
 		}
 
 		private void ClearEventMenuItem_Click(object sender, System.EventArgs e)
 		{
-			EventText.Text = "";
-			EventListView.Items.Clear();
+			//EventText.Text = "";
+			//EventListView.Items.Clear();
 		}
 
 		private void haltOnExceptionsMenuItem_Click(object sender, System.EventArgs e)
 		{
-			haltOnExceptionsMenuItem.Checked = !haltOnExceptionsMenuItem.Checked;
-			EventLogger.SetOnExceptionAction(haltOnExceptionsMenuItem.Checked);
+			//haltOnExceptionsMenuItem.Checked = !haltOnExceptionsMenuItem.Checked;
+			//EventLogger.SetOnExceptionAction(haltOnExceptionsMenuItem.Checked);
 		}
 
 		private void enableInstanceTrackingMenuItem_Click(object sender, System.EventArgs e)
 		{
-			enableInstanceTrackingMenuItem.Checked = !enableInstanceTrackingMenuItem.Checked;
-			Enabled = enableInstanceTrackingMenuItem.Checked;
+			//enableInstanceTrackingMenuItem.Checked = !enableInstanceTrackingMenuItem.Checked;
+			//Enabled = enableInstanceTrackingMenuItem.Checked;
 		}
 
 		private void eventToolBar_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e)
 		{
-			if (e.Button == showExceptionsToolBarButton)		showExceptionsMenuItem_Click(this,null);
-			if (e.Button == showWarningEventsToolBarButton)		showWarningsMenuItem_Click(this,null);
-			if (e.Button == showInformationEventsToolBarButton) showInformationMenuItem_Click(this,null);
-			if (e.Button == showAuditEventsToolBarButton)		showAuditMenuItem_Click(this,null);
-			if (e.Button == clearEventLogToolBarButton)			ClearEventMenuItem_Click(this,null);
-			if (e.Button == gcToolBarButton)					gcMenuItem_Click(this,null);
+            //if (e.Button == showExceptionsToolBarButton)		showExceptionsMenuItem_Click(this,null);
+            //if (e.Button == showWarningEventsToolBarButton)		showWarningsMenuItem_Click(this,null);
+            //if (e.Button == showInformationEventsToolBarButton) showInformationMenuItem_Click(this,null);
+            //if (e.Button == showAuditEventsToolBarButton)		showAuditMenuItem_Click(this,null);
+            //if (e.Button == clearEventLogToolBarButton)			ClearEventMenuItem_Click(this,null);
+            //if (e.Button == gcToolBarButton)					gcMenuItem_Click(this,null);
 		}
 
 		private void saveAsMenuItem_Click(object sender, System.EventArgs e)
 		{
-			if (saveLogFileDialog.ShowDialog(this) == DialogResult.OK) 
-			{
-				StreamWriter file = File.CreateText(saveLogFileDialog.FileName);
-				foreach (ListViewItem l in EventListView.Items) 
-				{
-					file.Write(l.Tag.ToString());
-					file.Write("\r\n\r\n-------------------------------------------------\r\n");
-				}
-				file.Close();
-			}
+            //if (saveLogFileDialog.ShowDialog(this) == DialogResult.OK) 
+            //{
+            //    StreamWriter file = File.CreateText(saveLogFileDialog.FileName);
+            //    foreach (ListViewItem l in EventListView.Items) 
+            //    {
+            //        file.Write(l.Tag.ToString());
+            //        file.Write("\r\n\r\n-------------------------------------------------\r\n");
+            //    }
+            //    file.Close();
+            //}
 		}
 
 		private void EventListView_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			if (EventListView.SelectedItems.Count > 0)
-			{
-				string Tag = (string)EventListView.SelectedItems[0].Tag;
-				EventText.Text = Tag;
-			}
+            //if (EventListView.SelectedItems.Count > 0)
+            //{
+            //    string Tag = (string)EventListView.SelectedItems[0].Tag;
+            //    EventText.Text = Tag;
+            //}
 		}
 
 		private void showExceptionsMenuItem_Click(object sender, System.EventArgs e)
 		{
-			showExceptionsMenuItem.Checked = !showExceptionsMenuItem.Checked;
-			showExceptionsToolBarButton.Pushed = showExceptionsMenuItem.Checked;
-			OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
+            //showExceptionsMenuItem.Checked = !showExceptionsMenuItem.Checked;
+            //showExceptionsToolBarButton.Pushed = showExceptionsMenuItem.Checked;
+            //OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
 		}
 
 		private void showWarningsMenuItem_Click(object sender, System.EventArgs e)
 		{
-			showWarningsMenuItem.Checked = !showWarningsMenuItem.Checked;
-			showWarningEventsToolBarButton.Pushed = showWarningsMenuItem.Checked;
-			OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
+            //showWarningsMenuItem.Checked = !showWarningsMenuItem.Checked;
+            //showWarningEventsToolBarButton.Pushed = showWarningsMenuItem.Checked;
+            //OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
 		}
 
 		private void showInformationMenuItem_Click(object sender, System.EventArgs e)
 		{
-			showInformationMenuItem.Checked = !showInformationMenuItem.Checked;
-			showInformationEventsToolBarButton.Pushed = showInformationMenuItem.Checked;
-			OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
+            //showInformationMenuItem.Checked = !showInformationMenuItem.Checked;
+            //showInformationEventsToolBarButton.Pushed = showInformationMenuItem.Checked;
+            //OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
 		}
 
 		private void showAuditMenuItem_Click(object sender, System.EventArgs e)
 		{
-			showAuditMenuItem.Checked = !showAuditMenuItem.Checked;
-			showAuditEventsToolBarButton.Pushed = showAuditMenuItem.Checked;
-			OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
+            //showAuditMenuItem.Checked = !showAuditMenuItem.Checked;
+            //showAuditEventsToolBarButton.Pushed = showAuditMenuItem.Checked;
+            //OpenSource.Utilities.EventLogger.ShowAll = showAuditMenuItem.Checked || showInformationMenuItem.Checked || showExceptionsMenuItem.Checked || showExceptionsMenuItem.Checked;
 		}
 
         public static void GenerateExceptionFile(string filename, string exception, string versionInfo)
@@ -1006,7 +1007,7 @@ namespace OpenSource.Utilities
                 byte[] bytes = UTF8Encoding.UTF8.GetBytes(s.ToString());
                 fs.Write(bytes, 0, bytes.Length);
                 fs.Close();
-                MessageBox.Show(string.Format("Exception error logged in: {0}\r\n\r\n{1}", fs.Name, "Please e-mail these exceptions to Ylian Saint-Hilaire, ylian.saint-hilaire@intel.com."), "Application Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             //   MessageBox.Show(string.Format("Exception error logged in: {0}\r\n\r\n{1}", fs.Name, "Please e-mail these exceptions to Ylian Saint-Hilaire, ylian.saint-hilaire@intel.com."), "Application Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex) 
             {
@@ -1014,10 +1015,10 @@ namespace OpenSource.Utilities
             }
         }
 
-        private void InstanceTracker_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            OpenSource.Utilities.EventLogger.OnEvent -= new OpenSource.Utilities.EventLogger.EventHandler(OnEventSink);
-        }
+        //private void InstanceTracker_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    OpenSource.Utilities.EventLogger.OnEvent -= new OpenSource.Utilities.EventLogger.EventHandler(OnEventSink);
+        //}
 
         private void EventText_TextChanged(object sender, EventArgs e)
         {

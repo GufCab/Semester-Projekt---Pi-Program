@@ -3,7 +3,7 @@
 
 using System;
 using OpenSource.UPnP;
-using Playback;
+//using Playback;
 using UPnP_DvSink.SinkStacks;
 
 namespace UPnP_DvSink.DvWrapper
@@ -52,14 +52,14 @@ namespace UPnP_DvSink.DvWrapper
 	    private DvConnectionManager ConnectionManager;
 	    private DvRenderingControl RenderingControl;
 
-        private Playback.PlaybackCtrl player;
+        //private Playback.PlaybackCtrl player;
 		
 		public SinkDevice()
 		{
 		    //player = new PlaybackCtrl();
-
+            Console.WriteLine("0");
 			device = UPnPDevice.CreateRootDevice(1800,1.0,"\\");
-
+            Console.WriteLine("1");
             #region Device information. Can be accessed by Control Point
             device.FriendlyName = "HiPi Sink";
 			device.Manufacturer = "Casper";
@@ -70,7 +70,7 @@ namespace UPnP_DvSink.DvWrapper
 			device.HasPresentation = false;
 			device.DeviceURN = "urn:schemas-upnp-org:device:MediaRenderer:1";
             #endregion
-            
+            Console.WriteLine("2");
             //Add AVTrans to service:
 			AVTransport = new DvAVTransport();
             #region AVTransport wrapper. Enables us to implement in methods below
@@ -90,7 +90,7 @@ namespace UPnP_DvSink.DvWrapper
 			AVTransport.External_Stop = new DvAVTransport.Delegate_Stop(AVTransport_Stop);
             #endregion
             device.AddService(AVTransport);
-
+            Console.WriteLine("3");
 
             //Add CM to service:
             ConnectionManager = new DvConnectionManager();
@@ -100,7 +100,7 @@ namespace UPnP_DvSink.DvWrapper
 			ConnectionManager.External_GetProtocolInfo = new DvConnectionManager.Delegate_GetProtocolInfo(ConnectionManager_GetProtocolInfo);
             #endregion
             device.AddService(ConnectionManager);
-            
+            Console.WriteLine("4");
 			
             //Add RC to service:
 			RenderingControl = new DvRenderingControl();
@@ -115,7 +115,7 @@ namespace UPnP_DvSink.DvWrapper
 			RenderingControl.External_SetVolume = new DvRenderingControl.Delegate_SetVolume(RenderingControl_SetVolume);
             #endregion
             device.AddService(RenderingControl);
-			
+            Console.WriteLine("5");
 
 			// Setting the initial value of evented variables
 			AVTransport.Evented_LastChange = "Sample String";
@@ -197,28 +197,28 @@ namespace UPnP_DvSink.DvWrapper
 		{
 			Console.WriteLine("AVTransport_Next(" + InstanceID.ToString() + ")");
 
-            player.Next();
+           // player.Next();
 		}
 		
 		public void AVTransport_Pause(System.UInt32 InstanceID)
 		{
 			Console.WriteLine("AVTransport_Pause(" + InstanceID.ToString() + ")");
 
-		    player.Pause();
+		  //  player.Pause();
 		}
 		
 		public void AVTransport_Play(System.UInt32 InstanceID, DvAVTransport.Enum_TransportPlaySpeed Speed)
 		{
 			Console.WriteLine("AVTransport_Play(" + InstanceID.ToString() + Speed.ToString() + ")");
 
-		    player.Play();
+		   // player.Play();
 		}
 		
 		public void AVTransport_Previous(System.UInt32 InstanceID)
 		{
 			Console.WriteLine("AVTransport_Previous(" + InstanceID.ToString() + ")");
 
-            player.Prev();
+           // player.Prev();
 		}
 		
 		public void AVTransport_Seek(System.UInt32 InstanceID, DvAVTransport.Enum_A_ARG_TYPE_SeekMode Unit, System.String Target)
@@ -231,7 +231,7 @@ namespace UPnP_DvSink.DvWrapper
 			//Console.WriteLine("AVTransport_SetAVTransportURI(" + InstanceID.ToString() + CurrentURI.ToString() + CurrentURIMetaData.ToString() + ")");
 		    Console.WriteLine("Called setURI");
 
-		    player.AddToPlayQueue(CurrentURI);
+		  //  player.AddToPlayQueue(CurrentURI);
 		}
 		
 		public void AVTransport_SetPlayMode(System.UInt32 InstanceID, DvAVTransport.Enum_CurrentPlayMode NewPlayMode)

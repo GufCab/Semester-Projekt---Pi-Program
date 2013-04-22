@@ -330,6 +330,7 @@ namespace OpenSource.UPnP
         /// <returns>UPnPDevice Instance</returns>
         public static UPnPDevice CreateRootDevice(int DeviceExpiration, double version, String RootDir)
         {
+            Console.WriteLine("her går det galt");
             return new UPnPDevice(DeviceExpiration, version, RootDir);
         }
         /// <summary>
@@ -437,31 +438,36 @@ namespace OpenSource.UPnP
 
         internal UPnPDevice(int DeviceExpiration, double version, String RootDir)
         {
+            Console.WriteLine("11");
             OpenSource.Utilities.InstanceTracker.Add(this);
             // Full Device
             IsRoot = true;
-
+            Console.WriteLine("12");
             parent = null;
             HasPresentation = true;
             ControlPointOnly = false;
             RootPath = RootDir;
             ExpirationTimeout = DeviceExpiration;
+            Console.WriteLine("13");
             WebServerTable = Hashtable.Synchronized(new Hashtable());
-
+            Console.WriteLine("14");
             VirtualDir_Table = new Hashtable();
+            Console.WriteLine("15");
             VirtualDir_Header_Table = new Hashtable();
-
+            Console.WriteLine("16");
             if (version == 0)
             {
+                Console.WriteLine("17");
                 Major = 1;
                 Minor = 0;
             }
             else
             {
+                Console.WriteLine("18");
                 DText TempNum = new DText();
                 TempNum.ATTRMARK = ".";
                 TempNum[0] = version.ToString();
-
+                Console.WriteLine("19");
                 Major = int.Parse(TempNum[1]);
                 if (TempNum.DCOUNT() == 2)
                 {
@@ -472,12 +478,16 @@ namespace OpenSource.UPnP
                     Minor = 0;
                 }
             }
+            Console.WriteLine("20");
             Services = new UPnPService[0];
             UniqueDeviceName = Guid.NewGuid().ToString();
-
+            Console.WriteLine("21");
             SSDPServer = new SSDP(ExpirationTimeout);
+            Console.WriteLine("21.5");
             SSDPServer.OnRefresh += new SSDP.RefreshHandler(SendNotify);
+            Console.WriteLine("22");
             SSDPServer.OnSearch += new SSDP.SearchHandler(HandleSearch);
+            Console.WriteLine("23");
         }
 
 
@@ -1407,13 +1417,14 @@ namespace OpenSource.UPnP
         {
             if (WebServerTable == null) return;
             //if (local == null) local = new IPEndPoint(IPAddress.Loopback, 1234); // DEBUG **********************
-
+            Console.WriteLine("31");
             string x = src.Address.ToString();
             ArrayList ResponseList = new ArrayList();
             HTTPMessage msg;
             string Location = null;
             if (local.AddressFamily == AddressFamily.InterNetwork)
             {
+                Console.WriteLine("32");
                 Location = "http://" + local.Address.ToString() + ":" + ((MiniWebServer)WebServerTable[local.Address.ToString()]).LocalIPEndPoint.Port.ToString() + "/";
             }
             if (local.AddressFamily == AddressFamily.InterNetworkV6)
@@ -1422,7 +1433,7 @@ namespace OpenSource.UPnP
                 xx = xx.Substring(0, xx.IndexOf("%"));
                 Location = "http://[" + xx + "]:" + ((MiniWebServer)WebServerTable[local.Address.ToString()]).LocalIPEndPoint.Port.ToString() + "/";
             }
-
+            Console.WriteLine("33");
             if ((ST == "upnp:rootdevice") || (ST == "ssdp:all"))
             {
                 msg = new HTTPMessage();

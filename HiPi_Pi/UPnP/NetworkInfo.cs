@@ -33,7 +33,7 @@ namespace OpenSource.UPnP
     public sealed class NetworkInfo
     {
 
-        public static int NetworkPollSeconds = 15;
+        public static int NetworkPollSeconds = 15; //15
         private WeakEvent OnNewInterfaceEvent = new WeakEvent();
         private WeakEvent OnInterfaceDisabledEvent = new WeakEvent();
         public delegate void InterfaceHandler(NetworkInfo sender, IPAddress address);
@@ -87,18 +87,23 @@ namespace OpenSource.UPnP
         /// <param name="onNewInterfaceSink">Interface Callback</param>
         public NetworkInfo(InterfaceHandler onNewInterfaceSink)
         {
+            Console.WriteLine("40");
             OpenSource.Utilities.InstanceTracker.Add(this);
-
+            Console.WriteLine("41");
             InterfacePoller.OnExpired += new LifeTimeMonitor.LifeTimeHandler(PollInterface);
-
-            NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();  
+            Console.WriteLine("42");
+            NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+            Console.WriteLine("43");
             foreach(NetworkInterface i in interfaces)
             {
+
                 if (i.IsReceiveOnly == false && i.OperationalStatus == OperationalStatus.Up && i.SupportsMulticast == true)
                 {
+                    Console.WriteLine("44");
                     IPInterfaceProperties i2 = i.GetIPProperties();
                     foreach (UnicastIPAddressInformation i3 in i2.UnicastAddresses)
                     {
+                        Console.WriteLine("45");
                         if (!AddressTable.Contains(i3.Address) && !i3.Address.Equals(IPAddress.IPv6Loopback)) { AddressTable.Add(i3.Address); }
                     }
                 }
@@ -112,19 +117,26 @@ namespace OpenSource.UPnP
 
             if (!AddressTable.Contains(IPAddress.Loopback))
             {
+                Console.Write("46");
                 AddressTable.Add(IPAddress.Loopback);
+                Console.WriteLine("46.1");
             }
 
             if (onNewInterfaceSink != null)
             {
+                Console.WriteLine("47");
                 OnNewInterface += onNewInterfaceSink;
+                Console.WriteLine("47.1");
                 foreach (IPAddress address in AddressTable)
                 {
+                    Console.WriteLine("47.3");
                     OnNewInterfaceEvent.Fire(this, address);
                 }
+                
             }
-
+            Console.WriteLine("47.4");
             InterfacePoller.Add(this, NetworkInfo.NetworkPollSeconds);
+            Console.WriteLine("48");
         }
 
         /// <summary>

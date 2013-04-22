@@ -1,5 +1,5 @@
-﻿namespace OpenSource.UPnP
-{
+﻿//namespace OpenSource.UPnP
+/*
     partial class AutoUpdate
     {
         /// <summary>
@@ -18,10 +18,10 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
-
+        }*/
+        /*
         #region Windows Form Designer generated code
-
+        
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -181,5 +181,7 @@
         private System.Windows.Forms.Label currentVersionLabel;
         private System.Windows.Forms.Label newVersionLabel;
         private System.Windows.Forms.GroupBox groupBox1;
-    }
-}
+         */
+   // }
+    
+//}

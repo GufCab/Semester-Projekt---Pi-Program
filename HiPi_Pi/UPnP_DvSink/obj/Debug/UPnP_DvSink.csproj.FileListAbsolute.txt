@@ -11,3 +11,14 @@ C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\MPlaye
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.csprojResolveAssemblyReference.cache
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.exe
 C:\Repository\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\UPnP_DvSink.exe
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\UPnP_DvSink.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\PlaybackCtrl.dll
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\UPnP.dll
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\MPlayer.dll
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\PlaybackCtrl.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\UPnP.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\bin\Debug\MPlayer.pdb
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.csprojResolveAssemblyReference.cache
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.exe
+C:\Users\Christian\Documents\GitHub\Semester-Projekt---Pi-Program\HiPi_Pi\UPnP_DvSink\obj\Debug\UPnP_DvSink.pdb

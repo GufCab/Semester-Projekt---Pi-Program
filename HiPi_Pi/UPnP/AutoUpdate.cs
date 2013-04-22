@@ -4,11 +4,11 @@ using System.Data;
 using System.Text;
 using System.Drawing;
 using System.Diagnostics;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using Microsoft.Win32;
-
+/*
 namespace OpenSource.UPnP
 {
     public partial class AutoUpdate : Form
@@ -67,9 +67,9 @@ namespace OpenSource.UPnP
         public AutoUpdate(int newversion)
         {
             this.newversion = newversion;
-            InitializeComponent();
+           // InitializeComponent();
         }
-
+        
         private void MeshToolsUpdate_Load(object sender, EventArgs e)
         {
             updateCheckBox.Checked = GetAutoUpdateCheck();
@@ -304,7 +304,7 @@ namespace OpenSource.UPnP
 
         private void updateCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            SetAutoUpdateCheckNow(updateCheckBox.Checked);
+       //     SetAutoUpdateCheckNow(updateCheckBox.Checked);
         }
 
         public static void ReportCrash(string app, string message)
@@ -346,3 +346,4 @@ namespace OpenSource.UPnP
         }
     }
 }
+*/

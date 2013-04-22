@@ -157,24 +157,34 @@ namespace OpenSource.UPnP
 		/// <param name="secondTimeout">Number of seconds to wait before calling the event</param>
 		public void Add(object obj, double secondTimeout)
 		{
+            Console.WriteLine("50");
 			if (obj == null) return;
+            Console.WriteLine("51");
 			if (secondTimeout<=0) {secondTimeout = (double)0.01;}
+            Console.WriteLine("52");
 			lock(MonitorLock)
 			{
+                Console.WriteLine("53");
 				SafeNotifyTimer.Stop();
 				//NotifyTimer.Stop();
+                Console.WriteLine("54");
 				if (MonitorList.ContainsValue(obj) == true) 
 				{
+                    Console.WriteLine("55");
 					MonitorList.RemoveAt(MonitorList.IndexOfValue(obj));
 				}
-
+                Console.WriteLine("56");
 				DateTime eventTriggerTime = DateTime.Now.AddSeconds(secondTimeout);
+                Console.WriteLine("57");
 				while (MonitorList.ContainsKey(eventTriggerTime)) 
 				{
+                    Console.WriteLine("58");
 					eventTriggerTime = eventTriggerTime.AddMilliseconds(1);
 				}
+                Console.WriteLine("59");
 				MonitorList.Add(eventTriggerTime,obj);
 			}
+            Console.WriteLine("59.1");
 			OnTimedEvent();
 		}
 	}
