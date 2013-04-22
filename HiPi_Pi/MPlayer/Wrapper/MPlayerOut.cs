@@ -38,6 +38,11 @@ namespace MPlayer
                 }
             }
         }
+
+        public StreamReader GetStream()
+        {
+            return playerStream;
+        }
     }
 
     public class InputData : EventArgs
