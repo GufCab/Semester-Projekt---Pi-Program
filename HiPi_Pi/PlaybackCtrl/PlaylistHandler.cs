@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PlaybackCtrl
+namespace Playback
 {
     /// <summary>
     /// IPlaylistHandler kan holde styr på en "afspilningskø".
@@ -16,15 +16,28 @@ namespace PlaybackCtrl
     {
         ITrack GetNextTrack();
         ITrack GetNextTrack(int index);
+        
+        ITrack GetPrevTrack();
 
-        void AddToPlayQue();
-        void AddToPlayQue(int index);
+        void AddToPlayQue(string src);
+        void AddToPlayQue(string src, int index);
     }
 
 
     public class DummyPlaylistHandler : IPlaylistHandler
     {
         public ITrack GetNextTrack()
+        {
+            ITrack trk = new Track();
+            trk.Name = "Jump.mp3";
+
+            trk.DeviceIP = "rtsp://127.0.0.1/";
+            trk.Path = "";
+
+            return trk;
+        }
+
+        public ITrack GetNextTrack(int index)
         {
             var trk = new Track();
             trk.Name = "Jump.mp3";
@@ -46,25 +59,15 @@ namespace PlaybackCtrl
             return trk;
         }
 
-        public ITrack GetNextTrack(int index)
+
+        public void AddToPlayQue(string path)
         {
-            var trk = new Track();
-            trk.Name = "Jump.mp3";
-
-            trk.DeviceIP = "rtsp://127.0.0.1/";
-            trk.Path = "";
-
-            return trk;
+            //Add the track at path to the bottom of the playqueue
         }
 
-        public void AddToPlayQue()
+        public void AddToPlayQue(string path, int index)
         {
-            
-        }
-
-        public void AddToPlayQue(int index)
-        {
-            
+            //Add the track at path to position index of the playqueue
         }
     }
 

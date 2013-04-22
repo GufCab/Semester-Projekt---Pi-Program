@@ -21,9 +21,6 @@ namespace UPnP_DvSink
 
             device.Start();
 
-
-
-
             System.Console.WriteLine("Press return to stop device.");
             System.Console.ReadLine();
             device.Stop();

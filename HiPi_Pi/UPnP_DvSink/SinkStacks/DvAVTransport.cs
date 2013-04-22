@@ -2595,6 +2595,7 @@ namespace UPnP_DvSink.SinkStacks
         /// </summary>
         /// <param name="InstanceID">Associated State Variable: A_ARG_TYPE_InstanceID</param>
         /// <param name="Actions">Associated State Variable: CurrentTransportActions</param>
+        
         public void GetCurrentTransportActions(System.UInt32 InstanceID, out System.String Actions)
         {
             //ToDo: Add Your implementation here, and remove exception
