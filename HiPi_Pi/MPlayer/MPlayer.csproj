@@ -40,15 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComOut.cs" />
-    <Compile Include="IWrapper.cs" />
-    <Compile Include="MOut.cs" />
-    <Compile Include="MPlayerCtrl.cs" />
-    <Compile Include="MPlayerWrapper.cs" />
-    <Compile Include="PiMainProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadOutputClass.cs" />
-    <Compile Include="WrapperTestMain.cs" />
+    <Compile Include="Wrapper\InterpreterClass.cs" />
+    <Compile Include="Wrapper\IWrapper.cs" />
+    <Compile Include="Wrapper\MPlayerOut.cs" />
+    <Compile Include="Wrapper\MPlayerWrapper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
