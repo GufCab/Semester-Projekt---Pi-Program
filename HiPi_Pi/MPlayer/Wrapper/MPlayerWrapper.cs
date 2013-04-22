@@ -22,7 +22,7 @@ namespace MPlayer
             
         }
 
-        public void SetPos(int pos)
+        public void SetPosition(int pos)
         {
             
         }
@@ -81,7 +81,7 @@ namespace MPlayer
             inStream.WriteLine("pause");
         }
 
-        public string GetPos()
+        public string GetPosition()
         {
             inStream.WriteLine("get_time_pos");
 

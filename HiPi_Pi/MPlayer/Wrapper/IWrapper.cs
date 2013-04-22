@@ -6,11 +6,11 @@ namespace MPlayer
 	{
 		void PlayTrack(string path);
 		void PauseTrack();
-	    void SetPos(int pos);
+	    void SetPosition(int pos);
 	    void SetVolume(int pos);
 
 	    string GetVolume();
-        string GetPos();
+        string GetPosition();
 		string GetPaused();
 		string GetPlayingFile();
 
