@@ -73,5 +73,12 @@ namespace Playback
         {
             MPlayer.SetVolume(vol);
         }
+
+
+        //Where should this be called? in the constructor?
+        private void SubscribeToWrapper()
+        {
+            MPlayer.Subscribe();
+        }
     }
 }

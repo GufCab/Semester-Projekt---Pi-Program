@@ -28,7 +28,7 @@ namespace Playback
         public ITrack GetNextTrack()
         {
             ITrack trk = new Track();
-            trk.Name = "Jump.mp3";
+            trk.Title = "Jump.mp3";
 
             trk.DeviceIP = "rtsp://127.0.0.1/";
             trk.Path = "";
@@ -39,7 +39,7 @@ namespace Playback
         public ITrack GetTrack(int index)
         {
             var trk = new Track();
-            trk.Name = "Jump.mp3";
+            trk.Title = "Jump.mp3";
 
             trk.DeviceIP = "rtsp://127.0.0.1/";
             trk.Path = "";
@@ -50,7 +50,7 @@ namespace Playback
         public ITrack GetPrevTrack()
         {
             var trk = new Track();
-            trk.Name = "Jump.mp3";
+            trk.Title = "Jump.mp3";
 
             trk.DeviceIP = "rtsp://127.0.0.1/";
             trk.Path = "";
