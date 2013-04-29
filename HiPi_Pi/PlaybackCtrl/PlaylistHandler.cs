@@ -37,22 +37,23 @@ namespace Playback
 
             //else:
             ITrack trk = new Track();
-            trk.Title = "Jump.mp3";
-
-            trk.Path = "rtsp://127.0.0.1/Jump.mp3";
-
-            return trk;    
+            trk.Protocol = "rtsp://";
+            trk.DeviceIP = "127.0.0.1/";
+            trk.Path = "";
+            trk.FileName = "Jump.mp3";
             
+            trk.Title = "Jump";
+
+            return trk;
         }
 
         public ITrack GetTrack(int index)
         {
             var trk = new Track();
-            trk.fileName = "Jump.mp3";
-
-            trk.protocol = "rtsp://";
+            trk.Protocol = "rtsp://";
             trk.DeviceIP = "127.0.0.1/";
-            trk.Path = "Jump.mp3";
+            trk.Path = "";
+            trk.FileName = "Jump.mp3";
 
             return trk;
         }
@@ -60,21 +61,19 @@ namespace Playback
         public ITrack GetPrevTrack()
         {
             var trk = new Track();
-            trk.Title = "Jump.mp3";
-
-            trk.Path = "rtsp://127.0.0.1/Jump.mp3";
+            trk.Protocol = "rtsp://";
+            trk.DeviceIP = "127.0.0.1/";
+            trk.Path = "";
+            trk.FileName = "Jump.mp3";
 
             return trk;
         }
 
 
-        public void AddToPlayQue(string path)
+        public void AddToPlayQue(ITrack path)
         {
             //Add the track at path to the bottom of the playqueue
-            CurTrk = new Track();
-
-            CurTrk.Path = path;
-            CurTrk.Name = "Some Track";
+            CurTrk = path;
         }
 
         public void AddToPlayQue(string path, int index)
