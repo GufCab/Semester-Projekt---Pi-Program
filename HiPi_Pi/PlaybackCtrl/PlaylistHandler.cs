@@ -48,9 +48,11 @@ namespace Playback
         public ITrack GetTrack(int index)
         {
             var trk = new Track();
-            trk.Title = "Jump.mp3";
+            trk.fileName = "Jump.mp3";
 
-            trk.Path = "rtsp://127.0.0.1/Jump.mp3";
+            trk.protocol = "rtsp://";
+            trk.DeviceIP = "127.0.0.1/";
+            trk.Path = "Jump.mp3";
 
             return trk;
         }
