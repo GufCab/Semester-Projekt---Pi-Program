@@ -37,7 +37,7 @@ namespace Playback
 
             //else:
             ITrack trk = new Track();
-            trk.Name = "Jump.mp3";
+            trk.Title = "Jump.mp3";
 
             trk.Path = "rtsp://127.0.0.1/Jump.mp3";
 
@@ -48,7 +48,7 @@ namespace Playback
         public ITrack GetTrack(int index)
         {
             var trk = new Track();
-            trk.Name = "Jump.mp3";
+            trk.Title = "Jump.mp3";
 
             trk.Path = "rtsp://127.0.0.1/Jump.mp3";
 
@@ -58,7 +58,7 @@ namespace Playback
         public ITrack GetPrevTrack()
         {
             var trk = new Track();
-            trk.Name = "Jump.mp3";
+            trk.Title = "Jump.mp3";
 
             trk.Path = "rtsp://127.0.0.1/Jump.mp3";
 
