@@ -9,37 +9,37 @@ namespace Playback
 {
     public class PlaybackCtrl
     {
-        private IWrapper MPlayer;
+        private IWrapper Player;
         private IPlaylistHandler Playlist;
 
         //Constructor:
         public PlaybackCtrl()
         {
-            MPlayer = new MPlayerWrapper();
+            Player = new MPlayerWrapper();
             Playlist = new DummyPlaylistHandler(/*Path to DB*/); // skal obviously ikke hedde Dummy når den er færdig
         }
         
         public void Next()
         {
             ITrack myTrack = Playlist.GetNextTrack();
-            MPlayer.PlayTrack(myTrack.Path);
+            Player.PlayTrack(myTrack.Path);
         }
 
         public void Prev()
         {
             ITrack myTrack = Playlist.GetPrevTrack();
-            MPlayer.PlayTrack(myTrack.Path);
+            Player.PlayTrack(myTrack.Path);
         }
 
         public void Play()
         {
             var trk = Playlist.GetNextTrack();
-            MPlayer.PlayTrack(trk.Path);
+            Player.PlayTrack(trk.Path);
         }
 
         public void Pause()
         {
-            MPlayer.PauseTrack();
+            Player.PauseTrack();
         }
 
 
@@ -55,31 +55,31 @@ namespace Playback
 
         public double GetPos() //returns how far into the track MPlayer is
         {
-            double pos = Convert.ToDouble(MPlayer.GetPosition());
+            double pos = Convert.ToDouble(Player.GetPosition());
             return pos;
         }
 
         public void SetPos(int pos) //used for going back and forth in a track
         {
-            MPlayer.SetPosition(pos);
+            Player.SetPosition(pos);
         }
 
         public double GetVol()
         {
-            double vol = Convert.ToDouble(MPlayer.GetVolume());
+            double vol = Convert.ToDouble(Player.GetVolume());
             return vol;
         }
 
         public void SetVol(int vol)
         {
-            MPlayer.SetVolume(vol);
+            Player.SetVolume(vol);
         }
 
 
         //Where should this be called? in the constructor?
         private void SubscribeToWrapper()
         {
-            MPlayer.Subscribe();
+            Player.Subscribe();
         }
     }
 }
