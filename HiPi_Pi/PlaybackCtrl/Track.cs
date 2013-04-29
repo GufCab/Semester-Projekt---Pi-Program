@@ -7,7 +7,7 @@ namespace Playback
 {
     public interface ITrack 
     {
-        string DeviceIP { get; set; }
+        //string DeviceIP { get; set; }
 
         string Name { get; set; }
         int Duration { get; set; }
@@ -16,7 +16,7 @@ namespace Playback
 
     public class Track : ITrack
     {
-        public string DeviceIP { get; set; }
+        //public string DeviceIP { get; set; }
 
         public string Name { get; set; }
         public int Duration { get; set; }
