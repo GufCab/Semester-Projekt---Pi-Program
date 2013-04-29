@@ -7,8 +7,10 @@ namespace Playback
 {
     public interface ITrack 
     {
-        string DeviceIP { get; set; }
         string Path { get; set; }
+        string DeviceIP { get; set; }
+        string FileName { get; set; }
+        string Protocol { get; set; }
 
         string Title { get; set; }
         int Duration { get; set; }
@@ -21,6 +23,8 @@ namespace Playback
     {
         public string DeviceIP { get; set; }
         public string Path { get; set; }
+        public string FileName { get; set; }
+        public string Protocol { get; set; }
 
         public string Title { get; set; }
         public int Duration { get; set; }
