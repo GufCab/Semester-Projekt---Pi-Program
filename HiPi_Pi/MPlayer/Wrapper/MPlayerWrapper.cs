@@ -35,6 +35,8 @@ namespace MPlayer
         public delegate void EOFHandle(object e, EventArgs args);
         public event EOFHandle EOF_Event;
 
+        
+
         public MPlayerWrapper()
         {
             SetupMPlayer();

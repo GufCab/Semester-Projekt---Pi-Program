@@ -8,6 +8,9 @@ namespace MPlayer
         void PauseTrack();
         void SetVolume(int vol);
         void SetPosition(int pos);
+        //void Subscribe(object e);
+
+        event MPlayerWrapper.TimePosHandle TimePosEvent;
 
         string GetPosition();
         string GetVolume();
