@@ -18,7 +18,7 @@ namespace Playback
         ITrack GetPrevTrack();
         ITrack GetTrack(int index);
         
-        void AddToPlayQue(string src);
+        void AddToPlayQue(ITrack src);
         void AddToPlayQue(string src, int index);
     }
 
