@@ -56,7 +56,7 @@ namespace UPnP_DvSink.DvWrapper
 		
 		public SinkDevice()
 		{
-		    //player = new PlaybackCtrl();
+		    player = new PlaybackCtrl();
 
 			device = UPnPDevice.CreateRootDevice(1800,1.0,"\\");
 

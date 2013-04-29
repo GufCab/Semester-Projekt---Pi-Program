@@ -33,7 +33,8 @@ namespace Playback
 
         public void Play()
         {
-            MPlayer.PauseTrack();
+            var trk = Playlist.GetNextTrack();
+            MPlayer.PlayTrack(trk.Path);
         }
 
         public void Pause()

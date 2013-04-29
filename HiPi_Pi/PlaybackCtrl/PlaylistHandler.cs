@@ -25,15 +25,24 @@ namespace Playback
 
     public class DummyPlaylistHandler : IPlaylistHandler
     {
+        private ITrack CurTrk;
+
+
         public ITrack GetNextTrack()
         {
+            if (CurTrk != null)
+            {
+                return CurTrk;
+            }
+
+            //else:
             ITrack trk = new Track();
             trk.Title = "Jump.mp3";
 
-            trk.DeviceIP = "rtsp://127.0.0.1/";
-            trk.Path = "";
+            trk.Path = "rtsp://127.0.0.1/Jump.mp3";
 
-            return trk;
+            return trk;    
+            
         }
 
         public ITrack GetTrack(int index)
@@ -41,8 +50,7 @@ namespace Playback
             var trk = new Track();
             trk.Title = "Jump.mp3";
 
-            trk.DeviceIP = "rtsp://127.0.0.1/";
-            trk.Path = "";
+            trk.Path = "rtsp://127.0.0.1/Jump.mp3";
 
             return trk;
         }
@@ -52,8 +60,7 @@ namespace Playback
             var trk = new Track();
             trk.Title = "Jump.mp3";
 
-            trk.DeviceIP = "rtsp://127.0.0.1/";
-            trk.Path = "";
+            trk.Path = "rtsp://127.0.0.1/Jump.mp3";
 
             return trk;
         }
@@ -62,6 +69,10 @@ namespace Playback
         public void AddToPlayQue(string path)
         {
             //Add the track at path to the bottom of the playqueue
+            CurTrk = new Track();
+
+            CurTrk.Path = path;
+            CurTrk.Name = "Some Track";
         }
 
         public void AddToPlayQue(string path, int index)
