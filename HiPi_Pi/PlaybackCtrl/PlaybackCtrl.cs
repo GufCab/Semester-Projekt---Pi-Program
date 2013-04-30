@@ -84,7 +84,15 @@ namespace Playback
 
         private void AiksVeryOwnSpecialHandler(object e, EventArgs args)
         {
-            //Her skal playbackctrl finde ud af hvad der skal ske (bliver kaldt når sangen er slut)
+            ////Her skal playbackctrl finde ud af hvad der skal ske (bliver kaldt når sangen er slut)
+            //if (Playlist.PlayQueueEmpty)
+            //{
+            //    //stop playing
+            //}
+            //else
+            //{
+            //    Next();
+            //}
         }
          
     }
