@@ -17,6 +17,7 @@ namespace Playback
         {
             Player = new MPlayerWrapper();
             Playlist = new DummyPlaylistHandler(/*Path to DB*/); // skal obviously ikke hedde Dummy når den er færdig
+            SubscribeToWrapper();
         }
         
         public void Next()
@@ -75,8 +76,6 @@ namespace Playback
             Player.SetVolume(vol);
         }
 
-
-        //Where should this be called? in the constructor?
         private void SubscribeToWrapper()
         {
             Player.EOF_Event += AiksVeryOwnSpecialHandler;
@@ -84,8 +83,11 @@ namespace Playback
 
         private void AiksVeryOwnSpecialHandler(object e, EventArgs args)
         {
-            //Her skal playbackctrl finde ud af hvad der skal ske (bliver kaldt når sangen er slut)
+            ////Her skal playbackctrl finde ud af hvad der skal ske (bliver kaldt når sangen er slut)
+            //if (!Playlist.PlayQueueEmpty)
+            //{
+            //    Next();
+            //}
         }
-         
     }
 }
