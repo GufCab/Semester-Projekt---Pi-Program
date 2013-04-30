@@ -47,6 +47,7 @@ namespace Playback
             return trk;
         }
 
+
         public ITrack GetTrack(int index)
         {
             var trk = new Track();
