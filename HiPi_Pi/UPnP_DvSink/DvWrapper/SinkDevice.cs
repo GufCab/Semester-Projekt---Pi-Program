@@ -8,7 +8,7 @@ using UPnP_DvSink.SinkStacks;
 
 namespace UPnP_DvSink.DvWrapper
 {
-    internal interface ISinkDevice
+    public interface ISinkDevice
     {
         #region
         void Start();
@@ -44,7 +44,7 @@ namespace UPnP_DvSink.DvWrapper
     /// <summary>
 	/// Summary description for SampleDevice.
 	/// </summary>
-	class SinkDevice
+	public class SinkDevice
     {
 		private UPnPDevice device;
 
@@ -71,7 +71,7 @@ namespace UPnP_DvSink.DvWrapper
 			device.DeviceURN = "urn:schemas-upnp-org:device:MediaRenderer:1";
             #endregion
             
-            //Add AVTrans to service:
+            //Add AVTransport to service:
 			AVTransport = new DvAVTransport();
             #region AVTransport wrapper. Enables us to implement in methods below
             AVTransport.External_GetCurrentTransportActions = new DvAVTransport.Delegate_GetCurrentTransportActions(AVTransport_GetCurrentTransportActions);
@@ -92,7 +92,7 @@ namespace UPnP_DvSink.DvWrapper
             device.AddService(AVTransport);
 
 
-            //Add CM to service:
+            //Add ConnectionManager to service:
             ConnectionManager = new DvConnectionManager();
             #region ConnectionManager wrapper. Enables us to implement in methods below
             ConnectionManager.External_GetCurrentConnectionIDs = new DvConnectionManager.Delegate_GetCurrentConnectionIDs(ConnectionManager_GetCurrentConnectionIDs);
@@ -102,7 +102,7 @@ namespace UPnP_DvSink.DvWrapper
             device.AddService(ConnectionManager);
             
 			
-            //Add RC to service:
+            //Add RenderingControl to service:
 			RenderingControl = new DvRenderingControl();
             #region RenderingControl wrapper. Enables us to implement in methods below
             RenderingControl.External_GetMute = new DvRenderingControl.Delegate_GetMute(RenderingControl_GetMute);

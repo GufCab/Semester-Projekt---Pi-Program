@@ -18,7 +18,7 @@ namespace Playback
         ITrack GetPrevTrack();
         ITrack GetTrack(int index);
         
-        void AddToPlayQue(ITrack src);
+        void AddToPlayQue(string src);
         void AddToPlayQue(string src, int index);
     }
 
@@ -71,10 +71,14 @@ namespace Playback
         }
 
 
-        public void AddToPlayQue(ITrack path)
+        public void AddToPlayQue(string path)
         {
+            if (CurTrk == null)
+            {
+                CurTrk = new Track();
+            }
             //Add the track at path to the bottom of the playqueue
-            CurTrk = path;
+            CurTrk.Path = path;
         }
 
         public void AddToPlayQue(string path, int index)

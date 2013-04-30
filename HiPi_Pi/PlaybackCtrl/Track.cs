@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Playback
 {
-    public interface ITrack 
+    public interface ITrack
     {
         string Path { get; set; }       //mappestruktur ifht live555
         string DeviceIP { get; set; }
@@ -19,7 +19,7 @@ namespace Playback
         string Genre { get; set; }
     }
 
-    public class Track : ITrack
+    public class Track: ITrack
     {
         public string DeviceIP { get; set; }
         public string Path { get; set; }
