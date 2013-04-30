@@ -12,7 +12,7 @@ namespace Playback
     /// 
     /// Det sammme gør sig gældende ved Add metoden
     /// </summary>
-    interface IPlaylistHandler
+    public interface IPlaylistHandler
     {
         ITrack GetNextTrack();
         ITrack GetPrevTrack();
