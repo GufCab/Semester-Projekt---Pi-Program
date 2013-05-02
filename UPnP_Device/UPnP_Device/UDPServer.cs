@@ -26,7 +26,7 @@ namespace UPnP_Device
         private Thread ReceiveThread;
 
         
-        public UDPServer(string uuid, int cacheexpire, string localip)
+        public UDPServer(string uuid, int cacheexpire, string localip, int tcpport)
         {
             _UUID = uuid;
             _cacheexpire = cacheexpire;
