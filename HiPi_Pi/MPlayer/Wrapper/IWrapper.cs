@@ -9,8 +9,9 @@ namespace MPlayer
         void SetVolume(int vol);
         void SetPosition(int pos);
         //void Subscribe(object e);
-
-        event MPlayerWrapper.TimePosHandle TimePosEvent;
+       
+        event MPlayerWrapper.EOFHandle EOF_Event;
+        
 
         string GetPosition();
         string GetVolume();
