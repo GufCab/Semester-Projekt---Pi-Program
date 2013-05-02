@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{FE7876FE-8368-4526-872A-0C1BCE96FE27}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UPnP_DvSink</RootNamespace>
-    <AssemblyName>UPnP_DvSink</AssemblyName>
+    <RootNamespace>Main</RootNamespace>
+    <AssemblyName>Main</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,21 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DvWrapper\SinkDevice.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SinkStacks\DvAVTransport.cs" />
-    <Compile Include="SinkStacks\DvConnectionManager.cs" />
-    <Compile Include="SinkStacks\DvRenderingControl.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\PlaybackCtrl\PlaybackCtrl.csproj">
-      <Project>{87b9575a-b472-4b75-8078-96bce428b386}</Project>
-      <Name>PlaybackCtrl</Name>
+    <ProjectReference Include="..\UPnP_DvSink\UPnP_DvSink.csproj">
+      <Project>{c2c9cdf5-6d0a-4ea3-b46d-f5c7f0e3af68}</Project>
+      <Name>UPnP_DvSink</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UPnP\UPnP.csproj">
-      <Project>{584ed187-8f2a-4b58-a266-85f3f212b092}</Project>
-      <Name>UPnP</Name>
+    <ProjectReference Include="..\UPnP_DvSource\UPnP_DvSource.csproj">
+      <Project>{0bf037a6-7780-40df-ae71-a73cad772b8d}</Project>
+      <Name>UPnP_DvSource</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

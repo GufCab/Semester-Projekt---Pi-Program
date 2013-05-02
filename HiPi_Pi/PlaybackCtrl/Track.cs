@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Playback
 {
-    public interface ITrack 
+    public interface ITrack
     {
-        string Path { get; set; }
+        string Path { get; set; }       //mappestruktur ifht live555
         string DeviceIP { get; set; }
-        string FileName { get; set; }
-        string Protocol { get; set; }
+        string FileName { get; set; }   //ex Jump.mp3
+        string Protocol { get; set; }   //ex rtsp://
 
         string Title { get; set; }
         int Duration { get; set; }
@@ -19,7 +19,7 @@ namespace Playback
         string Genre { get; set; }
     }
 
-    public class Track : ITrack
+    public class Track: ITrack
     {
         public string DeviceIP { get; set; }
         public string Path { get; set; }

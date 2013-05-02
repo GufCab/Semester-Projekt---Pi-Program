@@ -12,7 +12,7 @@ namespace Playback
     /// 
     /// Det sammme gør sig gældende ved Add metoden
     /// </summary>
-    interface IPlaylistHandler
+    public interface IPlaylistHandler
     {
         ITrack GetNextTrack();
         ITrack GetPrevTrack();
@@ -47,6 +47,7 @@ namespace Playback
             return trk;
         }
 
+
         public ITrack GetTrack(int index)
         {
             var trk = new Track();
@@ -70,10 +71,14 @@ namespace Playback
         }
 
 
-        public void AddToPlayQue(ITrack path)
+        public void AddToPlayQue(string path)
         {
+            if (CurTrk == null)
+            {
+                CurTrk = new Track();
+            }
             //Add the track at path to the bottom of the playqueue
-            CurTrk = path;
+            CurTrk.Path = path;
         }
 
         public void AddToPlayQue(string path, int index)
