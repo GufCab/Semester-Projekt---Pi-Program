@@ -47,6 +47,7 @@
     <Compile Include="TCPHandle.cs" />
     <Compile Include="TCPSender.cs" />
     <Compile Include="TCPReceiver.cs" />
+    <Compile Include="TCPUtillity.cs" />
     <Compile Include="UDP\UDPServer.cs" />
     <Compile Include="UDP\MulticastReceiver.cs" />
     <Compile Include="UDP\MulticastSender.cs" />

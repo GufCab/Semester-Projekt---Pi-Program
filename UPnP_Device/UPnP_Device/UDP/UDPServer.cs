@@ -34,6 +34,7 @@ namespace UPnP_Device.UDP
 
             sender = new MulticastSender(_UUID, _cacheexpire, _localip, _tcpport);
 
+
             NotifyThread = new Thread(sender.NotifySender);
         }
 
