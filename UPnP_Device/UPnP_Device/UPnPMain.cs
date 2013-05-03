@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using UPnP_Device.UDP;
 using UPnP_Device.UPnP;
 
@@ -31,15 +32,13 @@ namespace UPnP_Device
         public event UPnPEvents.PlayOrder PlayEvent;
         public event UPnPEvents.SetTransportURIOrder SetTransportURIEvent;
 
-
         public UPnPMain()
         {
-            IPHandler ipHandler = IPHandler.GetInstance();
-
             UUID = IPHandler.GetInstance().GUID;
             localIP = IPHandler.GetInstance().IP;
 
             tcpReceiver = new TCPReceiver(localIP, port);
+            tcpReceiver.start();
 
             udpServer = new UDPServer(UUID, cacheExpire, localIP, port);
             udpServer.Start();

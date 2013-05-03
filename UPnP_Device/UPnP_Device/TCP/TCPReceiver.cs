@@ -12,40 +12,53 @@ namespace UPnP_Device
 {
     public class TCPReceiver
     {
-        public const int BUFFER_SIZE = 900000; //set size of receive buffer
+        public const int BUFFER_SIZE = 900000; //set size of handler buffer
 
+        private TcpListener listener;
         private TcpClient clientSocket;
         private NetworkStream networkStream;
         private TCPUtillity util;
         private TCPHandle _handler;
+        private Thread thread;
 
         private int _port;
         private string _localIp;
 
-        public TCPReceiver(string localIp, int port, TCPHandle handler)
+        public TCPReceiver(string localIp, int port)
         {
             _port = port;
             _localIp = localIp;
-            ConnectionSetup();
-            util = new TCPUtillity();
-            _handler = handler;
+            
+            _handler = new TCPHandle();
+            thread = new Thread(run);
         }
 
         public void ConnectionSetup()
         {
-            clientSocket = new TcpClient(_localIp, _port);
-            networkStream = clientSocket.GetStream();
-            
+            listener = new TcpListener(IPAddress.Parse(_localIp), _port);
+            clientSocket = default(TcpClient);
+            listener.Start();
+            clientSocket = listener.AcceptTcpClient();
+            util = new TCPUtillity(clientSocket);
         }
 
-        public void receive()
+        public void handler()
         {
-            //receives a message and creates a TCPHandle to handle the message
-            object[] handleObj = new object[2];
-            handleObj[0] = networkStream;
-            handleObj[1] = util.TCPRecieve(networkStream);
-            
-            ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), handleObj);
+            ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), util);
+        }
+
+        public void start()
+        {
+            thread.Start();
+        }
+
+        public void run()
+        {
+            while (true)
+            {
+                ConnectionSetup();
+                handler();
+            }
         }
     }
 }

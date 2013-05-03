@@ -6,18 +6,30 @@ using System.Net.Sockets;
 
 namespace UPnP_Device
 {
-    class TCPUtillity
+    public class TCPUtillity
     {
-        private const int BUFFERSIZE = 1000;
+        private int BUFFERSIZE = 1000;
+        private TcpClient _client;
+        private NetworkStream _stream;
 
-        public string TCPRecieve(NetworkStream stream)
+        public TCPUtillity(TcpClient client)
+        {
+            _client = client;
+            _stream = _client.GetStream();
+            BUFFERSIZE = _client.ReceiveBufferSize;
+        }
+
+        public string TCPRecieve()
         {
             byte[] receiveBuffer = new byte[BUFFERSIZE];
 
             try
             {
-                stream.Read(receiveBuffer, 0, receiveBuffer.Length);
-                return Encoding.UTF8.GetString(receiveBuffer, 0, receiveBuffer.Length);
+                int size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
+
+                _stream.Flush();
+
+                return Encoding.UTF8.GetString(receiveBuffer, 0, size);
             }
             catch (Exception e)
             {
@@ -27,11 +39,13 @@ namespace UPnP_Device
             }
         }
 
-        public void TCPSend(NetworkStream stream, string msg)
+        public void TCPSend(string msg)
         {
-            byte[] sendBuffer = Encoding.ASCII.GetBytes(msg);
+            _stream.Flush();
 
-            stream.Write(sendBuffer, 0, sendBuffer.Length);
+            byte[] sendBuffer = Encoding.UTF8.GetBytes(msg);
+
+            _stream.Write(sendBuffer, 0, sendBuffer.Length);
         }
     }
 }

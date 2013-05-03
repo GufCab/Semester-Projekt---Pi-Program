@@ -10,7 +10,7 @@ namespace UPnP_Device
 {
     public interface IRespondStrategy
     {
-        void Respond(NetworkStream networkStream);
+        void Respond(TCPUtillity utillity);
     }
     
     public class TCPHandle
@@ -22,12 +22,15 @@ namespace UPnP_Device
 
         public void HandleHTTP(object e)
         {
-            var objArray = (object[])e;
-            NetworkStream networkStream = (NetworkStream)objArray[0];
-            string firstHTTP = (string)objArray[1];
-            IRespondStrategy respondStrategy = GetResponseStrategy.GetStrategy(firstHTTP);
+            var util = (TCPUtillity) e;
+            string rec = util.TCPRecieve();
+            string[] splitter = new string[] {"\r\n"};
 
+            var StrArr = rec.Split(splitter, StringSplitOptions.None);
 
+            IRespondStrategy respondStrategy = GetResponseStrategy.GetStrategy(StrArr[0]);
+
+            respondStrategy.Respond(util);
 
         }
 
@@ -36,7 +39,7 @@ namespace UPnP_Device
 
     public static class GetResponseStrategy
     {
-        private const string GET = "GET / HTTP/1.1";
+        private const string GET = "GET / HTTP/1.1\r\n";
 
         public static IRespondStrategy GetStrategy(string order)
         {

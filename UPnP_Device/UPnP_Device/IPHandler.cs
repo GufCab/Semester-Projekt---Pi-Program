@@ -15,10 +15,22 @@ namespace UPnP_Device
         public string GUID { get; private set; }
         public string IP { get; private set; }
 
+        public string AV { get; private set; }
+        public string CN { get; private set; }
+        public string MN { get; private set; }
+        public string MV { get; private set; }
+        public string PA { get; private set; }
+
         private IPHandler()
         {
             GUID = GetGUID();
             IP = GetOwnIp();
+
+            PA = "\"HiPiSerial\"";
+            MV = "\"1.00\"";
+            MN = "\"HiPiSerial\"";
+            CN = "\"Gruppe 8\"";
+            AV = "\"5.0\"";
         }
 
         public static IPHandler GetInstance()
