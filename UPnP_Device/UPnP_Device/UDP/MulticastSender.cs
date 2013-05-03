@@ -74,6 +74,16 @@ namespace UPnP_Device.UDP
             }
         }
 
+        public void OKSender()
+        {
+            string s = HTTPOKgenerator();
+
+            for (int i = 0; i < 4; i++)
+            {
+                SendMulticast(s);
+            }
+        }
+
         private void SendMulticast(string s)
         {
             sendBuffer = Encoding.UTF8.GetBytes(s);
@@ -111,6 +121,19 @@ namespace UPnP_Device.UDP
             }
 
             return slist;
+        }
+
+        private string HTTPOKgenerator()
+        {
+            string s = "HTTP/1.1 200 OK\r\n" +
+                       "ST:" + IPHandler.GetInstance().DeviceType + "\r\n" +
+                       "CACHE-CONTROL: max-age=" + _cacheexpire + " \r\n" +
+                       "EXT: \r\n" +
+                       "USN: " + _UUID + "::" + IPHandler.GetInstance().DeviceType + "\r\n" +
+                       "SERVER: Windows NT/5.0, UPnP/1.1\r\n" +
+                       "LOCATION: " + _localip + ":" + _tcpport + "\r\n" +
+                       "Content-Length: 0\r\n";
+            return s;
         }
 
     }

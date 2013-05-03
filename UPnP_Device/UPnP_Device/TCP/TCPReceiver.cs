@@ -15,7 +15,7 @@ namespace UPnP_Device
         public const int BUFFER_SIZE = 900000; //set size of handler buffer
 
         private TcpListener listener;
-        private TcpClient clientSocket;
+        //private TcpClient clientSocket;
         private NetworkStream networkStream;
         private TCPUtillity util;
         private TCPHandle _handler;
@@ -28,17 +28,18 @@ namespace UPnP_Device
         {
             _port = port;
             _localIp = localIp;
-            
+            listener = new TcpListener(IPAddress.Parse(_localIp), _port);
+
+            listener.Start();
+
             _handler = new TCPHandle();
             thread = new Thread(run);
         }
 
         public void ConnectionSetup()
         {
-            listener = new TcpListener(IPAddress.Parse(_localIp), _port);
-            clientSocket = default(TcpClient);
-            listener.Start();
-            clientSocket = listener.AcceptTcpClient();
+            //TcpClient clientSocket = default(TcpClient);
+            TcpClient clientSocket = listener.AcceptTcpClient();
             util = new TCPUtillity(clientSocket);
         }
 

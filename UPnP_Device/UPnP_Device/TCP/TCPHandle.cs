@@ -39,16 +39,22 @@ namespace UPnP_Device
 
     public static class GetResponseStrategy
     {
-        private const string GET = "GET / HTTP/1.1\r\n";
+        private const string GET = "GET / HTTP/1.1";
 
         public static IRespondStrategy GetStrategy(string order)
         {
             IRespondStrategy strategy = null;
+            Console.WriteLine("Order: " + order);
+
+            //TOdo: Head "GET / HTTP/1.0" should be handle and ignored
 
             switch (order)
             {
                 case GET:
                     strategy = new GetResponse();
+                    break;
+                default:
+                    Console.WriteLine("Error in Switch-case");
                     break;
             }
 
