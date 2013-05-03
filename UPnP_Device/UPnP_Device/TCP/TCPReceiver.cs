@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 //skal oprette et nyt tcphandler objekt som starten ny tråd der håndterer HTTP beskeden når der modtages noget
 
@@ -15,40 +16,36 @@ namespace UPnP_Device
 
         private TcpClient clientSocket;
         private NetworkStream networkStream;
+        private TCPUtillity util;
+        private TCPHandle _handler;
 
         private int _port;
         private string _localIp;
 
-        public TCPReceiver(string localIp, int port)
+        public TCPReceiver(string localIp, int port, TCPHandle handler)
         {
             _port = port;
             _localIp = localIp;
             ConnectionSetup();
-            ReceiveTCPMessage();
+            util = new TCPUtillity();
+            _handler = handler;
         }
 
         public void ConnectionSetup()
         {
             clientSocket = new TcpClient(_localIp, _port);
             networkStream = clientSocket.GetStream();
-
+            
         }
 
-        //Receive from client:
-        public void ReceiveTCPMessage()
+        public void receive()
         {
-            try
-            {
-                clientStream.Flush(); //Clear stream
-                clientStream.Read(inStream, 0, (int) clientSocket.ReceiveBufferSize); //Read from Stream
-                inString = System.Text.Encoding.ASCII.GetString(inStream); //Format string
-                TCPHandle tcpHandle = new TCPHandle(inString);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception at reception:");
-                Console.WriteLine(e.Message);
-            }
+            //receives a message and creates a TCPHandle to handle the message
+            object[] handleObj = new object[2];
+            handleObj[0] = networkStream;
+            handleObj[1] = util.TCPRecieve(networkStream);
+            
+            ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), handleObj);
         }
     }
 }

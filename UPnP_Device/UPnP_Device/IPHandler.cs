@@ -8,15 +8,33 @@ namespace UPnP_Device
 {
 
     //Static Utility class for IP and ID purposes
-    public static class IPHandler
+    public class IPHandler
     {
-        public static string GetGUID()
+        private static IPHandler instance = null;
+
+        public string GUID { get; private set; }
+        public string IP { get; private set; }
+
+        private IPHandler()
+        {
+            GUID = GetGUID();
+            IP = GetOwnIp();
+        }
+
+        public static IPHandler GetInstance()
+        {
+            if(instance == null)
+                return new IPHandler();
+            return instance;
+        }
+
+        private static string GetGUID()
         {
             var g = Guid.NewGuid();
             return g.ToString();
         }
 
-        public static string GetOwnIp()
+        private static string GetOwnIp()
         {
             string localIP = "";
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());

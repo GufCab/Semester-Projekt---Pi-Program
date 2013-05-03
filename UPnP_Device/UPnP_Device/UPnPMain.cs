@@ -5,6 +5,7 @@ using System.Text;
 using UPnP_Device.UDP;
 using UPnP_Device.UPnP;
 
+
 namespace UPnP_Device
 {
     public interface IUPnPMain
@@ -33,8 +34,11 @@ namespace UPnP_Device
 
         public UPnPMain()
         {
-            UUID = IPHandler.GetGUID();
-            localIP = IPHandler.GetOwnIp();
+            IPHandler ipHandler = IPHandler.GetInstance();
+
+            UUID = IPHandler.GetInstance().GUID;
+            localIP = IPHandler.GetInstance().IP;
+
             tcpReceiver = new TCPReceiver(localIP, port);
 
             udpServer = new UDPServer(UUID, cacheExpire, localIP, port);
