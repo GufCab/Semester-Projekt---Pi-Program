@@ -72,9 +72,21 @@ namespace UPnP_Device.UDP
             if (msgArray[0] == "M-SEARCH * HTTP/1.1")
             {
                 Console.WriteLine("This is right");
+                string k = "";
+
                 foreach (string s in msgArray)
                 {
-                    ret = checkDeviceType(s);
+                    string[] f = s.Split(':');
+
+                    //Hvis der er ST på den første plads, så skal den sætte de resterende sammen og sende dem til checkeren
+                    if (f[0] == "ST")
+                    {
+                        for (int i = 2; i < f.Count(); i++)
+                        {
+                            k = k + f[i];
+                        }
+                        ret = checkDeviceType(k);
+                    }
                 }
             }
             else
@@ -88,7 +100,7 @@ namespace UPnP_Device.UDP
 
         public bool checkDeviceType(string s)
         {
-            if ((s == ("ST:" + IPHandler.GetInstance().DeviceType)) | (s == ("ST: " + IPHandler.GetInstance().DeviceType)))
+            if ((s.Contains(IPHandler.GetInstance().DeviceType)) | (s.Contains("rootdevice")))
                 return true;
             return false;
         }

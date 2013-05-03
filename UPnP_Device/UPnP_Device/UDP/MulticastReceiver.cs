@@ -51,6 +51,7 @@ namespace UPnP_Device.UDP
         public string ReceiveMulticast()
         {
             Byte[] data = recClient.Receive(ref recIPep);
+            
             string strData = Encoding.UTF8.GetString(data);
 
             return strData;

@@ -13,7 +13,7 @@ namespace UPnP_Device.UDP
         private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
         private static readonly int multicastPort = 1900;
 
-        private static UdpClient sendClient;
+        private static UdpClient MulticastClient;
         private static IPEndPoint remoteep;
         private static Byte[] sendBuffer;
 
@@ -33,6 +33,7 @@ namespace UPnP_Device.UDP
             _localip = localip;
             _tcpport = tcpport;
 
+
             SetupMulticastSender();
 
             //Create NTs:
@@ -50,11 +51,25 @@ namespace UPnP_Device.UDP
         //Setup:
         private static void SetupMulticastSender()
         {
-            sendClient = new UdpClient();
-
-            sendClient.JoinMulticastGroup(multicastIp);
+            MulticastClient = new UdpClient();
+            
+            MulticastClient.JoinMulticastGroup(multicastIp);
 
             remoteep = new IPEndPoint(multicastIp, multicastPort);
+        }
+
+        private void SendUnicast(string s)
+        {
+            using (var uniUdp = new UdpClient())
+            {
+                uniUdp.Connect(multicastIp, 1900);
+                byte[] buf = System.Text.Encoding.UTF8.GetBytes(s);
+
+                uniUdp.Send(buf, buf.Length);
+                Thread.Sleep(20);
+
+                uniUdp.Close();
+            }
         }
 
         public void NotifySender()
@@ -77,17 +92,18 @@ namespace UPnP_Device.UDP
         public void OKSender()
         {
             string s = HTTPOKgenerator();
-
+            Thread.Sleep(400);
             for (int i = 0; i < 4; i++)
             {
-                SendMulticast(s);
+                SendUnicast(s);
+                Thread.Sleep(66);
             }
         }
 
         private void SendMulticast(string s)
         {
             sendBuffer = Encoding.UTF8.GetBytes(s);
-            sendClient.Send(sendBuffer, sendBuffer.Length, remoteep);
+            MulticastClient.Send(sendBuffer, sendBuffer.Length, remoteep);
         }
 
         private List<string> HTTPNotifygenerator(List<string> NTs)
