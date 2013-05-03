@@ -18,7 +18,6 @@ namespace UPnP_Device
 
         public static string GetOwnIp()
         {
-            //finds my ip address
             string localIP = "";
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (IPAddress ip in host.AddressList)
