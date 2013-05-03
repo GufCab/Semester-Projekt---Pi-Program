@@ -31,9 +31,16 @@ namespace UPnP_Device.TCP
 
     public class GetResponse : IRespondStrategy
     {
+        private XMLWriter1 writer;
+
+        public GetResponse()
+        {
+            writer = new XMLWriter1();
+        }
+
         public void Respond(TCPUtillity utillity)
         {
-            string body = "";
+            string body = writer.genGETxml();
 
             string head = "HTTP/1.1 200 OK\r\n" +
                           "CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
@@ -43,10 +50,8 @@ namespace UPnP_Device.TCP
                           "X-AV-Physical-Unit-Info: pa=" + IPHandler.GetInstance().PA + "\r\n" +
                           "CONTENT-LENGTH: " + body.Length + "\r\n"+"\r\n";
 
-            //string body = XMLWriter.GetBody()
             
-
-            string message = head;
+            string message = head + body;
             try
             {
                 utillity.TCPSend(message);
