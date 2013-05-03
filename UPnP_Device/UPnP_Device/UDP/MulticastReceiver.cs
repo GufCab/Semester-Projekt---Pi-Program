@@ -33,7 +33,8 @@ namespace UPnP_Device.UDP
             _UUID = uuid;
             _cacheexpire = cacheexpire;
             _localip = localip;
-            _tcpport = tcpport;   
+            _tcpport = tcpport; 
+            SetupMulticastReceiver();
         }
 
         private static void SetupMulticastReceiver()
