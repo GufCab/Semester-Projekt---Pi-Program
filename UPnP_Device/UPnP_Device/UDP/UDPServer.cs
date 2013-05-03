@@ -14,7 +14,7 @@ namespace UPnP_Device.UDP
         private int _cacheexpire;
         private string _localip;
         private int _tcpport;
-        
+
         //private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
         //private static readonly int multicastPort = 1900;
 
@@ -52,7 +52,7 @@ namespace UPnP_Device.UDP
             {
                 string msg = receiver.ReceiveMulticast();
                 ThreadPool.QueueUserWorkItem(new WaitCallback(Handler), msg);
-                
+
                 /*
                 threadPool.Add(new Thread(() => Handler(msg)));     //Explained here: http://goo.gl/6uAgD
                 threadPool[(threadPool.Count-1)].Start();
@@ -64,19 +64,33 @@ namespace UPnP_Device.UDP
         {
             string msg = (string) obj;
             //Splitting by string explained here: http://goo.gl/PSdtL
-            String[] splitter = new string[] { "\r\n" };
-            String[] msgArray = msg.Split(splitter, StringSplitOptions.None);   //Using overload method of split to take string array
+            String[] splitter = new string[] {"\r\n"};
+            String[] msgArray = msg.Split(splitter, StringSplitOptions.None);
+            //Using overload method of split to take string array
 
+            bool ret = false;
             if (msgArray[0] == "M-SEARCH * HTTP/1.1")
             {
                 Console.WriteLine("This is right");
+                foreach (string s in msgArray)
+                {
+                    ret = checkDeviceType(s);
+                }
             }
             else
             {
                 Console.WriteLine("Unknown input");
             }
+
+            if(ret)
+                sender.OKSender();
         }
 
-
+        public bool checkDeviceType(string s)
+        {
+            if ((s == ("ST:" + IPHandler.GetInstance().DeviceType)) | (s == ("ST: " + IPHandler.GetInstance().DeviceType)))
+                return true;
+            return false;
+        }
     }
 }

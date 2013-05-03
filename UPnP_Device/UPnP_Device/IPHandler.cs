@@ -21,6 +21,8 @@ namespace UPnP_Device
         public string MV { get; private set; }
         public string PA { get; private set; }
 
+        public string DeviceType { get; private set; }
+
         private IPHandler()
         {
             GUID = GetGUID();
@@ -31,8 +33,10 @@ namespace UPnP_Device
             MN = "\"HiPiSerial\"";
             CN = "\"Gruppe 8\"";
             AV = "\"5.0\"";
-        }
 
+            DeviceType = "urn:schemas-upnp-org:device:MediaRenderer:1";
+        }
+        
         public static IPHandler GetInstance()
         {
             if(instance == null)
