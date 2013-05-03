@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,6 +22,7 @@ namespace UPnP_Device.UDP
         private string _localip;
         private int _tcpport;
 
+        public List<string> NTs;
         public List<string> notify { get; private set; }
 
         //Constructor
@@ -35,13 +36,15 @@ namespace UPnP_Device.UDP
             SetupMulticastSender();
 
             //Create NTs:
-            List<string> NTs = new List<string>();
-            NTs.Add("upnp:rootdevice");
-            NTs.Add("urn:schemas-upnp-org:device:MediaServer:1");
-            NTs.Add("urn:schemas-upnp-org:service:ContentDirectory:1");
-            NTs.Add("urn:schemas-upnp-org:service:ConnectionManager:1");
+            NTs = new List<string>
+                {
+                    "upnp:rootdevice",
+                    "urn:schemas-upnp-org:device:MediaServer:1",
+                    "urn:schemas-upnp-org:service:ContentDirectory:1",
+                    "urn:schemas-upnp-org:service:ConnectionManager:1"
+                };
 
-            List<string> notify = HTTPNotifygenerator(NTs);
+            notify = HTTPNotifygenerator(NTs);
         }
         
         //Setup:
@@ -67,7 +70,7 @@ namespace UPnP_Device.UDP
                     }
                     Thread.Sleep(66);
                 }
-                Thread.Sleep(_cacheexpire);
+                Thread.Sleep((_cacheexpire*1000));
             }
         }
 
@@ -99,7 +102,7 @@ namespace UPnP_Device.UDP
                 slist.Add("NOTIFY * HTTP/1.1\n" +
                       "HOST: " + multicastIp.ToString() + ":" + multicastPort + "\r\n" +
                       "CACHE-CONTROL: max-age=" + _cacheexpire + "\r\n" +
-                      "LOCATION: " + _localip + "\r\n" +
+                      "LOCATION: " + _localip + ":" + _tcpport + "\r\n" +
                       "SERVER: Windows NT/5.0, UPnP/1.1\r\n" +
                       "NT: " + f + "\r\n" +
                       "NTS: ssdp:alive\n" +

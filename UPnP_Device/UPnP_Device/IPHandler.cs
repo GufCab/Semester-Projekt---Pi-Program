@@ -6,6 +6,8 @@ using System.Text;
 
 namespace UPnP_Device
 {
+
+    //Static Utility class for IP and ID purposes
     public static class IPHandler
     {
         public static string GetGUID()

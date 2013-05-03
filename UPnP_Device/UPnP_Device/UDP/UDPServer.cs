@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,8 +15,8 @@ namespace UPnP_Device.UDP
         private string _localip;
         private int _tcpport;
         
-        private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
-        private static readonly int multicastPort = 1900;
+        //private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
+        //private static readonly int multicastPort = 1900;
 
         public MulticastSender sender;
         public MulticastReceiver receiver;
