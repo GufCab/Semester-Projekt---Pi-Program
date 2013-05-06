@@ -33,6 +33,9 @@ namespace UPnP_Device
 
             respondStrategy.Respond(util);
 
+            string newMessage = util.TCPRecieve();
+
+            Console.WriteLine("New message: " + newMessage);
         }
 
         

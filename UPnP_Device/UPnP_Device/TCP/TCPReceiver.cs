@@ -17,7 +17,7 @@ namespace UPnP_Device
         private TcpListener listener;
         //private TcpClient clientSocket;
         private NetworkStream networkStream;
-        private TCPUtillity util;
+        //private TCPUtillity util;
         private TCPHandle _handler;
         private Thread thread;
 
@@ -28,7 +28,8 @@ namespace UPnP_Device
         {
             _port = port;
             _localIp = localIp;
-            listener = new TcpListener(IPAddress.Parse(_localIp), _port);
+            //listener = new TcpListener(IPAddress.Parse(_localIp), _port);
+            listener = new TcpListener(IPAddress.Any, _port);
 
             listener.Start();
 
@@ -36,15 +37,15 @@ namespace UPnP_Device
             thread = new Thread(run);
         }
 
-        public void ConnectionSetup()
+        public TCPUtillity ConnectionSetup()
         {
             //TcpClient clientSocket = default(TcpClient);
+            Console.WriteLine("Ready for TCP connection");
             TcpClient clientSocket = listener.AcceptTcpClient();
-            util = new TCPUtillity(clientSocket);
-            Console.WriteLine("New connecton");
+            return new TCPUtillity(clientSocket);
         }
 
-        public void handler()
+        public void handler(TCPUtillity util)
         {
             ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), util);
         }
@@ -58,8 +59,8 @@ namespace UPnP_Device
         {
             while (true)
             {
-                ConnectionSetup();
-                handler();
+                TCPUtillity util = ConnectionSetup();
+                handler(util);
             }
         }
     }

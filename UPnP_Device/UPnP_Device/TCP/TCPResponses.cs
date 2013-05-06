@@ -52,9 +52,13 @@ namespace UPnP_Device.TCP
 
             
             string message = head + body;
+
+            Console.WriteLine("TCP Message: \r\n" + message);
             try
             {
+                Console.WriteLine("Util ready to send");
                 utillity.TCPSend(message);
+                Console.WriteLine("Util send");
             }
             catch (Exception)
             {

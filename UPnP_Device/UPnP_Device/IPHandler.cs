@@ -36,7 +36,7 @@ namespace UPnP_Device
             AV = "\"5.0\"";
 
             DeviceSchema = "urn:schemas-upnp-org:device::";
-            DeviceType = "upnp:MediaRenderer:1";
+            DeviceType = "upnp:rootdevice";
         }
         
         public static IPHandler GetInstance()

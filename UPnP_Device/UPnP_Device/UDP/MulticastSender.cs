@@ -154,7 +154,8 @@ namespace UPnP_Device.UDP
                       "NT: " + f + "\r\n" +
                       "NTS: ssdp:alive\r\n" +
                       "USN: " + _UUID + "::" + f + "\r\n" +
-                      "Content-Length: 0" + "\r\n");
+                      "Content-Length: 0" + "\r\n" + 
+                      "\r\n");
             }
 
             return slist;
@@ -170,7 +171,8 @@ namespace UPnP_Device.UDP
                        "USN: " + _UUID + "::" + IPHandler.GetInstance().DeviceType + "\r\n" +
                        "SERVER: Windows NT/5.0, UPnP/1.1\r\n" +
                        "LOCATION: http://" + _localip + ":" + _tcpport + "\r\n" +
-                       "Content-Length: 0\r\n";
+                       "Content-Length: 0\r\n" + 
+                       "\r\n";
             return s;
         }
 

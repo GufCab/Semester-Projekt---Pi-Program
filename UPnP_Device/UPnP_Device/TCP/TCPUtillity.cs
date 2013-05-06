@@ -39,6 +39,11 @@ namespace UPnP_Device
             }
         }
 
+        public void TCPClose()
+        {
+            _client.Close();
+        }
+
         public void TCPSend(string msg)
         {
             _stream.Flush();
