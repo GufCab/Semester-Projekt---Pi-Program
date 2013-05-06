@@ -21,6 +21,7 @@ namespace UPnP_Device
         public string MV { get; private set; }
         public string PA { get; private set; }
 
+        public string DeviceSchema { get; private set; }
         public string DeviceType { get; private set; }
 
         private IPHandler()
@@ -34,7 +35,8 @@ namespace UPnP_Device
             CN = "\"Gruppe 8\"";
             AV = "\"5.0\"";
 
-            DeviceType = "urn:schemas-upnp-org:device:MediaRenderer:1";
+            DeviceSchema = "urn:schemas-upnp-org:device::";
+            DeviceType = "upnp:MediaRenderer:1";
         }
         
         public static IPHandler GetInstance()

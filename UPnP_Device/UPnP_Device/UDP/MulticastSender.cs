@@ -58,15 +58,16 @@ namespace UPnP_Device.UDP
             remoteep = new IPEndPoint(multicastIp, multicastPort);
         }
 
-        private void SendUnicast(string s)
+        private void SendUnicast(string s, IPEndPoint ipend)
         {
             using (var uniUdp = new UdpClient())
             {
-                uniUdp.Connect(multicastIp, 1900);
+                //uniUdp.Connect(multicastIp, 1900);
+                uniUdp.Connect(ipend);
                 byte[] buf = System.Text.Encoding.UTF8.GetBytes(s);
 
                 uniUdp.Send(buf, buf.Length);
-                Thread.Sleep(20);
+                //Thread.Sleep(10);
 
                 uniUdp.Close();
             }
@@ -94,26 +95,30 @@ namespace UPnP_Device.UDP
             string f = HTTPOKgenerator();
             Thread.Sleep(400);
 
+            
             Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram,
             ProtocolType.Udp);
 
             IPAddress broadcast = IPAddress.Parse("239.255.255.250");
 
-            byte[] sendbuf = Encoding.ASCII.GetBytes(f);
+            byte[] sendbuf = Encoding.UTF8.GetBytes(f);
             IPEndPoint ep = new IPEndPoint(broadcast, 1900);
+             
 
             //Console.WriteLine("Send IP: " + ipend.Address);
             //Console.WriteLine("Send Port: " + ipend.Port);
 
             s.SendTo(sendbuf, ipend);
-
+            
+            
             /*
             for (int i = 0; i < 4; i++)
             {
-                SendUnicast(s);
+                SendUnicast(f, ipend);
                 Thread.Sleep(66);
             }
              */
+            
         }
 
         private void SendMulticast(string s)
@@ -141,13 +146,13 @@ namespace UPnP_Device.UDP
 
             foreach (string f in NTs)
             {
-                slist.Add("NOTIFY * HTTP/1.1\n" +
+                slist.Add("NOTIFY * HTTP/1.1\r\n" +
                       "HOST: " + multicastIp.ToString() + ":" + multicastPort + "\r\n" +
                       "CACHE-CONTROL: max-age=" + _cacheexpire + "\r\n" +
                       "LOCATION: " + _localip + ":" + _tcpport + "\r\n" +
                       "SERVER: Windows NT/5.0, UPnP/1.1\r\n" +
                       "NT: " + f + "\r\n" +
-                      "NTS: ssdp:alive\n" +
+                      "NTS: ssdp:alive\r\n" +
                       "USN: " + _UUID + "::" + f + "\r\n" +
                       "Content-Length: 0" + "\r\n");
             }
@@ -158,12 +163,13 @@ namespace UPnP_Device.UDP
         private string HTTPOKgenerator()
         {
             string s = "HTTP/1.1 200 OK\r\n" +
-                       "ST:" + IPHandler.GetInstance().DeviceType + "\r\n" +
+                       "ST: " + IPHandler.GetInstance().DeviceType + "\r\n" +
+                       //"ST: upnp:rootdevice\r\n" + 
                        "CACHE-CONTROL: max-age=" + _cacheexpire + " \r\n" +
                        "EXT: \r\n" +
                        "USN: " + _UUID + "::" + IPHandler.GetInstance().DeviceType + "\r\n" +
                        "SERVER: Windows NT/5.0, UPnP/1.1\r\n" +
-                       "LOCATION: " + _localip + ":" + _tcpport + "\r\n" +
+                       "LOCATION: http://" + _localip + ":" + _tcpport + "\r\n" +
                        "Content-Length: 0\r\n";
             return s;
         }
