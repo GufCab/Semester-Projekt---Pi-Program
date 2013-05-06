@@ -48,9 +48,9 @@ namespace UPnP_Device.UDP
         }
 
         //Blocks until reception
-        public string ReceiveMulticast()
+        public string ReceiveMulticast(ref IPEndPoint ipep)
         {
-            Byte[] data = recClient.Receive(ref recIPep);
+            Byte[] data = recClient.Receive(ref ipep);
             
             string strData = Encoding.UTF8.GetString(data);
 

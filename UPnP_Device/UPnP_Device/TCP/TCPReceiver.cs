@@ -41,6 +41,7 @@ namespace UPnP_Device
             //TcpClient clientSocket = default(TcpClient);
             TcpClient clientSocket = listener.AcceptTcpClient();
             util = new TCPUtillity(clientSocket);
+            Console.WriteLine("New connecton");
         }
 
         public void handler()

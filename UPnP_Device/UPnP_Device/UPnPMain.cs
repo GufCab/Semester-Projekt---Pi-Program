@@ -21,7 +21,7 @@ namespace UPnP_Device
         private TCPReceiver tcpReceiver;
         private UDPServer udpServer;
 
-        private const int cacheExpire = 60; //Cache expire in seconds
+        private const int cacheExpire = 1800; //Cache expire in seconds
         private const int port = 52000;
 
         public string UUID { get; private set; }

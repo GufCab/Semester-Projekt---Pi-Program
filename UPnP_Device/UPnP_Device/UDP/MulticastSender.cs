@@ -89,15 +89,31 @@ namespace UPnP_Device.UDP
             }
         }
 
-        public void OKSender()
+        public void OKSender(IPEndPoint ipend)
         {
-            string s = HTTPOKgenerator();
+            string f = HTTPOKgenerator();
             Thread.Sleep(400);
+
+            Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram,
+            ProtocolType.Udp);
+
+            IPAddress broadcast = IPAddress.Parse("239.255.255.250");
+
+            byte[] sendbuf = Encoding.ASCII.GetBytes(f);
+            IPEndPoint ep = new IPEndPoint(broadcast, 1900);
+
+            //Console.WriteLine("Send IP: " + ipend.Address);
+            //Console.WriteLine("Send Port: " + ipend.Port);
+
+            s.SendTo(sendbuf, ipend);
+
+            /*
             for (int i = 0; i < 4; i++)
             {
                 SendUnicast(s);
                 Thread.Sleep(66);
             }
+             */
         }
 
         private void SendMulticast(string s)

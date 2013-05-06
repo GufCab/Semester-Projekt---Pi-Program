@@ -40,7 +40,7 @@ namespace UPnP_Device
         public static IPHandler GetInstance()
         {
             if(instance == null)
-                return new IPHandler();
+                instance = new IPHandler();
             return instance;
         }
 

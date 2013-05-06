@@ -24,6 +24,7 @@ namespace UPnP_Device
         {
             var util = (TCPUtillity) e;
             string rec = util.TCPRecieve();
+            Console.WriteLine("new message recieved on TCP");
             string[] splitter = new string[] {"\r\n"};
 
             var StrArr = rec.Split(splitter, StringSplitOptions.None);
