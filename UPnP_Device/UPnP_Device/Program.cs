@@ -15,8 +15,9 @@ namespace UPnP_Device
             Console.ReadLine();
             Console.WriteLine("GOO!!!");
             
-            UPnPMain main = new UPnPMain();
-
+            //UPnPMain main = new UPnPMain();
+            XMLWriter1 x = new XMLWriter1();
+            x.genGETxml();
 
             Console.ReadLine();
         }

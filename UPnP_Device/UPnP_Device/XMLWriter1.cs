@@ -8,6 +8,7 @@ namespace UPnP_Device
 {
     public class XMLWriter1
     {
+        //DeviceArchitecture s.51
         public string genGETxml()
         {
             XmlDocument doc = new XmlDocument();
@@ -18,6 +19,7 @@ namespace UPnP_Device
             XmlElement root = doc.CreateElement("root");
             doc.AppendChild(root);
             root.SetAttribute("xmlns", "urn:schemas-upnp-org:device-1-0");
+            root.SetAttribute("configId", "1");
 
             XmlElement specVersion = doc.CreateElement("specVersion");
             root.AppendChild(specVersion);
@@ -47,15 +49,15 @@ namespace UPnP_Device
 
             XmlElement presentationURL = doc.CreateElement("presentationURL");
             device.AppendChild(presentationURL);
-            presentationURL.InnerText = " ";
+            //presentationURL.InnerText = " ";
 
             XmlElement manufacturer = doc.CreateElement("manufacturer");
             device.AppendChild(manufacturer);
             manufacturer.InnerText = "Gruppe 8";
 
-            XmlElement manufacturerURL = doc.CreateElement("manufacturerURL");
-            device.AppendChild(manufacturerURL);
-            manufacturerURL.InnerText = " ";
+            //XmlElement manufacturerURL = doc.CreateElement("manufacturerURL");
+            //device.AppendChild(manufacturerURL);
+            //manufacturerURL.InnerText = " ";
 
             XmlElement modelDescription = doc.CreateElement("modelDescription");
             device.AppendChild(modelDescription);
