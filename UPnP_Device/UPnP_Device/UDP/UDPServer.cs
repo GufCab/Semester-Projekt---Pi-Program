@@ -52,12 +52,7 @@ namespace UPnP_Device.UDP
             {
                 IPEndPoint ipep = default(IPEndPoint);
                 string msg = receiver.ReceiveMulticast(ref ipep);
-                Console.WriteLine("Received IP: " + ipep.Address);
-                Console.WriteLine("Received Port: " + ipep.Port);
 
-                Console.Write("\n");
-                Console.WriteLine("Received msearch:");
-                Console.WriteLine(msg);
                 object[] myArray = new object[2];
                 myArray[0] = msg;
                 myArray[1] = ipep;

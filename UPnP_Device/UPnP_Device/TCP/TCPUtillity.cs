@@ -8,7 +8,7 @@ namespace UPnP_Device
 {
     public class TCPUtillity
     {
-        private int BUFFERSIZE = 1000;
+        private int BUFFERSIZE = 9000000;
         private TcpClient _client;
         private NetworkStream _stream;
 
@@ -16,31 +16,39 @@ namespace UPnP_Device
         {
             _client = client;
             _stream = _client.GetStream();
-            BUFFERSIZE = _client.ReceiveBufferSize;
+            //BUFFERSIZE = _client.ReceiveBufferSize;
         }
 
         public string TCPRecieve()
         {
+            //BUFFERSIZE = (_client.ReceiveBufferSize+1);
+            Console.WriteLine("Buffer size: " + BUFFERSIZE);
             byte[] receiveBuffer = new byte[BUFFERSIZE];
 
             try
             {
-                int size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
-
                 _stream.Flush();
+                
+                Console.WriteLine("Data available: " + _stream.DataAvailable);
 
+                int size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
+                
+                Console.WriteLine("Stream read");
+                _stream.Flush();
+                 
                 return Encoding.UTF8.GetString(receiveBuffer, 0, size);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Buffer too small");
                 Console.WriteLine(e.Message);
-                return "-1";
+                Console.WriteLine(e.InnerException);
+                throw;
             }
         }
 
         public void TCPClose()
         {
+            _stream.Close();
             _client.Close();
         }
 
@@ -51,6 +59,7 @@ namespace UPnP_Device
             byte[] sendBuffer = Encoding.UTF8.GetBytes(msg);
 
             _stream.Write(sendBuffer, 0, sendBuffer.Length);
+            Console.WriteLine("TCP Message sent");
         }
     }
 }

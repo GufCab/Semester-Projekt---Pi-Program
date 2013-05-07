@@ -31,17 +31,18 @@ namespace UPnP_Device
             //listener = new TcpListener(IPAddress.Parse(_localIp), _port);
             listener = new TcpListener(IPAddress.Any, _port);
 
-            listener.Start();
-
             _handler = new TCPHandle();
             thread = new Thread(run);
         }
 
         public TCPUtillity ConnectionSetup()
         {
-            //TcpClient clientSocket = default(TcpClient);
             Console.WriteLine("Ready for TCP connection");
             TcpClient clientSocket = listener.AcceptTcpClient();
+            Console.WriteLine("TCP Connection accepted");
+            
+            clientSocket.ReceiveTimeout = 5000;
+            
             return new TCPUtillity(clientSocket);
         }
 
@@ -52,6 +53,7 @@ namespace UPnP_Device
 
         public void start()
         {
+            listener.Start();
             thread.Start();
         }
 
@@ -61,6 +63,7 @@ namespace UPnP_Device
             {
                 TCPUtillity util = ConnectionSetup();
                 handler(util);
+                
             }
         }
     }

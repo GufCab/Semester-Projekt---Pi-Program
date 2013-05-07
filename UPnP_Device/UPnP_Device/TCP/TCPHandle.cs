@@ -25,6 +25,7 @@ namespace UPnP_Device
             var util = (TCPUtillity) e;
             string rec = util.TCPRecieve();
             Console.WriteLine("new message recieved on TCP");
+            
             string[] splitter = new string[] {"\r\n"};
 
             var StrArr = rec.Split(splitter, StringSplitOptions.None);
@@ -32,10 +33,6 @@ namespace UPnP_Device
             IRespondStrategy respondStrategy = GetResponseStrategy.GetStrategy(StrArr[0]);
 
             respondStrategy.Respond(util);
-
-            string newMessage = util.TCPRecieve();
-
-            Console.WriteLine("New message: " + newMessage);
         }
 
         
@@ -58,7 +55,8 @@ namespace UPnP_Device
                     strategy = new GetResponse();
                     break;
                 default:
-                    Console.WriteLine("Error in Switch-case");
+                    Console.WriteLine("Error in Switch-case:");
+                    Console.WriteLine(order);
                     break;
             }
 

@@ -82,7 +82,6 @@ namespace UPnP_Device.UDP
                     foreach (string s in notify)
                     {
                         SendMulticast(s);
-                        Console.WriteLine(s);
                     }
                     Thread.Sleep(66);
                 }
@@ -90,6 +89,7 @@ namespace UPnP_Device.UDP
             }
         }
 
+        //Needs cleanup:
         public void OKSender(IPEndPoint ipend)
         {
             string f = HTTPOKgenerator();

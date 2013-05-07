@@ -39,25 +39,21 @@ namespace UPnP_Device
             device.AppendChild(deviceType);
             deviceType.InnerText = "urn:schemas-upnp-org:device:MediaRenderer:1";
 
-            XmlElement udn = doc.CreateElement("UDN");
-            device.AppendChild(udn);
-            udn.InnerText = IPHandler.GetInstance().GUID;
-
             XmlElement friendlyName = doc.CreateElement("friendlyName");
             device.AppendChild(friendlyName);
             friendlyName.InnerText = "HiPi";
 
-            XmlElement presentationURL = doc.CreateElement("presentationURL");
-            device.AppendChild(presentationURL);
+            //XmlElement presentationURL = doc.CreateElement("presentationURL");
+            //device.AppendChild(presentationURL);
             //presentationURL.InnerText = " ";
 
             XmlElement manufacturer = doc.CreateElement("manufacturer");
             device.AppendChild(manufacturer);
             manufacturer.InnerText = "Gruppe 8";
 
-            //XmlElement manufacturerURL = doc.CreateElement("manufacturerURL");
-            //device.AppendChild(manufacturerURL);
-            //manufacturerURL.InnerText = " ";
+            XmlElement manufacturerURL = doc.CreateElement("manufacturerURL");
+            device.AppendChild(manufacturerURL);
+            manufacturerURL.InnerText = " ";
 
             XmlElement modelDescription = doc.CreateElement("modelDescription");
             device.AppendChild(modelDescription);
@@ -66,6 +62,10 @@ namespace UPnP_Device
             XmlElement modelName = doc.CreateElement("modelName");
             device.AppendChild(modelName);
             modelName.InnerText = "HiPi";
+
+            XmlElement udn = doc.CreateElement("UDN");
+            device.AppendChild(udn);
+            udn.InnerText = IPHandler.GetInstance().GUID;
 
             XmlElement iconList = doc.CreateElement("iconList");
             device.AppendChild(iconList);
@@ -82,24 +82,25 @@ namespace UPnP_Device
 
             XmlElement serviceId = doc.CreateElement("serviceId");
             service.AppendChild(serviceId);
-            serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport";
+            serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport.0001";
 
             XmlElement SCPDURL = doc.CreateElement("SCPDURL");
             service.AppendChild(SCPDURL);
-            SCPDURL.InnerText = "url for servicedescription";
+            //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
+            SCPDURL.InnerText = "test";
 
             XmlElement controlURL = doc.CreateElement("controlURL");
             service.AppendChild(controlURL);
-            controlURL.InnerText = "url for control";
+            controlURL.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_control";
 
             XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
             service.AppendChild(eventSubUrl);
-            eventSubUrl.InnerText = "url for eventing";
+            eventSubUrl.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_event";
 
 
 
 
-            doc.Save("GET.xml");
+            doc.Save("NewDesc.xml");
 
             return doc.OuterXml;
         }
