@@ -21,7 +21,7 @@ namespace UPnP_Device
 
         public string TCPRecieve()
         {
-            //BUFFERSIZE = (_client.ReceiveBufferSize+1);
+            BUFFERSIZE = (_client.ReceiveBufferSize+1);
             Console.WriteLine("Buffer size: " + BUFFERSIZE);
             byte[] receiveBuffer = new byte[BUFFERSIZE];
 
@@ -29,11 +29,22 @@ namespace UPnP_Device
             {
                 _stream.Flush();
                 
-                Console.WriteLine("Data available: " + _stream.DataAvailable);
+                int size = 0;
 
-                int size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
+                if (_stream.DataAvailable)
+                {
+                    size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
+                    Console.WriteLine("Stream read");
+                }
+                    
+                else
+                {
+                    Console.WriteLine("Data not available. Closing socket..");
+                    _stream.Close();
+                    _client.Close();
+                }
                 
-                Console.WriteLine("Stream read");
+                
                 _stream.Flush();
                  
                 return Encoding.UTF8.GetString(receiveBuffer, 0, size);
@@ -42,6 +53,7 @@ namespace UPnP_Device
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.InnerException);
+                Console.WriteLine("");
                 throw;
             }
         }

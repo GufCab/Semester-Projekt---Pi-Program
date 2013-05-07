@@ -24,6 +24,8 @@ namespace UPnP_Device
         private int _port;
         private string _localIp;
 
+        private Thread RunThread;
+
         public TCPReceiver(string localIp, int port)
         {
             _port = port;
@@ -48,7 +50,8 @@ namespace UPnP_Device
 
         public void handler(TCPUtillity util)
         {
-            ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), util);
+            //ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), util);
+           // RunThread = new Thread((new ParameterizedThreadStart()));
         }
 
         public void start()
