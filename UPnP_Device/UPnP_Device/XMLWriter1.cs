@@ -86,15 +86,15 @@ namespace UPnP_Device
 
             XmlElement SCPDURL = doc.CreateElement("SCPDURL");
             service.AppendChild(SCPDURL);
-            SCPDURL.InnerText = "url for servicedescription";
+            SCPDURL.InnerText = "/ConnectionManager/desc.xml";
 
             XmlElement controlURL = doc.CreateElement("controlURL");
             service.AppendChild(controlURL);
-            controlURL.InnerText = "url for control";
+            controlURL.InnerText = "/ConnectionManager/ctrl";
 
             XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
             service.AppendChild(eventSubUrl);
-            eventSubUrl.InnerText = "url for eventing";
+            eventSubUrl.InnerText = "/ConnectionManager/evt";
 
 
 
