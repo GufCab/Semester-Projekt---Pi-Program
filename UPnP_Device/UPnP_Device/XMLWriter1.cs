@@ -86,7 +86,7 @@ namespace UPnP_Device
 
             XmlElement SCPDURL = doc.CreateElement("SCPDURL");
             service.AppendChild(SCPDURL);
-<<<<<<< HEAD
+
             //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
             SCPDURL.InnerText = "test";
 
@@ -97,20 +97,6 @@ namespace UPnP_Device
             XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
             service.AppendChild(eventSubUrl);
             eventSubUrl.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_event";
-=======
-            SCPDURL.InnerText = "/ConnectionManager/desc.xml";
-
-            XmlElement controlURL = doc.CreateElement("controlURL");
-            service.AppendChild(controlURL);
-            controlURL.InnerText = "/ConnectionManager/ctrl";
-
-            XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
-            service.AppendChild(eventSubUrl);
-            eventSubUrl.InnerText = "/ConnectionManager/evt";
->>>>>>> 0729ea4f57221145f594b19f3ae47fabe60d19d3
-
-
-
 
             doc.Save("NewDesc.xml");
 
