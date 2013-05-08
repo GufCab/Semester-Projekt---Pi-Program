@@ -14,7 +14,7 @@ namespace UPnP_Device
 
         private TcpClient clientSocket;
         private NetworkStream networkStream;
-        private TCPUtillity util;
+        private NetworkUtillity util;
         private TCPHandle _handler;
 
         private int _port;
@@ -25,7 +25,7 @@ namespace UPnP_Device
             _port = port;
             _localIp = localIp;
             ConnectionSetup();
-            util = new TCPUtillity();
+            util = new NetworkUtillity();
             _handler = handler;
         }
 
@@ -40,7 +40,7 @@ namespace UPnP_Device
             //receives a message and creates a TCPHandle to handle the message
             object[] handleObj = new object[2];
             handleObj[0] = networkStream;
-            handleObj[1] = util.TCPRecieve(networkStream);
+            handleObj[1] = util.Receive(networkStream);
             
             ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), handleObj);
         }

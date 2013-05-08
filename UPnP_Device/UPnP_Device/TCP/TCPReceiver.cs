@@ -17,7 +17,7 @@ namespace UPnP_Device
         private TcpListener listener;
         //private TcpClient clientSocket;
         private NetworkStream networkStream;
-        //private TCPUtillity util;
+        //private NetworkUtillity util;
         private TCPHandle _handler;
         private Thread thread;
 
@@ -35,7 +35,7 @@ namespace UPnP_Device
             thread = new Thread(run);
         }
 
-        public TCPUtillity ConnectionSetup()
+        public NetworkUtillity ConnectionSetup()
         {
             Console.WriteLine("Ready for TCP connection");
             TcpClient clientSocket = listener.AcceptTcpClient();
@@ -43,10 +43,10 @@ namespace UPnP_Device
             
             clientSocket.ReceiveTimeout = 5000;
             
-            return new TCPUtillity(clientSocket);
+            return new NetworkUtillity(clientSocket);
         }
 
-        public void handler(TCPUtillity util)
+        public void handler(NetworkUtillity util)
         {
             ThreadPool.QueueUserWorkItem(new WaitCallback(_handler.HandleHTTP), util);
         }
@@ -61,7 +61,7 @@ namespace UPnP_Device
         {
             while (true)
             {
-                TCPUtillity util = ConnectionSetup();
+                NetworkUtillity util = ConnectionSetup();
                 handler(util);
                 
             }

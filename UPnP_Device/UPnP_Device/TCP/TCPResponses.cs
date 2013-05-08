@@ -39,7 +39,7 @@ namespace UPnP_Device.TCP
             writer = new XMLWriter1();
         }
 
-        public void Respond(TCPUtillity utillity)
+        public void Respond(INetworkUtillity utillity)
         {
             string body = writer.genGETxml();
 
@@ -66,7 +66,7 @@ namespace UPnP_Device.TCP
 
             try
             {
-                utillity.TCPSend(message);
+                utillity.Send(message);
             }
             catch (Exception)
             {
@@ -74,14 +74,13 @@ namespace UPnP_Device.TCP
                 throw;
             }
 
-            Console.WriteLine("rec: " + utillity.TCPRecieve());
-            
-            utillity.TCPClose();
+            Console.WriteLine("rec: " + utillity.Receive());
+            utillity.Close();
 
 
             /*
             Console.WriteLine("Ready for new message:");
-            string newMsg = utillity.TCPRecieve();
+            string newMsg = utillity.Receive();
             Console.WriteLine("NewMessage: " + newMsg);
              */
         }

@@ -10,7 +10,7 @@ namespace UPnP_Device
 {
     public interface IRespondStrategy
     {
-        void Respond(TCPUtillity utillity);
+        void Respond(INetworkUtillity utillity);
     }
     
     public class TCPHandle
@@ -22,8 +22,8 @@ namespace UPnP_Device
 
         public void HandleHTTP(object e)
         {
-            var util = (TCPUtillity) e;
-            string rec = util.TCPRecieve();
+            INetworkUtillity util = new NetworkUtillity((TcpClient) e);
+            string rec = util.Receive();
             Console.WriteLine("new message recieved on TCP");
             
             string[] splitter = new string[] {"\r\n"};
