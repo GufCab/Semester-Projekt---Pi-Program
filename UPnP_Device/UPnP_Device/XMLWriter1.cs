@@ -19,7 +19,6 @@ namespace UPnP_Device
             XmlElement root = doc.CreateElement("root");
             doc.AppendChild(root);
             root.SetAttribute("xmlns", "urn:schemas-upnp-org:device-1-0");
-            root.SetAttribute("configId", "1");
 
             XmlElement specVersion = doc.CreateElement("specVersion");
             root.AppendChild(specVersion);
@@ -30,7 +29,7 @@ namespace UPnP_Device
 
             XmlElement minor = doc.CreateElement("minor");
             specVersion.AppendChild(minor);
-            minor.InnerText = "1";
+            minor.InnerText = "0";
 
             XmlElement device = doc.CreateElement("device");
             root.AppendChild(device);
@@ -65,10 +64,10 @@ namespace UPnP_Device
 
             XmlElement udn = doc.CreateElement("UDN");
             device.AppendChild(udn);
-            udn.InnerText = IPHandler.GetInstance().GUID;
+            udn.InnerText = "uuid:" + IPHandler.GetInstance().GUID;
 
-            XmlElement iconList = doc.CreateElement("iconList");
-            device.AppendChild(iconList);
+            //XmlElement iconList = doc.CreateElement("iconList");
+            //device.AppendChild(iconList);
 
             XmlElement serviceList = doc.CreateElement("serviceList");
             device.AppendChild(serviceList);
@@ -82,21 +81,22 @@ namespace UPnP_Device
 
             XmlElement serviceId = doc.CreateElement("serviceId");
             service.AppendChild(serviceId);
-            serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport.0001";
+            //serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport.0001";
+            serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport";
 
             XmlElement SCPDURL = doc.CreateElement("SCPDURL");
             service.AppendChild(SCPDURL);
-
             //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
-            SCPDURL.InnerText = "test";
+            SCPDURL.InnerText = "serviceDescripton.xml";
 
             XmlElement controlURL = doc.CreateElement("controlURL");
             service.AppendChild(controlURL);
-            controlURL.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_control";
+            //controlURL.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_control";
+            controlURL.InnerText = "control";
 
             XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
             service.AppendChild(eventSubUrl);
-            eventSubUrl.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_event";
+            eventSubUrl.InnerText = " ";
 
             doc.Save("NewDesc.xml");
 

@@ -52,6 +52,7 @@ namespace UPnP_Device.UDP
             {
                 IPEndPoint ipep = default(IPEndPoint);
                 string msg = receiver.ReceiveMulticast(ref ipep);
+                Console.WriteLine("ipep: " + ipep.ToString());
 
                 object[] myArray = new object[2];
                 myArray[0] = msg;
@@ -70,6 +71,7 @@ namespace UPnP_Device.UDP
             object[] u = (object[]) obj;
             string msg = (string) u[0];
             IPEndPoint ipend = (IPEndPoint) u[1];
+
             //Splitting by string explained here: http://goo.gl/PSdtL
             String[] splitter = new string[] {"\r\n"};
             String[] msgArray = msg.Split(splitter, StringSplitOptions.None);
@@ -98,7 +100,7 @@ namespace UPnP_Device.UDP
             }
             else
             {
-                Console.WriteLine("Unknown input");
+                //Console.WriteLine("Unknown input");
             }
 
             if(ret)

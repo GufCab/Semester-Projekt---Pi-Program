@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 
 namespace UPnP_Device
@@ -28,6 +29,7 @@ namespace UPnP_Device
         {
             GUID = GetGUID();
             IP = GetOwnIp();
+            //IP = "127.0.0.1";
 
             PA = "\"HiPiSerial\"";
             MV = "\"1.00\"";
@@ -58,12 +60,15 @@ namespace UPnP_Device
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (IPAddress ip in host.AddressList)
             {
-                if (ip.AddressFamily.ToString() == "InterNetwork")
+                Console.WriteLine("Found ip: " + ip.ToString() + "family: " + ip.AddressFamily.ToString());
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
+                    Console.WriteLine("ip: " + ip.ToString());
                     localIP = ip.ToString();
                 }
             }
             return localIP;
+            //return "127.0.0.1";
         }
     }
 }

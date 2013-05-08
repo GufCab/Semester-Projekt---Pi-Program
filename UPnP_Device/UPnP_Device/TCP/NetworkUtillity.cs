@@ -43,15 +43,20 @@ namespace UPnP_Device
 
             try
             {
+                Socket s = _client.Client;
+                Console.WriteLine("Remote end:" + s.RemoteEndPoint.ToString());
+                Console.WriteLine("Local : " + s.LocalEndPoint.ToString());
+                
                 _stream.Flush();
 
                 Console.WriteLine("Data available: " + _stream.DataAvailable);
 
-                int size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
+                int size = 0;
 
+                size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
                 Console.WriteLine("Stream read");
                 _stream.Flush();
-
+                
                 return Encoding.UTF8.GetString(receiveBuffer, 0, size);
             }
             catch (IOException e)

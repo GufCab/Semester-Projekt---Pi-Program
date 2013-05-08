@@ -39,6 +39,7 @@ namespace UPnP_Device
         {
             UUID = IPHandler.GetInstance().GUID;
             localIP = IPHandler.GetInstance().IP;
+            Console.WriteLine("main ip: " + localIP);
 
             //tcpReceiver = new TCPReceiver(localIP, port);
             //tcpReceiver.start();

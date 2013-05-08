@@ -75,8 +75,6 @@ namespace UPnP_Device.TCP
             }
 
             Console.WriteLine("rec: " + utillity.Receive());
-            utillity.Close();
-
 
             /*
             Console.WriteLine("Ready for new message:");

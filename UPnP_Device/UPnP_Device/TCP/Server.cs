@@ -25,6 +25,7 @@ namespace UPnP_Device.TCP
 
             tcpHandle = new TCPHandle();
 
+            
             welcomeSocket = new TcpListener(IPAddress.Any, port);
             serverThread = new Thread(ServerFunc);
             serverThread.Start();
@@ -36,8 +37,9 @@ namespace UPnP_Device.TCP
 
             while (true)
             {
+                Console.WriteLine("Blocking");
                 TcpClient client = welcomeSocket.AcceptTcpClient();
-
+                Console.WriteLine("New connection");
                 Thread clientThread = new Thread(new ParameterizedThreadStart(tcpHandle.HandleHTTP));
                 clientThread.Start(client);               
             }
