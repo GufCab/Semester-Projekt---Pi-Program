@@ -74,8 +74,10 @@ namespace UPnP_Device.TCP
                 throw;
             }
 
-            utillity.TCPRecieve();
-            //utillity.TCPClose();
+            Console.WriteLine("rec: " + utillity.TCPRecieve());
+            
+            utillity.TCPClose();
+
 
             /*
             Console.WriteLine("Ready for new message:");

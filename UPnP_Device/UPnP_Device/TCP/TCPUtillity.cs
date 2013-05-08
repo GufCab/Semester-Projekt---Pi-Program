@@ -42,8 +42,11 @@ namespace UPnP_Device
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.InnerException);
-                throw;
+                //throw;
+                return "-1";
+                
             }
+            
         }
 
         public void TCPClose()
