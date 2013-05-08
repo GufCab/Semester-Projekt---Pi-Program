@@ -97,7 +97,7 @@ DocProject/Help/Html2
 DocProject/Help/html
 
 # Click-Once directory
-publish
+
 
 # Others
 [Oo]bj/
@@ -106,7 +106,6 @@ TestResults
 *.Cache
 ClientBin
 stylecop.*
-~$*
 *.dbmdl
 Generated_Code #added for RIA/Silverlight projects
 
@@ -142,7 +141,6 @@ dist
 build
 eggs
 parts
-bin
 var
 sdist
 develop-eggs
@@ -167,5 +165,3 @@ pip-log.txt
 /HiPi_Pi/UPnP_DvSink/obj/Debug/*.exe
 /HiPi_Pi/UPnP_DvSink/obj/Debug/*.pdb
 /HiPi_Pi/UPnP_DvSink/obj/Debug/*.cache
-/HiPi_Pi/UPnP_DvSink/bin/Debug/*.exe
-/HiPi_Pi/UPnP_DvSink/bin/Debug/*.pdb
