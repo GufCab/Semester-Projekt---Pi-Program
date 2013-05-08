@@ -50,8 +50,9 @@ namespace UPnP_Device
 
         private static string GetGUID()
         {
-            var g = Guid.NewGuid();
-            return g.ToString();
+            //var g = Guid.NewGuid();
+            //return g.ToString();
+            return "e22ca7c1-aadc-4d60-b334-2d905bef5be7";
         }
 
         private static string GetOwnIp()

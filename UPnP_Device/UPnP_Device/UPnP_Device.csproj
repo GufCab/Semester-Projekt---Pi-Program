@@ -47,7 +47,6 @@
     <Compile Include="TCP\Server.cs" />
     <Compile Include="TCP\TCPHandle.cs" />
     <Compile Include="TCP\TCPResponses.cs" />
-    <Compile Include="TCP\TCPSender.cs" />
     <Compile Include="TCP\TCPReceiver.cs" />
     <Compile Include="TCP\NetworkUtillity.cs" />
     <Compile Include="UDP\UDPServer.cs" />

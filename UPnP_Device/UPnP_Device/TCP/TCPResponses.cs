@@ -1,68 +1,67 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace UPnP_Device.TCP
 {
-    public static class DeviceInfo
+    public class XMLReader
     {
-        public static string AV()
+        private string _path ;
+        
+        public XMLReader(string path)
         {
-            return "1.0";
+            _path = @"./Descriptions" + path + "desc.xml";
         }
-
-        public static string Cn()
+        
+        public string Read()
         {
-            return "Gruppe 8";
-        }
+            string s = "-1";
+           
 
-        public static string Mn()
-        {
-            return "HiPi";
-        }
-
-        public static string Mv()
-        {
-            return "1.00";
+            if (File.Exists(_path))
+            {
+                using (var sr = new StreamReader(_path, Encoding.UTF8))
+                {
+                    s = "";
+                    s = sr.ReadToEnd();
+                    sr.Close();
+                }
+            }
+            return s;
         }
     }
 
-    public class GetResponse : IRespondStrategy
+    public class GETResponder : IRespondStrategy
     {
         private XMLWriter1 writer;
+        private XMLReader XMLreader;
 
-        public GetResponse()
+        public GETResponder(string path)
         {
-            writer = new XMLWriter1();
+            XMLreader = new XMLReader(path);
         }
 
         public void Respond(INetworkUtillity utillity)
         {
-            string body = writer.genGETxml();
-
-            /*
-            string head;
-            #region string head decleration
-            head = "HTTP/1.1 200 OK\r\n" +
-                    "CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
-                    "X-AV-Server-Info: av=\"" + IPHandler.GetInstance().AV + "\"; cn=" +
-                    IPHandler.GetInstance().CN + "; mn=" + IPHandler.GetInstance().MN +
-                    "; mv=" + IPHandler.GetInstance().MV + "\r\n" +
-                    "X-AV-Physical-Unit-Info: pa=" + IPHandler.GetInstance().PA + "\r\n" +
-                    "CONTENT-LENGTH: " + body.Length + "\r\n"+"\r\n";
-            #endregion
-             */
+            string body = XMLreader.Read();
+        
+            //Todo: Device is currently not showing up in Device Spy, because it can't find a proper Service Description.
+            //Todo: Implement one!
 
             string head = "HTTP/1.1 200 OK\r\n" +
                           "CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
                           "CONTENT-LENGTH: " + body.Length + "\r\n";
-
+            
             string message = head + "\r\n" + body;
 
-            //Console.WriteLine("TCP Message: \r\n" + message);
+            Console.WriteLine("TCP Message: \r\n" + message);
 
             try
             {
@@ -74,13 +73,21 @@ namespace UPnP_Device.TCP
                 throw;
             }
 
-            Console.WriteLine("rec: " + utillity.Receive());
+            //Console.WriteLine("rec: " + utillity.Receive());
 
-            /*
-            Console.WriteLine("Ready for new message:");
-            string newMsg = utillity.Receive();
-            Console.WriteLine("NewMessage: " + newMsg);
-             */
+            //Todo: What is happening with TCP connection
+        }
+        
+        
+    }
+
+    public class POSTResponder: IRespondStrategy
+    {
+        public void Respond(INetworkUtillity util)
+        {
+            //Todo: implementation of POST requests
         }
     }
+
+
 }

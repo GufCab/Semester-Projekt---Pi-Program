@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
@@ -98,8 +99,21 @@ namespace UPnP_Device
             service.AppendChild(eventSubUrl);
             eventSubUrl.InnerText = " ";
 
+            
+            
             doc.Save("NewDesc.xml");
 
+            
+            if (File.Exists("Myxml.xml"))
+                File.Delete("Myxml.xml");
+            using (var fs = new FileStream("Myxml.xml", FileMode.Create))
+            using (var sw = new StreamWriter(fs, Encoding.UTF8))
+            {
+                sw.Write(doc.OuterXml);
+                sw.Close();
+            }
+     
+           
             return doc.OuterXml;
         }
     }

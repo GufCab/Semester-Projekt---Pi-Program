@@ -15,6 +15,8 @@ namespace UPnP_Device
     
     public class TCPHandle
     {
+        private GetResponseStrategy Strat = new GetResponseStrategy();
+
         public TCPHandle()
         {
 
@@ -30,7 +32,7 @@ namespace UPnP_Device
 
             var StrArr = rec.Split(splitter, StringSplitOptions.None);
 
-            IRespondStrategy respondStrategy = GetResponseStrategy.GetStrategy(StrArr[0]);
+            IRespondStrategy respondStrategy = Strat.GetStrategy(StrArr[0]);
 
             respondStrategy.Respond(util);
         }
@@ -38,21 +40,26 @@ namespace UPnP_Device
         
     }
 
-    public static class GetResponseStrategy
+    public class GetResponseStrategy
     {
         private const string GET = "GET / HTTP/1.1";
 
-        public static IRespondStrategy GetStrategy(string order)
+        public IRespondStrategy GetStrategy(string order)
         {
             IRespondStrategy strategy = null;
             Console.WriteLine("Order: " + order);
 
+            string[] eq = order.Split(' ');
+            
             //TOdo: Head "GET / HTTP/1.0" should be handle and ignored
 
-            switch (order)
+            switch (eq[0])
             {
-                case GET:
-                    strategy = new GetResponse();
+                case "GET":
+                    strategy = new GETResponder(eq[1]);
+                    break;
+                case "POST":
+                    //Todo: return post value
                     break;
                 default:
                     Console.WriteLine("Error in Switch-case:");
