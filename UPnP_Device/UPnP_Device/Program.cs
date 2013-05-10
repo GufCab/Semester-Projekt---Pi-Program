@@ -17,7 +17,8 @@ namespace UPnP_Device
             
             UPnPMain main = new UPnPMain();
             XMLWriter1 x = new XMLWriter1();
-            x.genGETxml();
+            //x.genGETxml();
+            //x.genServiceXml();
 
             Console.ReadLine();
         }
