@@ -25,14 +25,14 @@ namespace UPnP_Device
         public void HandleHTTP(object e)
         {
             INetworkUtillity util = new NetworkUtillity((TcpClient) e);
+
             string rec = util.Receive();
-            Console.WriteLine("new message recieved on TCP");
+
+            Console.WriteLine("New message recieved on TCP.");
             
-            string[] splitter = new string[] {"\r\n"};
+            
 
-            var StrArr = rec.Split(splitter, StringSplitOptions.None);
-
-            IRespondStrategy respondStrategy = Strat.GetStrategy(StrArr[0]);
+            IRespondStrategy respondStrategy = Strat.GetStrategy(rec);
 
             respondStrategy.Respond(util);
         }
@@ -44,14 +44,18 @@ namespace UPnP_Device
     {
         private const string GET = "GET / HTTP/1.1";
 
-        public IRespondStrategy GetStrategy(string order)
+        public IRespondStrategy GetStrategy(string received)
         {
             IRespondStrategy strategy = null;
+
+            string[] splitter = new string[] { "\r\n" };
+            string[] StrArr = received.Split(splitter, StringSplitOptions.None);
+            string order = StrArr[0];
+            
             Console.WriteLine("Order: " + order);
+            Console.WriteLine(received);
 
             string[] eq = order.Split(' ');
-            
-            //TOdo: Head "GET / HTTP/1.0" should be handle and ignored
 
             switch (eq[0])
             {
@@ -59,7 +63,7 @@ namespace UPnP_Device
                     strategy = new GETResponder(eq[1]);
                     break;
                 case "POST":
-                    //Todo: return post value
+                    strategy = new POSTResponder(received);
                     break;
                 default:
                     Console.WriteLine("Error in Switch-case:");

@@ -32,7 +32,7 @@ namespace UPnP_Device
         public event UPnPEvents.PauseOrder PauseEvent;
         public event UPnPEvents.PlayOrder PlayEvent;
         public event UPnPEvents.SetTransportURIOrder SetTransportURIEvent;
-
+        
         private TcpServer server;
 
         public UPnPMain()
@@ -41,14 +41,33 @@ namespace UPnP_Device
             localIP = IPHandler.GetInstance().IP;
             Console.WriteLine("main ip: " + localIP);
 
-            //tcpReceiver = new TCPReceiver(localIP, port);
-            //tcpReceiver.start();
-
             server = new TcpServer(localIP, port);
 
             udpServer = new UDPServer(UUID, cacheExpire, localIP, port);
             udpServer.Start();
 
+            TCP.EventContainer.PlayEvent += new TCP.EventContainer.PlayOrderHandler(ListenToPlay);
+            TCP.EventContainer.NextEvent += new TCP.EventContainer.NextOrderHandler(ListenToNext);
+            TCP.EventContainer.StopEvent += new TCP.EventContainer.StopOrderHandler(ListenToStop);
+
+        }
+
+        private void ListenToPlay(object e, UPnPEventArgs args)
+        {
+            Console.WriteLine("Play was called from main class!");
+            PlayEvent(this, args);
+
+        }
+
+        private void ListenToNext(object e, UPnPEventArgs args)
+        {
+            Console.WriteLine("Next was called from main class!");
+        }
+
+        private void ListenToStop(object e, UPnPEventArgs args)
+        {
+            Console.WriteLine("Stop was called from main class!");
+            PlayEvent(this, args);
         }
     }
 

@@ -83,11 +83,136 @@ namespace UPnP_Device.TCP
 
     public class POSTResponder: IRespondStrategy
     {
+        private string Control = "";
+        private string order = "";
+        private IOrder orderClass;
+        private OrderFactory orderFactory = new OrderFactory();
+
+        public POSTResponder(string ctrl)
+        {
+            Control = ctrl;
+
+        }
+
         public void Respond(INetworkUtillity util)
         {
-            //Todo: implementation of POST requests
+            order = DetermineOrder(Control);
+            string[] args = DetermineArgs(Control);
+            Console.WriteLine("\nPost order was: " + order);
+
+            orderClass = orderFactory.GetOrder(order);
+
+            orderClass.execOrder(util, args);
+        }
+
+        //Determine the order type
+        public string DetermineOrder(string ctl)
+        {
+            string[] splitter = new string[] {"\r\n"};
+            string[] splitOrder = ctl.Split(splitter, StringSplitOptions.None);
+            string soapLine = "";
+
+            foreach (var s in splitOrder)
+            {
+                if (s.Contains("SOAPACTION"))
+                {
+                    soapLine = s;
+                    break;
+                }
+            }
+
+            Console.WriteLine(soapLine);
+
+            string[] urn = soapLine.Split(':');
+            string versionAndAction = urn.Last();
+            string[] action = versionAndAction.Split('#')[1].Split('"');
+            
+
+            return action[0];
+        }
+
+        //Determine argument-list
+        public string[] DetermineArgs(string ctl)
+        {
+            string[] a = new string[2];
+
+            a[0] = "Arg 1";
+            a[1] = "Arg 2";
+            return a;
         }
     }
 
 
+    /// <summary>
+    /// This class will take care of dealing with the order
+    /// and respond appropriately over the TCP connection. 
+    /// If TCP connection is closed prematurely by control point, 
+    /// the senders address will still be in the mesage. (Handle this?)
+    /// </summary>
+    public interface IOrder
+    {
+        void execOrder(INetworkUtillity utillity, string[] argList);
+    }
+     
+    public class PlayOrder : IOrder
+    {
+        private INetworkUtillity util;
+
+        public PlayOrder()
+        {
+            Console.WriteLine("Inside PlayOrder..");
+        }
+
+        public void execOrder(INetworkUtillity utillity, string[] argList)
+        {
+            int i = 0;
+            //Todo: Respond to sender..
+            EventContainer.RaisePlayEvent(this, null);
+            
+            foreach (var s in argList)
+            {
+                Console.WriteLine("Arg nr. " + i + ": " + s);
+                ++i;
+            }
+        }
+    }
+
+    public class StopOrder : IOrder
+    {
+        private INetworkUtillity util;
+
+        public void execOrder(INetworkUtillity utillity, string[] argList)
+        {
+            EventContainer.RaiseStopEvent(this, null);
+        }
+    }
+
+    public class NextOrder : IOrder
+    {
+        private INetworkUtillity util;
+
+        public void execOrder(INetworkUtillity utillity, string[] argList)
+        {
+            EventContainer.RaiseNextEvent(this, null);
+        }
+    }
+
+    public class OrderFactory
+    {
+        private Dictionary<string, IOrder> _strat= new Dictionary<string,IOrder>(); 
+
+        public OrderFactory()
+        {
+            _strat.Add("play", new PlayOrder());
+            _strat.Add("stop", new StopOrder());
+            _strat.Add("next", new NextOrder());
+        }
+
+        public IOrder GetOrder(string ord)
+        {
+            return _strat[ord];
+        }
+
+        
+    } 
 }

@@ -89,12 +89,13 @@ namespace UPnP_Device
             XmlElement SCPDURL = doc.CreateElement("SCPDURL");
             service.AppendChild(SCPDURL);
             //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
-            SCPDURL.InnerText = "serviceDescripton.xml";
+           // SCPDURL.InnerText = "serviceDescripton.xml";
+            SCPDURL.InnerText = "";
 
             XmlElement controlURL = doc.CreateElement("controlURL");
             service.AppendChild(controlURL);
             //controlURL.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_control";
-            controlURL.InnerText = "control";
+            controlURL.InnerText = "";
 
             XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
             service.AppendChild(eventSubUrl);

@@ -37,7 +37,7 @@ namespace UPnP_Device
 
         public string Receive()
         {
-            //BUFFERSIZE = (_client.ReceiveBufferSize+1);
+            BUFFERSIZE = (_client.ReceiveBufferSize+1);
             Console.WriteLine("Buffer size: " + BUFFERSIZE);
             byte[] receiveBuffer = new byte[BUFFERSIZE];
 
@@ -47,7 +47,7 @@ namespace UPnP_Device
                 Console.WriteLine("Remote end:" + s.RemoteEndPoint.ToString());
                 Console.WriteLine("Local : " + s.LocalEndPoint.ToString());
                 
-                _stream.Flush();
+               // _stream.Flush();
 
                 Console.WriteLine("Data available: " + _stream.DataAvailable);
 
