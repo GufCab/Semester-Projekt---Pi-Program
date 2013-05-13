@@ -16,14 +16,22 @@ namespace UPnP_Device
             Console.WriteLine("GOO!!!");
             
             UPnPMain main = new UPnPMain();
-            XMLWriter1 x = new XMLWriter1();
+            //XMLWriter1 x = new XMLWriter1();
             //x.genGETxml();
             //x.genServiceXml();
-            //XMLReader reader = new XMLReader();
-            //List<string> s = new List<string>();
-            //string ss = "";
-            //s = reader.ReadArguments(ss, "Play");
-            //Console.WriteLine(s[0]);
+            /*
+            XMLReader reader = new XMLReader();
+            List<Tuple<string, string>> s = new List<Tuple<string, string>>();
+            string ss = "";
+            s = reader.ReadArguments(ss, "Play");
+
+            int i = 0;
+            foreach (Tuple<string, string> tuple in s)
+            {
+                Console.WriteLine(s[i]);
+                ++i;
+            }
+            */
 
             Console.ReadLine();
         }

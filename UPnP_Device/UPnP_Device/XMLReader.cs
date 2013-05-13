@@ -14,18 +14,16 @@ namespace UPnP_Device
             List<Tuple<string, string>> stringList = new List<Tuple<string, string>>();
 
             var xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml(xml);
-            //xmlDocument.Load("XMLTilSvejstrup.txt");
+            //xmlDocument.LoadXml(xml);
+            xmlDocument.Load("XMLTilSvejstrup.txt");
 
             XmlNodeList nodeList = xmlDocument.GetElementsByTagName("u:" + actionName);
-
-            foreach (XmlElement elm in nodeList)
+            
+            foreach (XmlElement elm in nodeList[0].ChildNodes)
             {
-                //stringList.Add(elm.FirstChild.Name, elm.FirstChild.InnerText);
-                stringList.Add(new Tuple<string, string>(elm.FirstChild.Name, elm.FirstChild.InnerText));
-                //stringList.Add(elm.InnerText);
+                stringList.Add(new Tuple<string, string>(elm.Name, elm.InnerText));
             }
-
+            
             return stringList;
         }
     }
