@@ -9,17 +9,21 @@ namespace UPnP_Device
 {
     class XMLReader
     {
-        public List<string> ReadArguments(string xml)
+        public List<Tuple<string, string>> ReadArguments(string xml, string actionName)
         {
-            var xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml(xml);
+            List<Tuple<string, string>> stringList = new List<Tuple<string, string>>();
 
-            XmlNodeList nodeList = xmlDocument.GetElementsByTagName("argumentName");
-            List<string> stringList = new List<string>();
+            var xmlDocument = new XmlDocument();
+            //xmlDocument.LoadXml(xml);
+            xmlDocument.Load("XMLTilSvejstrup.txt");
+
+            XmlNodeList nodeList = xmlDocument.GetElementsByTagName("u:" + actionName);
 
             foreach (XmlElement elm in nodeList)
             {
-                stringList.Add(elm.InnerText);
+                Console.WriteLine(elm.Name);
+
+                //stringList.Add(elm.InnerText);
             }
 
             return stringList;

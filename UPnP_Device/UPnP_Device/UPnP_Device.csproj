@@ -51,12 +51,12 @@
     <Compile Include="TCP\TCPReceiver.cs" />
     <Compile Include="TCP\NetworkUtillity.cs" />
     <Compile Include="TCP\UpnpEvents.cs" />
-    <Compile Include="TCP\XMLReader.cs" />
     <Compile Include="UDP\UDPServer.cs" />
     <Compile Include="UDP\MulticastReceiver.cs" />
     <Compile Include="UDP\MulticastSender.cs" />
     <Compile Include="UPnPMain.cs" />
     <Compile Include="UPnP\UPnPEvents.cs" />
+    <Compile Include="XMLReader.cs" />
     <Compile Include="XMLWriter1.cs" />
   </ItemGroup>
   <ItemGroup />
