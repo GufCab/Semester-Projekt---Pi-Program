@@ -13,6 +13,7 @@ namespace UPnP_Device
             string s = "HTTP/1.1 200 OK\r\n" +
                       "CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
                       "CONTENT-LENGTH: " + bodyLength + "\r\n";
+            return s;
         }
 
         public string InvokeResponseBody(string funcName, List<Tuple<string, string>> args)

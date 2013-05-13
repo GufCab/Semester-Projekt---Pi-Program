@@ -96,7 +96,7 @@ namespace UPnP_Device.TCP
         public void Respond(INetworkUtillity util)
         {
             action = DetermineOrder(message);
-            List<string> args = DetermineArgs(message,action);
+            var args = DetermineArgs(message,action);
             Console.WriteLine("\nPost action was: " + action);
             Console.WriteLine("With arguments: ");
             foreach (var arg in args)
@@ -136,14 +136,13 @@ namespace UPnP_Device.TCP
         }
 
         //Determine argument-list
-        public List<string> DetermineArgs(string wholeMessage, string actionName)
+        public List<Tuple<string,string>> DetermineArgs(string wholeMessage, string actionName)
         {
             string[] splitter = new string[] { "\r\n\r\n" };
             string[] HeadAndBody = wholeMessage.Split(splitter, StringSplitOptions.None);
             
-            Console.WriteLine("\n\n\n++++" + HeadAndBody[1]);
             XMLReader reader = new XMLReader();
-            List<string> args = reader.ReadArguments(HeadAndBody[1], actionName);
+            var args = reader.ReadArguments(HeadAndBody[1], actionName);
 
             return args;
         }
@@ -157,22 +156,30 @@ namespace UPnP_Device.TCP
     /// </summary>
     public interface IOrder
     {
-        void execOrder(INetworkUtillity utillity, List<string> argList);
+        void execOrder(INetworkUtillity utillity, List<Tuple<string,string>> argList);
     }
      
     public class PlayOrder : IOrder
     {
         private INetworkUtillity util;
+        private string action = "Play";
 
         public PlayOrder()
         {
             Console.WriteLine("Inside PlayOrder..");
         }
 
-        public void execOrder(INetworkUtillity utillity, List<string> argList)
+        public void execOrder(INetworkUtillity utillity, List<Tuple<string,string>> argList)
         {
             int i = 0;
             //Todo: Respond to sender..
+            var invokeResponseGen = new InvokeResponseGen();
+
+            string response = invokeResponseGen.InvokeResponse(action, argList);
+            
+            utillity.Send(response);
+            utillity.Close();
+
             EventContainer.RaisePlayEvent(this, null);
             
             foreach (var s in argList)
@@ -187,7 +194,7 @@ namespace UPnP_Device.TCP
     {
         private INetworkUtillity util;
 
-        public void execOrder(INetworkUtillity utillity, List<string> argList)
+        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
         {
             EventContainer.RaiseStopEvent(this, null);
         }
@@ -197,7 +204,7 @@ namespace UPnP_Device.TCP
     {
         private INetworkUtillity util;
 
-        public void execOrder(INetworkUtillity utillity, List<string> argList)
+        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
         {
             EventContainer.RaiseNextEvent(this, null);
         }
@@ -210,8 +217,8 @@ namespace UPnP_Device.TCP
         public OrderFactory()
         {
             _strat.Add("Play", new PlayOrder());
-            _strat.Add("stop", new StopOrder());
-            _strat.Add("next", new NextOrder());
+            _strat.Add("Stop", new StopOrder());
+            _strat.Add("Next", new NextOrder());
         }
 
         public IOrder GetOrder(string ord)
