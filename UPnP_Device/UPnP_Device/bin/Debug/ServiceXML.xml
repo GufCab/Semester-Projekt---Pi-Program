@@ -17,10 +17,10 @@
     </action>
   </actionList>
   <serviceStateTable>
-    <stateVariable sendEvents="yes">
-      <name>isPlaying</name>
-      <dataType>boolean</dataType>
-      <defaultValue>0</defaultValue>
+    <stateVariable>
+      <name>A_ARG_TYPE_InstanceID</name>
+      <sendEventAttribute>no</sendEventAttribute>
+      <dataType>ui4</dataType>
     </stateVariable>
   </serviceStateTable>
 </scpd>

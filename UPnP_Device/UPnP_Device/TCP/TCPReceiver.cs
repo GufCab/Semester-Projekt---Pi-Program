@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 
 //skal oprette et nyt tcphandler objekt som starten ny tråd der håndterer HTTP beskeden når der modtages noget
-
+/*
 namespace UPnP_Device
 {
     public class TCPReceiver
@@ -67,4 +67,4 @@ namespace UPnP_Device
             }
         }
     }
-}
+}*/

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace UPnP_Device
 {
@@ -11,6 +13,8 @@ namespace UPnP_Device
     //Static Utility class for IP and ID purposes
     public class IPHandler
     {
+        private static Mutex mu = new Mutex();
+
         private static IPHandler instance = null;
 
         public string GUID { get; private set; }
@@ -27,6 +31,7 @@ namespace UPnP_Device
 
         private IPHandler()
         {
+
             GUID = GetGUID();
             IP = GetOwnIp();
             //IP = "127.0.0.1";
@@ -43,16 +48,31 @@ namespace UPnP_Device
         
         public static IPHandler GetInstance()
         {
-            if(instance == null)
-                instance = new IPHandler();
+
+            if (instance == null)
+            {
+                mu.WaitOne();
+                if (instance == null)
+                    instance = new IPHandler();
+                mu.ReleaseMutex();
+            }
             return instance;
         }
 
         private static string GetGUID()
         {
-            //var g = Guid.NewGuid();
-            //return g.ToString();
-            return "e22ca7c1-aadc-4d60-b334-2d905bef5be7";
+            string g;
+            if (File.Exists(@"config/guid.key"))
+            {
+                using (var sr = new StreamReader(@"config/guid.key", Encoding.UTF8))
+                    g = sr.ReadLine();
+            }
+            else
+            {
+                g = Guid.NewGuid().ToString();
+            }
+
+            return g;//"e22ca7c1-aadc-4d60-b334-2d905bef5be7";
         }
 
         private static string GetOwnIp()
@@ -61,15 +81,12 @@ namespace UPnP_Device
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (IPAddress ip in host.AddressList)
             {
-                Console.WriteLine("Found ip: " + ip.ToString() + "family: " + ip.AddressFamily.ToString());
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    Console.WriteLine("ip: " + ip.ToString());
                     localIP = ip.ToString();
                 }
             }
             return localIP;
-            //return "127.0.0.1";
         }
     }
 }

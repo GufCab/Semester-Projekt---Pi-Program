@@ -19,7 +19,7 @@ namespace UPnP_Device
 
     public class UPnPMain : IUPnPMain
     {
-        private TCPReceiver tcpReceiver;
+        //private TCPReceiver tcpReceiver;
         private UDPServer udpServer;
 
         private const int cacheExpire = 1800; //Cache expire in seconds
@@ -41,6 +41,11 @@ namespace UPnP_Device
             localIP = IPHandler.GetInstance().IP;
             Console.WriteLine("main ip: " + localIP);
 
+            XMLWriter1 wr = new XMLWriter1();
+
+            wr.genGETxml();
+            wr.genServiceXml();
+
             server = new TcpServer(localIP, port);
 
             udpServer = new UDPServer(UUID, cacheExpire, localIP, port);
@@ -55,7 +60,7 @@ namespace UPnP_Device
         private void ListenToPlay(object e, UPnPEventArgs args)
         {
             Console.WriteLine("Play was called from main class!");
-            PlayEvent(this, args);
+            
 
         }
 
@@ -67,7 +72,7 @@ namespace UPnP_Device
         private void ListenToStop(object e, UPnPEventArgs args)
         {
             Console.WriteLine("Stop was called from main class!");
-            PlayEvent(this, args);
+            
         }
     }
 

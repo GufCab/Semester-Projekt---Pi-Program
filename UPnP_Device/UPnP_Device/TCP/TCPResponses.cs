@@ -24,7 +24,6 @@ namespace UPnP_Device.TCP
         {
             string s = "-1";
            
-
             if (File.Exists(_path))
             {
                 using (var sr = new StreamReader(_path, Encoding.UTF8))
@@ -40,7 +39,7 @@ namespace UPnP_Device.TCP
 
     public class GETResponder : IRespondStrategy
     {
-        private XMLWriter1 writer;
+        //private XMLWriter1 writer;
         private XMLReader XMLreader;
 
         public GETResponder(string path)
@@ -203,7 +202,7 @@ namespace UPnP_Device.TCP
 
         public OrderFactory()
         {
-            _strat.Add("play", new PlayOrder());
+            _strat.Add("Play", new PlayOrder());
             _strat.Add("stop", new StopOrder());
             _strat.Add("next", new NextOrder());
         }

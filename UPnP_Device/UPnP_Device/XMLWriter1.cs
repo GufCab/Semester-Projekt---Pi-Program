@@ -13,6 +13,7 @@ namespace UPnP_Device
         //generates device XML
         public string genGETxml()
         {
+            string path = @"Descriptions\desc.xml";
             XmlDocument doc = new XmlDocument();
 
             XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
@@ -68,8 +69,6 @@ namespace UPnP_Device
             device.AppendChild(udn);
             udn.InnerText = "uuid:" + IPHandler.GetInstance().GUID;
 
-            //XmlElement iconList = doc.CreateElement("iconList");
-            //device.AppendChild(iconList);
 
             XmlElement serviceList = doc.CreateElement("serviceList");
             device.AppendChild(serviceList);
@@ -90,7 +89,7 @@ namespace UPnP_Device
             service.AppendChild(SCPDURL);
             //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
            // SCPDURL.InnerText = "serviceDescripton.xml";
-            SCPDURL.InnerText = "";
+            SCPDURL.InnerText = "AVTransport/serviceDescription/";
 
             XmlElement controlURL = doc.CreateElement("controlURL");
             service.AppendChild(controlURL);
@@ -102,11 +101,11 @@ namespace UPnP_Device
             eventSubUrl.InnerText = " ";
             
             //easy overview - for debugging
-            doc.Save("NewDesc.xml");
+            doc.Save("DeviceDescDebug.xml");
             
-            if (File.Exists("Myxml.xml"))
-                File.Delete("Myxml.xml");
-            using (var fs = new FileStream("Myxml.xml", FileMode.Create))
+            if (File.Exists(path))
+                File.Delete(path);
+            using (var fs = new FileStream(path, FileMode.Create))
             using (var sw = new StreamWriter(fs, Encoding.UTF8))
             {
                 sw.Write(doc.OuterXml);
@@ -119,6 +118,7 @@ namespace UPnP_Device
         //generates Service description XML
         public void genServiceXml()
         {
+            string path = @"Descriptions\AVTransport\serviceDescription\desc.xml";
             XmlDocument doc = new XmlDocument();
 
             XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
@@ -167,31 +167,38 @@ namespace UPnP_Device
             argument.AppendChild(relatedStateVariable_play);
             relatedStateVariable_play.InnerText = "A_ARG_TYPE_InstanceID";
 
+            
             XmlElement serviceStateTable = doc.CreateElement("serviceStateTable");
             scpd.AppendChild(serviceStateTable);
-
+            
             XmlElement stateVariable = doc.CreateElement("stateVariable");
             serviceStateTable.AppendChild(stateVariable);
-            stateVariable.SetAttribute("sendEvents", "yes");
+            //stateVariable.SetAttribute("sendEvents", "yes");
 
             XmlElement name_stateVariable = doc.CreateElement("name");
             stateVariable.AppendChild(name_stateVariable);
-            name_stateVariable.InnerText = "isPlaying";
+            name_stateVariable.InnerText = "A_ARG_TYPE_InstanceID";
+
+            XmlElement sendEventAttribute = doc.CreateElement("sendEventAttribute");
+            stateVariable.AppendChild(sendEventAttribute);
+            sendEventAttribute.InnerText = "no";
 
             XmlElement dataType = doc.CreateElement("dataType");
             stateVariable.AppendChild(dataType);
-            dataType.InnerText = "boolean";
+            dataType.InnerText = "ui4";
 
+            /*
             XmlElement defaultValue = doc.CreateElement("defaultValue");
             stateVariable.AppendChild(defaultValue);
             defaultValue.InnerText = "0";
-            
+            */
+
             //easy overview - for debugging
             doc.Save("ServiceXML.xml");
 
-            // if (File.Exists("Myxml.xml"))
-             //   File.Delete("Myxml.xml");
-            using (var fs = new FileStream(@"Descriptions\AVTransport\serviceDescription\desc.xml", FileMode.Create))
+            if (File.Exists(path))
+                File.Delete(path);
+            using (var fs = new FileStream(path, FileMode.Create))
             using (var sw = new StreamWriter(fs, Encoding.UTF8))
             {
                 sw.Write(doc.OuterXml);
