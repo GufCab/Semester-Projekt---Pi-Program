@@ -8,15 +8,16 @@ namespace UPnP_Device
 {
     class InvokeResponseGen
     {
-        public string InvokeResponseHead(int bodyLength)
+        private string AppendHead(string body)
         {
             string s = "HTTP/1.1 200 OK\r\n" +
                       "CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
-                      "CONTENT-LENGTH: " + bodyLength + "\r\n";
-            return s;
+                      "CONTENT-LENGTH: " + body.Length + "\r\n";
+
+            return s + "\n\r" + body;
         }
 
-        public string InvokeResponseBody(string funcName, List<Tuple<string, string>> args)
+        public string InvokeResponse(string funcName, List<Tuple<string, string>> args)
         {
             XmlDocument doc = new XmlDocument();
             XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
@@ -43,7 +44,9 @@ namespace UPnP_Device
             //Saved for debugging:
             doc.Save(@"InvokeResponse.xml");
 
-            return doc.OuterXml;
+            string msg = AppendHead(doc.OuterXml);
+
+            return msg;
         }
     }
 }
