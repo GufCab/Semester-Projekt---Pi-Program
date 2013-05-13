@@ -176,7 +176,8 @@ namespace UPnP_Device.TCP
             var invokeResponseGen = new InvokeResponseGen();
 
             string response = invokeResponseGen.InvokeResponse(action, argList);
-            
+
+            Console.WriteLine("invoke answer: \n\r" + response);
             utillity.Send(response);
             //utillity.Close();
 
