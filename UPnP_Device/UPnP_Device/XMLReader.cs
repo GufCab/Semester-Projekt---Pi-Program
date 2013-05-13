@@ -18,14 +18,12 @@ namespace UPnP_Device
             xmlDocument.Load("XMLTilSvejstrup.txt");
 
             XmlNodeList nodeList = xmlDocument.GetElementsByTagName("u:" + actionName);
-
-            foreach (XmlElement elm in nodeList)
+            
+            foreach (XmlElement elm in nodeList[0].ChildNodes)
             {
-                Console.WriteLine(elm.Name);
-
-                //stringList.Add(elm.InnerText);
+                stringList.Add(new Tuple<string, string>(elm.Name, elm.InnerText));
             }
-
+            
             return stringList;
         }
     }
