@@ -19,6 +19,11 @@ namespace UPnP_Device
             XMLWriter1 x = new XMLWriter1();
             //x.genGETxml();
             //x.genServiceXml();
+            //XMLReader reader = new XMLReader();
+            //List<string> s = new List<string>();
+            //string ss = "";
+            //s = reader.ReadArguments(ss, "Play");
+            //Console.WriteLine(s[0]);
 
             Console.ReadLine();
         }
