@@ -124,7 +124,7 @@ namespace UPnP_Device.TCP
                     break;
                 }
             }
-
+            
             Console.WriteLine(soapLine);
 
             string[] urn = soapLine.Split(':');
@@ -178,7 +178,7 @@ namespace UPnP_Device.TCP
             string response = invokeResponseGen.InvokeResponse(action, argList);
             
             utillity.Send(response);
-            utillity.Close();
+            //utillity.Close();
 
             EventContainer.RaisePlayEvent(this, null);
             
