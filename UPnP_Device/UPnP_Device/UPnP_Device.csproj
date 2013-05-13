@@ -51,6 +51,7 @@
     <Compile Include="TCP\TCPReceiver.cs" />
     <Compile Include="TCP\NetworkUtillity.cs" />
     <Compile Include="TCP\UpnpEvents.cs" />
+    <Compile Include="TCP\XMLReader.cs" />
     <Compile Include="UDP\UDPServer.cs" />
     <Compile Include="UDP\MulticastReceiver.cs" />
     <Compile Include="UDP\MulticastSender.cs" />
