@@ -56,6 +56,9 @@ namespace UPnP_Device
             TCP.EventContainer.NextEvent += new TCP.EventContainer.NextOrderHandler(ListenToNext);
             TCP.EventContainer.StopEvent += new TCP.EventContainer.StopOrderHandler(ListenToStop);
             TCP.EventContainer.PauseEvent += new TCP.EventContainer.PauseOrderHandler(ListenToPause);
+            TCP.EventContainer.PreviousEvent += new TCP.EventContainer.PreviousOrderHandler(ListenToPrevious);
+            TCP.EventContainer.SetAVTransportURIEvent += new TCP.EventContainer.SetAVTransportURIOrderHandler(ListenToSetAVTransport);
+
         }
 
         private void ListenToPlay(object e, UPnPEventArgs args)
@@ -80,6 +83,16 @@ namespace UPnP_Device
         {
             Console.WriteLine("Pause was called from main class!");
             //Raise interface event..
+        }
+
+        private void ListenToPrevious(object e, UPnPEventArgs args)
+        {
+            Console.WriteLine("Previous was called from main class!");
+        }
+
+        private void ListenToSetAVTransport(object e, UPnPEventArgs args)
+        {
+            Console.WriteLine("SetAVTransport was called from main class!");
         }
     }
 
