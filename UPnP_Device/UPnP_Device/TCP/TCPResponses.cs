@@ -251,8 +251,11 @@ namespace UPnP_Device.TCP
             Console.WriteLine("invoke answer: \n\r" + response);
             utillity.Send(response);
             utillity.Close();
-            
-            Console.WriteLine(argList.ToString());
+
+            foreach (Tuple<string, string> tuple in argList)
+            {
+                Console.WriteLine("Argument: " + tuple.Item1 + " Has value: " + tuple.Item2);
+            }
 
             EventContainer.RaiseSetAVTransportURIEvent(this, null);
         }
