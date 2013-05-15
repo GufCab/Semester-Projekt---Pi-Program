@@ -13,6 +13,21 @@
           <direction>in</direction>
           <relatedStateVariable>A_ARG_TYPE_InstanceID</relatedStateVariable>
         </argument>
+        <argument>
+          <name>Speed</name>
+          <direction>in</direction>
+          <relatedStateVariable>TransportPlaySpeed</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+    <action>
+      <name>Pause</name>
+      <argumentList>
+        <argument>
+          <name>InstanceID</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_InstanceID</relatedStateVariable>
+        </argument>
       </argumentList>
     </action>
   </actionList>
@@ -21,6 +36,11 @@
       <name>A_ARG_TYPE_InstanceID</name>
       <sendEventAttribute>no</sendEventAttribute>
       <dataType>ui4</dataType>
+    </stateVariable>
+    <stateVariable>
+      <name>TransportPlaySpeed</name>
+      <sendEventAttribute>no</sendEventAttribute>
+      <dataType>string</dataType>
     </stateVariable>
   </serviceStateTable>
 </scpd>

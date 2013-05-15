@@ -118,6 +118,8 @@ namespace UPnP_Device
         //generates Service description XML
         public void genServiceXml()
         {
+            #region setup
+
             string path = @"Descriptions\AVTransport\serviceDescription\desc.xml";
             XmlDocument doc = new XmlDocument();
 
@@ -141,6 +143,10 @@ namespace UPnP_Device
 
             XmlElement actionList = doc.CreateElement("actionList");
             scpd.AppendChild(actionList);
+
+            #endregion
+
+            #region play action
 
             XmlElement action = doc.CreateElement("action");
             actionList.AppendChild(action);
@@ -167,7 +173,55 @@ namespace UPnP_Device
             argument.AppendChild(relatedStateVariable_play);
             relatedStateVariable_play.InnerText = "A_ARG_TYPE_InstanceID";
 
+            XmlElement argument1 = doc.CreateElement("argument");
+            argumentList.AppendChild(argument1);
+
+            XmlElement name_PlayArgumentSpeed = doc.CreateElement("name");
+            argument1.AppendChild(name_PlayArgumentSpeed);
+            name_PlayArgumentSpeed.InnerText = "Speed";
+
+            XmlElement direction_playSpeed = doc.CreateElement("direction");
+            argument1.AppendChild(direction_playSpeed);
+            direction_playSpeed.InnerText = "in";
+
+            XmlElement relatedStateVariable_playSpeed = doc.CreateElement("relatedStateVariable");
+            argument1.AppendChild(relatedStateVariable_playSpeed);
+            relatedStateVariable_playSpeed.InnerText = "TransportPlaySpeed";
+
+            #endregion
+
+            #region pause action
+
+            action = doc.CreateElement("action");
+            actionList.AppendChild(action);
+
+            name = doc.CreateElement("name");
+            action.AppendChild(name);
+            name.InnerText = "Pause";
+
+            argumentList = doc.CreateElement("argumentList");
+            action.AppendChild(argumentList);
+
+            argument = doc.CreateElement("argument");
+            argumentList.AppendChild(argument);
+
+            name_PlayArgument = doc.CreateElement("name");
+            argument.AppendChild(name_PlayArgument);
+            name_PlayArgument.InnerText = "InstanceID";
+
+            direction_play = doc.CreateElement("direction");
+            argument.AppendChild(direction_play);
+            direction_play.InnerText = "in";
+
+            relatedStateVariable_play = doc.CreateElement("relatedStateVariable");
+            argument.AppendChild(relatedStateVariable_play);
+            relatedStateVariable_play.InnerText = "A_ARG_TYPE_InstanceID";
             
+
+            #endregion
+
+            #region serviceStateTable
+
             XmlElement serviceStateTable = doc.CreateElement("serviceStateTable");
             scpd.AppendChild(serviceStateTable);
             
@@ -187,13 +241,27 @@ namespace UPnP_Device
             stateVariable.AppendChild(dataType);
             dataType.InnerText = "ui4";
 
-            /*
-            XmlElement defaultValue = doc.CreateElement("defaultValue");
-            stateVariable.AppendChild(defaultValue);
-            defaultValue.InnerText = "0";
-            */
+            XmlElement stateVariableSpeed = doc.CreateElement("stateVariable");
+            serviceStateTable.AppendChild(stateVariableSpeed);
+            //stateVariable.SetAttribute("sendEvents", "yes");
 
-            //easy overview - for debugging
+            XmlElement name_stateVariableSpeed = doc.CreateElement("name");
+            stateVariableSpeed.AppendChild(name_stateVariableSpeed);
+            name_stateVariableSpeed.InnerText = "TransportPlaySpeed";
+
+            XmlElement sendEventAttributeSpeed = doc.CreateElement("sendEventAttribute");
+            stateVariableSpeed.AppendChild(sendEventAttributeSpeed);
+            sendEventAttributeSpeed.InnerText = "no";
+
+            XmlElement dataTypeSpeed = doc.CreateElement("dataType");
+            stateVariableSpeed.AppendChild(dataTypeSpeed);
+            dataTypeSpeed.InnerText = "string";
+
+            #endregion
+
+   
+
+
             doc.Save("ServiceXML.xml");
 
             if (File.Exists(path))

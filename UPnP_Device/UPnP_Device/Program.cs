@@ -16,9 +16,9 @@ namespace UPnP_Device
             Console.WriteLine("GOO!!!");
             
             UPnPMain main = new UPnPMain();
-            //XMLWriter1 x = new XMLWriter1();
-            //x.genGETxml();
-            //x.genServiceXml();
+            XMLWriter1 x = new XMLWriter1();
+            x.genGETxml();
+            x.genServiceXml();
             /*
             XMLReader reader = new XMLReader();
             List<Tuple<string, string>> s = new List<Tuple<string, string>>();

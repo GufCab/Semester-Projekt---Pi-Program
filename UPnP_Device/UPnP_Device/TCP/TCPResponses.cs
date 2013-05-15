@@ -161,7 +161,6 @@ namespace UPnP_Device.TCP
      
     public class PlayOrder : IOrder
     {
-        private INetworkUtillity util;
         private string action = "Play";
 
         public PlayOrder()
@@ -188,6 +187,7 @@ namespace UPnP_Device.TCP
                 Console.WriteLine("Arg nr. " + i + ": " + s);
                 ++i;
             }
+            utillity.Close();
         }
     }
 
