@@ -11,7 +11,7 @@
     <manufacturerURL> </manufacturerURL>
     <modelDescription>Social Soundsystem</modelDescription>
     <modelName>HiPi</modelName>
-    <UDN>uuid:cdcf855f-7838-4461-8c1e-a24c17b8fe59</UDN>
+    <UDN>uuid:5fddb4fc-ef17-4afc-91a7-c7a50dd5484b</UDN>
     <serviceList>
       <service>
         <serviceType>urn:schemas-upnp-org:service:AVTransport:1</serviceType>

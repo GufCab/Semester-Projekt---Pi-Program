@@ -11,27 +11,9 @@ namespace UPnP_Device
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ready, set ...");
-            Console.ReadLine();
-            Console.WriteLine("GOO!!!");
+            Console.WriteLine("Entry point");
             
             UPnPMain main = new UPnPMain();
-            //XMLWriter1 x = new XMLWriter1();
-            //x.genDeviceDescription();
-            //x.genServiceXmlAVTransport();
-            /*
-            XMLReader reader = new XMLReader();
-            List<Tuple<string, string>> s = new List<Tuple<string, string>>();
-            string ss = "";
-            s = reader.ReadArguments(ss, "Play");
-
-            int i = 0;
-            foreach (Tuple<string, string> tuple in s)
-            {
-                Console.WriteLine(s[i]);
-                ++i;
-            }
-            */
 
             Console.ReadLine();
         }
