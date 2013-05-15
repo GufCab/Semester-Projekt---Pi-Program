@@ -43,8 +43,9 @@ namespace UPnP_Device
 
             XMLWriter1 wr = new XMLWriter1();
 
-            wr.genGETxml();
-            wr.genServiceXml();
+            wr.genDeviceDescription();
+            wr.genServiceXmlAVTransport();
+            //wr.genServiceXmlConnectionManager();
 
             server = new TcpServer(localIP, port);
 
@@ -54,25 +55,31 @@ namespace UPnP_Device
             TCP.EventContainer.PlayEvent += new TCP.EventContainer.PlayOrderHandler(ListenToPlay);
             TCP.EventContainer.NextEvent += new TCP.EventContainer.NextOrderHandler(ListenToNext);
             TCP.EventContainer.StopEvent += new TCP.EventContainer.StopOrderHandler(ListenToStop);
-
+            TCP.EventContainer.PauseEvent += new TCP.EventContainer.PauseOrderHandler(ListenToPause);
         }
 
         private void ListenToPlay(object e, UPnPEventArgs args)
         {
             Console.WriteLine("Play was called from main class!");
-            
-
+            //Raise interface event..
         }
 
         private void ListenToNext(object e, UPnPEventArgs args)
         {
             Console.WriteLine("Next was called from main class!");
+            //Raise interface event..
         }
 
         private void ListenToStop(object e, UPnPEventArgs args)
         {
             Console.WriteLine("Stop was called from main class!");
-            
+            //Raise interface event..
+        }
+
+        private void ListenToPause(object e, UPnPEventArgs args)
+        {
+            Console.WriteLine("Pause was called from main class!");
+            //Raise interface event..
         }
     }
 

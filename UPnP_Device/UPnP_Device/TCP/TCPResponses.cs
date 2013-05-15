@@ -163,50 +163,115 @@ namespace UPnP_Device.TCP
     {
         private string action = "Play";
 
-        public PlayOrder()
-        {
-            Console.WriteLine("Inside PlayOrder..");
-        }
-
         public void execOrder(INetworkUtillity utillity, List<Tuple<string,string>> argList)
         {
-            int i = 0;
-            //Todo: Respond to sender..
             var invokeResponseGen = new InvokeResponseGen();
 
             string response = invokeResponseGen.InvokeResponse(action, argList);
 
             Console.WriteLine("invoke answer: \n\r" + response);
             utillity.Send(response);
-            //utillity.Close();
 
             EventContainer.RaisePlayEvent(this, null);
             
-            foreach (var s in argList)
-            {
-                Console.WriteLine("Arg nr. " + i + ": " + s);
-                ++i;
-            }
             utillity.Close();
         }
     }
 
     public class StopOrder : IOrder
     {
-        private INetworkUtillity util;
+        const string action = "Stop";
 
         public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
         {
             EventContainer.RaiseStopEvent(this, null);
+
+            var invokeResponseGen = new InvokeResponseGen();
+
+            string response = invokeResponseGen.InvokeResponse(action, argList);
+
+            Console.WriteLine("invoke answer: \n\r" + response);
+            utillity.Send(response);
+            utillity.Close();
+
+            EventContainer.RaiseStopEvent(this, null);
         }
     }
 
-    public class NextOrder : IOrder
+    public class PauseOrder : IOrder
     {
-        private INetworkUtillity util;
+        private const string action = "Pause";
+
+        
+        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
+        {
+            var invokeResponseGen = new InvokeResponseGen();
+
+            string response = invokeResponseGen.InvokeResponse(action, argList);
+
+            Console.WriteLine("invoke answer: \n\r" + response);
+            utillity.Send(response);
+            utillity.Close();
+
+            EventContainer.RaisePauseEvent(this, null);
+        }
+
+        
+    }
+
+    public class PreviousOrder : IOrder
+    {
+        private const string action = "Previous";
+
 
         public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
         {
+            var invokeResponseGen = new InvokeResponseGen();
+
+            string response = invokeResponseGen.InvokeResponse(action, argList);
+
+            Console.WriteLine("invoke answer: \n\r" + response);
+            utillity.Send(response);
+            utillity.Close();
+
+            EventContainer.RaisePreviousEvent(this, null);
+        }
+    }
+    public class SetTransportURIOrder : IOrder
+    {
+        private const string action = "Next";
+
+
+        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
+        {
+            var invokeResponseGen = new InvokeResponseGen();
+
+            string response = invokeResponseGen.InvokeResponse(action, argList);
+
+            Console.WriteLine("invoke answer: \n\r" + response);
+            utillity.Send(response);
+            utillity.Close();
+            
+            Console.WriteLine(argList.ToString());
+
+            EventContainer.RaiseSetAVTransportURIEvent(this, null);
+        }
+    }
+    public class NextOrder : IOrder
+    {
+        private const string action = "Next";
+
+
+        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
+        {
+            var invokeResponseGen = new InvokeResponseGen();
+
+            string response = invokeResponseGen.InvokeResponse(action, argList);
+
+            Console.WriteLine("invoke answer: \n\r" + response);
+            utillity.Send(response);
+            utillity.Close();
+
             EventContainer.RaiseNextEvent(this, null);
         }
     }
@@ -220,10 +285,14 @@ namespace UPnP_Device.TCP
             _strat.Add("Play", new PlayOrder());
             _strat.Add("Stop", new StopOrder());
             _strat.Add("Next", new NextOrder());
+            _strat.Add("Pause", new PauseOrder());
+            _strat.Add("Previous", new PreviousOrder());
+            _strat.Add("SetAVTransportURI", new SetTransportURIOrder());
         }
 
         public IOrder GetOrder(string ord)
         {
+            
             return _strat[ord];
         }
 
