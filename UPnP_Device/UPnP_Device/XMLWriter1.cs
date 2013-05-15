@@ -9,11 +9,11 @@ namespace UPnP_Device
 {
     public class XMLWriter1
     {
-        public string descriptionsPath = @"Descriptions\";
+        public string descriptionsPath = @"Descriptions/";
         public string filename = "desc.xml";
-        public string AVTservicePath = @"AVTransport\serviceDescription\";
-        public string ConnectionManagerServicePath = @"ConnectionManager\serviceDescription\";
-        public string RenderingControlServicePath = @"RenderingControl\serviceDescription\";
+        public string AVTservicePath = @"AVTransport/serviceDescription/";
+        public string ConnectionManagerServicePath = @"ConnectionManager/serviceDescription/";
+        public string RenderingControlServicePath = @"RenderingControl/serviceDescription/";
 
         //DeviceArchitecture s.51
         //generates device XML

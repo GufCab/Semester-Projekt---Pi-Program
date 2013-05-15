@@ -29,6 +29,7 @@ namespace UPnP_Device
             {
                 Console.WriteLine("Exception in XML reader!");
                 Console.WriteLine(e);
+                throw e;
             }
             
             

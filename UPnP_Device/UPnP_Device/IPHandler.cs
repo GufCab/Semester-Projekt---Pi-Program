@@ -61,16 +61,31 @@ namespace UPnP_Device
 
         private static string GetGUID()
         {
+            
             string g;
-            if (File.Exists(@"config/guid.key"))
+            string path = @"config/guid.key";
+            if (File.Exists(path))
             {
-                using (var sr = new StreamReader(@"config/guid.key", Encoding.UTF8))
+                using (var sr = new StreamReader(path, Encoding.UTF8))
+                {
                     g = sr.ReadLine();
+                    sr.Close();
+                }
             }
             else
             {
                 g = Guid.NewGuid().ToString();
+
+                if (Directory.Exists("config") == false)
+                    Directory.CreateDirectory("config");
+                using (var fs = new FileStream(@"config/guid.key", FileMode.Create))
+                using (var sw = new StreamWriter(fs))
+                {
+                    sw.WriteLine(g);
+                    sw.Close();
+                }
             }
+             
 
             return g;//"e22ca7c1-aadc-4d60-b334-2d905bef5be7";
         }
