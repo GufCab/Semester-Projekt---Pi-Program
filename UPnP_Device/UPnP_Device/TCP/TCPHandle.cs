@@ -17,6 +17,8 @@ namespace UPnP_Device
     {
         private GetResponseStrategy Strat = new GetResponseStrategy();
 
+        //Why???
+        //Todo: Remove, maybe???
         public TCPHandle()
         {
 
@@ -28,10 +30,8 @@ namespace UPnP_Device
 
             string rec = util.Receive();
 
-            Console.WriteLine("New message recieved on TCP.");
+            if(TCPDebug.DEBUG) {Console.WriteLine("New message recieved on TCP.");}
             
-            
-
             IRespondStrategy respondStrategy = Strat.GetStrategy(rec);
 
             respondStrategy.Respond(util);
@@ -42,8 +42,10 @@ namespace UPnP_Device
 
     public class GetResponseStrategy
     {
-        private const string GET = "GET / HTTP/1.1";
+        //Todo: Remove maybe?:
+        //private const string GET = "GET / HTTP/1.1";
 
+        //Todo: Comments needed:
         public IRespondStrategy GetStrategy(string received)
         {
             IRespondStrategy strategy = null;
@@ -51,12 +53,17 @@ namespace UPnP_Device
             string[] splitter = new string[] { "\r\n" };
             string[] StrArr = received.Split(splitter, StringSplitOptions.None);
             string order = StrArr[0];
-            
-            Console.WriteLine("Order: " + order);
-            Console.WriteLine(received);
+
+            if (TCPDebug.DEBUG)
+            {
+                Console.WriteLine("Order: " + order);
+                Console.WriteLine(received);
+            }
 
             string[] eq = order.Split(' ');
 
+            //Todo: Should handle subscribe.
+            //Todo: Also, its a problem that startegy is not set at invalid input
             switch (eq[0])
             {
                 case "GET":

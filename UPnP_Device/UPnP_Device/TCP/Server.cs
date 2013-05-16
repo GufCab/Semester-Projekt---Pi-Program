@@ -8,13 +8,16 @@ using System.Threading;
 
 namespace UPnP_Device.TCP
 {
+    //Todo: Filename should be TCPServer
     public class TcpServer
     {
+        //Todo: Buffersize isn't used:
         private int BUFFER_SIZE = 90000;
         private TcpListener welcomeSocket;
         private TCPHandle tcpHandle;
         private Thread serverThread;
 
+        //Todo: apperently variables never used:
         private int localPort;
         private string localIp;
 
@@ -25,7 +28,8 @@ namespace UPnP_Device.TCP
 
             tcpHandle = new TCPHandle();
 
-            
+            //Todo: Any IPAddress and a port. Is this an EndPoint?
+            //Todo: Should we listen at our own local IP only?
             welcomeSocket = new TcpListener(IPAddress.Any, port);
             serverThread = new Thread(ServerFunc);
             serverThread.Start();
@@ -35,6 +39,7 @@ namespace UPnP_Device.TCP
         {
             welcomeSocket.Start();
 
+            //Todo: Nice, MDS.. Comments needed
             while (true)
             {
                 Console.WriteLine("Blocking");

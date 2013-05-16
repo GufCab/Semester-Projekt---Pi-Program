@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace UPnP_Device.UDP
 {
-    public class UDPServer
+    public class UDPHandler
     {
         private string _UUID;
         private int _cacheexpire;
@@ -27,7 +27,7 @@ namespace UPnP_Device.UDP
         private List<Thread> threadPool = new List<Thread>();
         
         //Exlicit contructor. Takes arguments used for UDP communication
-        public UDPServer(string uuid, int cacheexpire, string localip, int tcpport)
+        public UDPHandler(string uuid, int cacheexpire, string localip, int tcpport)
         {
             //Set private attributes:
             _UUID = uuid;
