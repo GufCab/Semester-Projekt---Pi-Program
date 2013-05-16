@@ -42,7 +42,11 @@ namespace UPnP_Device.UPnPConfig
         private void contruct()
         {
             NT = new List<string>();
-            NT.Add("upnp:rootdevice");      //Todo: Should probably be some Sink stuff
+            NT.Add("upnp:rootdevice");
+            NT.Add("urn:schemas-upnp-org:device:MediaRenderer:1");
+            NT.Add("urn:schemas-upnp-org:service:AVTransport:1");
+            NT.Add("urn:schemas-upnp-org:service:RenderingControl:1");
+            
             DeviceSchema = "urn:schemas-upnp-org:device::";
         }
     }

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.UDP
 {
@@ -24,6 +25,19 @@ namespace UPnP_Device.UDP
 
         public List<string> NTs;
         public List<string> notify { get; private set; }
+
+        public MulticastSender(IIpConfig ipconf, IUPnPConfig upnpconf)
+        {
+            _UUID = ipconf.GUID;
+            _cacheexpire = upnpconf.cacheExpire;
+            _localip = ipconf.IP;
+            _tcpport = ipconf.TCPPort;
+
+            SetupMulticastSender();     //Setup
+
+            notify = HTTPNotifygenerator(upnpconf.NT);
+        }
+
 
         //Constructor
         public MulticastSender(string uuid, int cacheexpire, string localip, int tcpport)
