@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using UPnP_Device.UDP;
+using UPnP_Device.XML;
 
 namespace UPnP_Device
 {
@@ -14,6 +15,12 @@ namespace UPnP_Device
             Console.WriteLine("Entry point");
             
             UPnPMain main = new UPnPMain();
+
+            /*
+            var writer = new XMLWriterSink();
+            writer.GenDeviceDescription();
+            writer.GenServiceDescription();
+            */
 
             Console.ReadLine();
         }

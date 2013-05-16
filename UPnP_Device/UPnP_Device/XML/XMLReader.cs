@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace UPnP_Device
+namespace UPnP_Device.XML
 {
     class XMLReader
     {

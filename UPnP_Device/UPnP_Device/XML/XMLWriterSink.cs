@@ -5,13 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 
-namespace UPnP_Device
+namespace UPnP_Device.XML
 {
-    public interface IXMLWriter
-    {
-        string genDeviceDescription();
-    }
-
     public class XMLWriterSink : IXMLWriter
     {
         public string descriptionsPath = @"Descriptions/";
@@ -22,8 +17,10 @@ namespace UPnP_Device
 
         //DeviceArchitecture s.51
         //generates device XML
-        public string genDeviceDescription()
+        public void GenDeviceDescription()
         {
+            #region setup
+
             //string path = @"Descriptions\desc.xml";
             XmlDocument doc = new XmlDocument();
 
@@ -48,6 +45,10 @@ namespace UPnP_Device
             XmlElement device = doc.CreateElement("device");
             root.AppendChild(device);
 
+            #endregion
+
+            #region mediaRenderer
+
             XmlElement deviceType = doc.CreateElement("deviceType");
             device.AppendChild(deviceType);
             deviceType.InnerText = "urn:schemas-upnp-org:device:MediaRenderer:1";
@@ -55,10 +56,6 @@ namespace UPnP_Device
             XmlElement friendlyName = doc.CreateElement("friendlyName");
             device.AppendChild(friendlyName);
             friendlyName.InnerText = "HiPi";
-
-            //XmlElement presentationURL = doc.CreateElement("presentationURL");
-            //device.AppendChild(presentationURL);
-            //presentationURL.InnerText = " ";
 
             XmlElement manufacturer = doc.CreateElement("manufacturer");
             device.AppendChild(manufacturer);
@@ -83,6 +80,8 @@ namespace UPnP_Device
 
             XmlElement serviceList = doc.CreateElement("serviceList");
             device.AppendChild(serviceList);
+
+            #endregion
 
             #region AVTransport
 
@@ -114,41 +113,9 @@ namespace UPnP_Device
             eventSubUrl.InnerText = " ";
 
             #endregion
-
-
-            #region ConnectionManager
-            /*
-            service = doc.CreateElement("service");
-            serviceList.AppendChild(service);
-
-            serviceType = doc.CreateElement("serviceType");
-            service.AppendChild(serviceType);
-            serviceType.InnerText = "urn:schemas-upnp-org:service:ConnectionManager:1";
-
-            serviceId = doc.CreateElement("serviceId");
-            service.AppendChild(serviceId);
-            //serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport.0001";
-            serviceId.InnerText = "urn:upnp-org:serviceId:ConnectionManager";
-
-            SCPDURL = doc.CreateElement("SCPDURL");
-            service.AppendChild(SCPDURL);
-            //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
-            // SCPDURL.InnerText = "serviceDescripton.xml";
-            SCPDURL.InnerText = "ConnectionManager/serviceDescription/";
-
-            controlURL = doc.CreateElement("controlURL");
-            service.AppendChild(controlURL);
-            //controlURL.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_control";
-            controlURL.InnerText = "";
-
-            eventSubUrl = doc.CreateElement("eventSubURL");
-            service.AppendChild(eventSubUrl);
-            eventSubUrl.InnerText = " ";
-            */
-            #endregion
-
+            
             #region RenderingControl
-            /*
+            
             service = doc.CreateElement("service");
             serviceList.AppendChild(service);
 
@@ -175,10 +142,10 @@ namespace UPnP_Device
             eventSubUrl = doc.CreateElement("eventSubURL");
             service.AppendChild(eventSubUrl);
             eventSubUrl.InnerText = " ";
-            */
+            
             #endregion
 
-            //easy overview - for debugging
+            //for debug
             doc.Save("DeviceDescDebug.xml");
             
             if (File.Exists(descriptionsPath + filename))
@@ -189,11 +156,12 @@ namespace UPnP_Device
                 sw.Write(doc.OuterXml);
                 sw.Close();
             }
-           
-            //for debug
-            doc.Save("getXML.xml");
+        }
 
-            return doc.OuterXml;
+        public void GenServiceDescription()
+        {
+            genServiceXmlAVTransport();
+            genServiceXmlRenderingControl();
         }
 
         //generates Service description XML
@@ -453,6 +421,8 @@ namespace UPnP_Device
 
             #region serviceStateTable
 
+            #region instanceID
+
             XmlElement serviceStateTable = doc.CreateElement("serviceStateTable");
             scpd.AppendChild(serviceStateTable);
             
@@ -472,6 +442,10 @@ namespace UPnP_Device
             stateVariable.AppendChild(dataType);
             dataType.InnerText = "ui4";
 
+            #endregion
+
+            #region TransportPlaySpeed
+
             XmlElement stateVariableSpeed = doc.CreateElement("stateVariable");
             serviceStateTable.AppendChild(stateVariableSpeed);
             //stateVariable.SetAttribute("sendEvents", "yes");
@@ -488,6 +462,10 @@ namespace UPnP_Device
             stateVariableSpeed.AppendChild(dataTypeSpeed);
             dataTypeSpeed.InnerText = "string";
 
+            #endregion
+
+            #region AVTransportURI
+
             stateVariableSpeed = doc.CreateElement("stateVariable");
             serviceStateTable.AppendChild(stateVariableSpeed);
             //stateVariable.SetAttribute("sendEvents", "yes");
@@ -503,6 +481,10 @@ namespace UPnP_Device
             dataTypeSpeed = doc.CreateElement("dataType");
             stateVariableSpeed.AppendChild(dataTypeSpeed);
             dataTypeSpeed.InnerText = "string";
+
+            #endregion
+
+            #region AVTransportURIMetaData
 
             stateVariableSpeed = doc.CreateElement("stateVariable");
             serviceStateTable.AppendChild(stateVariableSpeed);
@@ -521,7 +503,9 @@ namespace UPnP_Device
             dataTypeSpeed.InnerText = "string";
 
             #endregion
-            
+
+            #endregion
+
             //for debug
             doc.Save("ServiceXMLAVTransport.xml");
 
@@ -538,65 +522,6 @@ namespace UPnP_Device
                 sw.Close();
             }
         }
-
-        //connectionManager
-        /*
-        public void genServiceXmlConnectionManager()
-        {
-            #region setup
-
-            //string path = @"ConnectionManager\serviceDescription\";
-            string filename = "desc.xml";
-            XmlDocument doc = new XmlDocument();
-
-            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
-            doc.AppendChild(dec);
-
-            XmlElement scpd = doc.CreateElement("scpd");
-            doc.AppendChild(scpd);
-            scpd.SetAttribute("xmlns", "urn:schemas-upnp-org:service-1-0");
-
-            XmlElement specVersion = doc.CreateElement("specVersion");
-            scpd.AppendChild(specVersion);
-
-            XmlElement major = doc.CreateElement("major");
-            specVersion.AppendChild(major);
-            major.InnerText = "1";
-
-            XmlElement minor = doc.CreateElement("minor");
-            specVersion.AppendChild(minor);
-            minor.InnerText = "0";
-
-            XmlElement actionList = doc.CreateElement("actionList");
-            scpd.AppendChild(actionList);
-
-            #endregion
-
-            #region serviceStateTable
-
-            XmlElement serviceStateTable = doc.CreateElement("serviceStateTable");
-            scpd.AppendChild(serviceStateTable);
-
-            #endregion
-
-
-            //for debug
-            doc.Save("ServiceXMLConnectionManager.xml");
-
-            if (Directory.Exists(Path.GetDirectoryName(descriptionsPath + ConnectionManagerServicePath)) == false)
-            {
-                Directory.CreateDirectory(descriptionsPath + ConnectionManagerServicePath);
-            }
-            if (File.Exists(descriptionsPath + ConnectionManagerServicePath + filename))
-                File.Delete(descriptionsPath + ConnectionManagerServicePath + filename);
-            using (var fs = new FileStream(descriptionsPath + ConnectionManagerServicePath + filename, FileMode.Create))
-            using (var sw = new StreamWriter(fs, Encoding.UTF8))
-            {
-                sw.Write(doc.OuterXml);
-                sw.Close();
-            }
-        }
-        */
         
         public void genServiceXmlRenderingControl()
         {
@@ -628,7 +553,9 @@ namespace UPnP_Device
 
             #endregion
 
-            #region action
+            #region Actions
+
+            #region SetMute
 
             XmlElement action = doc.CreateElement("action");
             actionList.AppendChild(action);
@@ -640,6 +567,7 @@ namespace UPnP_Device
             XmlElement argumentList = doc.CreateElement("argumentList");
             action.AppendChild(argumentList);
 
+            #region InstanceID
             XmlElement argument = doc.CreateElement("argument");
             argumentList.AppendChild(argument);
 
@@ -654,6 +582,52 @@ namespace UPnP_Device
             XmlElement relatedStateVariable = doc.CreateElement("relatedStateVariable");
             argument.AppendChild(relatedStateVariable);
             relatedStateVariable.InnerText = "A_ARG_TYPE_InstanceID";
+            #endregion
+
+            #region Channel
+
+            argument = doc.CreateElement("argument");
+            argumentList.AppendChild(argument);
+
+            name = doc.CreateElement("name");
+            argument.AppendChild(name);
+            name.InnerText = "Channel";
+
+            direction = doc.CreateElement("direction");
+            argument.AppendChild(direction);
+            direction.InnerText = "in";
+
+            relatedStateVariable = doc.CreateElement("relatedStateVariable");
+            argument.AppendChild(relatedStateVariable);
+            relatedStateVariable.InnerText = "A_ARG_TYPE_Channel";
+            #endregion
+
+            #region DesiredMute
+
+            argument = doc.CreateElement("argument");
+            argumentList.AppendChild(argument);
+
+            name = doc.CreateElement("name");
+            argument.AppendChild(name);
+            name.InnerText = "DesiredMute";
+
+            direction = doc.CreateElement("direction");
+            argument.AppendChild(direction);
+            direction.InnerText = "in";
+
+            relatedStateVariable = doc.CreateElement("relatedStateVariable");
+            argument.AppendChild(relatedStateVariable);
+            relatedStateVariable.InnerText = "Mute";
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region serviceStateTable
+
+            #region instanceID
 
             XmlElement serviceStateTable = doc.CreateElement("serviceStateTable");
             scpd.AppendChild(serviceStateTable);
@@ -664,10 +638,47 @@ namespace UPnP_Device
 
             name = doc.CreateElement("name");
             stateVariable.AppendChild(name);
+            name.InnerText = "A_ARG_TYPE_InstanceID";
 
+            XmlElement dataType = doc.CreateElement("dataType");
+            stateVariable.AppendChild(dataType);
+            dataType.InnerText = "ui4";
+            
+            #endregion
+
+            #region Channel
+
+            stateVariable = doc.CreateElement("stateVariable");
+            serviceStateTable.AppendChild(stateVariable);
+            stateVariable.SetAttribute("sendEvents", "no");
+
+            name = doc.CreateElement("name");
+            stateVariable.AppendChild(name);
+            name.InnerText = "A_ARG_TYPE_Channel";
+
+            dataType = doc.CreateElement("dataType");
+            stateVariable.AppendChild(dataType);
+            dataType.InnerText = "string";
 
             #endregion
 
+            #region Channel
+
+            stateVariable = doc.CreateElement("stateVariable");
+            serviceStateTable.AppendChild(stateVariable);
+            stateVariable.SetAttribute("sendEvents", "no");
+
+            name = doc.CreateElement("name");
+            stateVariable.AppendChild(name);
+            name.InnerText = "Mute";
+
+            dataType = doc.CreateElement("dataType");
+            stateVariable.AppendChild(dataType);
+            dataType.InnerText = "boolean";
+
+            #endregion
+
+            #endregion
 
             //for debug
             doc.Save("ServiceXMLRenderingControl.xml");
@@ -686,6 +697,4 @@ namespace UPnP_Device
             }
         }
     }
-
-
 }
