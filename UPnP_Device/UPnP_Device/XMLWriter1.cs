@@ -7,7 +7,12 @@ using System.Xml;
 
 namespace UPnP_Device
 {
-    public class XMLWriter1
+    public interface IXMLWriter
+    {
+        string genDeviceDescription();
+    }
+
+    public class XMLWriterSink : IXMLWriter
     {
         public string descriptionsPath = @"Descriptions/";
         public string filename = "desc.xml";
@@ -592,7 +597,7 @@ namespace UPnP_Device
             }
         }
         */
-        /*
+        
         public void genServiceXmlRenderingControl()
         {
             #region setup
@@ -625,6 +630,40 @@ namespace UPnP_Device
 
             #region action
 
+            XmlElement action = doc.CreateElement("action");
+            actionList.AppendChild(action);
+
+            XmlElement name = doc.CreateElement("name");
+            action.AppendChild(name);
+            name.InnerText = "SetMute";
+
+            XmlElement argumentList = doc.CreateElement("argumentList");
+            action.AppendChild(argumentList);
+
+            XmlElement argument = doc.CreateElement("argument");
+            argumentList.AppendChild(argument);
+
+            name = doc.CreateElement("name");
+            argument.AppendChild(name);
+            name.InnerText = "InstanceID";
+
+            XmlElement direction = doc.CreateElement("direction");
+            argument.AppendChild(direction);
+            direction.InnerText = "in";
+
+            XmlElement relatedStateVariable = doc.CreateElement("relatedStateVariable");
+            argument.AppendChild(relatedStateVariable);
+            relatedStateVariable.InnerText = "A_ARG_TYPE_InstanceID";
+
+            XmlElement serviceStateTable = doc.CreateElement("serviceStateTable");
+            scpd.AppendChild(serviceStateTable);
+
+            XmlElement stateVariable = doc.CreateElement("stateVariable");
+            serviceStateTable.AppendChild(stateVariable);
+            stateVariable.SetAttribute("sendEvents", "no");
+
+            name = doc.CreateElement("name");
+            stateVariable.AppendChild(name);
 
 
             #endregion
@@ -645,7 +684,7 @@ namespace UPnP_Device
                 sw.Write(doc.OuterXml);
                 sw.Close();
             }
-        }*/
+        }
     }
 
 
