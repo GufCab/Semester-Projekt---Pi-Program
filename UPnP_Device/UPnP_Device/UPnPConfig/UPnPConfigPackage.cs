@@ -9,6 +9,11 @@ using UPnP_Device.UPnP;
 
 namespace UPnP_Device.UPnPConfig
 {
+    public interface IXMLWriter
+    {
+        
+    }
+
     public class UPnPConfigPackage
     {
         public IXMLWriter xmlwr { get; private set; }

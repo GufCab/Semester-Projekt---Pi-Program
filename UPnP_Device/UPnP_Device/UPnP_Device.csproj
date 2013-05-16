@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventHandler.cs" />
     <Compile Include="InvokeResponseGen.cs" />
     <Compile Include="IPHandler.cs" />
     <Compile Include="Program.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="UPnP\UPnPEvents.cs" />
     <Compile Include="XMLReader.cs" />
     <Compile Include="XMLWriter1.cs" />
+    <Compile Include="XMLWriterSource.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
