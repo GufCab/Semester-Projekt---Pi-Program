@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Playback
+namespace PlaybackCtrl
 {
     /// <summary>
     /// IPlaylistHandler kan holde styr på en "afspilningskø".
@@ -22,6 +22,56 @@ namespace Playback
         void AddToPlayQue(string src, int index);
     }
 
+    public class PlaylistHandler : IPlaylistHandler
+    {
+        private IPlayQueueDB _playQ;
+        private int _currentTrack = 0;
+
+        public PlaylistHandler()
+        {
+            _playQ = new PlayQueueDB();
+        }
+
+        public ITrack GetNextTrack()
+        {
+            _currentTrack++;
+            ITrack trk = new Track();
+            _playQ.GetTrack(_currentTrack);
+            //Convert MetaData to Track
+            return trk;
+        }
+        
+        public ITrack GetPrevTrack()
+        {
+            if (_currentTrack > 0)
+            {
+                _currentTrack--;
+            }
+            ITrack trk = new Track();
+            _playQ.GetTrack(_currentTrack);
+            //Convert MetaData to Track
+            return trk;
+        }
+
+        public ITrack GetTrack(int index)
+        {
+            _currentTrack = index;
+            ITrack trk = new Track();
+            _playQ.GetTrack(_currentTrack);
+            //Convert MetaData to Track
+            return trk;
+        }
+
+        public void AddToPlayQue(string s)
+        {
+            _playQ.AddToPlayQueue(s);
+        }
+
+        public void AddToPlayQue(string s, int index)
+        {
+            _playQ.AddToPlayQueue(s,index);
+        }
+    }
 
     public class DummyPlaylistHandler : IPlaylistHandler
     {

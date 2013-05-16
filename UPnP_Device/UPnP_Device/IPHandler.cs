@@ -61,7 +61,6 @@ namespace UPnP_Device
 
         private static string GetGUID()
         {
-            
             string g;
             string path = @"config/guid.key";
             if (File.Exists(path))

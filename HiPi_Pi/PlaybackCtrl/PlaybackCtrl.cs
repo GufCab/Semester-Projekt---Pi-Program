@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MPlayer;
-using Playback;
 
-namespace Playback
+namespace PlaybackCtrl
 {
-    public class PlaybackCtrl
+    public class PlaybackControl
     {
         private IWrapper Player;
         private IPlaylistHandler Playlist;
 
         //Constructor:
-        public PlaybackCtrl()
+        public PlaybackControl()
         {
             Player = new MPlayerWrapper();
-            Playlist = new DummyPlaylistHandler(/*Path to DB*/); // skal obviously ikke hedde Dummy når den er færdig
+            Playlist = new PlaylistHandler(); //Forbindelse til DB laves i DBInterface.cs
             SubscribeToWrapper();
+            SubscribeToSink(); //Not implemented
         }
         
         public void Next()
         {
-            ITrack myTrack = Playlist.GetNextTrack();
+            var myTrack = Playlist.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
@@ -34,8 +34,8 @@ namespace Playback
 
         public void Play()
         {
-            var trk = Playlist.GetNextTrack();
-            Player.PlayTrack(trk.Path);
+            var myTrack = Playlist.GetNextTrack();
+            Player.PlayTrack(myTrack.Path);
         }
 
         public void Pause()
@@ -79,6 +79,21 @@ namespace Playback
         private void SubscribeToWrapper()
         {
             Player.EOF_Event += AiksVeryOwnSpecialHandler;
+        }
+
+        private void SubscribeToSink()
+        {
+            //When UPnPInvoke happens, call UPnPHandler
+        }
+
+
+        private void UPnPHandler()
+        {
+            //Switch-case / Gufs magic dictionary (se TCPResponses i TCP i UPnP_Device)
+            //Call function (Functions called this way can be made private)
+
+
+            //Raise callback event
         }
 
         private void AiksVeryOwnSpecialHandler(object e, EventArgs args)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Playback
+namespace PlaybackCtrl
 {
     public interface ITrack
     {
