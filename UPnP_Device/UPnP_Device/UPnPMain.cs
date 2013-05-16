@@ -12,9 +12,12 @@ namespace UPnP_Device
 {
     public interface IUPnPMain
     {
-        event UPnPEvents.PauseOrder PauseEvent;
-        event UPnPEvents.PlayOrder PlayEvent;
-        event UPnPEvents.SetTransportURIOrder SetTransportURIEvent;
+        
+    }
+
+    public class TransportEventContainer
+    {
+        
     }
 
     public class UPnPMain : IUPnPMain
@@ -64,6 +67,14 @@ namespace UPnP_Device
         private void ListenToPlay(object e, UPnPEventArgs args)
         {
             Console.WriteLine("Play was called from main class!");
+
+            Console.WriteLine("The action was: " + args.Action);
+            Console.WriteLine("With parameters: ");
+            foreach (var tup in args.ArgList)
+            {
+                Console.WriteLine("Parameter: " + tup.Item1 + " Has value: " + tup.Item2);
+            }
+
             //Raise interface event..
         }
 
@@ -98,6 +109,15 @@ namespace UPnP_Device
 
     public class UPnPEventArgs : EventArgs
     {
+        public string Action { get; private set; }
+        public List<Tuple<string, string>> ArgList { get; private set; }
 
+        public UPnPEventArgs(List<Tuple<string, string>> argList, string action)
+        {
+            ArgList = argList;
+            Action = action;
+        }
     }
+
+    
 }

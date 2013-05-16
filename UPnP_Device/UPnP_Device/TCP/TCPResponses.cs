@@ -172,7 +172,9 @@ namespace UPnP_Device.TCP
             Console.WriteLine("invoke answer: \n\r" + response);
             utillity.Send(response);
 
-            EventContainer.RaisePlayEvent(this, null);
+            var args = new UPnPEventArgs(argList, action);
+
+            EventContainer.RaisePlayEvent(this, args);
             
             utillity.Close();
         }
