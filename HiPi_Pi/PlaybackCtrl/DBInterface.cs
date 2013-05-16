@@ -7,6 +7,7 @@ namespace PlaybackCtrl
 {
     public interface IPlayQueueDB
     {
+        //Skal returnere MetaData - Konverteres til ITrack efterfølgende
         ITrack GetTrack(int index);
         void AddToPlayQueue();
         void AddToPlayQueue(int index);
