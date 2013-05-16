@@ -14,13 +14,14 @@ namespace UPnP_Device.UPnPConfig
         public IXMLWriter xmlwr { get; private set; }
         public IIpConfig ipconf { get; private set; }
         public IUPnPConfig upnpconf { get; private set; }
-        public IEventConfig events { get; set; }
+        public IEventConfig events { get; private set; }
 
-        public UPnPConfigPackage(IIpConfig ip, IUPnPConfig upnp, IEventConfig ev)
+        public UPnPConfigPackage(IIpConfig ip, IUPnPConfig upnp, IEventConfig ev, IXMLWriter xw)
         {
             ipconf = ip;
             upnpconf = upnp;
             events = ev;
+            xmlwr = xw;
         }
     }
 }

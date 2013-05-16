@@ -26,13 +26,23 @@ namespace UPnP_Device.UPnPConfig
         public string DeviceSchema { get; set; }
 
         //Todo: Contructor should take some NT's in some way
+        public SinkUPnPConfig()
+        {
+            cacheExpire = 30 * 1000;
+            contruct();
+        }
+        
         public SinkUPnPConfig(int expireTime)
+        {
+            cacheExpire = expireTime * 1000;
+            contruct();
+        }
+
+        //Everything that should be done in all the overloads of the contructor
+        private void contruct()
         {
             NT = new List<string>();
             NT.Add("upnp:rootdevice");      //Todo: Should probably be some Sink stuff
-
-            cacheExpire = expireTime;
-
             DeviceSchema = "urn:schemas-upnp-org:device::";
         }
     }
