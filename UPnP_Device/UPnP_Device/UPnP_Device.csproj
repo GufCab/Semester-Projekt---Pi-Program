@@ -55,6 +55,7 @@
     <Compile Include="UDP\UDPServer.cs" />
     <Compile Include="UDP\MulticastReceiver.cs" />
     <Compile Include="UDP\MulticastSender.cs" />
+    <Compile Include="UDP\UDP_Debug.cs" />
     <Compile Include="UPnPMain.cs" />
     <Compile Include="UPnP\UPnPEvents.cs" />
     <Compile Include="XMLReader.cs" />

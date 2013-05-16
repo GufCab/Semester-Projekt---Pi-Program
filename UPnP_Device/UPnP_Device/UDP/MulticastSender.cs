@@ -34,15 +34,15 @@ namespace UPnP_Device.UDP
             _tcpport = tcpport;
 
 
-            SetupMulticastSender();
+            SetupMulticastSender();     //Setup
 
             //Create NTs:
             NTs = new List<string>
                 {
                     "upnp:rootdevice",
                     "urn:schemas-upnp-org:device:MediaRenderer:1",
-                    "urn:schemas-upnp-org:service:AVTransport:1"
-                    //"urn:schemas-upnp-org:service:ConnectionManager:1"
+                    "urn:schemas-upnp-org:service:AVTransport:1",
+                    "urn:schemas-upnp-org:service:RenderingControl:1"
                 };
 
             notify = HTTPNotifygenerator(NTs);
@@ -52,24 +52,19 @@ namespace UPnP_Device.UDP
         private static void SetupMulticastSender()
         {
             MulticastClient = new UdpClient();
-            
             MulticastClient.JoinMulticastGroup(multicastIp);
-
             remoteep = new IPEndPoint(multicastIp, multicastPort);
         }
 
         private void SendUnicast(string s, IPEndPoint ipend)
         {
-            using (var uniUdp = new UdpClient())
+            using (var Unicast = new UdpClient())
             {
-                //uniUdp.Connect(multicastIp, 1900);
-                uniUdp.Connect(ipend);
-                byte[] buf = System.Text.Encoding.UTF8.GetBytes(s);
+                Unicast.Connect(ipend);
+                byte[] buf = Encoding.UTF8.GetBytes(s);
 
-                uniUdp.Send(buf, buf.Length);
-                //Thread.Sleep(10);
-
-                uniUdp.Close();
+                Unicast.Send(buf, buf.Length);
+                Unicast.Close();
             }
         }
 
@@ -93,32 +88,16 @@ namespace UPnP_Device.UDP
         public void OKSender(IPEndPoint ipend)
         {
             string f = HTTPOKgenerator();
+
             Thread.Sleep(400);
-
             
-            Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram,
-            ProtocolType.Udp);
+            //Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram,ProtocolType.Udp);
 
-            //IPAddress broadcast = IPAddress.Parse("239.255.255.250");
-
-            byte[] sendbuf = Encoding.UTF8.GetBytes(f);
-            //IPEndPoint ep = new IPEndPoint(broadcast, 1900);
-             
-
-            //Console.WriteLine("Send IP: " + ipend.Address);
-            //Console.WriteLine("Send Port: " + ipend.Port);
-
-            s.SendTo(sendbuf, ipend);
-            
-            
-            /*
-            for (int i = 0; i < 4; i++)
+            using (var sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
             {
-                SendUnicast(f, ipend);
-                Thread.Sleep(66);
+                byte[] sendbuf = Encoding.UTF8.GetBytes(f);
+                sock.SendTo(sendbuf, ipend);
             }
-             */
-            
         }
 
         private void SendMulticast(string s)

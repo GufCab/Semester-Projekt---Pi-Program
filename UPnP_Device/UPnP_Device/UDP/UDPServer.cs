@@ -25,93 +25,98 @@ namespace UPnP_Device.UDP
         private Thread ReceiveThread;
 
         private List<Thread> threadPool = new List<Thread>();
-
+        
+        //Exlicit contructor. Takes arguments used for UDP communication
         public UDPServer(string uuid, int cacheexpire, string localip, int tcpport)
         {
+            //Set private attributes:
             _UUID = uuid;
             _cacheexpire = cacheexpire;
             _localip = localip;
             _tcpport = tcpport;
 
-            sender = new MulticastSender(_UUID, _cacheexpire, _localip, _tcpport);
-            receiver = new MulticastReceiver(_UUID, _cacheexpire, _localip, _tcpport);
+            sender = new MulticastSender(_UUID, _cacheexpire, _localip, _tcpport);          //Creates sender
+            receiver = new MulticastReceiver(_UUID, _cacheexpire, _localip, _tcpport);      //Creates receiver
 
-            NotifyThread = new Thread(sender.NotifySender);
-            ReceiveThread = new Thread(Run);
+            NotifyThread = new Thread(sender.NotifySender);     //Thread for notifier. Runs every _cacheexpire seconds
+            ReceiveThread = new Thread(Run);                    //Run thread. The default UDP Thread
         }
 
+        //Starts the two thread
         public void Start()
         {
             NotifyThread.Start();
             ReceiveThread.Start();
         }
 
+        //Run Thread. Receives incoming messages and parses them to handler
         public void Run()
         {
             while (true)
             {
-                IPEndPoint ipep = default(IPEndPoint);
-                string msg = receiver.ReceiveMulticast(ref ipep);
-                Console.WriteLine("ipep: " + ipep.ToString());
+                IPEndPoint ipep = default(IPEndPoint);              //initiates the IPEndPont as default
+                string msg = receiver.ReceiveMulticast(ref ipep);   //Blocking until new connection. A ref to ipep is parsed, and is set to the endpoint of the sender
+                
+                if(UDP_Debug.DEBUG) {Console.WriteLine("ipep: " + ipep.ToString());}        //Used for debuging. Set in UDP_Debug class
 
-                object[] myArray = new object[2];
-                myArray[0] = msg;
-                myArray[1] = ipep;
-                ThreadPool.QueueUserWorkItem(new WaitCallback(Handler), myArray);
-
-                /*
-                threadPool.Add(new Thread(() => Handler(msg)));     //Explained here: http://goo.gl/6uAgD
-                threadPool[(threadPool.Count-1)].Start();
-                */
+                object[] objPackage = new object[2];
+                objPackage[0] = msg;
+                objPackage[1] = ipep;
+                ThreadPool.QueueUserWorkItem(new WaitCallback(Handler), objPackage);
             }
         }
 
+        //Handler. Initiated in new thread @ incoming message
         public void Handler(object obj)
         {
-            object[] u = (object[]) obj;
-            string msg = (string) u[0];
-            IPEndPoint ipend = (IPEndPoint) u[1];
+            //casting parsed obj:
+            object[] objArray = (object[])obj;              //Casting object to array
+            string msg = (string) objArray[0];              //Cast of Object to string. This is the received message
+            IPEndPoint ipend = (IPEndPoint) objArray[1];    //Cast of Object to IPEndPoint. This is the endpoint of the sender
 
-            //Splitting by string explained here: http://goo.gl/PSdtL
-            String[] splitter = new string[] {"\r\n"};
-            String[] msgArray = msg.Split(splitter, StringSplitOptions.None);
-            //Using overload method of split to take string array
+            //Splits received message for readability
+            String[] splitString = new string[] {"\r\n"};       
+            String[] msgArray = msg.Split(splitString, StringSplitOptions.None);    //Making use of overloaded method string.split. Splitting at string, not char
 
-            bool ret = false;
+            //Todo: Alot of refactoring needed here:
+            //If the first line is from an M-SEARCH:
             if (msgArray[0] == "M-SEARCH * HTTP/1.1")
             {
-                Console.WriteLine("M-SEARCH received!");
-                string k = "";
+                if(UDP_Debug.DEBUG) {Console.WriteLine("M-SEARCH received!");}
 
+                //Runs through strings in array:
                 foreach (string s in msgArray)
                 {
-                    string[] f = s.Split(':');
+                    string[] f = s.Split(':');      //Splits string again
 
-                    //Hvis der er ST på den første plads, så skal den sætte de resterende sammen og sende dem til checkeren
-                    if (f[0] == "ST")
-                    {
-                        for (int i = 2; i < f.Count(); i++)
-                        {
-                            k = k + f[i];
-                        }
-                        ret = checkDeviceType(k);
-                    }
+                    STCheck(f, ipend);      //Checks for "ST"-tag
                 }
             }
             else
             {
-                //Console.WriteLine("Unknown input");
-            }
-
-            if(ret)
-                sender.OKSender(ipend);
+                if(UDP_Debug.DEBUG) {Console.WriteLine("Unknown input");}
+            }               
         }
 
-        public bool checkDeviceType(string s)
+        private void STCheck(string[] f, IPEndPoint ipend)
+        {
+            if (f[0] == "ST")
+            {
+                string k = "";
+                for (int i = 2; i < f.Count(); i++)
+                {
+                    k = k + f[i];
+                }
+                checkDeviceType(k, ipend);
+            }
+        }
+
+        public void checkDeviceType(string s, IPEndPoint ipend)
         {
             if ((s.Contains(IPHandler.GetInstance().DeviceType)) | (s.Contains("rootdevice")))
-                return true;
-            return false;
+            {
+                sender.OKSender(ipend);
+            }
         }
     }
 }
