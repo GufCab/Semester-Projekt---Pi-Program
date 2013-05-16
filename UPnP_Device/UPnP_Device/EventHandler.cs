@@ -56,6 +56,9 @@ namespace UPnP_Device
     {
         public List<Tuple<string, string>> Args { get; private set; }
         public string Action { get; private set; }
+        public delegate void CallBack(List<Tuple<string,string>> args);
+
+        public event CallBack CallBackEvt;
 
         public UPnPEventArgs(List<Tuple<string, string>> argList, string action)
         {

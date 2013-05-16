@@ -50,10 +50,6 @@ namespace UPnP_Device.TCP
         public void Respond(INetworkUtillity utillity)
         {
             string body = XMLreader.Read();
-        
-            //Todo: Device is currently not showing up in Device Spy, because it can't find a proper Service Description.
-            //Todo: Implement one!
-
             string head = "HTTP/1.1 200 OK\r\n" +
                           "CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
                           "CONTENT-LENGTH: " + body.Length + "\r\n";
@@ -71,10 +67,6 @@ namespace UPnP_Device.TCP
                 Console.WriteLine("Exception in Reponse");
                 throw;
             }
-
-            //Console.WriteLine("rec: " + utillity.Receive());
-
-            //Todo: What is happening with TCP connection
         }
         
         
@@ -85,12 +77,10 @@ namespace UPnP_Device.TCP
         private string message = "";
         private string action = "";
         private IOrder orderClass;
-        private OrderFactory orderFactory = new OrderFactory();
 
         public POSTResponder(string ctrl)
         {
             message = ctrl;
-
         }
 
         public void Respond(INetworkUtillity util)
@@ -103,9 +93,8 @@ namespace UPnP_Device.TCP
             {
                 Console.Write(arg + " , ");
             }
-
-            orderClass = orderFactory.GetOrder(action);
-
+            
+            orderClass = new Order(action);
             orderClass.execOrder(util, args);
         }
 
@@ -124,8 +113,6 @@ namespace UPnP_Device.TCP
                     break;
                 }
             }
-            
-            Console.WriteLine(soapLine);
 
             string[] urn = soapLine.Split(':');
             string versionAndAction = urn.Last();
@@ -159,148 +146,31 @@ namespace UPnP_Device.TCP
         void execOrder(INetworkUtillity utillity, List<Tuple<string,string>> argList);
     }
      
-    public class PlayOrder : IOrder
+    public class Order : IOrder
     {
-        private string action = "Play";
+        private string action = "default";
+        private InvokeResponseGen invokeResponseGen;
+        
+        public Order(string order)
+        {
+            action = order;
+            invokeResponseGen = new InvokeResponseGen();
+        }
 
         public void execOrder(INetworkUtillity utillity, List<Tuple<string,string>> argList)
         {
-            var invokeResponseGen = new InvokeResponseGen();
-
+            
             string response = invokeResponseGen.InvokeResponse(action, argList);
 
             Console.WriteLine("invoke answer: \n\r" + response);
-            utillity.Send(response);
-
             var args = new UPnPEventArgs(argList, action);
 
             EventContainer.RaisePlayEvent(this, args);
-            
-            utillity.Close();
-        }
-    }
 
-    public class StopOrder : IOrder
-    {
-        const string action = "Stop";
-
-        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
-        {
-            EventContainer.RaiseStopEvent(this, null);
-
-            var invokeResponseGen = new InvokeResponseGen();
-
-            string response = invokeResponseGen.InvokeResponse(action, argList);
-
-            Console.WriteLine("invoke answer: \n\r" + response);
             utillity.Send(response);
             utillity.Close();
-
-            EventContainer.RaiseStopEvent(this, null);
         }
     }
-
-    public class PauseOrder : IOrder
-    {
-        private const string action = "Pause";
-
-        
-        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
-        {
-            var invokeResponseGen = new InvokeResponseGen();
-
-            string response = invokeResponseGen.InvokeResponse(action, argList);
-
-            Console.WriteLine("invoke answer: \n\r" + response);
-            utillity.Send(response);
-            utillity.Close();
-
-            EventContainer.RaisePauseEvent(this, null);
-        }
-
-        
-    }
-
-    public class PreviousOrder : IOrder
-    {
-        private const string action = "Previous";
-
-
-        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
-        {
-            var invokeResponseGen = new InvokeResponseGen();
-
-            string response = invokeResponseGen.InvokeResponse(action, argList);
-
-            Console.WriteLine("invoke answer: \n\r" + response);
-            utillity.Send(response);
-            utillity.Close();
-
-            EventContainer.RaisePreviousEvent(this, null);
-        }
-    }
-    public class SetTransportURIOrder : IOrder
-    {
-        private const string action = "Next";
-
-
-        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
-        {
-            var invokeResponseGen = new InvokeResponseGen();
-
-            string response = invokeResponseGen.InvokeResponse(action, argList);
-
-            Console.WriteLine("invoke answer: \n\r" + response);
-            utillity.Send(response);
-            utillity.Close();
-
-            foreach (Tuple<string, string> tuple in argList)
-            {
-                Console.WriteLine("Argument: " + tuple.Item1 + " Has value: " + tuple.Item2);
-            }
-
-            EventContainer.RaiseSetAVTransportURIEvent(this, null);
-        }
-    }
-    public class NextOrder : IOrder
-    {
-        private const string action = "Next";
-
-
-        public void execOrder(INetworkUtillity utillity, List<Tuple<string, string>> argList)
-        {
-            var invokeResponseGen = new InvokeResponseGen();
-
-            string response = invokeResponseGen.InvokeResponse(action, argList);
-
-            Console.WriteLine("invoke answer: \n\r" + response);
-            utillity.Send(response);
-            utillity.Close();
-
-            EventContainer.RaiseNextEvent(this, null);
-        }
-    }
-
-    public class OrderFactory
-    {
-        private Dictionary<string, IOrder> _strat= new Dictionary<string,IOrder>(); 
-
-        public OrderFactory()
-        {
-            _strat.Add("Play", new PlayOrder());
-            _strat.Add("Stop", new StopOrder());
-            _strat.Add("Next", new NextOrder());
-            _strat.Add("Pause", new PauseOrder());
-            _strat.Add("Previous", new PreviousOrder());
-            _strat.Add("SetAVTransportURI", new SetTransportURIOrder());
-        }
-
-        public IOrder GetOrder(string ord)
-        {
-            
-            return _strat[ord];
-        }
-
-        
-    } 
+     
+ 
 }
