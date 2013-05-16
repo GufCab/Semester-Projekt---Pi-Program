@@ -21,7 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\UPnP_DeviceDoc.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,7 +57,11 @@
     <Compile Include="UDP\MulticastReceiver.cs" />
     <Compile Include="UDP\MulticastSender.cs" />
     <Compile Include="UDP\UDP_Debug.cs" />
+    <Compile Include="UPnPConfig\EventConfig.cs" />
+    <Compile Include="UPnPConfig\UPnPConfig.cs" />
+    <Compile Include="UPnPConfig\UPnPConfigPackage.cs" />
     <Compile Include="UPnPMain.cs" />
+    <Compile Include="UPnPConfig\IpConfig.cs" />
     <Compile Include="UPnP\UPnPEvents.cs" />
     <Compile Include="XMLReader.cs" />
     <Compile Include="XMLWriter1.cs" />
