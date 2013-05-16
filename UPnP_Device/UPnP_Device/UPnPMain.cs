@@ -23,7 +23,7 @@ namespace UPnP_Device
     public class UPnPMain : IUPnPMain
     {
         //private TCPReceiver tcpReceiver;
-        private UDPServer udpServer;
+        private UDPHandler _udpHandler;
 
         private const int cacheExpire = 1800; //Cache expire in seconds
         private const int port = 52000;
@@ -52,8 +52,8 @@ namespace UPnP_Device
 
             server = new TcpServer(localIP, port);
 
-            udpServer = new UDPServer(UUID, cacheExpire, localIP, port);
-            udpServer.Start();
+            _udpHandler = new UDPHandler(UUID, cacheExpire, localIP, port);
+            _udpHandler.Start();
 
             TCP.EventContainer.PlayEvent += new TCP.EventContainer.PlayOrderHandler(ListenToPlay);
             TCP.EventContainer.NextEvent += new TCP.EventContainer.NextOrderHandler(ListenToNext);
