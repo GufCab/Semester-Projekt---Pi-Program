@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UPnP_Device;
 
 namespace UPnP_Device
 {
+    
     public class EventHandler
     {
         public delegate void UPnPEventDel(object e, List<Tuple<string,string>> args, string action);
 
         public event UPnPEventDel UPnPEvent;
-
+        /*
         public void SubscribeToEvents()
         {
             TCP.EventContainer.PlayEvent += new TCP.EventContainer.PlayOrderHandler(ListenToPlay);
@@ -50,17 +52,15 @@ namespace UPnP_Device
         {
             UPnPEvent(null, args.Args, args.Action);
         }
+         * */
     }
-
+    
     public delegate void CallBack(List<Tuple<string, string>> argList, string action);
 
     public class UPnPEventArgs : EventArgs
     {
         public List<Tuple<string, string>> Args { get; private set; }
         public string Action { get; private set; }
-        public delegate CallBack callBack();
-
-        
 
         public UPnPEventArgs(List<Tuple<string, string>> argList, string action)
         {
@@ -68,4 +68,5 @@ namespace UPnP_Device
             Action = action;
         }
     }
+     
 }

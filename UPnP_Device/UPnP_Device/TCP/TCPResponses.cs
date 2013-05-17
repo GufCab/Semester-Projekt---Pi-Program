@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
+using UPnP_Device.XML;
 
 namespace UPnP_Device.TCP
 {
@@ -94,8 +95,8 @@ namespace UPnP_Device.TCP
                 Console.Write(arg + " , ");
             }
             
-            orderClass = new Order(action);
-            orderClass.execOrder(util, args);
+            orderClass = new Order(action, util);
+            orderClass.execOrder(args);
         }
 
         //Determine the action type
@@ -143,32 +144,56 @@ namespace UPnP_Device.TCP
     /// </summary>
     public interface IOrder
     {
-        void execOrder(INetworkUtillity utillity, List<Tuple<string,string>> argList);
+        void execOrder(List<Tuple<string,string>> argList);
     }
      
     public class Order : IOrder
     {
         private string action = "default";
         private InvokeResponseGen invokeResponseGen;
+        private INetworkUtillity util;
+        private System.Timers.Timer timer;
         
-        public Order(string order)
+        public Order(string order, INetworkUtillity utillity)
         {
             action = order;
             invokeResponseGen = new InvokeResponseGen();
+            util = utillity;
+
+            timer = new System.Timers.Timer();
         }
 
-        public void execOrder(INetworkUtillity utillity, List<Tuple<string,string>> argList)
+        public void execOrder(List<Tuple<string,string>> argList)
         {
-            
-            string response = invokeResponseGen.InvokeResponse(action, argList);
-
-            Console.WriteLine("invoke answer: \n\r" + response);
             var args = new UPnPEventArgs(argList, action);
+            CallBack cb = new CallBack(CallBackFunction);
+            EventContainer.RaisePlayEvent(this, args, cb);
 
-            EventContainer.RaisePlayEvent(this, args);
 
-            utillity.Send(response);
-            utillity.Close();
+  
+        }
+
+        public void CallBackFunction(List<Tuple<string, string>> argList, string act)
+        {
+            if (util.IsConnected())
+            {
+                string response = invokeResponseGen.InvokeResponse(action, argList);
+
+                Console.WriteLine("invoke answer: \n\r" + response);
+
+                util.Send(response);
+                util.Close();
+            }
+        }
+
+        private void ConnectionTimedOut()
+        {
+            if (util.IsConnected())
+            {
+                //Todo: respond with error message
+                //Close connection.
+            }
+            
         }
     }
      

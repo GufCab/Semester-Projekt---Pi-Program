@@ -12,6 +12,7 @@ namespace UPnP_Device
         string Receive();
         void Close();
         void Send(string msg);
+        bool IsConnected();
     }
 
     public class NetworkUtillity : INetworkUtillity
@@ -76,6 +77,11 @@ namespace UPnP_Device
             }
 
             
+        }
+
+        public bool IsConnected()
+        {
+            return _client.Connected;
         }
 
         public void Close()

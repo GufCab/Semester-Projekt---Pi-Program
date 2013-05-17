@@ -52,9 +52,7 @@ namespace UPnP_Device
             Console.WriteLine("main ip: " + localIP);
 
             XMLWriter1 wr = new XMLWriter1();
-            eventHandler = new EventHandler();
-            eventHandler.SubscribeToEvents();
-
+            
             wr.genDeviceDescription();
             wr.genServiceXmlAVTransport();
             //wr.genServiceXmlConnectionManager();

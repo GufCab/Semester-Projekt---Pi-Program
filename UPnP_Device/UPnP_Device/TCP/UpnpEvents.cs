@@ -13,13 +13,13 @@ namespace UPnP_Device.TCP
     /// </summary>
     public static class EventContainer
     {
-        public delegate void PlayOrderHandler(object e, UPnPEventArgs args);
+        public delegate void PlayOrderHandler(object e, UPnPEventArgs args, CallBack cb);
 
         //Har her lavet en triviel handler, så der aldrig er null subscribers. 
         public static event PlayOrderHandler PlayEvent = delegate { };
-        public static void RaisePlayEvent(object e, UPnPEventArgs args)
+        public static void RaisePlayEvent(object e, UPnPEventArgs args, CallBack cb)
         {
-            PlayEvent(e, args);
+            PlayEvent(e, args, cb);
         }
 
         public delegate void StopOrderHandler(object e, UPnPEventArgs args);
