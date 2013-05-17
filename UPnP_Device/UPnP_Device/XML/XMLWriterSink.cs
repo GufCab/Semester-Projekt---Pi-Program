@@ -13,9 +13,9 @@ namespace UPnP_Device.XML
     {
         public string descriptionsPath = @"Descriptions/";
         public string filename = "desc.xml";
-        public string servicePath = @"/serviceDescription/";
-        public string ConnectionManagerServicePath = @"ConnectionManager/serviceDescription/";
+        public string AVTransportServicePath = @"AVTransport/serviceDescription/";
         public string RenderingControlServicePath = @"RenderingControl/serviceDescription/";
+        public string servicePath = "/serviceDescription/";
         
         //List<string> 
 
@@ -71,7 +71,7 @@ namespace UPnP_Device.XML
 
             XmlElement modelDescription = doc.CreateElement("modelDescription");
             device.AppendChild(modelDescription);
-            modelDescription.InnerText = UPnPConfig.ModelDesc;
+            modelDescription.InnerText = UPnPConfig.ModelDescription;
 
             XmlElement modelName = doc.CreateElement("modelName");
             device.AppendChild(modelName);
@@ -156,12 +156,19 @@ namespace UPnP_Device.XML
             //for debug
             doc.Save("DeviceDescDebug.xml");
             
-            if (File.Exists(descriptionsPath + filename))
-                File.Delete(descriptionsPath + filename);
-            using (var fs = new FileStream(descriptionsPath + filename, FileMode.Create))
+            SaveFile(doc.OuterXml, "");
+        }
+
+        public void SaveFile(string xml, string servicePath)
+        {
+            if (Directory.Exists(Path.GetDirectoryName(descriptionsPath + servicePath)) == false)
+            {
+                Directory.CreateDirectory(descriptionsPath + servicePath);
+            }
+            using (var fs = new FileStream(descriptionsPath + servicePath + filename, FileMode.Create))
             using (var sw = new StreamWriter(fs, Encoding.UTF8))
             {
-                sw.Write(doc.OuterXml);
+                sw.Write(xml);
                 sw.Close();
             }
         }
@@ -517,18 +524,7 @@ namespace UPnP_Device.XML
             //for debug
             doc.Save("ServiceXMLAVTransport.xml");
 
-            if (Directory.Exists(Path.GetDirectoryName(descriptionsPath + servicePath)) == false)
-            {
-                Directory.CreateDirectory(descriptionsPath + servicePath);
-            }
-            if (File.Exists(descriptionsPath + servicePath + filename))
-                File.Delete(descriptionsPath + servicePath + filename);
-            using (var fs = new FileStream(descriptionsPath + servicePath + filename, FileMode.Create))
-            using (var sw = new StreamWriter(fs, Encoding.UTF8))
-            {
-                sw.Write(doc.OuterXml);
-                sw.Close();
-            }
+            SaveFile(doc.OuterXml, AVTransportServicePath);
         }
         
         public void genServiceXmlRenderingControl()

@@ -16,23 +16,23 @@ namespace UPnP_Device
     {
         public UPnPConfigPackage GetUPnPConfigPackage()
         {
-            IXMLWriter xmlWriterSink = new XMLWriterSink();
+            IXMLWriter XmlWriterSink = new XMLWriterSink();
             IIpConfig IPConfig = new SinkIPConfig(52000);
-            IUPnPConfig UPnPConfig = new SinkUPnPConfig(1800);
+            IUPnPConfig UPnPConfig = new UPnPConfig.UPnPConfig(1800);
             
-            return new UPnPConfigPackage(IPConfig, UPnPConfig, xmlWriterSink);
+            return new UPnPConfigPackage(IPConfig, UPnPConfig, XmlWriterSink);
         }
     }
-
+    /*
     public class ConfigInjectorSource : IConfigInjector
     {
         public UPnPConfigPackage GetUPnPConfigPackage()
         {
-            IXMLWriter xmlWriterSink = new XMLWriterSink();
+            IXMLWriter XmlWriterSink = new XMLWriterSink();
             IIpConfig IPConfig = new SourceIPConfig(52001);
             IUPnPConfig UPnPConfig = new SourceUPnPConfig(1800);
 
-            return new UPnPConfigPackage(IPConfig, UPnPConfig, xmlWriterSink);
+            return new UPnPConfigPackage(IPConfig, UPnPConfig, XmlWriterSink);
         }
-    }
+    }*/
 }

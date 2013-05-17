@@ -2,80 +2,111 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace UPnP_Device.UPnPConfig
 {
     public interface IUPnPConfig
     {
         List<string> NT { get; }
-        List<string> services { get; }
         int cacheExpire { get; }
 
         //UPnP description details:
+        List<string> services { get; set; }
         string friendlyName { get; set; }
         string DeviceSchema { get; set; }
         string Manufacturer { get; set; }
         string ModelName { get; set; }
-        string ModelDesc { get; set; }
+        string ModelDescription { get; set; }
         string ManufacturerURL { get; set; }
         string DeviceType { get; set; }
-        //Todo: Add other upnp info used in XML
+
+        void LoadConfig(string path);
     }
     
-    public class SinkUPnPConfig : IUPnPConfig
+    public class UPnPConfig : IUPnPConfig
     {
         public List<string> NT { get; private set; }
-
         public int cacheExpire { get; private set; }
 
+        //UPnP description details:
+        public List<string> services { get; set; }
         public string friendlyName { get; set; }
         public string DeviceSchema { get; set; }
         public string Manufacturer { get; set; }
         public string ModelName { get; set; }
-        public string ModelDesc { get; set; }
+        public string ModelDescription { get; set; }
         public string ManufacturerURL { get; set; }
         public string DeviceType { get; set; }
-
-        public List<string> services { get; }
-
-        //Todo: Contructor should take some NT's in some way
-        public SinkUPnPConfig()
-        {
-            cacheExpire = 30 * 60 * 1000;
-            contruct();
-        }
         
-        public SinkUPnPConfig(int expireTime)
-        {
-            cacheExpire = expireTime * 1000;
-            contruct();
-        }
-
-        //Everything that should be done in all the overloads of the contructor
-        private void contruct()
+        //Todo: Contructor should take some NT's in some way
+        public UPnPConfig()
         {
             services = new List<string>();
-            services.Add("AVTransport:1");
-            services.Add("RenderingControl:1");
+            cacheExpire = 30 * 60 * 1000;
+        }
+        
+        public UPnPConfig(int expireTime)
+        {
+            services = new List<string>();
+            cacheExpire = expireTime * 1000;
+        }
+        
+        public void LoadConfig(string path)
+        {
+            using (StreamReader streamReader = new StreamReader(path))
+            {
+                List<string> lines = new List<string>();
+                string line = string.Empty;
 
-            DeviceType = "urn:schemas-upnp-org:device:MediaRenderer:1";
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    lines.Add(line);
+                }
+
+                SetProperties(lines);
+            }
+        }
+
+        private void SetProperties(List<string> configInfo)
+        {
+            friendlyName = configInfo[0];
+            DeviceSchema = configInfo[1];
+            Manufacturer = configInfo[2];
+            ModelName = configInfo[3];
+            ModelDescription = configInfo[4];
+            ManufacturerURL = configInfo[5];
+            DeviceType = configInfo[6];
             
+            configInfo.RemoveRange(0, 7);
+
+            foreach (string s in configInfo)
+            {
+                services.Add(s);
+            }
+
+            Contruct();
+        }
+        
+        private void Contruct()
+        {
             NT = new List<string>();
             NT.Add("upnp:rootdevice");
             NT.Add(DeviceType);
+
             foreach (string s in services)
             {
                 NT.Add("urn:schemas-upnp-org:service:" + s);
             }
-
-            DeviceSchema = "urn:schemas-upnp-org:device::";
-            friendlyName = "HiPi_Sink";
         }
     }
 
+    /*
+    //Todo: check that everything is implemented as above
     public class SourceUPnPConfig : IUPnPConfig
     {
         public List<string> NT { get; private set; }
+        public List<string> services { get; set; }
 
         public int cacheExpire { get; private set; }
 
@@ -83,7 +114,7 @@ namespace UPnP_Device.UPnPConfig
         public string DeviceSchema { get; set; }
         public string Manufacturer { get; set; }
         public string ModelName { get; set; }
-        public string ModelDesc { get; set; }
+        public string ModelDescription { get; set; }
         public string ManufacturerURL { get; set; }
         public string DeviceType { get; set; }
 
@@ -103,14 +134,21 @@ namespace UPnP_Device.UPnPConfig
         //Everything that should be done in all the overloads of the contructor
         private void contruct()
         {
-            DeviceType = "urn:schemas-upnp-org:device:MediaServer:1"; 
+            services = new List<string>();
+            services.Add("ContentDirectory:1");
+            
+            DeviceType = "urn:schemas-upnp-org:device:MediaServer:1";
+
             NT = new List<string>();
             NT.Add("upnp:rootdevice");
             NT.Add(DeviceType);
-            NT.Add("urn:schemas-upnp-org:service:ContentDirectory:1");
+            foreach (string s in services)
+            {
+                NT.Add("urn:schemas-upnp-org:service:" + s);
+            }
 
             DeviceSchema = "urn:schemas-upnp-org:device::";
-            friendlyName = "HiPi";
+            friendlyName = "HiPi_Source";
         }
-    }
+    }*/
 }
