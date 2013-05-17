@@ -10,10 +10,12 @@ namespace PlaybackCtrl
     {
         private IWrapper Player;
         private IPlaylistHandler Playlist;
+        private IUPnPSink UPnPSink;
 
         //Constructor:
-        public PlaybackControl()
+        public PlaybackControl(IUPnPSink sink)
         {
+            UPnPSink = sink;
             Player = new MPlayerWrapper();
             Playlist = new PlaylistHandler(); //Forbindelse til DB laves i DBInterface.cs
             SubscribeToWrapper();
@@ -35,6 +37,12 @@ namespace PlaybackCtrl
         public void Play()
         {
             var myTrack = Playlist.GetNextTrack();
+            Player.PlayTrack(myTrack.Path);
+        }
+
+        public void PlayAt(int index)
+        {
+            var myTrack = Playlist.GetTrack(index);
             Player.PlayTrack(myTrack.Path);
         }
 
@@ -78,11 +86,12 @@ namespace PlaybackCtrl
 
         private void SubscribeToWrapper()
         {
-            Player.EOF_Event += AiksVeryOwnSpecialHandler;
+            Player.EOF_Event += NewSongHandler;
         }
 
         private void SubscribeToSink()
         {
+            UPnPSink.UPnP_Events += UPnPHandler;
             //When UPnPInvoke happens, call UPnPHandler
         }
 
@@ -96,10 +105,10 @@ namespace PlaybackCtrl
             //Raise callback event
         }
 
-        private void AiksVeryOwnSpecialHandler(object e, EventArgs args)
+        private void NewSongHandler (object e, EventArgs args)
         {
-            //Her skal playbackctrl finde ud af hvad der skal ske (bliver kaldt når sangen er slut)
-            if (Playlist.GetNumberOfTracks() > 0)
+            //Afspiller næste sang. Hvis playqueue er tom afsluttes afspilning
+            if (Playlist.GetNumberOfTracks() > Playlist.GetCurrentTrackIndex())
             {
                 Next();
             }
