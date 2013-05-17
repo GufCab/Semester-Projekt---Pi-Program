@@ -36,7 +36,7 @@ namespace PlaybackCtrl
             throw new NotImplementedException();
         }
 
-        //Ser om listen er tom
+        //Returnerer antal numre i playqueuen
         public int GetNumberOfTracks()
         {
             throw new NotImplementedException();

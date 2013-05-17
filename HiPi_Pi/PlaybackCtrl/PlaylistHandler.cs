@@ -7,10 +7,6 @@ namespace PlaybackCtrl
 {
     /// <summary>
     /// IPlaylistHandler kan holde styr på en "afspilningskø".
-    /// Når man kalder GetNextTrack, bliver det næste nummer returneret.
-    /// Hvis man anvener den overloaded version afGetNextTrack(int index), får man et nummer på et bestemt index
-    /// 
-    /// Det sammme gør sig gældende ved Add metoden
     /// </summary>
     public interface IPlaylistHandler
     {
@@ -20,46 +16,46 @@ namespace PlaybackCtrl
         
         void AddToPlayQue(string src);
         void AddToPlayQue(string src, int index);
+
+        int GetNumberOfTracks();
+        int GetCurrentTrackIndex();
+        ITrack GetCurrentTrack();
     }
 
     public class PlaylistHandler : IPlaylistHandler
     {
         private IPlayQueueDB _playQ;
-        private int _currentTrack = 0;
+        private int _currentTrackIndex = 0;
+        private ITrack _currentTrack;
 
         public PlaylistHandler()
         {
             _playQ = new PlayQueueDB();
+            _currentTrack = new Track();
         }
 
         public ITrack GetNextTrack()
         {
-            _currentTrack++;
-            ITrack trk = new Track();
-            _playQ.GetTrack(_currentTrack);
-            //Convert MetaData to Track
-            return trk;
+            _currentTrackIndex++;
+            _currentTrack = _playQ.GetTrack(_currentTrackIndex); //Needs to convert from Metadata to Track
+            return _currentTrack;
         }
-        
+
         public ITrack GetPrevTrack()
         {
-            if (_currentTrack > 0)
+            if (_currentTrackIndex > 0)
             {
-                _currentTrack--;
+                _currentTrackIndex--;
             }
-            ITrack trk = new Track();
-            _playQ.GetTrack(_currentTrack);
-            //Convert MetaData to Track
-            return trk;
+            _currentTrack = _playQ.GetTrack(_currentTrackIndex);  //Needs to convert from Metadata to Track
+            return _currentTrack;
         }
 
         public ITrack GetTrack(int index)
         {
-            _currentTrack = index;
-            ITrack trk = new Track();
-            _playQ.GetTrack(_currentTrack);
-            //Convert MetaData to Track
-            return trk;
+            _currentTrackIndex = index;
+            _currentTrack = _playQ.GetTrack(_currentTrackIndex);  //Needs to convert from Metadata to Track
+            return _currentTrack;
         }
 
         public void AddToPlayQue(string s)
@@ -69,73 +65,22 @@ namespace PlaybackCtrl
 
         public void AddToPlayQue(string s, int index)
         {
-            _playQ.AddToPlayQueue(s,index);
+            _playQ.AddToPlayQueue(s, index);
+        }
+
+        public int GetNumberOfTracks()
+        {
+            return _playQ.GetNumberOfTracks();
+        }
+
+        public int GetCurrentTrackIndex()
+        {
+            return _currentTrackIndex;
+        }
+
+        public ITrack GetCurrentTrack()
+        {
+            return _currentTrack;
         }
     }
-
-    public class DummyPlaylistHandler : IPlaylistHandler
-    {
-        private ITrack CurTrk;
-
-
-        public ITrack GetNextTrack()
-        {
-            if (CurTrk != null)
-            {
-                return CurTrk;
-            }
-
-            //else:
-            ITrack trk = new Track();
-            trk.Protocol = "rtsp://";
-            trk.DeviceIP = "127.0.0.1/";
-            trk.Path = "";
-            trk.FileName = "Jump.mp3";
-            
-            trk.Title = "Jump";
-
-            return trk;
-        }
-
-
-        public ITrack GetTrack(int index)
-        {
-            var trk = new Track();
-            trk.Protocol = "rtsp://";
-            trk.DeviceIP = "127.0.0.1/";
-            trk.Path = "";
-            trk.FileName = "Jump.mp3";
-
-            return trk;
-        }
-
-        public ITrack GetPrevTrack()
-        {
-            var trk = new Track();
-            trk.Protocol = "rtsp://";
-            trk.DeviceIP = "127.0.0.1/";
-            trk.Path = "";
-            trk.FileName = "Jump.mp3";
-
-            return trk;
-        }
-
-
-        public void AddToPlayQue(string path)
-        {
-            if (CurTrk == null)
-            {
-                CurTrk = new Track();
-            }
-            //Add the track at path to the bottom of the playqueue
-            CurTrk.Path = path;
-        }
-
-        public void AddToPlayQue(string path, int index)
-        {
-            //Add the track at path to position index of the playqueue
-        }
-    }
-
-
 }
