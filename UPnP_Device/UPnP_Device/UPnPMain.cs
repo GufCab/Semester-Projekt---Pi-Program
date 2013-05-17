@@ -16,6 +16,18 @@ namespace UPnP_Device
         
     }
 
+    public class XMLWriter1
+    {
+        public void genDeviceDescription()
+        {
+            
+        }
+        public void genServiceXmlAVTransport()
+        {
+            
+        }
+    }
+
     public class UPnPMain : IUPnPMain
     {
         //private TCPReceiver tcpReceiver;
