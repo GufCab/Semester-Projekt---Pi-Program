@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using UPnP_Device.UPnP;
+using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.XML
 {
@@ -11,13 +13,15 @@ namespace UPnP_Device.XML
     {
         public string descriptionsPath = @"Descriptions/";
         public string filename = "desc.xml";
-        public string AVTservicePath = @"AVTransport/serviceDescription/";
+        public string servicePath = @"/serviceDescription/";
         public string ConnectionManagerServicePath = @"ConnectionManager/serviceDescription/";
         public string RenderingControlServicePath = @"RenderingControl/serviceDescription/";
+        
+        //List<string> 
 
         //DeviceArchitecture s.51
         //generates device XML
-        public void GenDeviceDescription()
+        public void GenDeviceDescription(IUPnPConfig UPnPConfig)
         {
             #region setup
 
@@ -51,27 +55,27 @@ namespace UPnP_Device.XML
 
             XmlElement deviceType = doc.CreateElement("deviceType");
             device.AppendChild(deviceType);
-            deviceType.InnerText = "urn:schemas-upnp-org:device:MediaRenderer:1";
+            deviceType.InnerText = UPnPConfig.DeviceType;
 
             XmlElement friendlyName = doc.CreateElement("friendlyName");
             device.AppendChild(friendlyName);
-            friendlyName.InnerText = "HiPi";
+            friendlyName.InnerText = UPnPConfig.friendlyName;
 
             XmlElement manufacturer = doc.CreateElement("manufacturer");
             device.AppendChild(manufacturer);
-            manufacturer.InnerText = "Gruppe 8";
+            manufacturer.InnerText = UPnPConfig.Manufacturer;
 
             XmlElement manufacturerURL = doc.CreateElement("manufacturerURL");
             device.AppendChild(manufacturerURL);
-            manufacturerURL.InnerText = " ";
+            manufacturerURL.InnerText = UPnPConfig.ManufacturerURL;
 
             XmlElement modelDescription = doc.CreateElement("modelDescription");
             device.AppendChild(modelDescription);
-            modelDescription.InnerText = "Social Soundsystem";
+            modelDescription.InnerText = UPnPConfig.ModelDesc;
 
             XmlElement modelName = doc.CreateElement("modelName");
             device.AppendChild(modelName);
-            modelName.InnerText = "HiPi";
+            modelName.InnerText = UPnPConfig.ModelName;
 
             XmlElement udn = doc.CreateElement("UDN");
             device.AppendChild(udn);
@@ -88,34 +92,38 @@ namespace UPnP_Device.XML
             XmlElement service = doc.CreateElement("service");
             serviceList.AppendChild(service);
 
-            XmlElement serviceType = doc.CreateElement("serviceType");
-            service.AppendChild(serviceType);
-            serviceType.InnerText = "urn:schemas-upnp-org:service:AVTransport:1";
+            foreach (string s in UPnPConfig.services)
+            {
+                XmlElement serviceType = doc.CreateElement("serviceType");
+                service.AppendChild(serviceType);
+                serviceType.InnerText = "urn:schemas-upnp-org:service:" + s;
 
-            XmlElement serviceId = doc.CreateElement("serviceId");
-            service.AppendChild(serviceId);
-            //serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport.0001";
-            serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport";
+                XmlElement serviceId = doc.CreateElement("serviceId");
+                service.AppendChild(serviceId);
+                //serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport.0001";
+                serviceId.InnerText = "urn:upnp-org:serviceId:" + s;
 
-            XmlElement SCPDURL = doc.CreateElement("SCPDURL");
-            service.AppendChild(SCPDURL);
-            //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
-           // SCPDURL.InnerText = "serviceDescripton.xml";
-            SCPDURL.InnerText = AVTservicePath;
+                XmlElement SCPDURL = doc.CreateElement("SCPDURL");
+                service.AppendChild(SCPDURL);
+                //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
+                // SCPDURL.InnerText = "serviceDescripton.xml";
+                SCPDURL.InnerText = s.Split(':')[0] + servicePath;
 
-            XmlElement controlURL = doc.CreateElement("controlURL");
-            service.AppendChild(controlURL);
-            //controlURL.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_control";
-            controlURL.InnerText = "";
+                XmlElement controlURL = doc.CreateElement("controlURL");
+                service.AppendChild(controlURL);
+                //controlURL.InnerText = "urn:upnp-org:serviceId:AVTransport.0001_control";
+                controlURL.InnerText = "";
 
-            XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
-            service.AppendChild(eventSubUrl);
-            eventSubUrl.InnerText = " ";
+                XmlElement eventSubUrl = doc.CreateElement("eventSubURL");
+                service.AppendChild(eventSubUrl);
+                eventSubUrl.InnerText = "";
+            }
 
             #endregion
             
+            //ATTENTION: Outcommented:
             #region RenderingControl
-            
+            /*
             service = doc.CreateElement("service");
             serviceList.AppendChild(service);
 
@@ -142,7 +150,7 @@ namespace UPnP_Device.XML
             eventSubUrl = doc.CreateElement("eventSubURL");
             service.AppendChild(eventSubUrl);
             eventSubUrl.InnerText = " ";
-            
+            */
             #endregion
 
             //for debug
@@ -509,13 +517,13 @@ namespace UPnP_Device.XML
             //for debug
             doc.Save("ServiceXMLAVTransport.xml");
 
-            if (Directory.Exists(Path.GetDirectoryName(descriptionsPath + AVTservicePath)) == false)
+            if (Directory.Exists(Path.GetDirectoryName(descriptionsPath + servicePath)) == false)
             {
-                Directory.CreateDirectory(descriptionsPath + AVTservicePath);
+                Directory.CreateDirectory(descriptionsPath + servicePath);
             }
-            if (File.Exists(descriptionsPath + AVTservicePath + filename))
-                File.Delete(descriptionsPath + AVTservicePath + filename);
-            using (var fs = new FileStream(descriptionsPath + AVTservicePath + filename, FileMode.Create))
+            if (File.Exists(descriptionsPath + servicePath + filename))
+                File.Delete(descriptionsPath + servicePath + filename);
+            using (var fs = new FileStream(descriptionsPath + servicePath + filename, FileMode.Create))
             using (var sw = new StreamWriter(fs, Encoding.UTF8))
             {
                 sw.Write(doc.OuterXml);

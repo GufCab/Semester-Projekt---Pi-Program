@@ -7,6 +7,6 @@ namespace UPnP_Device.XML
 {
     /*class XMLWriterSource : IXMLWriter
     {
-
+        public Gen
     }*/
 }

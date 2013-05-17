@@ -14,13 +14,13 @@ namespace UPnP_Device
         {
             Console.WriteLine("Entry point");
             
-            UPnPMain main = new UPnPMain();
+            //UPnPMain main = new UPnPMain();
 
-            /*
+            
             var writer = new XMLWriterSink();
             writer.GenDeviceDescription();
             writer.GenServiceDescription();
-            */
+            
 
             Console.ReadLine();
         }

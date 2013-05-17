@@ -16,13 +16,13 @@ namespace UPnP_Device.UPnPConfig
         int TCPPort { get; }
     }
 
-    public class SinkConfig : IIpConfig
+    public class SinkIPConfig : IIpConfig
     {
         public string GUID { get; private set; }
         public string IP { get; private set; }
         public int TCPPort { get; private set; }
 
-        public SinkConfig(int tcpportnr)
+        public SinkIPConfig(int tcpportnr)
         {
             GUID = GetGUID();
             IP = GetOwnIp();
@@ -76,13 +76,13 @@ namespace UPnP_Device.UPnPConfig
 
     }
 
-    public class SourceConfig : IIpConfig
+    public class SourceIPConfig : IIpConfig
     {
         public string GUID { get; private set; }
         public string IP { get; private set; }
         public int TCPPort { get; private set; }
 
-        public SourceConfig(int tcpportnr)
+        public SourceIPConfig(int tcpportnr)
         {
             GUID = GetGUID();
             IP = GetOwnIp();
