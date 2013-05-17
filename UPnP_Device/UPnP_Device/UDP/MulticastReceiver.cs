@@ -5,16 +5,19 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.UDP
 {
     public class MulticastReceiver
     {
         //Local variables
+        /*
         private string _UUID;
         private int _cacheexpire;
         private string _localip;
         private int _tcpport;
+         */
 
         //multicast variables:
         private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
@@ -22,18 +25,22 @@ namespace UPnP_Device.UDP
 
         private static UdpClient recClient;
         private static IPEndPoint recIPep;
-        private static Byte[] recBuffer;
 
-         
-
-        //Contructor:
-        public MulticastReceiver(string uuid, int cacheexpire, string localip, int tcpport)
+        public MulticastReceiver()
         {
-            //Local variables
-            _UUID = uuid;
-            _cacheexpire = cacheexpire;
-            _localip = localip;
-            _tcpport = tcpport; 
+            SetupMulticastReceiver();
+        }
+
+        //Todo: should probably be removed:
+        public MulticastReceiver(IIpConfig ipconf, IUPnPConfig upnpconf)
+        {
+            /*
+            _UUID = ipconf.GUID;
+            _cacheexpire = upnpconf.cacheExpire;
+            _localip = ipconf.IP;
+            _tcpport = ipconf.TCPPort;
+            * */
+
             SetupMulticastReceiver();
         }
 

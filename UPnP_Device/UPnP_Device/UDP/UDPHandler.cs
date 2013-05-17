@@ -5,42 +5,40 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.UDP
 {
     public class UDPHandler
     {
-        private string _UUID;
-        private int _cacheexpire;
-        private string _localip;
-        private int _tcpport;
-
-        //private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
-        //private static readonly int multicastPort = 1900;
-
         public MulticastSender sender;
         public MulticastReceiver receiver;
 
         private Thread NotifyThread;
         private Thread ReceiveThread;
-
-        private List<Thread> threadPool = new List<Thread>();
         
-        //Exlicit contructor. Takes arguments used for UDP communication
-        public UDPHandler(string uuid, int cacheexpire, string localip, int tcpport)
+        //Explicit contructor that takes the UPnPConfig classes:
+        public UDPHandler(IIpConfig ipconf, IUPnPConfig upnpconf)
         {
-            //Set private attributes:
-            _UUID = uuid;
-            _cacheexpire = cacheexpire;
-            _localip = localip;
-            _tcpport = tcpport;
-
-            sender = new MulticastSender(_UUID, _cacheexpire, _localip, _tcpport);          //Creates sender
-            receiver = new MulticastReceiver(_UUID, _cacheexpire, _localip, _tcpport);      //Creates receiver
+            sender = new MulticastSender(ipconf, upnpconf);          //Creates sender
+            receiver = new MulticastReceiver();
+            //receiver = new MulticastReceiver(ipconf, upnpconf);     //Creates receiver
 
             NotifyThread = new Thread(sender.NotifySender);     //Thread for notifier. Runs every _cacheexpire seconds
             ReceiveThread = new Thread(Run);                    //Run thread. The default UDP Thread
         }
+
+        /* //Todo: Should probably be removed:
+        //Exlicit contructor. Takes arguments used for UDP communication
+        public UDPHandler(string uuid, int cacheexpire, string localip, int tcpport)
+        {
+            sender = new MulticastSender(uuid, cacheexpire, localip, tcpport);          //Creates sender
+            receiver = new MulticastReceiver(uuid, cacheexpire, localip, tcpport);      //Creates receiver
+
+            NotifyThread = new Thread(sender.NotifySender);     //Thread for notifier. Runs every _cacheexpire seconds
+            ReceiveThread = new Thread(Run);                    //Run thread. The default UDP Thread
+        
+         */
 
         //Starts the two thread
         public void Start()
@@ -70,9 +68,9 @@ namespace UPnP_Device.UDP
         public void Handler(object obj)
         {
             //casting parsed obj:
-            object[] objArray = (object[])obj;              //Casting object to array
-            string msg = (string) objArray[0];              //Cast of Object to string. This is the received message
-            IPEndPoint ipend = (IPEndPoint) objArray[1];    //Cast of Object to IPEndPoint. This is the endpoint of the sender
+            object[] objArray = (object[])obj;              //Casting objects and object array
+            string msg = (string) objArray[0];              
+            IPEndPoint ipend = (IPEndPoint) objArray[1];    
 
             //Splits received message for readability
             String[] splitString = new string[] {"\r\n"};       
@@ -84,18 +82,13 @@ namespace UPnP_Device.UDP
             {
                 if(UDP_Debug.DEBUG) {Console.WriteLine("M-SEARCH received!");}
 
-                //Runs through strings in array:
                 foreach (string s in msgArray)
                 {
-                    string[] f = s.Split(':');      //Splits string again
-
-                    STCheck(f, ipend);      //Checks for "ST"-tag
+                    string[] f = s.Split(':');  
+                    STCheck(f, ipend);          //Checks for "ST"-tag
                 }
             }
-            else
-            {
-                if(UDP_Debug.DEBUG) {Console.WriteLine("Unknown input");}
-            }               
+            else if (UDP_Debug.DEBUG) { Console.WriteLine("Unknown input"); }              
         }
 
         private void STCheck(string[] f, IPEndPoint ipend)

@@ -64,9 +64,10 @@
     <Compile Include="UPnPMain.cs" />
     <Compile Include="UPnPConfig\IpConfig.cs" />
     <Compile Include="UPnP\UPnPEvents.cs" />
-    <Compile Include="XMLReader.cs" />
-    <Compile Include="XMLWriter1.cs" />
-    <Compile Include="XMLWriterSource.cs" />
+    <Compile Include="XML\IXMLWriter.cs" />
+    <Compile Include="XML\XMLReader.cs" />
+    <Compile Include="XML\XMLWriterSink.cs" />
+    <Compile Include="XML\XMLWriterSource.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
