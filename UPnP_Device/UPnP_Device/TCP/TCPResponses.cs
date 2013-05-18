@@ -145,7 +145,7 @@ namespace UPnP_Device.TCP
     /// </summary>
     public interface IOrder
     {
-        void execOrder(List<Tuple<string,string>> argList);
+        void execOrder(List<UPnPArg> argList);
     }
      
     public class Order : IOrder
