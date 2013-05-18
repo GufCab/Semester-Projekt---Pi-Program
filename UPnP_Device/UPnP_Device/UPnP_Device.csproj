@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UPnPConfig\ConfigInjector.cs" />
     <Compile Include="EventHandler.cs" />
     <Compile Include="InvokeResponseGen.cs" />
     <Compile Include="IPHandler.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="UPnP\UPnPEvents.cs" />
     <Compile Include="XML\IXMLWriter.cs" />
     <Compile Include="XML\XMLReader.cs" />
+    <Compile Include="XML\XMLServicesConfig.cs" />
     <Compile Include="XML\XMLWriterSink.cs" />
     <Compile Include="XML\XMLWriterSource.cs" />
   </ItemGroup>
