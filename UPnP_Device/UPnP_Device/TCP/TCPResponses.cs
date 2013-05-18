@@ -125,7 +125,7 @@ namespace UPnP_Device.TCP
         }
 
         //Determine argument-list
-        public List<Tuple<string,string>> DetermineArgs(string wholeMessage, string actionName)
+        public List<UPnPArg> DetermineArgs(string wholeMessage, string actionName)
         {
             string[] splitter = new string[] { "\r\n\r\n" };
             string[] HeadAndBody = wholeMessage.Split(splitter, StringSplitOptions.None);
