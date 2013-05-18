@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.TCP
 {
@@ -21,12 +22,12 @@ namespace UPnP_Device.TCP
         private int localPort;
         private string localIp;
 
-        public TcpServer(string ip, int port)
+        public TcpServer(string ip, int port, string BasePath)
         {
             localIp = ip;
             localPort = port;
 
-            tcpHandle = new TCPHandle();
+            tcpHandle = new TCPHandle(BasePath);
 
             //Todo: Any IPAddress and a port. Is this an EndPoint?
             //Todo: Should we listen at our own local IP only?

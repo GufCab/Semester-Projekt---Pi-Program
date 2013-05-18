@@ -11,7 +11,7 @@ namespace UPnP_Device.UPnPConfig
 {
     public interface IUPnPConfigPackage
     {
-        IXMLWriter XmlWr { get; }
+       // IXMLWriter XmlWr { get; }
         
         IIpConfig IpConf { get; }
         IUPnPConfig UpnpConf { get; }
@@ -20,16 +20,16 @@ namespace UPnP_Device.UPnPConfig
 
     public class UPnPConfigPackage : IUPnPConfigPackage
     {
-        public IXMLWriter XmlWr { get; private set; }
+        //public IXMLWriter XmlWr { get; private set; }
         public IIpConfig IpConf { get; private set; }
         public IUPnPConfig UpnpConf { get; private set; }
         public List<string> ServiceConfPaths { get; private set; }
         
-        public UPnPConfigPackage(IIpConfig ip, IUPnPConfig upnp, IXMLWriter xw, List<string>servicepath)
+        public UPnPConfigPackage(IIpConfig ip, IUPnPConfig upnp, List<string>servicepath)
         {
             IpConf = ip;
             UpnpConf = upnp;
-            XmlWr = xw;
+           // XmlWr = xw;
             ServiceConfPaths = servicepath;
         }
     }

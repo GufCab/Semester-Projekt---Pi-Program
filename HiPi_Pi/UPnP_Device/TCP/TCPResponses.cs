@@ -9,6 +9,7 @@ using System.Threading;
 using System.Timers;
 using System.Xml;
 using System.Xml.Linq;
+using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
 
 namespace UPnP_Device.TCP
@@ -19,7 +20,7 @@ namespace UPnP_Device.TCP
         
         public DescriptionReader(string path)
         {
-            _path = @"./Descriptions" + path + "desc.xml";
+            _path = path + "/desc.xml";
         }
         
         public string Read()

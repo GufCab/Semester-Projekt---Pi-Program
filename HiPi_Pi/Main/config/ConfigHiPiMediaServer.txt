@@ -1,7 +1,8 @@
 HiPi
+./Descriptions/MediaServer
 Gruppe 8
 HiPi
 Social Soundsystem
 
 urn:schemas-upnp-org:device:MediaServer:1
-ContentDirectory
+ContentDirectory:1

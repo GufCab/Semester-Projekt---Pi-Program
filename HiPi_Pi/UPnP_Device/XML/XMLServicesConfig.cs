@@ -11,10 +11,8 @@ namespace UPnP_Device.XML
         public List<FunctionProperties> _functions = new List<FunctionProperties>();
         public string deviceType;
 
-        public XMLServicesConfig(List<string> paths)
+        public XMLServicesConfig(List<string> paths, IXMLWriter writer)
         {
-            IXMLWriter writer = new XMLWriter();
-
             foreach (string path in paths)
             {
                 LoadConfig(path);

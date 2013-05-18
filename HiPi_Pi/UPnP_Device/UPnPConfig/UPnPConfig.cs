@@ -21,7 +21,7 @@ namespace UPnP_Device.UPnPConfig
         string ManufacturerURL { get; set; }
         string DeviceType { get; set; }
 
-        void LoadConfig(string path);
+        string BasePath { get; set; }
     }
     
     public class UPnPConfig : IUPnPConfig
@@ -38,6 +38,8 @@ namespace UPnP_Device.UPnPConfig
         public string ModelDescription { get; set; }
         public string ManufacturerURL { get; set; }
         public string DeviceType { get; set; }
+
+        public string BasePath { get; set; }
         
         //Todo: Contructor should take some NT's in some way
         public UPnPConfig(string path)
@@ -58,7 +60,7 @@ namespace UPnP_Device.UPnPConfig
             LoadConfig(path);
         }
         
-        public void LoadConfig(string path)
+        private void LoadConfig(string path)
         {
             using (StreamReader streamReader = new StreamReader(path))
             {
@@ -77,14 +79,14 @@ namespace UPnP_Device.UPnPConfig
         private void SetProperties(List<string> configInfo)
         {
             friendlyName = configInfo[0];
-            //DeviceSchema = configInfo[1];
-            Manufacturer = configInfo[1];
-            ModelName = configInfo[2];
-            ModelDescription = configInfo[3];
-            ManufacturerURL = configInfo[4];
-            DeviceType = configInfo[5];
+            BasePath = configInfo[1];
+            Manufacturer = configInfo[2];
+            ModelName = configInfo[3];
+            ModelDescription = configInfo[4];
+            ManufacturerURL = configInfo[5];
+            DeviceType = configInfo[6];
             
-            configInfo.RemoveRange(0, 6);
+            configInfo.RemoveRange(0, 7);
 
             foreach (string s in configInfo)
             {

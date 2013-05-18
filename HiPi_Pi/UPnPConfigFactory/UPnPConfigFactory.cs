@@ -21,7 +21,8 @@ namespace UPnPConfigFactory
         {
             IIpConfig ip = new SinkIPConfig(52000);
             IUPnPConfig upnp = new UPnPConfig(900, "../../config/ConfigHiPiMediaRenderer.txt");
-            IXMLWriter xml = new XMLWriter(ip);
+            
+           // IXMLWriter xml = new XMLWriter(ip, upnp);
 
             List<string> serviceconf = new List<string>
                 {
@@ -29,7 +30,7 @@ namespace UPnPConfigFactory
                     "../../config/ConfigServiceRenderingControl.txt"
                 };
 
-            IUPnPConfigPackage pack = new UPnPConfigPackage(ip, upnp, xml, serviceconf);
+            IUPnPConfigPackage pack = new UPnPConfigPackage(ip, upnp, serviceconf);
 
             return pack;
         }

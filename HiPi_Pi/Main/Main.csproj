@@ -61,14 +61,6 @@
       <Project>{5c01dc6e-62f3-46ab-8634-971363261b01}</Project>
       <Name>UPnP_Device</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UPnP_DvSink\UPnP_DvSink.csproj">
-      <Project>{c2c9cdf5-6d0a-4ea3-b46d-f5c7f0e3af68}</Project>
-      <Name>UPnP_DvSink</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP_DvSource\UPnP_DvSource.csproj">
-      <Project>{0bf037a6-7780-40df-ae71-a73cad772b8d}</Project>
-      <Name>UPnP_DvSource</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

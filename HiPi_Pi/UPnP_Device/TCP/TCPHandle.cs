@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using UPnP_Device.TCP;
+using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device
 {
@@ -16,12 +17,13 @@ namespace UPnP_Device
     public class TCPHandle
     {
         private GetResponseStrategy Strat = new GetResponseStrategy();
+        private string _basePath;
 
         //Why???
         //Todo: Remove, maybe???
-        public TCPHandle()
+        public TCPHandle(string BasePath)
         {
-
+            _basePath = BasePath;
         }
 
         public void HandleHTTP(object e)
@@ -32,7 +34,7 @@ namespace UPnP_Device
 
             if(TCPDebug.DEBUG) {Console.WriteLine("New message recieved on TCP.");}
             
-            IRespondStrategy respondStrategy = Strat.GetStrategy(rec);
+            IRespondStrategy respondStrategy = Strat.GetStrategy(rec, _basePath);
 
             respondStrategy.Respond(util);
         }
@@ -43,7 +45,7 @@ namespace UPnP_Device
     public class GetResponseStrategy
     {
         //Todo: Comments needed:
-        public IRespondStrategy GetStrategy(string received)
+        public IRespondStrategy GetStrategy(string received, string BasePath)
         {
             IRespondStrategy strategy = null;
 
@@ -64,7 +66,7 @@ namespace UPnP_Device
             switch (eq[0])
             {
                 case "GET":
-                    strategy = new GETResponder(eq[1]);
+                    strategy = new GETResponder(BasePath + eq[1]);
                     break;
                 case "POST":
                     strategy = new POSTResponder(received);

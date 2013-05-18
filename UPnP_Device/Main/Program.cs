@@ -69,7 +69,7 @@ namespace UPnP_Device
 
         static void u_ActionEvent(object e, UPnPEventArgs args, CallBack cb)
         {
-            cb()
+            //cb()
         }
     }
 }

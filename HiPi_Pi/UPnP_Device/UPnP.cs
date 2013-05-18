@@ -23,19 +23,19 @@ namespace UPnP_Device
         private TcpServer TCPServer;
         private UDPHandler UDPServer;
 
-        public event ActionEventDel ActionEvent;
+        public event ActionEventDel ActionEvent = delegate { };
 
         public UPnP(IUPnPConfigPackage config)
         {
             IpConf = config.IpConf;
             UpnpConf = config.UpnpConf;
-            XmlWriter = config.XmlWr;
-
-            XmlWriter.GenDeviceDescription(UpnpConf);
-
-            XMLServicesConfig ServiceConf = new XMLServicesConfig(config.ServiceConfPaths);
             
-            TCPServer = new TcpServer(IpConf.IP, IpConf.TCPPort);
+            XmlWriter = new XMLWriter(IpConf, UpnpConf);
+            XmlWriter.GenDeviceDescription();
+
+            XMLServicesConfig servicesConfig = new XMLServicesConfig(config.ServiceConfPaths, XmlWriter);
+            
+            TCPServer = new TcpServer(IpConf.IP, IpConf.TCPPort, UpnpConf.BasePath);
             UDPServer = new UDPHandler(IpConf, UpnpConf);
             UDPServer.Start();
 
