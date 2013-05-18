@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using UPnP_Device.UPnP;
 using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.XML
