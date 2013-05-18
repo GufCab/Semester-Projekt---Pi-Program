@@ -19,7 +19,4 @@ namespace UPnP_Device.TCP
             TcpActionEvent(e, args, cb);
         }
     }
-
-    
-
 }

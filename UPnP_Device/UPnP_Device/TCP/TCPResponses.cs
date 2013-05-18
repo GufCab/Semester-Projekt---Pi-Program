@@ -125,7 +125,7 @@ namespace UPnP_Device.TCP
         }
 
         //Determine argument-list
-        public List<Tuple<string,string>> DetermineArgs(string wholeMessage, string actionName)
+        public List<UPnPArg> DetermineArgs(string wholeMessage, string actionName)
         {
             string[] splitter = new string[] { "\r\n\r\n" };
             string[] HeadAndBody = wholeMessage.Split(splitter, StringSplitOptions.None);
@@ -145,7 +145,7 @@ namespace UPnP_Device.TCP
     /// </summary>
     public interface IOrder
     {
-        void execOrder(List<Tuple<string,string>> argList);
+        void execOrder(List<UPnPArg> argList);
     }
      
     public class Order : IOrder
@@ -164,7 +164,7 @@ namespace UPnP_Device.TCP
             timer = new System.Timers.Timer();
         }
 
-        public void execOrder(List<Tuple<string,string>> argList)
+        public void execOrder(List<UPnPArg> argList)
         {
             var args = new UPnPEventArgs(argList, action);
             CallBack cb = new CallBack(CallBackFunction);
@@ -175,13 +175,14 @@ namespace UPnP_Device.TCP
             timer.Enabled = true;
         }
 
-        public void CallBackFunction(List<Tuple<string, string>> argList, string act)
+        public void CallBackFunction(List<UPnPArg> argList, string act)
         {
             if (util.IsConnected())
             {
                 string response = invokeResponseGen.InvokeResponse(act, argList);
 
-                Console.WriteLine("invoke answer: \n\r" + response);
+                if(TCPDebug.DEBUG) 
+                    Console.WriteLine("invoke answer: \n\r" + response);
 
                 util.Send(response);
                 util.Close();

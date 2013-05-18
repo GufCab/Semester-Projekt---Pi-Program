@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UPnP.cs" />
     <Compile Include="UPnPConfig\ConfigInjector.cs" />
     <Compile Include="EventHandler.cs" />
     <Compile Include="InvokeResponseGen.cs" />
@@ -64,11 +65,9 @@
     <Compile Include="UPnPConfig\UPnPConfigPackage.cs" />
     <Compile Include="UPnPMain.cs" />
     <Compile Include="UPnPConfig\IpConfig.cs" />
-    <Compile Include="UPnP\UPnPEvents.cs" />
     <Compile Include="XML\XMLReader.cs" />
     <Compile Include="XML\XMLServicesConfig.cs" />
     <Compile Include="XML\XMLWriter.cs" />
-    <Compile Include="XML\XMLWriterSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

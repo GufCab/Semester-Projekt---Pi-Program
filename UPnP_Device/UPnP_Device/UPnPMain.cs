@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading;
 using UPnP_Device.TCP;
 using UPnP_Device.UDP;
-using UPnP_Device.UPnP;
 
 //Todo: Looks VERY confusing. Refactoring needed???
 
+/*
 namespace UPnP_Device
 {
     public interface IUPnPMain
@@ -70,3 +70,4 @@ namespace UPnP_Device
 
     }
 }
+*/

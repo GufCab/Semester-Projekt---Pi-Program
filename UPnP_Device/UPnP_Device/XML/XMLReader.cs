@@ -7,11 +7,11 @@ using System.Xml.Linq;
 
 namespace UPnP_Device.XML
 {
-    class XMLReader
+    public class XMLReader
     {
-        public List<Tuple<string, string>> ReadArguments(string xml, string actionName)
+        public List<Arguments> ReadArguments(string xml, string actionName)
         {
-            List<Tuple<string, string>> stringList = new List<Tuple<string, string>>();
+            var args = new List<Arguments>();
 
             var xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xml);
@@ -22,7 +22,7 @@ namespace UPnP_Device.XML
             {
                 foreach (XmlElement elm in nodeList[0].ChildNodes)
                 {
-                    stringList.Add(new Tuple<string, string>(elm.Name, elm.InnerText));
+                    args.Add(new Arguments(elm.Name, elm.InnerText));
                 }
             }
             catch (Exception e)
@@ -32,8 +32,19 @@ namespace UPnP_Device.XML
                 throw e;
             }
             
-            
-            return stringList;
+            return args;
         }
+    }
+
+    public class Arguments
+    {
+        public Arguments(string name, string value)
+        {
+            _name = name;
+            _value = value;
+        }
+
+        public string _name { set; get; }
+        public string _value { set; get; }
     }
 }
