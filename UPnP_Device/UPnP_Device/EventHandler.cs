@@ -7,22 +7,28 @@ using UPnP_Device;
 namespace UPnP_Device
 {
     
-    public class EventHandler
-    {
-        public delegate void UPnPEventDel(object e, List<Tuple<string,string>> args, string action, CallBack cb);
+    public delegate void UPnPEventDel(object e, List<UPnPArg> args, string action, CallBack cb);
 
-        public event UPnPEventDel UPnPEvent;
-       
+    public delegate void CallBack(List<UPnPArg> argList, string action);
+
+    public class UPnPArg
+    {
+        public string ArgName { get; private set; }
+        public string ArgVal { get; private set; }
+
+        public UPnPArg(string argName, string argVal)
+        {
+            ArgName = argName;
+            ArgVal = argVal;
+        }
     }
-    
-    public delegate void CallBack(List<Tuple<string, string>> argList, string action);
 
     public class UPnPEventArgs : EventArgs
     {
-        public List<Tuple<string, string>> Args { get; private set; }
+        public List<UPnPArg> Args { get; private set; }
         public string Action { get; private set; }
 
-        public UPnPEventArgs(List<Tuple<string, string>> argList, string action)
+        public UPnPEventArgs(List<UPnPArg> argList, string action)
         {
             Args = argList;
             Action = action;
