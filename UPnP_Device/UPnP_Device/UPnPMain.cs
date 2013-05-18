@@ -59,8 +59,8 @@ namespace UPnP_Device
 
             server = new TcpServer(localIP, port);
 
-           // _udpHandler = new UDPHandler(UUID, cacheExpire, localIP, port);
-            //_udpHandler.Start();
+            _udpHandler = new UDPHandler(UUID, cacheExpire, localIP, port);
+            _udpHandler.Start();
 
             SubscribeToUpnpEvents();
         }    
