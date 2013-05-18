@@ -74,16 +74,19 @@ namespace UPnP_Device.XML
             {
                 foreach (string s in functionPropertie.tmpString)
                 {
-                    string[] s1 = s.Split('-');
                     functionPropertie.arguments.Add(new ArgumentProperties());
-                    functionPropertie.arguments[i].argumentName = s1[0];
-
-                    string[] s2 = s1[1].Split(':');
-                    functionPropertie.arguments[i].direction = s2[0];
-                    functionPropertie.arguments[i].relatedStateVariable = s2[1];
+                    
+                    string[] s2 = s.Split(':');
+                    functionPropertie.arguments[i].argumentName = s2[0];
+                    functionPropertie.arguments[i].direction = s2[1];
+                    functionPropertie.arguments[i].relatedStateVariable = s2[2];
+                    functionPropertie.arguments[i].sendEventAttribute = s2[3];
+                    functionPropertie.arguments[i].dataType = s2[4];
 
                     ++i;
                 }
+
+                functionPropertie.tmpString.Clear();
 
                 i = 0;
             }
@@ -101,7 +104,7 @@ namespace UPnP_Device.XML
         public string functionName { get; set; }
         public List<ArgumentProperties> arguments;
 
-        //used under contruction of ArgumentProperties
+        //only used under contruction of ArgumentProperties
         public List<string> tmpString { set; get; }
     }
 
@@ -110,6 +113,8 @@ namespace UPnP_Device.XML
         public string argumentName { get; set; }
         public string direction { get; set; }
         public string relatedStateVariable { get; set; }
+        public string sendEventAttribute { get; set; }
+        public string dataType { set; get; }
     }
 
 }

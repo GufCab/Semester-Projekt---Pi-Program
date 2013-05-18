@@ -16,7 +16,7 @@ namespace UPnP_Device
     {
         public UPnPConfigPackage GetUPnPConfigPackage()
         {
-            IXMLWriter XmlWriterSink = new XMLWriterSink();
+            IXMLWriter XmlWriterSink = new XMLWriter();
             IIpConfig IPConfig = new SinkIPConfig(52000);
             IUPnPConfig UPnPConfig = new UPnPConfig.UPnPConfig(1800);
             
@@ -28,7 +28,7 @@ namespace UPnP_Device
     {
         public UPnPConfigPackage GetUPnPConfigPackage()
         {
-            IXMLWriter XmlWriterSink = new XMLWriterSink();
+            IXMLWriter XmlWriterSink = new XMLWriter();
             IIpConfig IPConfig = new SourceIPConfig(52001);
             IUPnPConfig UPnPConfig = new SourceUPnPConfig(1800);
 

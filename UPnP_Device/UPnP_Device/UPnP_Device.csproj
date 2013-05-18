@@ -65,13 +65,11 @@
     <Compile Include="UPnPMain.cs" />
     <Compile Include="UPnPConfig\IpConfig.cs" />
     <Compile Include="UPnP\UPnPEvents.cs" />
-    <Compile Include="XML\IXMLWriter.cs" />
     <Compile Include="XML\XMLReader.cs" />
     <Compile Include="XML\XMLServicesConfig.cs" />
-    <Compile Include="XML\XMLWriterSink.cs" />
+    <Compile Include="XML\XMLWriter.cs" />
     <Compile Include="XML\XMLWriterSource.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

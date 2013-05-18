@@ -9,15 +9,19 @@ using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.XML
 {
-    public class XMLWriterSink : IXMLWriter
+    public interface IXMLWriter
+    {
+        void GenDeviceDescription(IUPnPConfig UPnPConfig);
+        void GenServiceDescription(string type, List<FunctionProperties> functions);
+    }
+
+    public class XMLWriter : IXMLWriter
     {
         public string descriptionsPath = @"Descriptions/";
         public string filename = "desc.xml";
         public string AVTransportServicePath = @"AVTransport/serviceDescription/";
         public string RenderingControlServicePath = @"RenderingControl/serviceDescription/";
         public string servicePath = "/serviceDescription/";
-        
-        //List<string> 
 
         //DeviceArchitecture s.51
         //generates device XML
@@ -173,18 +177,124 @@ namespace UPnP_Device.XML
             }
         }
 
-        public void GenServiceDescription()
+        public void GenServiceDescriptions()
         {
             genServiceXmlAVTransport();
             genServiceXmlRenderingControl();
         }
 
+        public void GenServiceDescription(string type, List<FunctionProperties> functions)
+        {
+            #region setup
+            
+            XmlDocument doc = new XmlDocument();
+
+            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
+            doc.AppendChild(dec);
+
+            XmlElement scpd = doc.CreateElement("scpd");
+            doc.AppendChild(scpd);
+            scpd.SetAttribute("xmlns", "urn:schemas-upnp-org:service-1-0");
+
+            XmlElement specVersion = doc.CreateElement("specVersion");
+            scpd.AppendChild(specVersion);
+
+            XmlElement major = doc.CreateElement("major");
+            specVersion.AppendChild(major);
+            major.InnerText = "1";
+
+            XmlElement minor = doc.CreateElement("minor");
+            specVersion.AppendChild(minor);
+            minor.InnerText = "0";
+
+            XmlElement actionList = doc.CreateElement("actionList");
+            scpd.AppendChild(actionList);
+
+            #endregion
+
+            #region actions
+
+            foreach (FunctionProperties functionPropertie in functions)
+            {
+                XmlElement action = doc.CreateElement("action");
+                actionList.AppendChild(action);
+
+                XmlElement name = doc.CreateElement("name");
+                action.AppendChild(name);
+                name.InnerText = functionPropertie.functionName;
+
+                XmlElement argumentList = doc.CreateElement("argumentList");
+                action.AppendChild(argumentList);
+                
+                foreach (var arg in functionPropertie.arguments)
+                {
+                    XmlElement argument = doc.CreateElement("argument");
+                    argumentList.AppendChild(argument);
+
+                    XmlElement name_PlayArgument = doc.CreateElement("name");
+                    argument.AppendChild(name_PlayArgument);
+                    name_PlayArgument.InnerText = arg.argumentName;
+
+                    XmlElement direction_play = doc.CreateElement("direction");
+                    argument.AppendChild(direction_play);
+                    direction_play.InnerText = arg.direction;
+
+                    XmlElement relatedStateVariable_play = doc.CreateElement("relatedStateVariable");
+                    argument.AppendChild(relatedStateVariable_play);
+                    relatedStateVariable_play.InnerText = arg.relatedStateVariable;
+                }
+            }
+
+            #endregion
+
+            #region relatedStateVariables
+
+            List<ArgumentProperties> argumentPropertie = new List<ArgumentProperties>();
+
+            foreach (FunctionProperties functionPropertie in functions)
+            {
+                argumentPropertie.AddRange(functionPropertie.arguments);
+            }
+
+            var stateVariablesDistinct = argumentPropertie.GroupBy(p => p.argumentName).Select(grp => grp.First()).ToList();
+
+            XmlElement serviceStateTable = doc.CreateElement("serviceStateTable");
+            scpd.AppendChild(serviceStateTable);
+
+            foreach (ArgumentProperties arg in stateVariablesDistinct)
+            {
+                    XmlElement stateVariable = doc.CreateElement("stateVariable");
+                    serviceStateTable.AppendChild(stateVariable);
+                    //stateVariable.SetAttribute("sendEvents", "yes");
+
+                    XmlElement name_stateVariable = doc.CreateElement("name");
+                    stateVariable.AppendChild(name_stateVariable);
+                    name_stateVariable.InnerText = arg.relatedStateVariable;
+
+                    XmlElement sendEventAttribute = doc.CreateElement("sendEventAttribute");
+                    stateVariable.AppendChild(sendEventAttribute);
+                    sendEventAttribute.InnerText = arg.sendEventAttribute;
+
+                    XmlElement dataType = doc.CreateElement("dataType");
+                    stateVariable.AppendChild(dataType);
+                    dataType.InnerText = arg.dataType;
+            }
+
+            #endregion
+
+            //only for debug
+            doc.Save(type + "Service.xml");
+
+            SaveFile(doc.OuterXml, type + servicePath);
+        }
+
+        //Obsolete!!
         //generates Service description XML
         public void genServiceXmlAVTransport()
         {
             #region setup
 
-            string path = @"Descriptions\AVTransport\serviceDescription\desc.xml";
+            //string path = @"Descriptions\AVTransport\serviceDescription\desc.xml";
             XmlDocument doc = new XmlDocument();
 
             XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
@@ -526,7 +636,7 @@ namespace UPnP_Device.XML
 
             SaveFile(doc.OuterXml, AVTransportServicePath);
         }
-        
+        //Obsolete!!
         public void genServiceXmlRenderingControl()
         {
             #region setup
@@ -666,7 +776,7 @@ namespace UPnP_Device.XML
 
             #endregion
 
-            #region Channel
+            #region Mute
 
             stateVariable = doc.CreateElement("stateVariable");
             serviceStateTable.AppendChild(stateVariable);
