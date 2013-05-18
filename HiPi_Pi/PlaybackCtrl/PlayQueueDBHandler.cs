@@ -5,17 +5,17 @@ using System.Text;
 
 namespace PlaybackCtrl
 {
-    public interface IPlayQueueDB
+    public interface IPlayQueueDBHandler
     {
         //Skal returnere MetaData - Konverteres til ITrack efterfølgende
         ITrack GetTrack(int index);
         void AddToPlayQueue(string s);
         void AddToPlayQueue(string s, int index);
         int GetNumberOfTracks();
-        void RemoveFromPlayQueue(string s);
+        void RemoveFromPlayQueue(int index);
     }
 
-    class PlayQueueDB : IPlayQueueDB
+    class PlayQueueDBHandler : IPlayQueueDBHandler
     {
         private int _numberOfTracks = 0;
 
@@ -44,7 +44,7 @@ namespace PlaybackCtrl
         }
 
         //Removes track identified by 's' from playqueue
-        public void RemoveFromPlayQueue(string s)
+        public void RemoveFromPlayQueue(int index)
         {
             throw new NotImplementedException();
         }
