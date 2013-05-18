@@ -6,7 +6,6 @@ using System.Threading;
 using UPnP_Device.UDP;
 using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
-using System.Linq;
 
 namespace UPnP_Device
 {

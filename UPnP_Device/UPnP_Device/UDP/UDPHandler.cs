@@ -17,12 +17,14 @@ namespace UPnP_Device.UDP
         private Thread NotifyThread;
         private Thread ReceiveThread;
         
+        //Todo: Separate into UDPHandler and UDPServer
+
         //Explicit contructor that takes the UPnPConfig classes:
         public UDPHandler(IIpConfig ipconf, IUPnPConfig upnpconf)
         {
             sender = new MulticastSender(ipconf, upnpconf);          //Creates sender
             receiver = new MulticastReceiver();
-            //receiver = new MulticastReceiver(ipconf, upnpconf);     //Creates receiver
+            //receiver = new MulticastReceiver(IpConf, upnpconf);     //Creates receiver
 
             NotifyThread = new Thread(sender.NotifySender);     //Thread for notifier. Runs every _cacheexpire seconds
             ReceiveThread = new Thread(Run);                    //Run thread. The default UDP Thread

@@ -32,17 +32,18 @@ namespace UPnP_Device.UDP
         }
 
         //Todo: should probably be removed:
-        public MulticastReceiver(IIpConfig ipconf, IUPnPConfig upnpconf)
+        /*
+        public MulticastReceiver(IIpConfig IpConf, IUPnPConfig upnpconf)
         {
             /*
-            _UUID = ipconf.GUID;
+            _UUID = IpConf.GUID;
             _cacheexpire = upnpconf.cacheExpire;
-            _localip = ipconf.IP;
-            _tcpport = ipconf.TCPPort;
-            * */
+            _localip = IpConf.IP;
+            _tcpport = IpConf.TCPPort;
+            
 
             SetupMulticastReceiver();
-        }
+        }*/
 
         private static void SetupMulticastReceiver()
         {
