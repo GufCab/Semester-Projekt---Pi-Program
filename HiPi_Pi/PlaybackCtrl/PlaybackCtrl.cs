@@ -61,6 +61,11 @@ namespace PlaybackCtrl
             Playlist.AddToPlayQue(path, index);
         }
 
+        private void RemoveFromPlayQueue(int index)
+        {
+            Playlist.RemoveFromPlayQue(index);
+        }
+
         private double GetPos() //returns how far into the track MPlayer is
         {
             double pos = Convert.ToDouble(Player.GetPosition());
@@ -124,8 +129,11 @@ namespace PlaybackCtrl
                     break;
 
                 case "AddAt":
-                    AddToPlayQueue(args.someString, args.position);
+                    AddToPlayQueue(args.someString, args.someInt);
                     break;
+
+                case "Remove":
+                    RemoveFromPlayQueue(args.someInt);
 
                 case "SetVol":
                     SetVol(args.desiredVol);
