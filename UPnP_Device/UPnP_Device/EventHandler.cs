@@ -9,50 +9,10 @@ namespace UPnP_Device
     
     public class EventHandler
     {
-        public delegate void UPnPEventDel(object e, List<Tuple<string,string>> args, string action);
+        public delegate void UPnPEventDel(object e, List<Tuple<string,string>> args, string action, CallBack cb);
 
         public event UPnPEventDel UPnPEvent;
-        /*
-        public void SubscribeToEvents()
-        {
-            TCP.EventContainer.PlayEvent += new TCP.EventContainer.PlayOrderHandler(ListenToPlay);
-            TCP.EventContainer.NextEvent += new TCP.EventContainer.NextOrderHandler(ListenToNext);
-            TCP.EventContainer.StopEvent += new TCP.EventContainer.StopOrderHandler(ListenToStop);
-            TCP.EventContainer.PauseEvent += new TCP.EventContainer.PauseOrderHandler(ListenToPause);
-            TCP.EventContainer.PreviousEvent += new TCP.EventContainer.PreviousOrderHandler(ListenToPrevious);
-            TCP.EventContainer.SetAVTransportURIEvent += new TCP.EventContainer.SetAVTransportURIOrderHandler(ListenToSetAVTransport);
-        }
-
-        private void ListenToPlay(object e, UPnPEventArgs args)
-        {
-            UPnPEvent(null, args.Args, args.Action);
-        }
-
-        private void ListenToNext(object e, UPnPEventArgs args)
-        {
-            UPnPEvent(null, args.Args, args.Action);
-        }
-
-        private void ListenToStop(object e, UPnPEventArgs args)
-        {
-            UPnPEvent(null, args.Args, args.Action);
-        }
-
-        private void ListenToPause(object e, UPnPEventArgs args)
-        {
-            UPnPEvent(null, args.Args, args.Action);
-        }
-
-        private void ListenToPrevious(object e, UPnPEventArgs args)
-        {
-            UPnPEvent(null, args.Args, args.Action);
-        }
-
-        private void ListenToSetAVTransport(object e, UPnPEventArgs args)
-        {
-            UPnPEvent(null, args.Args, args.Action);
-        }
-         * */
+       
     }
     
     public delegate void CallBack(List<Tuple<string, string>> argList, string action);
@@ -68,5 +28,7 @@ namespace UPnP_Device
             Action = action;
         }
     }
+
+    public delegate void ActionEventDel(object e, UPnPEventArgs args, CallBack cb);
      
 }

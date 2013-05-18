@@ -13,19 +13,7 @@ namespace UPnP_Device
 {
     public interface IUPnPMain
     {
-        
-    }
-
-    public class XMLWriter1
-    {
-        public void genDeviceDescription()
-        {
-            
-        }
-        public void genServiceXmlAVTransport()
-        {
-            
-        }
+        event ActionEventDel ActionEvent;
     }
 
     public class UPnPMain : IUPnPMain
@@ -41,7 +29,9 @@ namespace UPnP_Device
 
         public delegate void UPnPEventDel(object e, List<Tuple<string, string>> args, string action);
 
-        public event UPnPEventDel UPnPEvent = delegate{};
+        public event ActionEventDel ActionEvent;
+
+
         private TcpServer server;
         private EventHandler eventHandler;
 
@@ -63,16 +53,19 @@ namespace UPnP_Device
             _udpHandler.Start();
 
             SubscribeToUpnpEvents();
+
+            //Todo: Remember to create a new EventHandler:
+            eventHandler = new EventHandler();
         }    
 
         private void SubscribeToUpnpEvents()
         {
-            eventHandler.UPnPEvent += eventHandler_UPnPEvent;
+            EventContainer.TcpActionEvent += EventHandler_UPnPEvent;
         }
 
-        void eventHandler_UPnPEvent(object e, List<Tuple<string, string>> args, string action)
+        void EventHandler_UPnPEvent(object e, UPnPEventArgs args, CallBack callBack)
         {
-            //Todo: Raise event..
+            ActionEvent(e, args, callBack);
         }
 
     }

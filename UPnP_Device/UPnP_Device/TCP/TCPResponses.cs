@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Timers;
 using System.Xml;
 using System.Xml.Linq;
 using UPnP_Device.XML;
@@ -167,31 +168,47 @@ namespace UPnP_Device.TCP
         {
             var args = new UPnPEventArgs(argList, action);
             CallBack cb = new CallBack(CallBackFunction);
-            EventContainer.RaisePlayEvent(this, args, cb);
+            EventContainer.RaiseActionEvent(this, args, cb);
 
-
-  
+            timer.Elapsed += ConnectionTimedOut;
+            timer.Interval = 30000; //UPnP Default timeout is 30 seconds
+            timer.Enabled = true;
         }
 
         public void CallBackFunction(List<Tuple<string, string>> argList, string act)
         {
             if (util.IsConnected())
             {
-                string response = invokeResponseGen.InvokeResponse(action, argList);
+                string response = invokeResponseGen.InvokeResponse(act, argList);
 
                 Console.WriteLine("invoke answer: \n\r" + response);
 
                 util.Send(response);
                 util.Close();
+
+                timer.Elapsed -= ConnectionTimedOut;
+                timer.Enabled = false;
+                timer.Dispose();
             }
         }
 
-        private void ConnectionTimedOut()
+        private void ConnectionTimedOut(object e, ElapsedEventArgs args)
         {
             if (util.IsConnected())
             {
-                //Todo: respond with error message
-                //Close connection.
+                string act = "TimedOut";
+                List<Tuple<string,string>> argList = new List<Tuple<string, string>>();
+
+                string response = invokeResponseGen.InvokeResponse(act, argList);
+
+                Console.WriteLine("invoke answer: \n\r" + response);
+
+                util.Send(response);
+                util.Close();
+
+                timer.Elapsed -= ConnectionTimedOut;
+                timer.Enabled = false;
+                timer.Dispose();
             }
             
         }

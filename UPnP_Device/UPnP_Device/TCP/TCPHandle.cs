@@ -42,9 +42,6 @@ namespace UPnP_Device
 
     public class GetResponseStrategy
     {
-        //Todo: Remove maybe?:
-        //private const string GET = "GET / HTTP/1.1";
-
         //Todo: Comments needed:
         public IRespondStrategy GetStrategy(string received)
         {
