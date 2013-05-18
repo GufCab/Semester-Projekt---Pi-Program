@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Main
+namespace UPnP_Device.TCP
 {
-    class Program
+    public static class TCPDebug
     {
-        
+        public static bool DEBUG = false;
     }
 }

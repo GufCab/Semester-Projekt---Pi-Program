@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE7876FE-8368-4526-872A-0C1BCE96FE27}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{5C01DC6E-62F3-46AB-8634-971363261B01}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Main</RootNamespace>
-    <AssemblyName>Main</AssemblyName>
+    <RootNamespace>UPnP_Device</RootNamespace>
+    <AssemblyName>UPnP_Device</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,6 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,34 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="UPnP.cs" />
+    <Compile Include="UPnPConfig\ConfigInjector.cs" />
+    <Compile Include="EventHandler.cs" />
+    <Compile Include="InvokeResponseGen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MPlayer\MPlayer.csproj">
-      <Project>{e3e64998-d167-4784-ab1f-53f77aa57250}</Project>
-      <Name>MPlayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PlaybackCtrl\PlaybackCtrl.csproj">
-      <Project>{87b9575a-b472-4b75-8078-96bce428b386}</Project>
-      <Name>PlaybackCtrl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnPConfigFactory\UPnPConfigFactory.csproj">
-      <Project>{d9e4093f-dcf7-4f55-a10f-e993be646772}</Project>
-      <Name>UPnPConfigFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP_Device\UPnP_Device.csproj">
-      <Project>{5c01dc6e-62f3-46ab-8634-971363261b01}</Project>
-      <Name>UPnP_Device</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP_DvSink\UPnP_DvSink.csproj">
-      <Project>{c2c9cdf5-6d0a-4ea3-b46d-f5c7f0e3af68}</Project>
-      <Name>UPnP_DvSink</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP_DvSource\UPnP_DvSource.csproj">
-      <Project>{0bf037a6-7780-40df-ae71-a73cad772b8d}</Project>
-      <Name>UPnP_DvSource</Name>
-    </ProjectReference>
+    <Compile Include="TCP\Server.cs" />
+    <Compile Include="TCP\TCPDebug.cs" />
+    <Compile Include="TCP\TCPHandle.cs" />
+    <Compile Include="TCP\TCPResponses.cs" />
+    <Compile Include="TCP\NetworkUtillity.cs" />
+    <Compile Include="TCP\UpnpEvents.cs" />
+    <Compile Include="UDP\UDPHandler.cs" />
+    <Compile Include="UDP\MulticastReceiver.cs" />
+    <Compile Include="UDP\MulticastSender.cs" />
+    <Compile Include="UDP\UDP_Debug.cs" />
+    <Compile Include="UPnPConfig\EventConfig.cs" />
+    <Compile Include="UPnPConfig\UPnPConfig.cs" />
+    <Compile Include="UPnPConfig\UPnPConfigPackage.cs" />
+    <Compile Include="UPnPMain.cs" />
+    <Compile Include="UPnPConfig\IpConfig.cs" />
+    <Compile Include="XML\XMLReader.cs" />
+    <Compile Include="XML\XMLServicesConfig.cs" />
+    <Compile Include="XML\XMLWriter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

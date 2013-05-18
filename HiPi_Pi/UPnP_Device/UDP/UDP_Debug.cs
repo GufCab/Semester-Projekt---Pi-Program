@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Main
+namespace UPnP_Device.UDP
 {
-    class Program
+    public static class UDP_Debug
     {
-        
+        public static bool DEBUG = true;
     }
 }

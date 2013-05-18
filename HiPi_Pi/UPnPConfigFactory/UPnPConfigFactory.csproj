@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE7876FE-8368-4526-872A-0C1BCE96FE27}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{D9E4093F-DCF7-4F55-A10F-E993BE646772}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Main</RootNamespace>
-    <AssemblyName>Main</AssemblyName>
+    <RootNamespace>UPnPConfigFactory</RootNamespace>
+    <AssemblyName>UPnPConfigFactory</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,9 +20,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,33 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="UPnPConfigFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MPlayer\MPlayer.csproj">
-      <Project>{e3e64998-d167-4784-ab1f-53f77aa57250}</Project>
-      <Name>MPlayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PlaybackCtrl\PlaybackCtrl.csproj">
-      <Project>{87b9575a-b472-4b75-8078-96bce428b386}</Project>
-      <Name>PlaybackCtrl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnPConfigFactory\UPnPConfigFactory.csproj">
-      <Project>{d9e4093f-dcf7-4f55-a10f-e993be646772}</Project>
-      <Name>UPnPConfigFactory</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\UPnP_Device\UPnP_Device.csproj">
       <Project>{5c01dc6e-62f3-46ab-8634-971363261b01}</Project>
       <Name>UPnP_Device</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP_DvSink\UPnP_DvSink.csproj">
-      <Project>{c2c9cdf5-6d0a-4ea3-b46d-f5c7f0e3af68}</Project>
-      <Name>UPnP_DvSink</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP_DvSource\UPnP_DvSource.csproj">
-      <Project>{0bf037a6-7780-40df-ae71-a73cad772b8d}</Project>
-      <Name>UPnP_DvSource</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
