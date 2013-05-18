@@ -1,10 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPnP_DvSink", "UPnP_DvSink\UPnP_DvSink.csproj", "{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPnP", "UPnP\UPnP.csproj", "{584ED187-8F2A-4B58-A266-85F3F212B092}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPlayer", "MPlayer\MPlayer.csproj", "{E3E64998-D167-4784-AB1F-53F77AA57250}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiPi_Pi.Tests", "HiPi_Pi.Tests\HiPi_Pi.Tests.csproj", "{B1EE84FE-F863-476C-8CCC-FAE0011AAD6E}"
@@ -19,20 +15,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2C9CDF5-6D0A-4EA3-B46D-F5C7F0E3AF68}.Release|x64.ActiveCfg = Release|Any CPU
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Debug|x64.ActiveCfg = Debug|x64
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Debug|x64.Build.0 = Debug|x64
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Release|Any CPU.Build.0 = Release|Any CPU
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Release|x64.ActiveCfg = Release|x64
-		{584ED187-8F2A-4B58-A266-85F3F212B092}.Release|x64.Build.0 = Release|x64
 		{E3E64998-D167-4784-AB1F-53F77AA57250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E3E64998-D167-4784-AB1F-53F77AA57250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3E64998-D167-4784-AB1F-53F77AA57250}.Debug|x64.ActiveCfg = Debug|Any CPU

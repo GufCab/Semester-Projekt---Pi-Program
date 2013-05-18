@@ -16,6 +16,7 @@ namespace PlaybackCtrl
         
         void AddToPlayQue(string src);
         void AddToPlayQue(string src, int index);
+        void RemoveFromPlayQue(int index);
 
         int GetNumberOfTracks();
         int GetCurrentTrackIndex();
@@ -24,13 +25,13 @@ namespace PlaybackCtrl
 
     public class PlaylistHandler : IPlaylistHandler
     {
-        private IPlayQueueDB _playQ;
+        private IPlayQueueDBHandler _playQ;
         private int _currentTrackIndex = 0;
         private ITrack _currentTrack;
 
         public PlaylistHandler()
         {
-            _playQ = new PlayQueueDB();
+            _playQ = new PlayQueueDBHandler();
             _currentTrack = new Track();
         }
 
@@ -66,6 +67,11 @@ namespace PlaybackCtrl
         public void AddToPlayQue(string s, int index)
         {
             _playQ.AddToPlayQueue(s, index);
+        }
+
+        public void RemoveFromPlayQue(int index)
+        {
+            _playQ.RemoveFromPlayQueue(index);
         }
 
         public int GetNumberOfTracks()
