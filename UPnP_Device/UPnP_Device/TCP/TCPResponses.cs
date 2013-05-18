@@ -198,7 +198,7 @@ namespace UPnP_Device.TCP
             if (util.IsConnected())
             {
                 string act = "TimedOut";
-                List<Tuple<string,string>> argList = new List<Tuple<string, string>>();
+                List<UPnPArg> argList = new List<UPnPArg>();
 
                 string response = invokeResponseGen.InvokeResponse(act, argList);
 

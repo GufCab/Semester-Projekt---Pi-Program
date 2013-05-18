@@ -9,9 +9,9 @@ namespace UPnP_Device.XML
 {
     public class XMLReader
     {
-        public List<Arguments> ReadArguments(string xml, string actionName)
+        public List<UPnPArg> ReadArguments(string xml, string actionName)
         {
-            var args = new List<Arguments>();
+            var args = new List<UPnPArg>();
 
             var xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xml);
@@ -22,7 +22,7 @@ namespace UPnP_Device.XML
             {
                 foreach (XmlElement elm in nodeList[0].ChildNodes)
                 {
-                    args.Add(new Arguments(elm.Name, elm.InnerText));
+                    args.Add(new UPnPArg(elm.Name, elm.InnerText));
                 }
             }
             catch (Exception e)
@@ -36,6 +36,8 @@ namespace UPnP_Device.XML
         }
     }
 
+
+    //Todo: Should probably be removed:
     public class Arguments
     {
         public Arguments(string name, string value)

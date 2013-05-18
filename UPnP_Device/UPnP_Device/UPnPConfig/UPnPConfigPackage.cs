@@ -25,11 +25,12 @@ namespace UPnP_Device.UPnPConfig
         public IUPnPConfig UpnpConf { get; private set; }
         public List<string> ServiceConfPaths { get; private set; }
         
-        public UPnPConfigPackage(IIpConfig ip, IUPnPConfig upnp, IXMLWriter xw)
+        public UPnPConfigPackage(IIpConfig ip, IUPnPConfig upnp, IXMLWriter xw, List<string>servicepath)
         {
             IpConf = ip;
             UpnpConf = upnp;
             XmlWr = xw;
+            ServiceConfPaths = servicepath;
         }
     }
 }

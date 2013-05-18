@@ -20,7 +20,15 @@ namespace UPnP_Device.XML
         public string filename = "desc.xml";
         public string AVTransportServicePath = @"AVTransport/serviceDescription/";
         public string RenderingControlServicePath = @"RenderingControl/serviceDescription/";
-        public string servicePath = "/serviceDescription/";
+        public string servicePath = "serviceDescription/";
+        private IIpConfig _ip;
+
+        public XMLWriter(){}
+
+        public XMLWriter(IIpConfig ip)
+        {
+            _ip = ip;
+        }
 
         //DeviceArchitecture s.51
         //generates device XML
@@ -82,7 +90,7 @@ namespace UPnP_Device.XML
 
             XmlElement udn = doc.CreateElement("UDN");
             device.AppendChild(udn);
-            udn.InnerText = "uuid:" + IPHandler.GetInstance().GUID;
+            udn.InnerText = "uuid:" + _ip.GUID;
 
 
             XmlElement serviceList = doc.CreateElement("serviceList");
@@ -92,11 +100,13 @@ namespace UPnP_Device.XML
 
             #region AVTransport
 
-            XmlElement service = doc.CreateElement("service");
-            serviceList.AppendChild(service);
+            
 
             foreach (string s in UPnPConfig.services)
             {
+                XmlElement service = doc.CreateElement("service");
+                serviceList.AppendChild(service);
+
                 XmlElement serviceType = doc.CreateElement("serviceType");
                 service.AppendChild(serviceType);
                 serviceType.InnerText = "urn:schemas-upnp-org:service:" + s;
@@ -104,13 +114,13 @@ namespace UPnP_Device.XML
                 XmlElement serviceId = doc.CreateElement("serviceId");
                 service.AppendChild(serviceId);
                 //serviceId.InnerText = "urn:upnp-org:serviceId:AVTransport.0001";
-                serviceId.InnerText = "urn:upnp-org:serviceId:" + s;
+                serviceId.InnerText = "urn:upnp-org:serviceId:" + s.Split(':')[0];
 
                 XmlElement SCPDURL = doc.CreateElement("SCPDURL");
                 service.AppendChild(SCPDURL);
                 //SCPDURL.InnerText = "urn-schemas-upnp-org-service-AVTransport.0001_scpd.xml";
                 // SCPDURL.InnerText = "serviceDescripton.xml";
-                SCPDURL.InnerText = s.Split(':')[0] + servicePath;
+                SCPDURL.InnerText = s.Split(':')[0] + "/" + servicePath;
 
                 XmlElement controlURL = doc.CreateElement("controlURL");
                 service.AppendChild(controlURL);
@@ -164,11 +174,13 @@ namespace UPnP_Device.XML
 
         public void SaveFile(string xml, string servicePath)
         {
-            if (Directory.Exists(Path.GetDirectoryName(descriptionsPath + servicePath)) == false)
+            string[] s = servicePath.Split(':');
+
+            if (Directory.Exists(Path.GetDirectoryName(descriptionsPath + s[0])) == false)
             {
-                Directory.CreateDirectory(descriptionsPath + servicePath);
+                Directory.CreateDirectory(descriptionsPath + s[0]);
             }
-            using (var fs = new FileStream(descriptionsPath + servicePath + filename, FileMode.Create))
+            using (var fs = new FileStream(descriptionsPath + s[0] + filename, FileMode.Create))
             using (var sw = new StreamWriter(fs, Encoding.UTF8))
             {
                 sw.Write(xml);
@@ -282,9 +294,9 @@ namespace UPnP_Device.XML
             #endregion
 
             //only for debug
-            doc.Save(type + "Service.xml");
+            //doc.Save(type + "Service.xml");
 
-            SaveFile(doc.OuterXml, type + servicePath);
+            SaveFile(doc.OuterXml, type + "/" + servicePath);
         }
 
         //Obsolete!!

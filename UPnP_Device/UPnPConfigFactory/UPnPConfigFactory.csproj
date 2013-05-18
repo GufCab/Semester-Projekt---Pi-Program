@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C01DC6E-62F3-46AB-8634-971363261B01}</ProjectGuid>
+    <ProjectGuid>{D9E4093F-DCF7-4F55-A10F-E993BE646772}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UPnP_Device</RootNamespace>
-    <AssemblyName>UPnP_Device</AssemblyName>
+    <RootNamespace>UPnPConfigFactory</RootNamespace>
+    <AssemblyName>UPnPConfigFactory</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,20 +20,15 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,29 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UPnP.cs" />
-    <Compile Include="UPnPConfig\ConfigInjector.cs" />
-    <Compile Include="EventHandler.cs" />
-    <Compile Include="InvokeResponseGen.cs" />
+    <Compile Include="UPnPConfigFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TCP\Server.cs" />
-    <Compile Include="TCP\TCPDebug.cs" />
-    <Compile Include="TCP\TCPHandle.cs" />
-    <Compile Include="TCP\TCPResponses.cs" />
-    <Compile Include="TCP\NetworkUtillity.cs" />
-    <Compile Include="TCP\UpnpEvents.cs" />
-    <Compile Include="UDP\UDPHandler.cs" />
-    <Compile Include="UDP\MulticastReceiver.cs" />
-    <Compile Include="UDP\MulticastSender.cs" />
-    <Compile Include="UDP\UDP_Debug.cs" />
-    <Compile Include="UPnPConfig\EventConfig.cs" />
-    <Compile Include="UPnPConfig\UPnPConfig.cs" />
-    <Compile Include="UPnPConfig\UPnPConfigPackage.cs" />
-    <Compile Include="UPnPMain.cs" />
-    <Compile Include="UPnPConfig\IpConfig.cs" />
-    <Compile Include="XML\XMLReader.cs" />
-    <Compile Include="XML\XMLServicesConfig.cs" />
-    <Compile Include="XML\XMLWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UPnP_Device\UPnP_Device.csproj">
+      <Project>{5c01dc6e-62f3-46ab-8634-971363261b01}</Project>
+      <Name>UPnP_Device</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

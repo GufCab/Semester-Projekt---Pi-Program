@@ -17,6 +17,7 @@ namespace UPnP_Device.UDP
         private static UdpClient MulticastClient;
         private static IPEndPoint remoteep;
         private static Byte[] sendBuffer;
+        private IUPnPConfig _upnPConfig;
 
         private string _UUID;
         private int _cacheexpire;
@@ -32,6 +33,7 @@ namespace UPnP_Device.UDP
             _cacheexpire = upnpconf.cacheExpire;
             _localip = ipconf.IP;
             _tcpport = ipconf.TCPPort;
+            _upnPConfig = upnpconf;
 
             SetupMulticastSender();     //Setup
 
@@ -162,7 +164,7 @@ namespace UPnP_Device.UDP
                        "ST: upnp:rootdevice\r\n" + 
                        "CACHE-CONTROL: max-age=" + _cacheexpire + " \r\n" +
                        "EXT: \r\n" +
-                       "USN: uuid:" + _UUID + "::" + IPHandler.GetInstance().DeviceType + "\r\n" +
+                       "USN: uuid:" + _UUID + "::" + _upnPConfig.DeviceType + "\r\n" +
                        //"USN: " + _UUID + "::" + IPHandler.GetInstance().DeviceType + "\r\n" +
                        "SERVER: Windows NT/5.0, UPnP/1.0\r\n" +
                        "LOCATION: http://" + _localip + ":" + _tcpport + "\r\n" +

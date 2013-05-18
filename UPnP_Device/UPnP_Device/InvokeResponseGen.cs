@@ -19,7 +19,7 @@ namespace UPnP_Device
             return s + "\n\r" + body;
         }
 
-        public string InvokeResponse(string funcName, List<Tuple<string, string>> args)
+        public string InvokeResponse(string funcName, List<UPnPArg> args)
         {
             XmlDocument doc = new XmlDocument();
             XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
@@ -39,11 +39,11 @@ namespace UPnP_Device
 
             if (args != null)
             {
-                foreach (Tuple<string, string> s in args)
+                foreach (UPnPArg s in args)
                 {
-                    XmlElement f = doc.CreateElement(s.Item1);
+                    XmlElement f = doc.CreateElement(s.ArgName);
                     func.AppendChild(f);
-                    f.InnerText = s.Item2;
+                    f.InnerText = s.ArgVal;
                 }
             }
 

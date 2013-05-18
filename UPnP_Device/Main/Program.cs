@@ -1,11 +1,13 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using UPnPConfigFactory;
 using UPnP_Device.UDP;
 using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
+
 
 namespace UPnP_Device
 {
@@ -14,11 +16,16 @@ namespace UPnP_Device
         static void Main(string[] args)
         {
             Console.WriteLine("Entry point");
-            
-            //UPnPMain main = new UPnPMain();
-            
-            #region xmlTestStuff
 
+            //UPnPMain main = new UPnPMain();
+
+            IUPnPConfigFactory sinkfact = new SinkFactory();
+
+            UPnP u = new UPnP(sinkfact.CreatePackage());
+
+            
+            #region xmlTestStuff Outcommented stuff
+            /*
             IUPnPConfig upnpConfig = new UPnPConfig.UPnPConfig();
             upnpConfig.LoadConfig("config/ConfigHiPiMediaRenderer.txt");
             var writer = new XMLWriter();
@@ -52,11 +59,17 @@ namespace UPnP_Device
                     Console.WriteLine(s1.dataType);
                     Console.WriteLine();
                 }
-            }*/
-
+            }
+            */
             #endregion
 
+            u.ActionEvent += u_ActionEvent;
             Console.ReadLine();
+        }
+
+        static void u_ActionEvent(object e, UPnPEventArgs args, CallBack cb)
+        {
+            cb()
         }
     }
 }

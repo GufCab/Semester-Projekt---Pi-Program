@@ -16,7 +16,10 @@ namespace UPnP_Device.UDP
 
         private Thread NotifyThread;
         private Thread ReceiveThread;
-        
+
+        private IIpConfig _ip;
+        private IUPnPConfig _upnPConfig; 
+
         //Todo: Separate into UDPHandler and UDPServer
 
         //Explicit contructor that takes the UPnPConfig classes:
@@ -28,6 +31,9 @@ namespace UPnP_Device.UDP
 
             NotifyThread = new Thread(sender.NotifySender);     //Thread for notifier. Runs every _cacheexpire seconds
             ReceiveThread = new Thread(Run);                    //Run thread. The default UDP Thread
+
+            _ip = ipconf;
+            _upnPConfig = upnpconf;
         }
 
         /* //Todo: Should probably be removed:
@@ -108,7 +114,7 @@ namespace UPnP_Device.UDP
 
         public void checkDeviceType(string s, IPEndPoint ipend)
         {
-            if ((s.Contains(IPHandler.GetInstance().DeviceType)) | (s.Contains("rootdevice")))
+            if ((s.Contains(_upnPConfig.DeviceType)) | (s.Contains("rootdevice")))
             {
                 sender.OKSender(ipend);
             }

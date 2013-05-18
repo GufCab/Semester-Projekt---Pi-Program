@@ -7,6 +7,7 @@ using UPnP_Device.XML;
 
 namespace UPnP_Device
 {
+    /*
     public interface IConfigInjector
     {
         UPnPConfigPackage GetUPnPConfigPackage();
@@ -23,7 +24,7 @@ namespace UPnP_Device
             return new UPnPConfigPackage(IPConfig, UPnPConfig, XmlWriterSink);
         }
     }
-    /*
+    
     public class ConfigInjectorSource : IConfigInjector
     {
         public UPnPConfigPackage GetUPnPConfigPackage()

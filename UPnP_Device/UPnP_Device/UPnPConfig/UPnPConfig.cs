@@ -40,16 +40,22 @@ namespace UPnP_Device.UPnPConfig
         public string DeviceType { get; set; }
         
         //Todo: Contructor should take some NT's in some way
-        public UPnPConfig()
+        public UPnPConfig(string path)
         {
             services = new List<string>();
             cacheExpire = 30 * 60 * 1000;
+
+            //GenerateNT();
+            LoadConfig(path);
         }
         
-        public UPnPConfig(int expireTime)
+        public UPnPConfig(int expireTime, string path)
         {
             services = new List<string>();
             cacheExpire = expireTime * 1000;
+
+            //GenerateNT();
+            LoadConfig(path);
         }
         
         public void LoadConfig(string path)
@@ -85,10 +91,10 @@ namespace UPnP_Device.UPnPConfig
                 services.Add(s);
             }
 
-            Contruct();
+            GenerateNT();
         }
         
-        private void Contruct()
+        private void GenerateNT()
         {
             NT = new List<string>();
             NT.Add("upnp:rootdevice");

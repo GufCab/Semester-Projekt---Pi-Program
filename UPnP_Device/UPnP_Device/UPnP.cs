@@ -37,6 +37,7 @@ namespace UPnP_Device
             
             TCPServer = new TcpServer(IpConf.IP, IpConf.TCPPort);
             UDPServer = new UDPHandler(IpConf, UpnpConf);
+            UDPServer.Start();
 
             SubscribeToUpnpEvents();
         }
@@ -48,7 +49,8 @@ namespace UPnP_Device
 
         void EventHandler_UPnPEvent(object e, UPnPEventArgs args, CallBack callBack)
         {
-            ActionEvent(e, args, callBack);
+            
+                ActionEvent(e, args, callBack);
         }
     }
 }
