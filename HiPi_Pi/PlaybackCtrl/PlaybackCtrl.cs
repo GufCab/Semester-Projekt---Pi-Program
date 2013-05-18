@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MPlayer;
+using UPnP_Device;
+using UPnP_Device.UPnPConfig;
 
 namespace PlaybackCtrl
 {
@@ -10,9 +12,9 @@ namespace PlaybackCtrl
     {
         private IWrapper Player;
         private IPlaylistHandler Playlist;
-        private IUPnPSink UPnPSink;
+        private IUPnP UPnPSink;
 
-        public PlaybackControl(IUPnPSink sink)
+        public PlaybackControl(IUPnP sink)
         {
             UPnPSink = sink;
             Player = new MPlayerWrapper();
@@ -21,23 +23,39 @@ namespace PlaybackCtrl
             SubscribeToSink(); //Not implemented
         }
 
-        private void Next()
+        private void Next(ref List<UPnPArg> retValRef)
         {
             var myTrack = Playlist.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Prev()
+        private void Prev(ref List<UPnPArg> retValRef)
         {
             ITrack myTrack = Playlist.GetPrevTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Play()
+        private void Play(ref List<UPnPArg> retValRef)
         {
             var myTrack = Playlist.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
+
+        private void Pause(ref List<UPnPArg> retValRef)
+        {
+            Player.PauseTrack();
+        }
+
+        private void SetCurrentURI(ref List<UPnPArg> retValRef)
+        {
+            Player.PlayTrack(retValRef[1].ArgVal);
+        }
+
+        private void AddToPlayQueue(ref List<UPnPArg> retValRef)
+        {
+            Playlist.AddToPlayQue(retValRef[1].ArgVal);
+        }
+
 
         private void PlayAt(int index)
         {
@@ -45,16 +63,10 @@ namespace PlaybackCtrl
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Pause()
-        {
-            Player.PauseTrack();
-        }
+        
 
 
-        private void AddToPlayQueue(string path)
-        {
-            Playlist.AddToPlayQue(path);
-        }
+        
 
         private void AddToPlayQueue(string path, int index)
         {
@@ -95,39 +107,44 @@ namespace PlaybackCtrl
 
         private void SubscribeToSink()
         {
-            UPnPSink.UPnP_Events += UPnPHandler;
+            UPnPSink.ActionEvent += UPnPHandler;
             //When UPnPInvoke happens, call UPnPHandler
         }
 
 
-        private void UPnPHandler(object e, UPnPEventArgs args, Callback cb)
+        private void UPnPHandler(object e, UPnPEventArgs args, CallBack cb)
         {
             //Switch-case / Gufs magic dictionary (se TCPResponses i TCP i UPnP_Device)
             //Call function (Functions called this way can be made private)
-            string action = args.action;
+            string action = args.Action;
+            List<UPnPArg> returnVal = args.Args;
 
-            switch (action)
+            switch (args.Action)
             {
                 case "Play":
-                    Play();
+                    Play(ref returnVal);
                     break;
 
                 case "Next":
-                    Next();
+                    Next(ref returnVal);
                     break;
 
                 case "Prev":
-                    Prev();
+                    Prev(ref returnVal);
                     break;
 
                 case "Pause":
-                    Pause();
+                    Pause(ref returnVal);
                     break;
 
-                case "Add":
-                    AddToPlayQueue(args.somesString);
+                case "SetNextAVTransportURI":
+                    AddToPlayQueue(ref returnVal);
                     break;
 
+                case "SetAVTransportURI":
+                    SetCurrentURI(ref returnVal);
+                    break;
+                    /*
                 case "AddAt":
                     AddToPlayQueue(args.someString, args.someInt);
                     break;
@@ -143,15 +160,21 @@ namespace PlaybackCtrl
                     SetPos(args.desiredPos);
                     break;
 
-                case "GetVol":
-                    GetVol(); //return the volume
+                case "GetVolume":
+                    returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
                     break;
 
                 case "GetPos":
                     GetPos(); //return the position
                     break;
+                     * */
+                default:
+                    Console.WriteLine("PLaybackControl class switchcase default");
+                    break;
             }
-            cb(someParameters);
+
+
+            cb(returnVal, args.Action);
         }
 
         private void NewSongHandler (object e, EventArgs args)
@@ -159,7 +182,7 @@ namespace PlaybackCtrl
             //Afspiller næste sang. Hvis playqueue er tom afsluttes afspilning
             if (Playlist.GetNumberOfTracks() > Playlist.GetCurrentTrackIndex())
             {
-                Next();
+                //Next();
             }
         }
     }

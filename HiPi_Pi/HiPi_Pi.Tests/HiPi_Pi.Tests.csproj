@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +36,7 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\NUnit 2.6.2\bin\framework\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\SWT\Rhino.Mocks.dll</HintPath>
+      <HintPath>..\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

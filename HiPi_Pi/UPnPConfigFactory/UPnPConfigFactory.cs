@@ -20,13 +20,13 @@ namespace UPnPConfigFactory
         public IUPnPConfigPackage CreatePackage()
         {
             IIpConfig ip = new SinkIPConfig(52000);
-            IUPnPConfig upnp = new UPnPConfig(900, "config/ConfigHiPiMediaRenderer.txt");
+            IUPnPConfig upnp = new UPnPConfig(900, "../../config/ConfigHiPiMediaRenderer.txt");
             IXMLWriter xml = new XMLWriter(ip);
 
             List<string> serviceconf = new List<string>
                 {
-                    "config/ConfigServiceAVTransport.txt",
-                    "config/ConfigServiceRenderingControl.txt"
+                    "../../config/ConfigServiceAVTransport.txt",
+                    "../../config/ConfigServiceRenderingControl.txt"
                 };
 
             IUPnPConfigPackage pack = new UPnPConfigPackage(ip, upnp, xml, serviceconf);

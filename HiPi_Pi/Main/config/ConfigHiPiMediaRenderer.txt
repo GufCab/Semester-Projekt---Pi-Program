@@ -1,0 +1,8 @@
+HiPi
+Gruppe 8
+HiPi
+Social Soundsystem
+
+urn:schemas-upnp-org:device:MediaRenderer:1
+AVTransport
+RenderingControl
