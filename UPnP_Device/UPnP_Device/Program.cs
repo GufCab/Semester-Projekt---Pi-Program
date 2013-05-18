@@ -22,7 +22,13 @@ namespace UPnP_Device
             IUPnPConfig upnpConfig = new UPnPConfig.UPnPConfig();
             upnpConfig.LoadConfig("config/ConfigHiPiMediaRenderer.txt");
             var writer = new XMLWriter();
+            List<string> sList = new List<string>();
+            sList.Add("config/ConfigServiceAVTransport.txt");
+            sList.Add("config/ConfigServiceRenderingControl.txt");
 
+            XMLServicesConfig xmlServicesConfig = new XMLServicesConfig(sList);
+
+            /*
             XMLServicesConfig xmlServicesConfig = new XMLServicesConfig();
 
             xmlServicesConfig.LoadConfig("config/ConfigServiceAVTransport.txt");
@@ -46,7 +52,7 @@ namespace UPnP_Device
                     Console.WriteLine(s1.dataType);
                     Console.WriteLine();
                 }
-            }
+            }*/
 
             #endregion
 

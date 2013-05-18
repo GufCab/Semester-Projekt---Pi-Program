@@ -6,12 +6,25 @@ using System.Text;
 
 namespace UPnP_Device.XML
 {
-    class XMLServicesConfig
+    public class XMLServicesConfig
     {
         public List<FunctionProperties> _functions = new List<FunctionProperties>();
+        public string deviceType;
+
+        public XMLServicesConfig(List<string> paths)
+        {
+            IXMLWriter writer = new XMLWriter();
+
+            foreach (string path in paths)
+            {
+                LoadConfig(path);
+                writer.GenServiceDescription(deviceType, _functions);
+                _functions.Clear();
+            }
+        }
 
         //loads configfile and puts lines in list
-        public void LoadConfig(string path)
+        private void LoadConfig(string path)
         {
             using (StreamReader streamReader = new StreamReader(path))
             {
@@ -22,6 +35,9 @@ namespace UPnP_Device.XML
                 {
                     lines.Add(line);
                 }
+
+                deviceType = lines[0];
+                lines.RemoveAt(0);
 
                 SeperateFunction(lines);
             }
