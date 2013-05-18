@@ -14,7 +14,7 @@ namespace UPnP_Device.UPnPConfig
         //UPnP description details:
         List<string> services { get; set; }
         string friendlyName { get; set; }
-        string DeviceSchema { get; set; }
+        //string DeviceSchema { get; set; }
         string Manufacturer { get; set; }
         string ModelName { get; set; }
         string ModelDescription { get; set; }
@@ -32,7 +32,7 @@ namespace UPnP_Device.UPnPConfig
         //UPnP description details:
         public List<string> services { get; set; }
         public string friendlyName { get; set; }
-        public string DeviceSchema { get; set; }
+        //public string DeviceSchema { get; set; }
         public string Manufacturer { get; set; }
         public string ModelName { get; set; }
         public string ModelDescription { get; set; }
@@ -71,14 +71,14 @@ namespace UPnP_Device.UPnPConfig
         private void SetProperties(List<string> configInfo)
         {
             friendlyName = configInfo[0];
-            DeviceSchema = configInfo[1];
-            Manufacturer = configInfo[2];
-            ModelName = configInfo[3];
-            ModelDescription = configInfo[4];
-            ManufacturerURL = configInfo[5];
-            DeviceType = configInfo[6];
+            //DeviceSchema = configInfo[1];
+            Manufacturer = configInfo[1];
+            ModelName = configInfo[2];
+            ModelDescription = configInfo[3];
+            ManufacturerURL = configInfo[4];
+            DeviceType = configInfo[5];
             
-            configInfo.RemoveRange(0, 7);
+            configInfo.RemoveRange(0, 6);
 
             foreach (string s in configInfo)
             {
