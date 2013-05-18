@@ -12,7 +12,6 @@ namespace PlaybackCtrl
         private IPlaylistHandler Playlist;
         private IUPnPSink UPnPSink;
 
-        //Constructor:
         public PlaybackControl(IUPnPSink sink)
         {
             UPnPSink = sink;
@@ -21,65 +20,65 @@ namespace PlaybackCtrl
             SubscribeToWrapper();
             SubscribeToSink(); //Not implemented
         }
-        
-        public void Next()
+
+        private void Next()
         {
             var myTrack = Playlist.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        public void Prev()
+        private void Prev()
         {
             ITrack myTrack = Playlist.GetPrevTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        public void Play()
+        private void Play()
         {
             var myTrack = Playlist.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        public void PlayAt(int index)
+        private void PlayAt(int index)
         {
             var myTrack = Playlist.GetTrack(index);
             Player.PlayTrack(myTrack.Path);
         }
 
-        public void Pause()
+        private void Pause()
         {
             Player.PauseTrack();
         }
 
 
-        public void AddToPlayQueue(string path)
+        private void AddToPlayQueue(string path)
         {
             Playlist.AddToPlayQue(path);
         }
 
-        public void AddToPlayQueue(string path, int index)
+        private void AddToPlayQueue(string path, int index)
         {
             Playlist.AddToPlayQue(path, index);
         }
 
-        public double GetPos() //returns how far into the track MPlayer is
+        private double GetPos() //returns how far into the track MPlayer is
         {
             double pos = Convert.ToDouble(Player.GetPosition());
             return pos;
         }
 
-        public void SetPos(int pos) //used for going back and forth in a track
+        private void SetPos(int pos) //used for going back and forth in a track
         {
             Player.SetPosition(pos);
         }
 
-        public double GetVol()
+        private double GetVol()
         {
             double vol = Convert.ToDouble(Player.GetVolume());
             return vol;
         }
 
-        public void SetVol(int vol)
+        private void SetVol(int vol)
         {
             Player.SetVolume(vol);
         }
@@ -96,13 +95,55 @@ namespace PlaybackCtrl
         }
 
 
-        private void UPnPHandler()
+        private void UPnPHandler(object e, UPnPEventArgs args, Callback cb)
         {
             //Switch-case / Gufs magic dictionary (se TCPResponses i TCP i UPnP_Device)
             //Call function (Functions called this way can be made private)
+            string action = args.action;
 
+            switch (action)
+            {
+                case "Play":
+                    Play();
+                    break;
 
-            //Raise callback event
+                case "Next":
+                    Next();
+                    break;
+
+                case "Prev":
+                    Prev();
+                    break;
+
+                case "Pause":
+                    Pause();
+                    break;
+
+                case "Add":
+                    AddToPlayQueue(args.somesString);
+                    break;
+
+                case "AddAt":
+                    AddToPlayQueue(args.someString, args.position);
+                    break;
+
+                case "SetVol":
+                    SetVol(args.desiredVol);
+                    break;
+
+                case "SetPos":
+                    SetPos(args.desiredPos);
+                    break;
+
+                case "GetVol":
+                    GetVol(); //return the volume
+                    break;
+
+                case "GetPos":
+                    GetPos(); //return the position
+                    break;
+            }
+            cb(someParameters);
         }
 
         private void NewSongHandler (object e, EventArgs args)
