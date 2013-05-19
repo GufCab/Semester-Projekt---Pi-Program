@@ -7,7 +7,7 @@ using MPlayer;
 using UPnP_Device;
 using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
-using XMLHandler;
+using XMLReader;
 
 namespace PlaybackCtrl
 {
@@ -16,15 +16,15 @@ namespace PlaybackCtrl
         private IWrapper Player;
         private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
-        private XMLReader XMLconverter;
+        private XMLReader1 XMLconverter;
 
 
         public PlaybackControl(IUPnP sink)
         {
             UPnPSink = sink;
             Player = new MPlayerWrapper();
-            PlayQueueHandler = new PlayqueueHandler(); //Forbindelse til DB laves i DBInterface.cs
-            XMLconverter = new XMLReader();
+            PlayQueueHandler = new PlayqueueHandler(); 
+            XMLconverter = new XMLReader1();
             SubscribeToWrapper();
             SubscribeToSink();
         }
@@ -59,8 +59,8 @@ namespace PlaybackCtrl
 
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)
         {
-            ITrack myTrack = XMLconverter.Convert(retValRef[1]); //Converts xml file to Track
-            PlayQueueHandler.AddToPlayQueue(myTrack);
+            List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
+            PlayQueueHandler.AddToPlayQueue(myTrackList[0]);
         }
 
 
@@ -73,8 +73,8 @@ namespace PlaybackCtrl
 
         private void AddToPlayQueue(ref List<UPnPArg> retValRef, int index)
         {
-            ITrack myTrack = XMLconverter.Convert(retValRef[1]); //Converts xml file to Track
-            PlayQueueHandler.AddToPlayQueue(myTrack, index);
+            List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
+            PlayQueueHandler.AddToPlayQueue(myTrackList[0], index);
         }
 
         private void RemoveFromPlayQueue(int index)
@@ -112,7 +112,6 @@ namespace PlaybackCtrl
         private void SubscribeToSink()
         {
             UPnPSink.ActionEvent += UPnPHandler;
-            //When UPnPInvoke happens, call UPnPHandler
         }
 
 
