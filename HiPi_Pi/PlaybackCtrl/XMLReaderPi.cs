@@ -60,7 +60,7 @@ namespace XMLReader
                 result.ContainerRes = "item";
                 result.type = titleList[0].InnerText;
 
-                tmpList.Add(result);
+                //tmpList.Add(result);
             }
             return tmpList;
         }
