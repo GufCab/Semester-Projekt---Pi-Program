@@ -16,7 +16,7 @@ namespace UPnP_Device
                        "EXT:\n\r" +
                        "SERVER: Windows NT/5.0, UPnP/1.0 HÍPI/1.0\r\n";
 
-            return s + "\n\r" + body;
+            return s + "\r\n" + body;
         }
 
         public string InvokeResponse(string funcName, List<UPnPArg> args)

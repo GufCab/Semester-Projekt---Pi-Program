@@ -11,33 +11,33 @@ namespace PlaybackCtrl
     public class PlaybackControl
     {
         private IWrapper Player;
-        private IPlaylistHandler Playlist;
+        private IPlayqueueHandler _playqueue;
         private IUPnP UPnPSink;
 
         public PlaybackControl(IUPnP sink)
         {
             UPnPSink = sink;
             Player = new MPlayerWrapper();
-            Playlist = new PlaylistHandler(); //Forbindelse til DB laves i DBInterface.cs
+            _playqueue = new PlayqueueHandler(); //Forbindelse til DB laves i DBInterface.cs
             SubscribeToWrapper();
             SubscribeToSink(); //Not implemented
         }
 
         private void Next(ref List<UPnPArg> retValRef)
         {
-            var myTrack = Playlist.GetNextTrack();
+            var myTrack = _playqueue.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
         private void Prev(ref List<UPnPArg> retValRef)
         {
-            ITrack myTrack = Playlist.GetPrevTrack();
+            ITrack myTrack = _playqueue.GetPrevTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
         private void Play(ref List<UPnPArg> retValRef)
         {
-            //var myTrack = Playlist.GetNextTrack();
+            //var myTrack = _playqueue.GetNextTrack();
             //Player.PlayTrack(myTrack.Path);
             Player.PlayTrack("Highway.mp3");
         }
@@ -54,25 +54,25 @@ namespace PlaybackCtrl
 
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)
         {
-            Playlist.AddToPlayQue(retValRef[1].ArgVal);
+            _playqueue.AddToPlayQueue(retValRef[1].ArgVal);
         }
 
 
         private void PlayAt(int index)
         {
-            var myTrack = Playlist.GetTrack(index);
+            var myTrack = _playqueue.GetTrack(index);
             Player.PlayTrack(myTrack.Path);
         }
         
         
         private void AddToPlayQueue(string path, int index)
         {
-            Playlist.AddToPlayQue(path, index);
+            _playqueue.AddToPlayQueue(path, index);
         }
 
         private void RemoveFromPlayQueue(int index)
         {
-            Playlist.RemoveFromPlayQue(index);
+            _playqueue.RemoveFromPlayQueue(index);
         }
 
         private double GetPos() //returns how far into the track MPlayer is
@@ -179,7 +179,7 @@ namespace PlaybackCtrl
         private void NewSongHandler (object e, EventArgs args)
         {
             //Afspiller næste sang. Hvis playqueue er tom afsluttes afspilning
-            if (Playlist.GetNumberOfTracks() > Playlist.GetCurrentTrackIndex())
+            if (_playqueue.GetNumberOfTracks() > _playqueue.GetCurrentTrackIndex())
             {
                 //Next();
             }
