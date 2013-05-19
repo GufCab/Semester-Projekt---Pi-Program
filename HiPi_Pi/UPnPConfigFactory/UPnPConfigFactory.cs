@@ -15,8 +15,6 @@ namespace UPnPConfigFactory
 
     public class SinkFactory : IUPnPConfigFactory
     {
-
-
         public IUPnPConfigPackage CreatePackage()
         {
             IIpConfig ip = new SinkIPConfig(52000);
@@ -36,19 +34,23 @@ namespace UPnPConfigFactory
         }
     }
 
-    /*
+    
     public class SourceFactory : IUPnPConfigFactory
     {
-
-
         public IUPnPConfigPackage CreatePackage()
         {
-            IUPnPConfigPackage pack = new UPnPConfigPackage();
+            SourceIPConfig ipConf = new SourceIPConfig(52100);
+ 
+            IUPnPConfig upnp = new UPnPConfig(900, "../../config/ConfigHiPiMediaServer.txt");
 
+            List<string> serviceconf = new List<string>
+                {
+                    "../../config/ConfigServiceContentDirectory.txt",
+                };
 
-
+            IUPnPConfigPackage pack = new UPnPConfigPackage(ipConf,upnp,serviceconf);
             return pack;
         }
     }
-     * */
+
 }
