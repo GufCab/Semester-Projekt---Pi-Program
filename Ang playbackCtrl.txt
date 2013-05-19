@@ -1,0 +1,1 @@
+Ved sidste commit var er lavet ændringer i PlaybackCtrl. Disse ændringer er ikke taget med i HiPi_Pi_Linux
