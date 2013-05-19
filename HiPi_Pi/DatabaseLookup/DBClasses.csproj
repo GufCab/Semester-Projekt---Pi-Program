@@ -62,6 +62,7 @@
     <Compile Include="Catagory.cs">
       <DependentUpon>PiIndexModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBHandle.cs" />
     <Compile Include="DbLookup.cs" />
     <Compile Include="Musik.cs">
       <DependentUpon>PiIndexModel.tt</DependentUpon>
@@ -134,6 +135,14 @@
     <ProjectReference Include="..\Containers\Containers.csproj">
       <Project>{50fdc392-2ca9-4114-9789-2c1b2aaaf766}</Project>
       <Name>Containers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPnP_Device\UPnP_Device.csproj">
+      <Project>{5c01dc6e-62f3-46ab-8634-971363261b01}</Project>
+      <Name>UPnP_Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XMLHandl\XMLHandler.csproj">
+      <Project>{4b1d1122-adfd-43af-9332-e74e379deb40}</Project>
+      <Name>XMLHandler</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

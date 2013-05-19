@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Containers;
 using DatabaseLookup;
 
-namespace DbLookup
+namespace DBClasses
 {
     public class DbLookup
     {
