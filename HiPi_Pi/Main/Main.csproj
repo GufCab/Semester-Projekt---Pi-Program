@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseLookup\DBClasses.csproj">
+      <Project>{09962acb-7eeb-4e4f-bd3c-34c604983d7b}</Project>
+      <Name>DBClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MPlayer\MPlayer.csproj">
       <Project>{e3e64998-d167-4784-ab1f-53f77aa57250}</Project>
       <Name>MPlayer</Name>
