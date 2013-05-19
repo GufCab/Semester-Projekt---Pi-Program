@@ -34,24 +34,15 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseLookup\DBClasses.csproj">
-      <Project>{09962acb-7eeb-4e4f-bd3c-34c604983d7b}</Project>
-      <Name>DBClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MPlayer\MPlayer.csproj">
-      <Project>{e3e64998-d167-4784-ab1f-53f77aa57250}</Project>
-      <Name>MPlayer</Name>
+    <ProjectReference Include="..\DBHandling\DBHandling.csproj">
+      <Project>{8b17ff89-8315-4af5-8f49-76a51812e3c3}</Project>
+      <Name>DBHandling</Name>
     </ProjectReference>
     <ProjectReference Include="..\PlaybackCtrl\PlaybackCtrl.csproj">
       <Project>{87b9575a-b472-4b75-8078-96bce428b386}</Project>

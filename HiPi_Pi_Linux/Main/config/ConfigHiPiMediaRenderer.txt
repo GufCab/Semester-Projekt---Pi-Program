@@ -1,0 +1,9 @@
+HiPi - Sink
+./Descriptions/MediaRenderer
+Gruppe 8
+HiPi - Sink
+Social Soundsystem
+
+urn:schemas-upnp-org:device:MediaRenderer:1
+AVTransport:1
+RenderingControl:1

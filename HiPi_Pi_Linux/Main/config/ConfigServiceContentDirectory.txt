@@ -1,0 +1,2 @@
+ContentDirectory:1
+Browse/ObjectID:in:A_ARG_TYPE_ObjectID:no:string;BrowseFlag:in:A_ARG_TYPE_BrowseFlag:no:string;Filter:in:A_ARG_TYPE_Filter:no:string;StartingIndex:in:A_ARG_TYPE_Index:no:ui4;RequestedCount:in:A_ARG_TYPE_Count:no:ui4;SortCriteria:in:A_ARG_TYPE_SortCriteria:no:string;Result:out:A_ARG_TYPE_Result:no:string;NumberReturned:out:A_ARG_TYPE_Count:no:ui4;TotalMatches:out:A_ARG_TYPE_Count:no:ui4;UpdateID:out:A_ARG_TYPE_UpdateID:no:ui4

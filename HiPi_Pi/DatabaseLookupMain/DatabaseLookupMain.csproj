@@ -49,10 +49,6 @@
       <Project>{50fdc392-2ca9-4114-9789-2c1b2aaaf766}</Project>
       <Name>Containers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DatabaseLookup\DBClasses.csproj">
-      <Project>{09962acb-7eeb-4e4f-bd3c-34c604983d7b}</Project>
-      <Name>DBClasses</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,0 +1,4 @@
+RenderingControl:1
+SetMute/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;Channel:in:A_ARG_TYPE:Channel:no:string
+GetVolume/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;Channel:in:A_ARG_TYPE:Channel:no:string;CurrentVolume:out:Volume:no:ui2
+SetVolume/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;Channel:in:A_ARG_TYPE:Channel:no:string;DesiredVolume:in:Volume:no:ui2
