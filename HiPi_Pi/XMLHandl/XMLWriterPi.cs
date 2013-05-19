@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Playback;
+//using Playback;
 using System.Xml;
 using System.IO;
+using PlaybackCtrl;
 
 namespace XMLHandler
 {
-    class XMLWriterPi
+    public class XMLWriterPi
     {
         public string testXMLConverter()
         {

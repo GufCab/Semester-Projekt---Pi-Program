@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PlaybackCtrl;
 using UPnP_Device;
+using XMLHandler;
 
 namespace DBClasses
 {
-    public class DBLookup
-    {
-        
-    }
-
     public class DBHandle
     {
         private IUPnP _sourceDevice;
-        private DBXmlWriter _dbXmlWriter;
+        private XMLWriterPi _dbXmlWriter;
         private Dictionary<string, IDBStrategy> _strategies;
-        //private DBLookup _dbLookup;
+        private DBLookup _dbLookup;
 
         public DBHandle(IUPnP sourceDevice)
         {
             _sourceDevice = sourceDevice;
             _sourceDevice.ActionEvent += _sourceDevice_ActionEvent;
 
+            _dbXmlWriter = new XMLWriterPi();
             _dbLookup = new DBLookup();
 
             CreateDictionary();
@@ -43,7 +41,7 @@ namespace DBClasses
 
     public interface IDBStrategy
     {
-        void Handle(List<UPnPArg> args, CallBack cb, DBXmlWriter writer);
+        void Handle(List<UPnPArg> args, CallBack cb, XMLWriterPi writer);
     }
 
     public class BrowseStrat : IDBStrategy
@@ -55,7 +53,7 @@ namespace DBClasses
             _dbLookup = lookup;
         }
 
-        public void Handle(List<UPnPArg> args, CallBack cb, DBXmlWriter writer)
+        public void Handle(List<UPnPArg> args, CallBack cb, XMLWriterPi writer)
         {
             Console.WriteLine("Browse Was called (BrowseStrat)");
             List<UPnPArg> retArgs = new List<UPnPArg>();
@@ -66,12 +64,21 @@ namespace DBClasses
             if (containerId == "BadArgs")
             {
                 cb(retArgs, containerId);
-                return;
             }
+            else
+            {
+                List<ITrack> containingList = _dbLookup.Browse(containerId);
+                int NumberReturned = containingList.Count;
 
-            var ContainingList = _dbLookup.Browse(containerId);
+                string retVal = writer.XMLConverter(containingList);
+
+                retArgs.Add(new UPnPArg("Result", retVal));
+                retArgs.Add(new UPnPArg("NumberReturned", NumberReturned.ToString()));
+                retArgs.Add(new UPnPArg("TotalMatches", NumberReturned.ToString()));
+
+                cb(retArgs, "Browse");
+            }
             
-
         }
 
         private string GetContainerID(List<UPnPArg> args)
