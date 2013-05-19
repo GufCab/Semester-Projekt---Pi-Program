@@ -77,9 +77,10 @@ namespace PlaybackCtrl
             PlayQueueHandler.AddToPlayQueue(myTrackList[0], index);
         }
 
-        private void RemoveFromPlayQueue(int index)
+        private void RemoveFromPlayQueue(ref List<UPnPArg> retValRef)
         {
-            PlayQueueHandler.RemoveFromPlayQueue(index);
+
+            PlayQueueHandler.RemoveFromPlayQueue(Convert.ToInt32(retValRef[1].ArgVal));
         }
 
         private double GetPos() //returns how far into the track MPlayer is
@@ -113,8 +114,7 @@ namespace PlaybackCtrl
         {
             UPnPSink.ActionEvent += UPnPHandler;
         }
-
-
+        
         private void UPnPHandler(object e, UPnPEventArgs args, CallBack cb)
         {
             string action = args.Action;
@@ -134,27 +134,32 @@ namespace PlaybackCtrl
 
                 case "Prev":
                     Prev();
+                    returnVal = null;
                     break;
 
                 case "Pause":
                     Pause();
+                    returnVal = null;
                     break;
 
                 case "SetNextAVTransportURI":
                     AddToPlayQueue(ref returnVal);
+                    returnVal = null;
                     break;
 
                 case "SetAVTransportURI":
                     SetCurrentURI(ref returnVal);
+                    returnVal = null;
                     break;
 
                 //case "AddAt":
                 //    AddToPlayQueue(args.someString, args.someInt);
                 //    break;
 
-                //case "Remove":
-                //    RemoveFromPlayQueue(args.someInt);
-                //    break;
+                case "Remove":
+                    RemoveFromPlayQueue(ref returnVal);
+                    returnVal = null;
+                    break;
 
                 //case "SetVol":
                 //    SetVol(args.desiredVol);
@@ -183,7 +188,7 @@ namespace PlaybackCtrl
 
         private void NewSongHandler (object e, EventArgs args)
         {
-            //Afspiller næste sang. Hvis playqueue er tom afsluttes afspilning
+            //Plays next song. If playqueue is empty it stops playing.
             if (PlayQueueHandler.GetNumberOfTracks() > PlayQueueHandler.GetCurrentTrackIndex())
             {
                 Next();
