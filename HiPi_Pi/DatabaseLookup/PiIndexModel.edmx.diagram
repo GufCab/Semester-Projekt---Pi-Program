@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="983256bd46364aa89564c59f6d4d557e" Name="Diagram1">
+        <EntityTypeShape EntityType="PiindexModel.Catagory" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.Musik" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.PIAlbum" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.PIArtist" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.PIDevice" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.PIFilePath" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.PIGenre" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.PIMusikData" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PiindexModel.PIPlayQueue" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="PiindexModel.fk_Device_Catagory1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_Musik_Catagory1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_PlayQueue_Catagory1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_Album_Musik1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_Artist_Musik1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_Genre_Musik1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_MusikData_Album1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_MusikData_Artist1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_FilePath_Device1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_MusikData_FilePath1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_MusikData_Genre1" ManuallyRouted="false" />
+        <AssociationConnector Association="PiindexModel.fk_PlayQueue_MusikData1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
