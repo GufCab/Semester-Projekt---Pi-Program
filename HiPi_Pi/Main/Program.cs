@@ -16,7 +16,7 @@ namespace Main
 
             UPnP u = new UPnP(sinkfact.CreatePackage());
 
-            //PlaybackControl PlayCtrl = new PlaybackControl(u);
+            PlaybackControl PlayCtrl = new PlaybackControl(u);
             
     
         }

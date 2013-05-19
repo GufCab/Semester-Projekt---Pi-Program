@@ -57,8 +57,12 @@ namespace UPnP_Device
                 size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
                 Console.WriteLine("Stream read");
                 _stream.Flush();
-                
-                return Encoding.UTF8.GetString(receiveBuffer, 0, size);
+
+                string msg = Encoding.UTF8.GetString(receiveBuffer, 0, size);
+
+                Console.WriteLine("Received TCP: " + msg);
+
+                return msg;
             }
             catch (IOException e)
             {
@@ -92,6 +96,7 @@ namespace UPnP_Device
 
         public void Send(string msg)
         {
+            Console.WriteLine("Sending msg: " + msg);
             _stream.Flush();
 
             byte[] sendBuffer = Encoding.UTF8.GetBytes(msg);

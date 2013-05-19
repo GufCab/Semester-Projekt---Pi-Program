@@ -94,7 +94,7 @@ namespace UPnP_Device.TCP
             Console.WriteLine("With arguments: ");
             foreach (var arg in args)
             {
-                Console.Write(arg + " , ");
+                Console.Write(arg.ArgName + ": " + arg.ArgVal);
             }
             
             orderClass = new Order(action, util);
@@ -178,6 +178,7 @@ namespace UPnP_Device.TCP
 
         public void CallBackFunction(List<UPnPArg> argList, string act)
         {
+            Console.WriteLine("This is callback");
             if (util.IsConnected())
             {
                 string response = invokeResponseGen.InvokeResponse(act, argList);
@@ -185,6 +186,7 @@ namespace UPnP_Device.TCP
                 if(TCPDebug.DEBUG) 
                     Console.WriteLine("invoke answer: \n\r" + response);
 
+                Console.WriteLine("Ready to send in callback");
                 util.Send(response);
                 util.Close();
 

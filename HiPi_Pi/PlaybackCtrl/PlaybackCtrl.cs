@@ -37,8 +37,9 @@ namespace PlaybackCtrl
 
         private void Play(ref List<UPnPArg> retValRef)
         {
-            var myTrack = Playlist.GetNextTrack();
-            Player.PlayTrack(myTrack.Path);
+            //var myTrack = Playlist.GetNextTrack();
+            //Player.PlayTrack(myTrack.Path);
+            Player.PlayTrack("Highway.mp3");
         }
 
         private void Pause(ref List<UPnPArg> retValRef)
@@ -62,12 +63,8 @@ namespace PlaybackCtrl
             var myTrack = Playlist.GetTrack(index);
             Player.PlayTrack(myTrack.Path);
         }
-
         
-
-
         
-
         private void AddToPlayQueue(string path, int index)
         {
             Playlist.AddToPlayQue(path, index);
@@ -123,10 +120,12 @@ namespace PlaybackCtrl
             {
                 case "Play":
                     Play(ref returnVal);
+                    returnVal = null;
                     break;
 
                 case "Next":
                     Next(ref returnVal);
+                    returnVal = null;
                     break;
 
                 case "Prev":
@@ -173,7 +172,7 @@ namespace PlaybackCtrl
                     break;
             }
 
-
+            Console.WriteLine("PlaybackCtrl ready for callback");
             cb(returnVal, args.Action);
         }
 
