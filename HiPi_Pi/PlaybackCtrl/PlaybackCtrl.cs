@@ -8,7 +8,6 @@ using UPnP_Device;
 using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
 using XMLHandler;
-using Containers;
 
 namespace PlaybackCtrl
 {
