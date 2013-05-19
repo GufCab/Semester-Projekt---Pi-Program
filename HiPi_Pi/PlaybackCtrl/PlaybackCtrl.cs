@@ -5,44 +5,47 @@ using System.Text;
 using MPlayer;
 using UPnP_Device;
 using UPnP_Device.UPnPConfig;
+using XMLHandler;
 
 namespace PlaybackCtrl
 {
     public class PlaybackControl
     {
         private IWrapper Player;
-        private IPlayqueueHandler _playqueue;
+        private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
+        private XMLReader XMLconverter;
+
 
         public PlaybackControl(IUPnP sink)
         {
             UPnPSink = sink;
             Player = new MPlayerWrapper();
-            _playqueue = new PlayqueueHandler(); //Forbindelse til DB laves i DBInterface.cs
+            PlayQueueHandler = new PlayqueueHandler(); //Forbindelse til DB laves i DBInterface.cs
+            XMLconverter = new XMLReader();
             SubscribeToWrapper();
-            SubscribeToSink(); //Not implemented
+            SubscribeToSink();
         }
 
-        private void Next(ref List<UPnPArg> retValRef)
+        private void Next()
         {
-            var myTrack = _playqueue.GetNextTrack();
+            var myTrack = PlayQueueHandler.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Prev(ref List<UPnPArg> retValRef)
+        private void Prev()
         {
-            ITrack myTrack = _playqueue.GetPrevTrack();
+            ITrack myTrack = PlayQueueHandler.GetPrevTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Play(ref List<UPnPArg> retValRef)
+        private void Play()
         {
-            //var myTrack = _playqueue.GetNextTrack();
-            //Player.PlayTrack(myTrack.Path);
-            Player.PlayTrack("Highway.mp3");
+            var myTrack = PlayQueueHandler.GetNextTrack();
+            Player.PlayTrack(myTrack.Path);
         }
 
-        private void Pause(ref List<UPnPArg> retValRef)
+        private void Pause()
         {
             Player.PauseTrack();
         }
@@ -54,25 +57,27 @@ namespace PlaybackCtrl
 
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)
         {
-            _playqueue.AddToPlayQueue(retValRef[1].ArgVal);
+            ITrack myTrack = XMLconverter.Convert(retValRef[1]); //Converts xml file to Track
+            PlayQueueHandler.AddToPlayQueue(myTrack);
         }
 
 
         private void PlayAt(int index)
         {
-            var myTrack = _playqueue.GetTrack(index);
+            var myTrack = PlayQueueHandler.GetTrack(index);
             Player.PlayTrack(myTrack.Path);
         }
-        
-        
-        private void AddToPlayQueue(string path, int index)
+
+
+        private void AddToPlayQueue(ref List<UPnPArg> retValRef, int index)
         {
-            _playqueue.AddToPlayQueue(path, index);
+            ITrack myTrack = XMLconverter.Convert(retValRef[1]); //Converts xml file to Track
+            PlayQueueHandler.AddToPlayQueue(myTrack, index);
         }
 
         private void RemoveFromPlayQueue(int index)
         {
-            _playqueue.RemoveFromPlayQueue(index);
+            PlayQueueHandler.RemoveFromPlayQueue(index);
         }
 
         private double GetPos() //returns how far into the track MPlayer is
@@ -111,29 +116,27 @@ namespace PlaybackCtrl
 
         private void UPnPHandler(object e, UPnPEventArgs args, CallBack cb)
         {
-            //Switch-case / Gufs magic dictionary (se TCPResponses i TCP i UPnP_Device)
-            //Call function (Functions called this way can be made private)
             string action = args.Action;
             List<UPnPArg> returnVal = args.Args;
 
             switch (args.Action)
             {
                 case "Play":
-                    Play(ref returnVal);
+                    Play();
                     returnVal = null;
                     break;
 
                 case "Next":
-                    Next(ref returnVal);
+                    Next();
                     returnVal = null;
                     break;
 
                 case "Prev":
-                    Prev(ref returnVal);
+                    Prev();
                     break;
 
                 case "Pause":
-                    Pause(ref returnVal);
+                    Pause();
                     break;
 
                 case "SetNextAVTransportURI":
@@ -143,30 +146,31 @@ namespace PlaybackCtrl
                 case "SetAVTransportURI":
                     SetCurrentURI(ref returnVal);
                     break;
-                    /*
-                case "AddAt":
-                    AddToPlayQueue(args.someString, args.someInt);
-                    break;
 
-                case "Remove":
-                    RemoveFromPlayQueue(args.someInt);
+                //case "AddAt":
+                //    AddToPlayQueue(args.someString, args.someInt);
+                //    break;
 
-                case "SetVol":
-                    SetVol(args.desiredVol);
-                    break;
+                //case "Remove":
+                //    RemoveFromPlayQueue(args.someInt);
+                //    break;
 
-                case "SetPos":
-                    SetPos(args.desiredPos);
-                    break;
+                //case "SetVol":
+                //    SetVol(args.desiredVol);
+                //    break;
+
+                //case "SetPos":
+                //    SetPos(args.desiredPos);
+                //    break;
 
                 case "GetVolume":
                     returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
                     break;
 
                 case "GetPos":
-                    GetPos(); //return the position
+                    returnVal.Add(new UPnPArg("GetPos", GetPos().ToString())); //return the position
                     break;
-                     * */
+
                 default:
                     Console.WriteLine("PLaybackControl class switchcase default");
                     break;
@@ -179,9 +183,9 @@ namespace PlaybackCtrl
         private void NewSongHandler (object e, EventArgs args)
         {
             //Afspiller næste sang. Hvis playqueue er tom afsluttes afspilning
-            if (_playqueue.GetNumberOfTracks() > _playqueue.GetCurrentTrackIndex())
+            if (PlayQueueHandler.GetNumberOfTracks() > PlayQueueHandler.GetCurrentTrackIndex())
             {
-                //Next();
+                Next();
             }
         }
     }

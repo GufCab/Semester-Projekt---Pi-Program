@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{87B9575A-B472-4B75-8078-96BCE428B386}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{712DD00D-EFD8-4C23-9CFC-77A4DC9BFDEA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlaybackCtrl</RootNamespace>
-    <AssemblyName>PlaybackCtrl</AssemblyName>
+    <RootNamespace>DatabaseLookupMain</RootNamespace>
+    <AssemblyName>DatabaseLookupMain</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -20,9 +21,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,26 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlaybackCtrl.cs" />
-    <Compile Include="PlayqueueHandler.cs" />
-    <Compile Include="PlayQueueDBHandler.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Track.cs" />
-    <Compile Include="XMLWriterPi.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MPlayer\MPlayer.csproj">
-      <Project>{e3e64998-d167-4784-ab1f-53f77aa57250}</Project>
-      <Name>MPlayer</Name>
+    <ProjectReference Include="..\Containers\Containers.csproj">
+      <Project>{50fdc392-2ca9-4114-9789-2c1b2aaaf766}</Project>
+      <Name>Containers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UPnPConfigFactory\UPnPConfigFactory.csproj">
-      <Project>{d9e4093f-dcf7-4f55-a10f-e993be646772}</Project>
-      <Name>UPnPConfigFactory</Name>
+    <ProjectReference Include="..\DatabaseLookup\DatabaseLookup.csproj">
+      <Project>{09962acb-7eeb-4e4f-bd3c-34c604983d7b}</Project>
+      <Name>DatabaseLookup</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UPnP_Device\UPnP_Device.csproj">
-      <Project>{5c01dc6e-62f3-46ab-8634-971363261b01}</Project>
-      <Name>UPnP_Device</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
