@@ -217,6 +217,29 @@ namespace UPnP_Device.TCP
             
         }
     }
+    /// <summary>
+    /// Empty strategy. For the purpose of not getting null - reference
+    /// </summary>
+    public class SubscribeStrategy : IRespondStrategy
+    {
+        public void Respond(INetworkUtillity util)
+        {
+            
+        }
+    }
+
+
+    /// <summary>
+    /// Todo: Should respond with error message. 
+    /// Create the HTTP header with 400 - codes
+    /// </summary>
+    public class BadRequestStrategy : IRespondStrategy
+    {
+        public void Respond(INetworkUtillity util)
+        {
+
+        }
+    }
      
  
 }

@@ -64,9 +64,9 @@ namespace PlaybackCtrl
         }
 
 
-        private void PlayAt(int index)
+        private void PlayAt(ref List<UPnPArg> retValRef)
         {
-            var myTrack = PlayQueueHandler.GetTrack(index);
+            var myTrack = PlayQueueHandler.GetTrack(Convert.ToInt32(retValRef[1].ArgVal));
             Player.PlayTrack(myTrack.Path);
         }
 
@@ -114,81 +114,84 @@ namespace PlaybackCtrl
         {
             UPnPSink.ActionEvent += UPnPHandler;
         }
-
+        
         private void UPnPHandler(object e, UPnPEventArgs args, CallBack cb)
         {
             string action = args.Action;
             List<UPnPArg> returnVal = args.Args;
-            if (action != "Browse")
+
+            switch (args.Action)
             {
-                switch (args.Action)
-                {
-                    case "Play":
-                        Play();
-                        returnVal = null;
-                        break;
+                case "Play":
+                    Play();
+                    returnVal = null;
+                    break;
 
-                    case "Next":
-                        Next();
-                        returnVal = null;
-                        break;
+                case "Next":
+                    Next();
+                    returnVal = null;
+                    break;
 
-                    case "Prev":
-                        Prev();
-                        returnVal = null;
-                        break;
+                case "Prev":
+                    Prev();
+                    returnVal = null;
+                    break;
 
-                    case "Pause":
-                        Pause();
-                        returnVal = null;
-                        break;
+                case "Pause":
+                    Pause();
+                    returnVal = null;
+                    break;
 
-                    case "SetNextAVTransportURI":
-                        AddToPlayQueue(ref returnVal);
-                        returnVal = null;
-                        break;
+                case "SetNextAVTransportURI":
+                    AddToPlayQueue(ref returnVal);
+                    returnVal = null;
+                    break;
 
-                    case "SetAVTransportURI":
-                        SetCurrentURI(ref returnVal);
-                        returnVal = null;
-                        break;
+                case "SetAVTransportURI":
+                    SetCurrentURI(ref returnVal);
+                    returnVal = null;
+                    break;
 
-                        //case "AddAt":
-                        //    AddToPlayQueue(ref returnVal); //Also needs an int, index. Is it contained in returnVal?
-                        //    returnVal = null;
-                        //    break;
+                //case "AddAt":
+                //    AddToPlayQueue(ref returnVal); //Also needs an int, index. Is it contained in returnVal?
+                //    returnVal = null;
+                //    break;
 
-                    case "Remove":
-                        RemoveFromPlayQueue(ref returnVal);
-                        returnVal = null;
-                        break;
+                case "PlayAt":
+                    PlayAt(ref returnVal);
+                    returnVal = null;
+                    break;
 
-                    case "SetVol":
-                        SetVol(ref returnVal);
-                        returnVal = null;
-                        break;
+                case "Remove":
+                    RemoveFromPlayQueue(ref returnVal);
+                    returnVal = null;
+                    break;
 
-                    case "SetPos":
-                        SetPos(ref returnVal);
-                        break;
+                case "SetVol":
+                    SetVol(ref returnVal);
+                    returnVal = null;
+                    break;
 
-                    case "GetVolume":
-                        returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
-                        break;
+                case "SetPos":
+                    SetPos(ref returnVal);
+                    break;
 
-                    case "GetPos":
-                        returnVal.Add(new UPnPArg("GetPos", GetPos().ToString())); //return the position
-                        break;
+                case "GetVolume":
+                    returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
+                    break;
 
-                    default:
-                        Console.WriteLine("PLaybackControl class switchcase default");
-                        break;
-                }
+                case "GetPos":
+                    returnVal.Add(new UPnPArg("GetPos", GetPos().ToString())); //return the position
+                    break;
+
+                default:
+                    Console.WriteLine("PLaybackControl class switchcase default");
+                    break;
+            }
 
             Console.WriteLine("PlaybackCtrl ready for callback");
             cb(returnVal, args.Action);
         }
-    }
 
         private void NewSongHandler (object e, EventArgs args)
         {
