@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Containers;
-using DbLookup;
+using DBClasses;
 
 namespace DatabaseLookupMain
 {
@@ -11,7 +11,7 @@ namespace DatabaseLookupMain
     {
         static void Main(string[] args)
         {
-            var data = new DbLookup.DbLookup();
+            var data = new DbLookup();
 
             var trkList = data.Browse("hej");
 

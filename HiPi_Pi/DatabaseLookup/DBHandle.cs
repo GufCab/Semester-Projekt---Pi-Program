@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Containers;
 using UPnP_Device;
 using XMLHandler;
 
@@ -45,9 +46,9 @@ namespace DBClasses
 
     public class BrowseStrat : IDBStrategy
     {
-        private DBLookup _dbLookup;
+        private DbLookup _dbLookup;
 
-        public BrowseStrat(DBLookup lookup)
+        public BrowseStrat(DbLookup lookup)
         {
             _dbLookup = lookup;
         }
@@ -69,7 +70,7 @@ namespace DBClasses
                 List<ITrack> containingList = _dbLookup.Browse(containerId);
                 int NumberReturned = containingList.Count;
 
-                string retVal = writer.XMLConverter(containingList);
+                string retVal = writer.ConvertITrackToXML(containingList);
 
                 retArgs.Add(new UPnPArg("Result", retVal));
                 retArgs.Add(new UPnPArg("NumberReturned", NumberReturned.ToString()));
