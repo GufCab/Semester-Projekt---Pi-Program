@@ -13,7 +13,7 @@ namespace Containers
         string Protocol { get; set; }   //ex rtsp://
 
         string Title { get; set; }
-        int Duration { get; set; }
+        string Duration { get; set; }
         string Artist { get; set; }
         string Album { get; set; }
         string Genre { get; set; }
@@ -27,7 +27,7 @@ namespace Containers
         public string Protocol { get; set; }
 
         public string Title { get; set; }
-        public int Duration { get; set; }
+        public string Duration { get; set; }
         public string Artist { get; set; }
         public string Album { get; set; }
         public string Genre { get; set; }
