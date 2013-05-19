@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("XMLHandl")]
+[assembly: AssemblyTitle("XMLWriterMain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("XMLHandl")]
+[assembly: AssemblyProduct("XMLWriterMain")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("edbbce86-1268-4a0e-8f64-df984c99133e")]
+[assembly: Guid("efac47ad-b52e-400e-8442-be29815be445")]
 
 // Version information for an assembly consists of the following four values:
 //

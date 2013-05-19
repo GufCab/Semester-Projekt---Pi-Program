@@ -42,12 +42,15 @@
   <ItemGroup>
     <Compile Include="PlaybackCtrl.cs" />
     <Compile Include="PlayqueueHandler.cs" />
-    <Compile Include="PlayQueueDBHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Track.cs" />
+    <Compile Include="XMLReaderPi.cs" />
     <Compile Include="XMLWriterPi.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Containers\Containers.csproj">
+      <Project>{50fdc392-2ca9-4114-9789-2c1b2aaaf766}</Project>
+      <Name>Containers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MPlayer\MPlayer.csproj">
       <Project>{e3e64998-d167-4784-ab1f-53f77aa57250}</Project>
       <Name>MPlayer</Name>
