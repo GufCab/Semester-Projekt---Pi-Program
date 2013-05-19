@@ -64,9 +64,9 @@ namespace PlaybackCtrl
         }
 
 
-        private void PlayAt(int index)
+        private void PlayAt(ref List<UPnPArg> retValRef)
         {
-            var myTrack = PlayQueueHandler.GetTrack(index);
+            var myTrack = PlayQueueHandler.GetTrack(Convert.ToInt32(retValRef[1].ArgVal));
             Player.PlayTrack(myTrack.Path);
         }
 
@@ -156,6 +156,11 @@ namespace PlaybackCtrl
                 //    AddToPlayQueue(ref returnVal); //Also needs an int, index. Is it contained in returnVal?
                 //    returnVal = null;
                 //    break;
+
+                case "PlayAt":
+                    PlayAt(ref returnVal);
+                    returnVal = null;
+                    break;
 
                 case "Remove":
                     RemoveFromPlayQueue(ref returnVal);
