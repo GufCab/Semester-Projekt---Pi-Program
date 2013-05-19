@@ -89,9 +89,9 @@ namespace PlaybackCtrl
             return pos;
         }
 
-        private void SetPos(int pos) //used for going back and forth in a track
+        private void SetPos(ref List<UPnPArg> retValRef) //used for going back and forth in a track
         {
-            Player.SetPosition(pos);
+            Player.SetPosition(Convert.ToInt32(retValRef[1].ArgVal));
         }
 
         private double GetVol()
@@ -100,9 +100,9 @@ namespace PlaybackCtrl
             return vol;
         }
 
-        private void SetVol(int vol)
+        private void SetVol(ref List<UPnPArg> retValRef)
         {
-            Player.SetVolume(vol);
+            Player.SetVolume(Convert.ToInt32(retValRef[1].ArgVal));
         }
 
         private void SubscribeToWrapper()
@@ -153,7 +153,8 @@ namespace PlaybackCtrl
                     break;
 
                 //case "AddAt":
-                //    AddToPlayQueue(args.someString, args.someInt);
+                //    AddToPlayQueue(ref returnVal); //Also needs an int, index. Is it contained in returnVal?
+                //    returnVal = null;
                 //    break;
 
                 case "Remove":
@@ -161,13 +162,14 @@ namespace PlaybackCtrl
                     returnVal = null;
                     break;
 
-                //case "SetVol":
-                //    SetVol(args.desiredVol);
-                //    break;
+                case "SetVol":
+                    SetVol(ref returnVal);
+                    returnVal = null;
+                    break;
 
-                //case "SetPos":
-                //    SetPos(args.desiredPos);
-                //    break;
+                case "SetPos":
+                    SetPos(ref returnVal);
+                    break;
 
                 case "GetVolume":
                     returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume

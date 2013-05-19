@@ -5,8 +5,11 @@ using System.Text;
 
 namespace Containers
 {
-    class Container
+    public class Container
     {
-
+        public string id { get; set; }
+        public string parentID { get; set; }
+        public string title { get; set; }
+        public string upnpClass { get; set; }
     }
 }
