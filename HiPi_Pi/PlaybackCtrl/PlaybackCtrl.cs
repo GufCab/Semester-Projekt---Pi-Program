@@ -145,30 +145,30 @@ namespace PlaybackCtrl
                 case "SetAVTransportURI":
                     SetCurrentURI(ref returnVal);
                     break;
-                    /*
-                case "AddAt":
-                    AddToPlayQueue(args.someString, args.someInt);
-                    break;
 
-                case "Remove":
-                    RemoveFromPlayQueue(args.someInt);
+                //case "AddAt":
+                //    AddToPlayQueue(args.someString, args.someInt);
+                //    break;
 
-                case "SetVol":
-                    SetVol(args.desiredVol);
-                    break;
+                //case "Remove":
+                //    RemoveFromPlayQueue(args.someInt);
 
-                case "SetPos":
-                    SetPos(args.desiredPos);
-                    break;
+                //case "SetVol":
+                //    SetVol(args.desiredVol);
+                //    break;
 
-                case "GetVolume":
-                    returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
-                    break;
+                //case "SetPos":
+                //    SetPos(args.desiredPos);
+                //    break;
 
-                case "GetPos":
-                    GetPos(); //return the position
-                    break;
-                     * */
+                //case "GetVolume":
+                //    returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
+                //    break;
+
+                //case "GetPos":
+                //    GetPos(); //return the position
+                //    break;
+
                 default:
                     Console.WriteLine("PLaybackControl class switchcase default");
                     break;
