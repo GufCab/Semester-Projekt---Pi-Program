@@ -15,6 +15,8 @@ namespace DatabaseLookupMain
 
             var trkList = data.Browse("hej");
 
+            Console.WriteLine("Output tracks: ");
+
             foreach (ITrack t in trkList)
             {
                 Console.WriteLine("---- " + t.FileName + "----");
@@ -26,9 +28,13 @@ namespace DatabaseLookupMain
                 Console.WriteLine("Track Genre: " + t.Genre);
                 Console.WriteLine("Track Protocol: " + t.Protocol);
                 Console.WriteLine("Track Path: " + t.Path);
+                string str = t.Path.Replace(@"\", "/");
+                Console.WriteLine("Play path: " + t.Protocol + t.DeviceIP + "/" + str + "/" + t.FileName);
                 Console.WriteLine();
             }
             Console.ReadLine();
+
+            
 
         }
     }

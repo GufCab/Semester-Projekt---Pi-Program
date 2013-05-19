@@ -32,8 +32,10 @@ namespace DBClasses
                     trk.DeviceIP = elm.d.IP;
                     trk.Protocol = elm.d.Protocol;
 
+                    trk.FileName = elm.trk.FileName + ".mp3";
                     trk.Title = elm.trk.Title;
-                    trk.Duration = Convert.ToInt32((elm.trk.NrLenth));
+                    //trk.Duration = (elm.trk.NrLenth);
+                    trk.Duration = 1;
                     trk.Artist = elm.trk.Artist_Artist;
                     trk.Album = elm.trk.Album_Album;
                     trk.Genre = elm.trk.Genre_Genre;
