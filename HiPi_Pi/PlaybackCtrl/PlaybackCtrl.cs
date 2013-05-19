@@ -27,25 +27,25 @@ namespace PlaybackCtrl
             SubscribeToSink();
         }
 
-        private void Next(ref List<UPnPArg> retValRef)
+        private void Next()
         {
             var myTrack = PlayQueueHandler.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Prev(ref List<UPnPArg> retValRef)
+        private void Prev()
         {
             ITrack myTrack = PlayQueueHandler.GetPrevTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Play(ref List<UPnPArg> retValRef)
+        private void Play()
         {
             var myTrack = PlayQueueHandler.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Pause(ref List<UPnPArg> retValRef)
+        private void Pause()
         {
             Player.PauseTrack();
         }
@@ -122,21 +122,21 @@ namespace PlaybackCtrl
             switch (args.Action)
             {
                 case "Play":
-                    Play(ref returnVal);
+                    Play();
                     returnVal = null;
                     break;
 
                 case "Next":
-                    Next(ref returnVal);
+                    Next();
                     returnVal = null;
                     break;
 
                 case "Prev":
-                    Prev(ref returnVal);
+                    Prev();
                     break;
 
                 case "Pause":
-                    Pause(ref returnVal);
+                    Pause();
                     break;
 
                 case "SetNextAVTransportURI":
@@ -185,7 +185,7 @@ namespace PlaybackCtrl
             //Afspiller næste sang. Hvis playqueue er tom afsluttes afspilning
             if (PlayQueueHandler.GetNumberOfTracks() > PlayQueueHandler.GetCurrentTrackIndex())
             {
-                //Next();
+                Next();
             }
         }
     }
