@@ -72,7 +72,6 @@ namespace PlaybackCtrl
                 if (index < _Index)
                     --_Index;
             }
-                
         }
 
         public int GetCurrentTrackIndex()
@@ -85,73 +84,4 @@ namespace PlaybackCtrl
             return _Queue[_Index];
         }
     }
-
-    /*
-    public class DummyPlayqueueHandler : IPlayqueueHandler
-    {
-        private IPlayQueueDBHandler _playQ;
-        private int _currentTrackIndex = 0;
-        private ITrack _currentTrack;
-
-        public DummyPlayqueueHandler()
-        {
-            _playQ = new PlayQueueDBHandler();
-            _currentTrack = new Track();
-        }
-
-        public ITrack GetNextTrack()
-        {
-            _currentTrackIndex++;
-            _currentTrack = _playQ.GetTrack(_currentTrackIndex); //Needs to convert from Metadata to Track
-            return _currentTrack;
-        }
-
-        public ITrack GetPrevTrack()
-        {
-            if (_currentTrackIndex > 0)
-            {
-                _currentTrackIndex--;
-            }
-            _currentTrack = _playQ.GetTrack(_currentTrackIndex);  //Needs to convert from Metadata to Track
-            return _currentTrack;
-        }
-
-        public ITrack GetTrack(int index)
-        {
-            _currentTrackIndex = index;
-            _currentTrack = _playQ.GetTrack(_currentTrackIndex);  //Needs to convert from Metadata to Track
-            return _currentTrack;
-        }
-
-        public void AddToPlayQueue(string s)
-        {
-            _playQ.AddToPlayQueue(s);
-        }
-
-        public void AddToPlayQueue(string s, int index)
-        {
-            _playQ.AddToPlayQueue(s, index);
-        }
-
-        public void RemoveFromPlayQueue(int index)
-        {
-            _playQ.RemoveFromPlayQueue(index);
-        }
-
-        public int GetNumberOfTracks()
-        {
-            return _playQ.GetNumberOfTracks();
-        }
-
-        public int GetCurrentTrackIndex()
-        {
-            return _currentTrackIndex;
-        }
-
-        public ITrack GetCurrentTrack()
-        {
-            return _currentTrack;
-        }
-    }
-     * */
 }

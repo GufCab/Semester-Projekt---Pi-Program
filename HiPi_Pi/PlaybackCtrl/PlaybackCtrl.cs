@@ -5,41 +5,44 @@ using System.Text;
 using MPlayer;
 using UPnP_Device;
 using UPnP_Device.UPnPConfig;
+using XMLHandler;
 
 namespace PlaybackCtrl
 {
     public class PlaybackControl
     {
         private IWrapper Player;
-        private IPlayqueueHandler _playqueue;
+        private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
+        private XMLReader XMLconverter;
+
 
         public PlaybackControl(IUPnP sink)
         {
             UPnPSink = sink;
             Player = new MPlayerWrapper();
-            _playqueue = new PlayqueueHandler(); //Forbindelse til DB laves i DBInterface.cs
+            PlayQueueHandler = new PlayqueueHandler(); //Forbindelse til DB laves i DBInterface.cs
+            XMLconverter = new XMLReader();
             SubscribeToWrapper();
-            SubscribeToSink(); //Not implemented
+            SubscribeToSink();
         }
 
         private void Next(ref List<UPnPArg> retValRef)
         {
-            var myTrack = _playqueue.GetNextTrack();
+            var myTrack = PlayQueueHandler.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
         private void Prev(ref List<UPnPArg> retValRef)
         {
-            ITrack myTrack = _playqueue.GetPrevTrack();
+            ITrack myTrack = PlayQueueHandler.GetPrevTrack();
             Player.PlayTrack(myTrack.Path);
         }
 
         private void Play(ref List<UPnPArg> retValRef)
         {
-            //var myTrack = _playqueue.GetNextTrack();
-            //Player.PlayTrack(myTrack.Path);
-            Player.PlayTrack("Highway.mp3");
+            var myTrack = PlayQueueHandler.GetNextTrack();
+            Player.PlayTrack(myTrack.Path);
         }
 
         private void Pause(ref List<UPnPArg> retValRef)
@@ -54,25 +57,26 @@ namespace PlaybackCtrl
 
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)
         {
-            _playqueue.AddToPlayQueue(retValRef[1].ArgVal);
+            ITrack myTrack = XMLconverter.Convert(retValRef[1]); //Converts xml file to Track
+            PlayQueueHandler.AddToPlayQueue(myTrack);
         }
 
 
         private void PlayAt(int index)
         {
-            var myTrack = _playqueue.GetTrack(index);
+            var myTrack = PlayQueueHandler.GetTrack(index);
             Player.PlayTrack(myTrack.Path);
         }
         
         
         private void AddToPlayQueue(string path, int index)
         {
-            _playqueue.AddToPlayQueue(path, index);
+            PlayQueueHandler.AddToPlayQueue(path, index);
         }
 
         private void RemoveFromPlayQueue(int index)
         {
-            _playqueue.RemoveFromPlayQueue(index);
+            PlayQueueHandler.RemoveFromPlayQueue(index);
         }
 
         private double GetPos() //returns how far into the track MPlayer is
@@ -111,8 +115,6 @@ namespace PlaybackCtrl
 
         private void UPnPHandler(object e, UPnPEventArgs args, CallBack cb)
         {
-            //Switch-case / Gufs magic dictionary (se TCPResponses i TCP i UPnP_Device)
-            //Call function (Functions called this way can be made private)
             string action = args.Action;
             List<UPnPArg> returnVal = args.Args;
 
@@ -179,7 +181,7 @@ namespace PlaybackCtrl
         private void NewSongHandler (object e, EventArgs args)
         {
             //Afspiller næste sang. Hvis playqueue er tom afsluttes afspilning
-            if (_playqueue.GetNumberOfTracks() > _playqueue.GetCurrentTrackIndex())
+            if (PlayQueueHandler.GetNumberOfTracks() > PlayQueueHandler.GetCurrentTrackIndex())
             {
                 //Next();
             }
