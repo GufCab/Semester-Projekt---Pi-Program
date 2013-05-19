@@ -9,7 +9,7 @@ using PlaybackCtrl;
 
 namespace XMLHandler
 {
-    class XMLWriterPi
+    public class XMLWriterPi
     {
         public string testXMLConverter()
         {
@@ -125,5 +125,26 @@ namespace XMLHandler
             
             return doc.OuterXml;
         }
+        /*
+        public string ConvertIElementToXML(List<Element> elements)
+        {
+            XmlDocument doc = new XmlDocument();
+            XmlElement root = doc.CreateElement("DIDL-lite");
+            doc.AppendChild(root);
+
+            foreach (Element element in elements)
+            {
+                
+            }
+
+            return doc.OuterXml;
+        }*/
+    }
+
+    class Element
+    {
+        private string _title { set; get; }
+        private string _creator { set; get; } 
+        private string _upnpClass { set; get; }
     }
 }

@@ -45,7 +45,6 @@
     <Compile Include="PlayQueueDBHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Track.cs" />
-    <Compile Include="XMLReader.cs" />
     <Compile Include="XMLWriterPi.cs" />
   </ItemGroup>
   <ItemGroup>
