@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B1D1122-ADFD-43AF-9332-E74E379DEB40}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1DE9988A-2C45-44CE-90A1-F7399985990A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XMLHandl</RootNamespace>
-    <AssemblyName>XMLHandl</AssemblyName>
+    <RootNamespace>XMLWriterMain</RootNamespace>
+    <AssemblyName>XMLWriterMain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,31 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XMLReader.cs" />
-    <Compile Include="XMLWriterPi.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HiPi_Pi.Tests\HiPi_Pi.Tests.csproj">
-      <Project>{b1ee84fe-f863-476c-8ccc-fae0011aad6e}</Project>
-      <Name>HiPi_Pi.Tests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MPlayer\MPlayer.csproj">
-      <Project>{e3e64998-d167-4784-ab1f-53f77aa57250}</Project>
-      <Name>MPlayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PlaybackCtrl\PlaybackCtrl.csproj">
-      <Project>{87b9575a-b472-4b75-8078-96bce428b386}</Project>
-      <Name>PlaybackCtrl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP\UPnP.csproj">
-      <Project>{584ed187-8f2a-4b58-a266-85f3f212b092}</Project>
-      <Name>UPnP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPnP_DvSink\UPnP_DvSink.csproj">
-      <Project>{c2c9cdf5-6d0a-4ea3-b46d-f5c7f0e3af68}</Project>
-      <Name>UPnP_DvSink</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -140,10 +140,6 @@
       <Project>{5c01dc6e-62f3-46ab-8634-971363261b01}</Project>
       <Name>UPnP_Device</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XMLHandl\XMLHandler.csproj">
-      <Project>{4b1d1122-adfd-43af-9332-e74e379deb40}</Project>
-      <Name>XMLHandler</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
