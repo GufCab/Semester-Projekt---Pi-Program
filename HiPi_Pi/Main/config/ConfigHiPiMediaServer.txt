@@ -1,7 +1,7 @@
-HiPi
+HiPi - Source
 ./Descriptions/MediaServer
 Gruppe 8
-HiPi
+HiPi - Source
 Social Soundsystem
 
 urn:schemas-upnp-org:device:MediaServer:1

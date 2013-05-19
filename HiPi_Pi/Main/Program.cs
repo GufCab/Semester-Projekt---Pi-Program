@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using DBClasses;
 using UPnPConfigFactory;
 using UPnP_Device;
 using PlaybackCtrl;
 using XMLHandler;
+
 
 namespace Main
 {
@@ -15,10 +17,14 @@ namespace Main
         static void Main()
         {
             IUPnPConfigFactory sinkfact = new SinkFactory();
+            IUPnPConfigFactory sourceFact = new SourceFactory();
 
-            UPnP u = new UPnP(sinkfact.CreatePackage());
+            UPnP sink = new UPnP(sinkfact.CreatePackage());
+            UPnP source = new UPnP(sourceFact.CreatePackage());
 
-            PlaybackControl PlayCtrl = new PlaybackControl(u);
+            PlaybackControl PlayCtrl = new PlaybackControl(sink);
+            DBHandle dbHandle = new DBHandle(source);
+            
 
             /*
             IPHostEntry host;
