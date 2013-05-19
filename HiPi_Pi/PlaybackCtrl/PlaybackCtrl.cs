@@ -67,11 +67,12 @@ namespace PlaybackCtrl
             var myTrack = PlayQueueHandler.GetTrack(index);
             Player.PlayTrack(myTrack.Path);
         }
-        
-        
-        private void AddToPlayQueue(string path, int index)
+
+
+        private void AddToPlayQueue(ref List<UPnPArg> retValRef, int index)
         {
-            PlayQueueHandler.AddToPlayQueue(path, index);
+            ITrack myTrack = XMLconverter.Convert(retValRef[1]); //Converts xml file to Track
+            PlayQueueHandler.AddToPlayQueue(myTrack, index);
         }
 
         private void RemoveFromPlayQueue(int index)
@@ -152,6 +153,7 @@ namespace PlaybackCtrl
 
                 //case "Remove":
                 //    RemoveFromPlayQueue(args.someInt);
+                //    break;
 
                 //case "SetVol":
                 //    SetVol(args.desiredVol);
@@ -161,13 +163,13 @@ namespace PlaybackCtrl
                 //    SetPos(args.desiredPos);
                 //    break;
 
-                //case "GetVolume":
-                //    returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
-                //    break;
+                case "GetVolume":
+                    returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
+                    break;
 
-                //case "GetPos":
-                //    GetPos(); //return the position
-                //    break;
+                case "GetPos":
+                    returnVal.Add(new UPnPArg("GetPos", GetPos().ToString())); //return the position
+                    break;
 
                 default:
                     Console.WriteLine("PLaybackControl class switchcase default");
