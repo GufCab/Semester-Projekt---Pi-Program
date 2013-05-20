@@ -80,4 +80,10 @@
   <ItemGroup>
     <Folder Include="Eventing\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Containers\Containers.csproj">
+      <Project>{50FDC392-2CA9-4114-9789-2C1B2AAAF766}</Project>
+      <Name>Containers</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

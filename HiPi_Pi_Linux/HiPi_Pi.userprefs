@@ -1,15 +1,27 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DBHandling/DbLookup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UPnP_Device/Eventing/Publisher.cs">
     <Files>
-      <File FileName="UPnP_Device/UPnP.cs" Line="29" Column="27" />
-      <File FileName="UPnP_Device/UDP/MulticastSender.cs" Line="127" Column="17" />
-      <File FileName="DBHandling/DbLookup.cs" Line="18" Column="10" />
+      <File FileName="UPnP_Device/Eventing/Publisher.cs" Line="9" Column="24" />
+      <File FileName="UPnP_Device/Eventing/Subscriber.cs" Line="46" Column="28" />
+      <File FileName="Containers/PropertyChanged.cs" Line="6" Column="50" />
+      <File FileName="UPnP_Device/UPnP.cs" Line="14" Column="15" />
+      <File FileName="UPnP_Device/UPnPConfig/IpConfig.cs" Line="9" Column="33" />
+      <File FileName="UPnP_Device/UPnPConfig/ConfigInjector.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True" selected="True">
+          <Node name="Containers" expanded="True" />
           <Node name="DBHandling" expanded="True" />
+          <Node name="Main" expanded="True" />
+          <Node name="MPlayer" expanded="True" />
+          <Node name="PlaybackCtrl" expanded="True" />
+          <Node name="UPnP_Device" expanded="True">
+            <Node name="Eventing" expanded="True" />
+            <Node name="UPnPConfig" expanded="True" />
+          </Node>
+          <Node name="UPnPConfigFactory" expanded="True" />
         </State>
       </Pad>
     </Pads>

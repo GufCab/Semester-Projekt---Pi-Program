@@ -1,12 +1,19 @@
 using System;
+using System.ComponentModel;
 
 namespace Containers
 {
-	public class PropertChanged
+	public delegate void PropertyChangedDel(object e, string PropertyName);
+
+	public interface IEventChange
 	{
-		public PropertChanged ()
-		{
-		}
+		event PropertyChangedDel PropertyChangedEvent;
+	}
+
+
+	public class EventVar
+	{
+
 	}
 }
 

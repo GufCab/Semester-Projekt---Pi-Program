@@ -67,13 +67,14 @@ namespace DBClasses
         public void Handle (List<UPnPArg> args, CallBack cb, XMLWriterPi writer, IPlayqueueHandler pqhandl)
 		{
 			Console.WriteLine ("Browse Was called (BrowseStrat)");
-			List<UPnPArg> retArgs = new List<UPnPArg> ();
+			List<UPnPArg> retArgs;
             
 
 			string containerId = GetContainerID (args);
 
 			if (containerId == "all")
 			{
+				retArgs = new List<UPnPArg>();
 				List<ITrack> containingList = _dbLookup.Browse (containerId);
 				int NumberReturned = containingList.Count;
 
@@ -87,6 +88,7 @@ namespace DBClasses
 			}
 			else if (containerId == "PlayQueue") 
 			{
+				retArgs = new List<UPnPArg>();
 				string retVal = writer.ConvertITrackToXML(pqhandl.GetQueue());
 
 				retArgs.Add (new UPnPArg ("Result", retVal));
@@ -97,6 +99,7 @@ namespace DBClasses
 			}
 			else
 			{
+
 				cb (retArgs, "Browse");
 			}
             

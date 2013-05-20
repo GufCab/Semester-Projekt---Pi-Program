@@ -6,23 +6,26 @@ namespace UPnP_Device
 {
 	public interface ISubscriber
 	{
-		List<string> CallbackURLs { get; set; }
 		string UUID { get; set; }
 		NetworkUtillity Util { get; set; }
-		int eventNo;
+		int EventNo { get; set; }
 
-		IPEndPoint ipep;
+		IPEndPoint ipep { get; set; }
+		string DeliveryPath {get;set;}
 	}
 
 	public class Subscriber : ISubscriber
 	{
-		public IPEndPoint ipep;
-		public List<string> CallbackURLs;
-		public string UUID;
-		public NetworkUtillity Util;
+		public string UUID {get; set;}
+		public string DeliveryPath {get; set;}
+		public NetworkUtillity Util {get; set;}
+		public IPEndPoint ipep {get; set;}
+
+
+		private int _EventNo;
 		public int EventNo {
 			set {
-				if (value >= 4294967295)
+				if (value >= 4294967294)
 					_EventNo = 1;
 				else
 					_EventNo = value;
@@ -32,19 +35,28 @@ namespace UPnP_Device
 
 
 
-		public Subscriber (string uuid, string cburl, INetworkUtillity util)
+		public Subscriber (string uuid, string cburl)
 		{
-			eventNo = 0;
+			EventNo = 0;
 
 			UUID = uuid;
-			CallbackURL = cburl;
-			Util = util;
 
-			string[] s = url.Split(':');
-			string ip = s[1].Replace ("//", "");
-			string port = s[2];
-			IPEndPoint ipep = new IPEndPoint(ip, port);
+			string delPath = "";
+
+			string[] s = cburl.Split('/');
+			string[] f = s[1].Split (':');
+			IPAddress ip = IPAddress.Parse (f[0]);
+			int port = Convert.ToInt32(f[1]);
+
+			ipep = new IPEndPoint(ip, port);
+
+			for(int i = 2; i < s.Length; i++)
+			{
+				delPath = delPath + s[2];
+			}
+
+
+			}
 		}
 	}
-}
 
