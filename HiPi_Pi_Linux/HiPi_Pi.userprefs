@@ -1,25 +1,34 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="UPnP_Device/Eventing/Publisher.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Containers/Track.cs">
     <Files>
-      <File FileName="UPnP_Device/Eventing/Publisher.cs" Line="9" Column="24" />
-      <File FileName="UPnP_Device/Eventing/Subscriber.cs" Line="46" Column="28" />
-      <File FileName="Containers/PropertyChanged.cs" Line="6" Column="50" />
+      <File FileName="UPnP_Device/TCP/Server.cs" Line="46" Column="47" />
+      <File FileName="UPnP_Device/Eventing/Publisher.cs" Line="65" Column="46" />
+      <File FileName="UPnP_Device/Eventing/Subscriber.cs" Line="38" Column="48" />
+      <File FileName="Containers/PropertyChanged.cs" Line="13" Column="2" />
       <File FileName="UPnP_Device/UPnP.cs" Line="14" Column="15" />
-      <File FileName="UPnP_Device/UPnPConfig/IpConfig.cs" Line="9" Column="33" />
+      <File FileName="UPnP_Device/UPnPConfig/IpConfig.cs" Line="9" Column="11" />
       <File FileName="UPnP_Device/UPnPConfig/ConfigInjector.cs" Line="1" Column="1" />
+      <File FileName="UPnP_Device/InvokeResponseGen.cs" Line="9" Column="28" />
+      <File FileName="UPnP_Device/TCP/TCPHandle.cs" Line="31" Column="39" />
+      <File FileName="DBHandling/DbLookup.cs" Line="63" Column="27" />
+      <File FileName="PlaybackCtrl/XMLWriterPi.cs" Line="53" Column="35" />
+      <File FileName="PlaybackCtrl/PlaybackCtrl.cs" Line="82" Column="61" />
+      <File FileName="UPnP_Device/EventHandler.cs" Line="13" Column="1" />
+      <File FileName="DBHandling/DBHandle.cs" Line="88" Column="5" />
+      <File FileName="PlaybackCtrl/PlayqueueHandler.cs" Line="45" Column="24" />
+      <File FileName="Containers/Track.cs" Line="13" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True" selected="True">
           <Node name="Containers" expanded="True" />
           <Node name="DBHandling" expanded="True" />
-          <Node name="Main" expanded="True" />
-          <Node name="MPlayer" expanded="True" />
           <Node name="PlaybackCtrl" expanded="True" />
           <Node name="UPnP_Device" expanded="True">
-            <Node name="Eventing" expanded="True" />
+            <Node name="TCP" expanded="True" />
             <Node name="UPnPConfig" expanded="True" />
+            <Node name="XML" expanded="True" />
           </Node>
           <Node name="UPnPConfigFactory" expanded="True" />
         </State>

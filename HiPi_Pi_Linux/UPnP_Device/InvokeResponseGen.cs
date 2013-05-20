@@ -10,11 +10,14 @@ namespace UPnP_Device
     {
         private string AppendHead(string body)
         {
+			//body = body.Replace ("&gt;", ">");
+			//body = body.Replace ("&lt;", "<");
+
             string s = "HTTP/1.1 200 OK\r\n" +
                        "CONTENT-TYPE: text/xml;charset=\"utf-8\"\r\n" +
                        "CONTENT-LENGTH: " + body.Length + "\r\n" +
-                       "EXT:\n\r" +
-                       "SERVER: Windows NT/5.0, UPnP/1.0 HÍPI/1.0\r\n";
+                       "EXT:\r\n" +
+                       "SERVER: Windows NT/5.0, UPnP/1.0 HiPi/1.0 \r\n";
 
             return s + "\r\n" + body;
         }

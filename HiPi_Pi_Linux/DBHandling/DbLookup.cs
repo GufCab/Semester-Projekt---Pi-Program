@@ -10,8 +10,8 @@ namespace DBClasses
 {
     public class DBLookup
     {
-        //private string _conStr = "server=127.0.0.1;userid=PiLocal;password=pilocal;database=Piindex";
-		private string _conStr = "server=192.168.1.100;userid=Hipi;password=pi;database=Piindex";
+        private string _conStr = "server=127.0.0.1;userid=PiLocal;password=pilocal;database=Piindex";
+		//private string _conStr = "server=192.168.1.100;userid=Hipi;password=pi;database=Piindex";
         private MySqlConnection _con;
 
 

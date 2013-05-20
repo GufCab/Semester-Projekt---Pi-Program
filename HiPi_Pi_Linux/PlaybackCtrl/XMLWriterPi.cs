@@ -12,64 +12,6 @@ namespace XMLHandler
 {
     public class XMLWriterPi
     {
-        public string testXMLConverter()
-        {
-            XmlDocument doc = new XmlDocument();
-
-            XmlElement root = doc.CreateElement("DIDL-lite");
-            doc.AppendChild(root);
-
-            root.SetAttribute("xmlns", "urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/");
-            root.SetAttribute("xmlns:upnp", "urn:schemas-upnp-org:metadata-1-0/upnp/");
-            root.SetAttribute("xmlns:dc" , "http://purl.org/dc/elements/1.1/");
-            root.SetAttribute("xmlns:sec", "http://www.sec.co.kr/");
-
-            XmlElement item = doc.CreateElement("item");
-            root.AppendChild(item);
-            item.SetAttribute("id", "Lionel Richie");
-
-            XmlElement title = doc.CreateElement("dc:title");
-            item.AppendChild(title);
-            title.InnerText = "Penny Lover";
-
-            XmlElement Class = doc.CreateElement("upnp:class");
-            item.AppendChild(Class);
-            Class.InnerText = "object.item.audioItem.musicTrack";
-
-            XmlElement album = doc.CreateElement("upnp:album");
-            item.AppendChild(album);
-            album.InnerText = "Can't Slow Down";
-
-            XmlElement genre = doc.CreateElement("upnp:genre");
-            item.AppendChild(genre);
-            genre.InnerText = "Rock";
-
-            XmlElement artist = doc.CreateElement("upnp:artist");
-            item.AppendChild(artist);
-            artist.InnerText = "Lionel Richie";
-
-            XmlElement date = doc.CreateElement("upnp:date");
-            item.AppendChild(date);
-            date.InnerText = "1983-01-01";
-
-            XmlElement res = doc.CreateElement("res");
-            item.AppendChild(res);
-            res.SetAttribute("duration", "0:05:35.000");
-            res.InnerText = "rtsp://192.168.1.100";
-
-            item = doc.CreateElement("item");
-            root.AppendChild(item);
-
-            album = doc.CreateElement("upnp:album");
-            item.AppendChild(album);
-
-
-            //Console.WriteLine("Display the modified XML...");
-            //doc.Save(Console.Out);
-            doc.Save("test.xml");
-            return doc.OuterXml;
-        }
-
         public string ConvertITrackToXML(List<ITrack> tracks)
         {
             XmlDocument doc = new XmlDocument();
@@ -85,12 +27,14 @@ namespace XMLHandler
             root.SetAttribute("xmlns:dc", "http://purl.org/dc/elements/1.1/");
             root.SetAttribute("xmlns:sec", "http://www.sec.co.kr/");
 
+			int i = 0;
             foreach (ITrack track in tracks)
             {
+				++i;
                 XmlElement item = doc.CreateElement("item");
                 root.AppendChild(item);
-                item.SetAttribute("id", "1"); //hvad skal id være? skal den tilføjes til track?
-                item.SetAttribute("parentID", "0");  //hvor får den parentID fra?
+                item.SetAttribute("id", i.ToString()); //hvad skal id være? skal den tilføjes til track?
+                item.SetAttribute("parentID", track.ParentID);  //hvor får den parentID fra?
 
                 XmlElement title = doc.CreateElement("dc", "title", "http://purl.org/dc/elements/1.1/");
                 item.AppendChild(title);
@@ -123,8 +67,8 @@ namespace XMLHandler
             }
 
             doc.Save("CreatedXML.xml");
-            
-            return doc.OuterXml;
+			string msg = doc.OuterXml;
+			return msg;
         }
         /*
         public string ConvertIElementToXML(List<Element> elements)

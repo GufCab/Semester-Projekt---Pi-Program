@@ -33,5 +33,20 @@ namespace Containers
         public string Album { get; set; }
         public string Genre { get; set; }
 		public string ParentID { get; set; }
+
+		public Track ()
+		{
+			DeviceIP = "";
+			Path = "";
+			FileName = "";
+			Protocol = "";
+
+			Title = "";
+			Duration = "";
+			Artist = "";
+			Album = "";
+			Genre = "";
+			ParentID = "0";
+		}
     }
 }

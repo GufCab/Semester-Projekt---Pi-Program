@@ -81,8 +81,10 @@ namespace DBClasses
 				string retVal = writer.ConvertITrackToXML (containingList);
 
 				retArgs.Add (new UPnPArg ("Result", retVal));
+				//retArgs.Add (new UPnPArg("Result", "<DIDL-Lite> music stuff </DIDL-Lite>"));
 				retArgs.Add (new UPnPArg ("NumberReturned", NumberReturned.ToString ()));
 				retArgs.Add (new UPnPArg ("TotalMatches", NumberReturned.ToString ()));
+				retArgs.Add (new UPnPArg ("UpdateID", "12"));
 
 				cb (retArgs, "Browse");
 			}
@@ -94,6 +96,7 @@ namespace DBClasses
 				retArgs.Add (new UPnPArg ("Result", retVal));
 				retArgs.Add (new UPnPArg ("NumberReturned", pqhandl.GetQueue().Count.ToString()));
 				retArgs.Add (new UPnPArg ("TotalMatches", pqhandl.GetQueue().Count.ToString()));
+				retArgs.Add (new UPnPArg ("UpdateID", "12"));
 
 				cb(retArgs, "Browse");
 			}

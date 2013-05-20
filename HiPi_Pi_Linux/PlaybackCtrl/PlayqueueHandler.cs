@@ -34,6 +34,15 @@ namespace PlaybackCtrl
         {
             _Index = 0;
             _Queue = new List<ITrack>();
+
+			var trk = new Track();
+			trk.FileName = "filnavn";
+			trk.Album = "albumnavn";
+			trk.DeviceIP = "127.0.0.1";
+			trk.Artist = "artist";
+			trk.Genre = "genre";
+
+			AddToPlayQueue(trk);
         }
 
         public ITrack GetNextTrack ()

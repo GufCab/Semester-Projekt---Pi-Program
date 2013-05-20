@@ -29,6 +29,8 @@ namespace PlaybackCtrl
             SubscribeToWrapper();
             SubscribeToSink();
 			paused = "STOPPED";
+
+
         }
 
         private void Next()
@@ -190,7 +192,8 @@ namespace PlaybackCtrl
                         break;
 
                     case "GetVolume":
-                        returnVal.Add(new UPnPArg("GetVol", GetVol().ToString())); //return the volume
+						//returnVal.Add (new UPnPArg("CurrentVolume", GetVol().ToString())); //return the volume
+						returnVal.Add (new UPnPArg("CurrentVolume", "7")); //return the volume
                         break;
 
                     case "GetPos":
