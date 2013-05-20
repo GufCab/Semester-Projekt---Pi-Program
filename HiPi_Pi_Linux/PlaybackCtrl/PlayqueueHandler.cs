@@ -27,7 +27,6 @@ namespace PlaybackCtrl
 
     public class PlayqueueHandler : IPlayqueueHandler
     {
-        //private ITrack _CurrentTrack;
         private int _Index;
         private List<ITrack> _Queue; 
 
@@ -37,22 +36,39 @@ namespace PlaybackCtrl
             _Queue = new List<ITrack>();
         }
 
-        public ITrack GetNextTrack()
-        {
-            ++_Index;
-            return _Queue[_Index];
+        public ITrack GetNextTrack ()
+		{
+			if (_Index < _Queue.Count) {
+				++_Index;
+				return _Queue [_Index-1];
+			} 
+			else 
+			{
+				ITrack dummy = new Track();
+				dummy.Path = "";
+				return dummy;
+			}
         }
 
         public ITrack GetPrevTrack()
         {
             --_Index;
-            return _Queue[_Index];
+            return _Queue[_Index-1];
         }
 
-        public ITrack GetTrack(int index)
-        {
-            _Index = index;
-            return _Queue[_Index];
+        public ITrack GetTrack (int index)
+		{
+			if (index <= _Queue.Count && index > 0) 
+			{
+				_Index = index;
+				return _Queue [_Index-1];
+			}
+			else 
+			{
+				Track dummy = new Track();
+				dummy.Path = "";
+				return dummy;
+			}
         }
 
         public void AddToPlayQueue(ITrack src)
@@ -72,7 +88,7 @@ namespace PlaybackCtrl
         {
             if (index <= _Queue.Count)
             {
-                _Queue.RemoveAt(index);
+                _Queue.RemoveAt(index-1);
                 if (index < _Index)
                     --_Index;
             }
