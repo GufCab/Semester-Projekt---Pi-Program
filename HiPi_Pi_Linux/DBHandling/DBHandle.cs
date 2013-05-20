@@ -67,7 +67,7 @@ namespace DBClasses
         public void Handle (List<UPnPArg> args, CallBack cb, XMLWriterPi writer, IPlayqueueHandler pqhandl)
 		{
 			Console.WriteLine ("Browse Was called (BrowseStrat)");
-			List<UPnPArg> retArgs;
+			List<UPnPArg> retArgs = null;
             
 
 			string containerId = GetContainerID (args);

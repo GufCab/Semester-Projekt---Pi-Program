@@ -38,7 +38,7 @@ namespace MPlayer
         public delegate void EOFHandle(object e, EventArgs args);
         public event EOFHandle EOF_Event;
 
-        public delegate void PauseHandle(object e, EventArgs args);
+        public delegate void PauseHandle(object e, InputData args);
         public event PauseHandle PauseGetEvent;
 
         public MPlayerWrapper()

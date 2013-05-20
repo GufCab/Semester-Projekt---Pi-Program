@@ -18,12 +18,14 @@ namespace UPnP_Device
     {
         private GetResponseStrategy Strat = new GetResponseStrategy();
         private string _basePath;
+		private Publisher pub;
 
         //Why???
         //Todo: Remove, maybe???
         public TCPHandle(string BasePath)
         {
             _basePath = BasePath;
+
         }
 
         public void HandleHTTP(object e)
@@ -72,7 +74,7 @@ namespace UPnP_Device
                     strategy = new POSTResponder(received);
                     break;
                 case "SUBSCRIBE":
-					strategy = new SubscribeResponder();
+					//strategy = new SubscribeResponder();
                     break;
                 default:
                     Console.WriteLine("Error in Switch-case:");

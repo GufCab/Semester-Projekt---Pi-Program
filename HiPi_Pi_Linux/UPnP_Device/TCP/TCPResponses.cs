@@ -155,7 +155,7 @@ namespace UPnP_Device.TCP
 		{
 
 
-			_pub.Subscribe();
+			//_pub.Subscribe();
 		}
 	}
 
