@@ -23,6 +23,9 @@ namespace MPlayer
         private AutoResetEvent fileResetEvent;
         private string fileRetval;
 
+		private AutoResetEvent pauseResetEvent;
+		private string pauseRetval;
+
         public delegate void TimePosHandle(object e, InputData args);
         public event TimePosHandle TimePosEvent;
 
@@ -35,7 +38,8 @@ namespace MPlayer
         public delegate void EOFHandle(object e, EventArgs args);
         public event EOFHandle EOF_Event;
 
-        
+        public delegate void PauseHandle(object e, EventArgs args);
+        public event PauseHandle PauseGetEvent;
 
         public MPlayerWrapper()
         {
@@ -103,6 +107,9 @@ namespace MPlayer
                     case "ANS_path":
                         FireFileGetEvent(inputData);
                         break;
+					case "ANS_pause":
+						FirePauseEvent(inputData);
+						break;
                 }
 
             }
@@ -122,6 +129,12 @@ namespace MPlayer
         {
             if (FileGetEvent != null)
                 FileGetEvent(this, data);
+        }
+
+		private void FirePauseEvent(InputData data)
+        {
+            if (PauseGetEvent != null)
+                PauseGetEvent(this, data);
         }
 
         private void FirePosEvent(InputData data)
@@ -187,10 +200,27 @@ namespace MPlayer
                 inStream.WriteLine("set_property percent_pos 1");
         }
 
-        public string GetPaused()
-        {
-            return "";
+        public bool GetPaused ()
+		{
+			pauseRetval = "Failure";
+			pauseResetEvent = new AutoResetEvent (false);
+
+			inStream.WriteLine ("pausing_keep_force get_property paused");
+			PauseGetEvent += pausedHandler;
+			pauseResetEvent.WaitOne (5000);
+
+			if (pauseRetval == "Failure")
+				return true;
+
+			return pauseRetval.Contains("1");
         }
+
+		private void pausedHandler (object e, InputData args)
+		{
+			pauseRetval = args.Data;
+
+			pauseResetEvent.Set();
+		}
 
         public string GetVolume()
         {

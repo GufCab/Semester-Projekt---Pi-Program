@@ -72,7 +72,7 @@ namespace UPnP_Device
                     strategy = new POSTResponder(received);
                     break;
                 case "SUBSCRIBE":
-                    Console.WriteLine("Someone subscribed");
+					strategy = new SubscribeResponder();
                     break;
                 default:
                     Console.WriteLine("Error in Switch-case:");
