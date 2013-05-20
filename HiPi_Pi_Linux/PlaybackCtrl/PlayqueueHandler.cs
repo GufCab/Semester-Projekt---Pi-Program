@@ -89,5 +89,10 @@ namespace PlaybackCtrl
         {
             return _Queue.Count;
         }
+
+		public List<ITrack> GetQueue ()
+		{
+			return _Queue;
+		}
     }
 }
