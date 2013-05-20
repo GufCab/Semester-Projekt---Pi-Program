@@ -17,6 +17,7 @@ namespace Containers
         string Artist { get; set; }
         string Album { get; set; }
         string Genre { get; set; }
+		string ParentID { get; set; }
     }
 
     public class Track: ITrack
@@ -31,5 +32,6 @@ namespace Containers
         public string Artist { get; set; }
         public string Album { get; set; }
         public string Genre { get; set; }
+		public string ParentID { get; set; }
     }
 }

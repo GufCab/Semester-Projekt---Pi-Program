@@ -10,16 +10,17 @@ namespace DBClasses
 {
     public class DBLookup
     {
-        private string _conStr = "server=127.0.0.1;userid=PiLocal;password=pilocal;database=Piindex";
-        //private MySqlConnection _con;
+        //private string _conStr = "server=127.0.0.1;userid=PiLocal;password=pilocal;database=Piindex";
+		private string _conStr = "server=192.168.1.100;userid=Hipi;password=pi;database=Piindex";
+        private MySqlConnection _con;
 
 
         public List<ITrack> Browse(string info)
         {
             //MySqlCommand c = new MySqlCommand("Hej");
 
-            MySqlConnection _con;
-
+            //MySqlConnection _con;
+			/*
             try
             {
                 _con = new MySqlConnection(_conStr);
@@ -29,21 +30,11 @@ namespace DBClasses
             {
                 Console.WriteLine("DB Connetion error");
                 throw;
-            }
-
-
-            /*
-            var t = new List<ITrack>();
-
-            Console.WriteLine("In dblookup handler");
-
-            t.Add(new Track());
-            return t;
-            */
+            }*/
             
             List<ITrack> trkList;
 
-            //SetupConnection();
+            SetupConnection();
 
             string stm = "SELECT * FROM PIMusikData " +
                          "INNER JOIN PIFilePath ON PIMusikData.FilePath_UUIDPath = PIFilePath.UUIDPath " +
@@ -80,7 +71,7 @@ namespace DBClasses
             return trkList;
             
         }
-        /*
+        
         private void SetupConnection()
         {
 
@@ -95,49 +86,5 @@ namespace DBClasses
                 throw;
             }
         }
-
-    }*/
-
-            /*
-    public class DbLookup
-    {
-        
-        public List<ITrack> Browse(string info)
-        {
-            string[] lastInfo = info.Split('/');
-
-            List<ITrack> trackList = new List<ITrack>();         
-
-            using (var music = new PiindexEntities())
-            {  
-                //From each trk in DB, select (whole) trk
-                var table = (from trk in music.PIMusikData
-                         join p in music.PIFilePath on trk.FilePath_UUIDPath equals p.UUIDPath
-                         join d in music.PIDevice on p.Device_UUIDDevice equals d.UUIDDevice
-                         select new {trk, p, d}).ToList();
-                
-                foreach (var elm in table)
-                {
-                    ITrack trk = new Track();
-                    trk.Path = elm.p.FilePath;
-                    trk.DeviceIP = elm.d.IP;
-                    trk.Protocol = elm.d.Protocol;
-
-                    trk.FileName = elm.trk.FileName + ".mp3";
-                    trk.Title = elm.trk.Title;
-                    //trk.Duration = (elm.trk.NrLenth);
-                    trk.Duration = elm.trk.NrLenth.ToString();
-                    trk.Artist = elm.trk.Artist_Artist;
-                    trk.Album = elm.trk.Album_Album;
-                    trk.Genre = elm.trk.Genre_Genre;
-
-                    trackList.Add(trk);
-                }
-            }
-            
-            return trackList;
-        }
-    }
-     */
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Containers;
 using UPnP_Device;
 using XMLHandler;
+using PlaybackCtrl;
 
 namespace DBClasses
 {
@@ -14,15 +15,19 @@ namespace DBClasses
         private IUPnP _sourceDevice;
         private XMLWriterPi _dbXmlWriter;
         private Dictionary<string, IDBStrategy> _strategies;
-        private DBLookup _dbLookup;
+        
+		private DBLookup _dbLookup;
+		private IPlayqueueHandler _PQHandler;
 
-        public DBHandle(IUPnP sourceDevice)
+        public DBHandle(IUPnP sourceDevice, IPlayqueueHandler pqhandl)
         {
             _sourceDevice = sourceDevice;
             _sourceDevice.ActionEvent += _sourceDevice_ActionEvent;
 
             _dbXmlWriter = new XMLWriterPi();
             _dbLookup = new DBLookup();
+
+			_PQHandler = pqhandl;
 
             CreateDictionary();
         }
@@ -33,7 +38,7 @@ namespace DBClasses
             if(args.Action == "Browse")
             {
                 IDBStrategy strat = _strategies[args.Action];
-                strat.Handle(args.Args, cb, _dbXmlWriter);
+                strat.Handle(args.Args, cb, _dbXmlWriter, _PQHandler);
             }
             
         }
@@ -47,7 +52,7 @@ namespace DBClasses
 
     public interface IDBStrategy
     {
-        void Handle(List<UPnPArg> args, CallBack cb, XMLWriterPi writer);
+        void Handle(List<UPnPArg> args, CallBack cb, XMLWriterPi writer, IPlayqueueHandler pqhandl);
     }
 
     public class BrowseStrat : IDBStrategy
@@ -59,31 +64,41 @@ namespace DBClasses
             _dbLookup = lookup;
         }
 
-        public void Handle(List<UPnPArg> args, CallBack cb, XMLWriterPi writer)
-        {
-            Console.WriteLine("Browse Was called (BrowseStrat)");
-            List<UPnPArg> retArgs = new List<UPnPArg>();
+        public void Handle (List<UPnPArg> args, CallBack cb, XMLWriterPi writer, IPlayqueueHandler pqhandl)
+		{
+			Console.WriteLine ("Browse Was called (BrowseStrat)");
+			List<UPnPArg> retArgs = new List<UPnPArg> ();
             
 
-            string containerId = GetContainerID(args);
+			string containerId = GetContainerID (args);
 
-            if (containerId == "BadArgs")
-            {
-                cb(retArgs, containerId);
-            }
-            else
-            {
-                List<ITrack> containingList = _dbLookup.Browse(containerId);
-                int NumberReturned = containingList.Count;
+			if (containerId == "all")
+			{
+				List<ITrack> containingList = _dbLookup.Browse (containerId);
+				int NumberReturned = containingList.Count;
 
-                string retVal = writer.ConvertITrackToXML(containingList);
+				string retVal = writer.ConvertITrackToXML (containingList);
 
-                retArgs.Add(new UPnPArg("Result", retVal));
-                retArgs.Add(new UPnPArg("NumberReturned", NumberReturned.ToString()));
-                retArgs.Add(new UPnPArg("TotalMatches", NumberReturned.ToString()));
+				retArgs.Add (new UPnPArg ("Result", retVal));
+				retArgs.Add (new UPnPArg ("NumberReturned", NumberReturned.ToString ()));
+				retArgs.Add (new UPnPArg ("TotalMatches", NumberReturned.ToString ()));
 
-                cb(retArgs, "Browse");
-            }
+				cb (retArgs, "Browse");
+			}
+			else if (containerId == "PlayQueue") 
+			{
+				string retVal = writer.ConvertITrackToXML(pqhandl.GetQueue());
+
+				retArgs.Add (new UPnPArg ("Result", retVal));
+				retArgs.Add (new UPnPArg ("NumberReturned", pqhandl.GetQueue().Count.ToString()));
+				retArgs.Add (new UPnPArg ("TotalMatches", pqhandl.GetQueue().Count.ToString()));
+
+				cb(retArgs, "Browse");
+			}
+			else
+			{
+				cb (retArgs, "Browse");
+			}
             
         }
 
