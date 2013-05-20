@@ -138,6 +138,19 @@ namespace UPnP_Device.TCP
         }
     }
 
+	public class SubscribeResponder : IRespondStrategy
+	{
+		public SubscribeResponder ()
+		{
+
+		}
+
+		public void Respond (INetworkUtillity util)
+		{
+
+		}
+	}
+
     /// <summary>
     /// This class will take care of dealing with the order
     /// and respond appropriately over the TCP connection. 

@@ -17,7 +17,7 @@ namespace PlaybackCtrl
         private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
         private XMLReader1 XMLconverter;
-
+		private string paused;
 
         public PlaybackControl(IUPnP sink)
         {
@@ -27,6 +27,7 @@ namespace PlaybackCtrl
             XMLconverter = new XMLReader1();
             SubscribeToWrapper();
             SubscribeToSink();
+			paused = "STOPPED";
         }
 
         private void Next()
@@ -47,9 +48,19 @@ namespace PlaybackCtrl
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Pause()
-        {
-            Player.PauseTrack();
+        private void Pause ()
+		{
+			Player.PauseTrack ();
+
+			if (Player.GetPaused ()) 
+			{
+				paused = "STOPPED";
+			} 
+			else 
+			{
+				paused = "PLAYING";
+			}
+			PropertyChangedEvent (paused, "Pause");
         }
 
         private void SetCurrentURI(ref List<UPnPArg> retValRef)

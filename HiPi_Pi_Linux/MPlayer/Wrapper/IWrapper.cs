@@ -15,8 +15,8 @@ namespace MPlayer
 
         string GetPosition();
         string GetVolume();
-        string GetPaused(); //Todo Tror bare GetPaused skal væk..
         string GetPlayingFile();
+		bool GetPaused();
 
     }
 }
