@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Net;
+using Containers;
+using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device
 {
@@ -9,65 +11,60 @@ namespace UPnP_Device
 	{
 		private List<Subscriber> _Subscribtions;
 
-		public event Container.PropertyChangedDel;
+		public event PropertyChangedDel PropEvent;
 
-		public Publisher ()
+		private IIpConfig ipconf;
+
+
+		public Publisher (IIpConfig ip)
 		{
-			PropertyChangedDel += PropertChangedFunc;
+			PropEvent += PropertyChangedFunc;
+			ipconf = ip;
 		}
 
-		public void NewSubscriber (ISubscriber sub)
+		public void NewSubscriber (Subscriber sub)
 		{
 			_Subscribtions.Add (sub);
 		}
 
-		public void NewSubscriber (string uuid, string cburl, INetworkUtillity util)
+		public void NewSubscriber (string uuid, string cburl)
 		{
-			_Subscribtions.Add (new Subscriber(uuid, cburl, util));
+			_Subscribtions.Add (new Subscriber(uuid, cburl));
 		}
 
 		public void PropertyChangedFunc (object e, string PropertyName)
 		{
-			string msg = "";
+			string val = (string)e;
 
 			foreach (Subscriber sub in _Subscribtions)
 			{
-				//Do stuff
-				//Send something
+				string msg = GenerateResponse(PropertyName, val, sub);
 
 
-				sub.Util.Send(msg);
 			}
 		}
 	
 		private void SendEventMsg (ISubscriber sub)
 		{
-			foreach(string url in sub.CallbackURLs)
-			{
-				IPEndPoint ipep = new IPEndPoint
-				TcpClient cli = new TcpClient(
-			}
-
 
 
 		}
 
-		public string GenerateResponse(string ChangedProp, ISubscriber sub)
+		public string GenerateResponse(string ChangedProp, string value, ISubscriber sub)
 		{
-			//string body = 
+			string body = "Some XML";
 
 			string head = 
-					"NOTIFY " + DelivPath + " HTTP/1.1\r\n" + 
-					"HOST: " + OwnIP + "\r\n" + 
+					"NOTIFY /" + sub.DeliveryPath + " HTTP/1.1\r\n" + 
+					"HOST: http://" + ipconf.IP + ":" + ipconf.TCPPort + "\r\n" + 
 					"CONTENT-TYPE: text/xml\r\n" + 
 					"CONTENT-LENGTH: " + body.Length + "\r\n" + 
 					"NT: upnp:event\r\n" + 
 					"NTS: upnp:propchange\r\n" + 
 					"SID: uuid:" + sub.UUID + "\r\n" +
-					"SEQ: " sub.EventNo + "\r\n";
+					"SEQ: " + sub.EventNo + "\r\n";
 		
-
 			return head + "\r\n" + body;
 		}
+	}
 }
-
