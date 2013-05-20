@@ -140,14 +140,22 @@ namespace UPnP_Device.TCP
 
 	public class SubscribeResponder : IRespondStrategy
 	{
-		public SubscribeResponder ()
-		{
+		private Publisher _pub;
+		private string _rec;
 
+		public SubscribeResponder (Publisher pub, string received)
+		{
+			_pub = pub;
+			_rec = received;
 		}
 
+		//Does not use util. 
+		//Skraldet way to do this.
 		public void Respond (INetworkUtillity util)
 		{
 
+
+			_pub.Subscribe();
 		}
 	}
 

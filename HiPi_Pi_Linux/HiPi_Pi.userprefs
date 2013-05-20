@@ -1,15 +1,29 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DBHandling/DbLookup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UPnP_Device/TCP/Server.cs">
     <Files>
-      <File FileName="UPnP_Device/UPnP.cs" Line="29" Column="27" />
+      <File FileName="UPnP_Device/UPnP.cs" Line="19" Column="6" />
       <File FileName="UPnP_Device/UDP/MulticastSender.cs" Line="127" Column="17" />
-      <File FileName="DBHandling/DbLookup.cs" Line="18" Column="10" />
+      <File FileName="DBHandling/DbLookup.cs" Line="11" Column="26" />
+      <File FileName="UPnP_Device/TCP/TCPHandle.cs" Line="84" Column="14" />
+      <File FileName="UPnP_Device/TCP/TCPResponses.cs" Line="138" Column="10" />
+      <File FileName="MPlayer/Wrapper/MPlayerWrapper.cs" Line="207" Column="4" />
+      <File FileName="MPlayer/Wrapper/IWrapper.cs" Line="25" Column="1" />
+      <File FileName="MPlayer/Wrapper/MPlayerOut.cs" Line="10" Column="37" />
+      <File FileName="MPlayer/Wrapper/InterpreterClass.cs" Line="1" Column="1" />
+      <File FileName="PlaybackCtrl/PlaybackCtrl.cs" Line="54" Column="30" />
+      <File FileName="UPnP_Device/TCP/Server.cs" Line="30" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
           <Node name="DBHandling" expanded="True" />
+          <Node name="PlaybackCtrl" expanded="True" />
+          <Node name="UPnP_Device" expanded="True">
+            <Node name="TCP" expanded="True">
+              <Node name="Server.cs" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
