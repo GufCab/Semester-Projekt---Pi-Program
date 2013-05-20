@@ -22,7 +22,7 @@ namespace PlaybackCtrl
         int GetNumberOfTracks();
         int GetCurrentTrackIndex();
         ITrack GetCurrentTrack();
-		public List<ITrack> GetQueue();
+		List<ITrack> GetQueue();
     }
 
     public class PlayqueueHandler : IPlayqueueHandler
