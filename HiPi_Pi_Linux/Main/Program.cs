@@ -22,9 +22,10 @@ namespace Main
             UPnP source = new UPnP(sourceFact.CreatePackage());
             UPnP sink = new UPnP(sinkfact.CreatePackage());
             
+			IPlayqueueHandler pqhandl = new PlayqueueHandler();
 
-            PlaybackControl PlayCtrl = new PlaybackControl(sink);
-            DBHandle dbHandle = new DBHandle(source);
+            PlaybackControl PlayCtrl = new PlaybackControl(sink, pqhandl);
+            DBHandle dbHandle = new DBHandle(source, pqhandl);
             
 
             Console.Read();

@@ -30,7 +30,7 @@ namespace XMLReader
                 XmlNodeList titleList = elm.GetElementsByTagName("dc:title");
                 container.title = titleList[0].InnerText;
 
-                titleList = elm.GetElementsByTagName("dc:title");
+                titleList = elm.GetElementsByTagName("upnp:class");
                 container.upnpClass = titleList[0].InnerText;
 
                 container.id = elm.GetAttribute("id");
@@ -46,7 +46,7 @@ namespace XMLReader
         {
             var doc = new XmlDocument();
             doc.Load("item.xml");
-            //xmlDocument.LoadXml(xml);
+            //doc.LoadXml(xml);
 
             var tracks = new List<ITrack>();
 
@@ -54,29 +54,39 @@ namespace XMLReader
 
             foreach (XmlElement elm in nodeList)
             {
-                tracks.Add(new Track());
+                ITrack track = new Track();
 
                 XmlNodeList titleList = elm.GetElementsByTagName("upnp:album");
-                tracks[0].Album = titleList[0].InnerText;
+                track.Album = titleList[0].InnerText;
 
                 titleList = elm.GetElementsByTagName("dc:title");
-                tracks[0].Title = titleList[0].InnerText;
+                track.Title = titleList[0].InnerText;
 
                 titleList = elm.GetElementsByTagName("upnp:artist");
-                tracks[0].Artist = titleList[0].InnerText;
+                track.Artist = titleList[0].InnerText;
 
                 titleList = elm.GetElementsByTagName("upnp:genre");
-                tracks[0].Genre= titleList[0].InnerText;
+                track.Genre = titleList[0].InnerText;
 
-                //ToDo string split path and ip
                 titleList = elm.GetElementsByTagName("res");
-                tracks[0].Path = titleList[0].InnerText;
 
-                //ToDo string split path and ip
-                tracks[0].DeviceIP = titleList[0].InnerText;
+                string[] s = titleList[0].InnerText.Split('/');
 
-                tracks[0].Duration = titleList[0].Attributes["duration"].Value;
-                tracks[0].Duration = titleList[0].Attributes["protocolInfo"].Value;
+                track.Protocol = s[0] + "//";
+                track.DeviceIP = s[2];
+
+                track.FileName = s.Last();
+
+                string tmpString = "/";
+
+                for (int i = 3; i < s.Count() - 1; i++)
+                {
+                    tmpString = tmpString + s[i] + "/";
+                }
+
+                track.Path = tmpString;
+                track.Duration = titleList[0].Attributes["duration"].Value;
+                tracks.Add(track);
             }
             return tracks;
         }

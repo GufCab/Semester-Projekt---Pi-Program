@@ -119,7 +119,7 @@ namespace XMLHandler
                 XmlElement res = doc.CreateElement("res");
                 item.AppendChild(res);
                 res.SetAttribute("duration", track.Duration.ToString());
-                res.InnerText = track.Protocol + track.DeviceIP;
+                res.InnerText = track.Protocol + track.DeviceIP + "/" + track.Path + "/" + track.FileName;
             }
 
             doc.Save("CreatedXML.xml");

@@ -19,11 +19,11 @@ namespace PlaybackCtrl
         private XMLReader1 XMLconverter;
 		private string paused;
 
-        public PlaybackControl(IUPnP sink)
+        public PlaybackControl(IUPnP sink, IPlayqueueHandler pqhandl)
         {
             UPnPSink = sink;
             Player = new MPlayerWrapper();
-            PlayQueueHandler = new PlayqueueHandler(); 
+			PlayQueueHandler = pqhandl; 
             XMLconverter = new XMLReader1();
             SubscribeToWrapper();
             SubscribeToSink();
