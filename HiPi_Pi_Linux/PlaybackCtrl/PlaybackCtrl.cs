@@ -41,10 +41,13 @@ namespace PlaybackCtrl
             Player.PlayTrack(myTrack.Path);
         }
 
-        private void Play()
-        {
-            var myTrack = PlayQueueHandler.GetNextTrack();
-            Player.PlayTrack(myTrack.Path);
+        private void Play ()
+		{
+			if (!Player.GetPaused)
+			{
+				var myTrack = PlayQueueHandler.GetNextTrack ();
+				Player.PlayTrack (myTrack.Path);
+			}
         }
 
         private void Pause()

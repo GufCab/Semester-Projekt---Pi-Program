@@ -60,6 +60,7 @@ namespace DBClasses
                     trk.Path = reader.GetString(9);
                     trk.DeviceIP = reader.GetString(12);
                     trk.Protocol = reader.GetString(14);
+					trk.ParentID = "all";
 
                     trkList.Add(trk);
                 }
