@@ -126,5 +126,119 @@ namespace PlaybackCtrlTests
             ITrack returnedTrack = myQueue.GetTrack(4);
             Assert.AreEqual("", returnedTrack.Path);
         }
+
+        [Test]
+        public void GetPrevTrack_ThreeTracksAdded_IndexAtTwo_ExpectedFirstTrackReturned()
+        {
+            var myQueue = new PlayqueueHandler();
+            ITrack t1 = new Track();
+            ITrack t2 = new Track();
+            ITrack t3 = new Track();
+            t1.Title = "Track1";
+            t2.Title = "Track2";
+            t3.Title = "Track3";
+            myQueue.AddToPlayQueue(t1);
+            myQueue.AddToPlayQueue(t2);
+            myQueue.AddToPlayQueue(t3);
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            ITrack returnedTrack = myQueue.GetPrevTrack();
+            Assert.AreEqual("Track1", returnedTrack.Title);
+        }
+
+        [Test]
+        public void GetPrevTrack_ThreeTracksAdded_IndexAtZero_ExpectedDummyReturned()
+        {
+            var myQueue = new PlayqueueHandler();
+            ITrack t1 = new Track();
+            ITrack t2 = new Track();
+            ITrack t3 = new Track();
+            myQueue.AddToPlayQueue(t1);
+            myQueue.AddToPlayQueue(t2);
+            myQueue.AddToPlayQueue(t3);
+            ITrack returnedTrack = myQueue.GetPrevTrack();
+            Assert.AreEqual("", returnedTrack.Path);
+        }
+
+        [Test]
+        public void GetCurrentTrackIndex_ThreeTracksAdded_NextTrackCalledTwice_ExpectedIndexEqualsTwo()
+        {
+            var myQueue = new PlayqueueHandler();
+            ITrack t1 = new Track();
+            ITrack t2 = new Track();
+            ITrack t3 = new Track();
+            myQueue.AddToPlayQueue(t1);
+            myQueue.AddToPlayQueue(t2);
+            myQueue.AddToPlayQueue(t3);
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            Assert.AreEqual(2,myQueue.GetCurrentTrackIndex());
+        }
+
+        [Test]
+        public void GetCurrentTrackIndex_ThreeTracksAdded_NextTrackCalledTwicePrevCalledOnce_ExpectedIndexEqualsTwo()
+        {
+            var myQueue = new PlayqueueHandler();
+            ITrack t1 = new Track();
+            ITrack t2 = new Track();
+            ITrack t3 = new Track();
+            myQueue.AddToPlayQueue(t1);
+            myQueue.AddToPlayQueue(t2);
+            myQueue.AddToPlayQueue(t3);
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetPrevTrack();
+            Assert.AreEqual(1, myQueue.GetCurrentTrackIndex());
+        }
+
+        [Test]
+        public void GetCurrentTrackIndex_TwoTracksAdded_NextTrackCalledFiveTimes_ExpectedIndexEqualsTwo()
+        {
+            var myQueue = new PlayqueueHandler();
+            ITrack t1 = new Track();
+            ITrack t2 = new Track();
+            myQueue.AddToPlayQueue(t1);
+            myQueue.AddToPlayQueue(t2);
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            Assert.AreEqual(2, myQueue.GetCurrentTrackIndex());
+        }
+
+        [Test]
+        public void GetCurrentTrackIndex_TwoTracksAdded_NextTrackCalledFiveTimesPrevCalledFiveTimesNextCalledFiveTimes_ExpectedIndexEqualsTwo()
+        {
+            var myQueue = new PlayqueueHandler();
+            ITrack t1 = new Track();
+            ITrack t2 = new Track();
+            myQueue.AddToPlayQueue(t1);
+            myQueue.AddToPlayQueue(t2);
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetPrevTrack();
+            myQueue.GetPrevTrack();
+            myQueue.GetPrevTrack();
+            myQueue.GetPrevTrack();
+            myQueue.GetPrevTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            myQueue.GetNextTrack();
+            Assert.AreEqual(2, myQueue.GetCurrentTrackIndex());
+        }
+
+        [Test]
+        public void GetPrevTrack_NoTracksAdded_ExpectedDummyReturned()
+        {
+            var myQueue = new PlayqueueHandler();
+            ITrack returnedTrack = myQueue.GetPrevTrack();
+            Assert.AreEqual("", returnedTrack.Path);
+        }
     }
 }

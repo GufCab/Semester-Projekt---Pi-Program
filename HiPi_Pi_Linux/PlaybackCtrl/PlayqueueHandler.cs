@@ -38,7 +38,8 @@ namespace PlaybackCtrl
 
         public ITrack GetNextTrack ()
 		{
-			if (_Index < _Queue.Count) {
+			if (_Index < _Queue.Count) 
+			{
 				++_Index;
 				return _Queue [_Index-1];
 			} 
@@ -52,8 +53,17 @@ namespace PlaybackCtrl
 
         public ITrack GetPrevTrack()
         {
-            --_Index;
-            return _Queue[_Index-1];
+            if (_Index > 1) 
+			{
+				--_Index;
+				return _Queue [_Index-1];
+			} 
+			else 
+			{
+				ITrack dummy = new Track();
+				dummy.Path = "";
+				return dummy;
+			}
         }
 
         public ITrack GetTrack (int index)
