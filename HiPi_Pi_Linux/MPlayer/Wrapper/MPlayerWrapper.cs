@@ -54,7 +54,7 @@ namespace MPlayer
             mplayer = new Process();
             var startInfo = new ProcessStartInfo();
 
-            string arguments = "-idle -quiet -slave ";
+            string arguments = "-idle -quiet -slave";
 
             startInfo.FileName = "mplayer";
             startInfo.Arguments = arguments;

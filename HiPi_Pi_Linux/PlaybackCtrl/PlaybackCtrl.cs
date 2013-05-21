@@ -57,9 +57,6 @@ namespace PlaybackCtrl
         private void Pause ()
 		{
 			Player.PauseTrack ();
-
-
-
 			if (Player.GetPaused ()) 
 			{
 				paused = "STOPPED";
@@ -68,7 +65,7 @@ namespace PlaybackCtrl
 			{
 				paused = "PLAYING";
 			}
-			propEvent(paused, "Pause");
+			//propEvent(paused, "Pause");
         }
 
         private void SetCurrentURI(ref List<UPnPArg> retValRef)
@@ -98,14 +95,12 @@ namespace PlaybackCtrl
 
         private void RemoveFromPlayQueue(ref List<UPnPArg> retValRef)
         {
-
-            PlayQueueHandler.RemoveFromPlayQueue(Convert.ToInt32(retValRef[1].ArgVal));
+			PlayQueueHandler.RemoveFromPlayQueue(Convert.ToInt32(retValRef[1].ArgVal));
         }
 
-        private double GetPos() //returns how far into the track MPlayer is
+        private string GetPos() //returns how far into the track MPlayer is
         {
-            double pos = Convert.ToDouble(Player.GetPosition());
-            return pos;
+            return Player.GetPosition();
         }
 
         private void SetPos(ref List<UPnPArg> retValRef) //used for going back and forth in a track
@@ -113,9 +108,9 @@ namespace PlaybackCtrl
             Player.SetPosition(Convert.ToInt32(retValRef[1].ArgVal));
         }
 
-        private double GetVol()
+        private string GetVol()
         {
-            double vol = Convert.ToDouble(Player.GetVolume());
+            string vol = Player.GetVolume();
             return vol;
         }
 
@@ -193,11 +188,13 @@ namespace PlaybackCtrl
 
                     case "GetVolume":
 						//returnVal.Add (new UPnPArg("CurrentVolume", GetVol().ToString())); //return the volume
-						returnVal.Add (new UPnPArg("CurrentVolume", "7")); //return the volume
+						string  str = GetVol();
+
+						returnVal.Add (new UPnPArg("CurrentVolume", str)); //return the volume
                         break;
 
                     case "GetPos":
-                        returnVal.Add(new UPnPArg("GetPos", GetPos().ToString())); //return the position
+                        returnVal.Add(new UPnPArg("GetPos", GetPos())); //return the position
                         break;
 
                     default:
