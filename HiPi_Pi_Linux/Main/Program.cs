@@ -8,6 +8,7 @@ using UPnPConfigFactory;
 using UPnP_Device;
 using PlaybackCtrl;
 using XMLHandler;
+using FileSenderServer;
 
 
 namespace Main
@@ -27,6 +28,9 @@ namespace Main
             PlaybackControl PlayCtrl = new PlaybackControl(sink, pqhandl);
             DBHandle dbHandle = new DBHandle(source, pqhandl);
             
+			IServer Fserver = new Server();
+
+
 
             Console.Read();
         }

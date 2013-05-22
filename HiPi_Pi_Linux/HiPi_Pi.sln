@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Containers", "Containers\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHandling", "DBHandling\DBHandling.csproj", "{8B17FF89-8315-4AF5-8F49-76A51812E3C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSenderServer", "FileSenderServer\FileSenderServer.csproj", "{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,14 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Debug|x64.Build.0 = Debug|Any CPU
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Release|x64.ActiveCfg = Release|Any CPU
+		{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}.Release|x64.Build.0 = Release|Any CPU
 		{50FDC392-2CA9-4114-9789-2C1B2AAAF766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50FDC392-2CA9-4114-9789-2C1B2AAAF766}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50FDC392-2CA9-4114-9789-2C1B2AAAF766}.Debug|x64.ActiveCfg = Debug|Any CPU
