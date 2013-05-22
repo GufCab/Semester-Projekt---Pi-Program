@@ -18,14 +18,14 @@ namespace UPnP_Device
     {
         private GetResponseStrategy Strat = new GetResponseStrategy();
         private string _basePath;
-		private Publisher pub;
+		private Publisher _pub;
 
         //Why???
         //Todo: Remove, maybe???
-        public TCPHandle(string BasePath)
+        public TCPHandle(string BasePath, IIpConfig ipConf)
         {
             _basePath = BasePath;
-
+			_pub = new Publisher(ipConf);
         }
 
         public void HandleHTTP(object e)
@@ -36,7 +36,7 @@ namespace UPnP_Device
 
             if(TCPDebug.DEBUG) {Console.WriteLine("New message recieved on TCP.");}
             
-            IRespondStrategy respondStrategy = Strat.GetStrategy(rec, _basePath);
+            IRespondStrategy respondStrategy = Strat.GetStrategy(rec, _basePath, _pub);
 
             respondStrategy.Respond(util);
         }
@@ -47,7 +47,7 @@ namespace UPnP_Device
     public class GetResponseStrategy
     {
         //Todo: Comments needed:
-        public IRespondStrategy GetStrategy(string received, string BasePath)
+        public IRespondStrategy GetStrategy(string received, string BasePath, Publisher pub)
         {
             IRespondStrategy strategy = null;
 
@@ -74,7 +74,7 @@ namespace UPnP_Device
                     strategy = new POSTResponder(received);
                     break;
                 case "SUBSCRIBE":
-					//strategy = new SubscribeResponder();
+					strategy = new SubscribeResponder(pub,received);
                     break;
                 default:
                     Console.WriteLine("Error in Switch-case:");

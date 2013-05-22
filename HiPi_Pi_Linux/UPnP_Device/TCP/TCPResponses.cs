@@ -11,6 +11,7 @@ using System.Xml;
 using System.Xml.Linq;
 using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
+using Containers;
 
 namespace UPnP_Device.TCP
 {
@@ -154,8 +155,37 @@ namespace UPnP_Device.TCP
 		public void Respond (INetworkUtillity util)
 		{
 
+			string subscriberUrl = GetURL(_rec);
+			string uuid = Guid.NewGuid().ToString();
 
-			//_pub.Subscribe();
+			string createdHead = GetHead(_rec,uuid);
+			_pub.NewSubscriber(uuid, subscriberUrl);
+
+			util.Send(createdHead);
+		}
+
+		private string GetHead (string rec,string guid)
+		{
+			string ResponseHeader = "HTTP/1.1 200 OK\r\n" +
+					"SID: uuid:" + guid + "\r\n" +
+					"TIMEOUT: seconds-30\r\n\r\n";
+		}
+
+		private string GetURL (string rec)
+		{
+			string splitter = "\r\n";
+			string[] allHeaders = rec.Split (splitter, StringSplitOptions.None);
+			string url ="";
+
+			foreach (string header in allHeaders) {
+				if(header.Contains("CALLBACK"))
+				{
+					string[] CallBackHeaderArr = header.Split('<');
+					url = CallBackHeaderArr[1].Replace(">", "");
+				}
+			}
+
+			return url;
 		}
 	}
 

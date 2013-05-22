@@ -45,7 +45,7 @@ namespace UPnP_Device
 
             XMLServicesConfig servicesConfig = new XMLServicesConfig(config.ServiceConfPaths, XmlWriter);
             
-            TCPServer = new TcpServer(IpConf.IP, IpConf.TCPPort, UpnpConf.BasePath);
+            TCPServer = new TcpServer(IpConf, UpnpConf.BasePath);
             UDPServer = new UDPHandler(IpConf, UpnpConf);
             UDPServer.Start();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Containers;
 using UPnP_Device;
 
 namespace UPnP_Device
@@ -11,17 +12,7 @@ namespace UPnP_Device
 
     public delegate void CallBack(List<UPnPArg> argList, string action);
 
-    public class UPnPArg
-    {
-        public string ArgName { get; private set; }
-        public string ArgVal { get; private set; }
-
-        public UPnPArg(string argName, string argVal)
-        {
-            ArgName = argName;
-            ArgVal = argVal;
-        }
-    }
+    
 
     public class UPnPEventArgs : EventArgs
     {

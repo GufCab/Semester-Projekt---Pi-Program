@@ -22,16 +22,16 @@ namespace UPnP_Device.TCP
         private int localPort;
         private string localIp;
 
-        public TcpServer(string ip, int port, string BasePath)
+		public TcpServer(IIpConfig ipConf, string BasePath)
         {
-            localIp = ip;
-            localPort = port;
+            localIp = ipConf.IP;
+            localPort = ipConf.TCPPort;
 
-            tcpHandle = new TCPHandle(BasePath);
+            tcpHandle = new TCPHandle(BasePath, ipConf);
 
             //Todo: Any IPAddress and a port. Is this an EndPoint?
             //Todo: Should we listen at our own local IP only?
-            welcomeSocket = new TcpListener(IPAddress.Any, port);
+            welcomeSocket = new TcpListener(IPAddress.Any, localPort);
             serverThread = new Thread(ServerFunc);
             serverThread.Start();
         }
