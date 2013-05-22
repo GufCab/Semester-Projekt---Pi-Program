@@ -78,6 +78,7 @@ namespace UPnP_Device
                     break;
                 default:
                     Console.WriteLine("Error in Switch-case:");
+					Console.WriteLine (eq[0]);
                     Console.WriteLine(order);
                     break;
             }

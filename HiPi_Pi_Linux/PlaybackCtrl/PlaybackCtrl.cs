@@ -60,13 +60,17 @@ namespace PlaybackCtrl
 			if (Player.GetPaused ()) 
 			{
 				paused = "STOPPED";
-			} 
-			else 
+			}
+			else
 			{
 				paused = "PLAYING";
 			}
-			if(propEvent != null)
-				propEvent(paused, "Pause");
+
+			if (propEvent != null)
+			{
+				UPnPArg arg = new UPnPArg("Pause", paused);
+				propEvent (arg);
+			}
         }
 
         private void SetCurrentURI(ref List<UPnPArg> retValRef)

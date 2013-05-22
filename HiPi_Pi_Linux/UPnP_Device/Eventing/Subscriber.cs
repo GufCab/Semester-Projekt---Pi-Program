@@ -43,15 +43,15 @@ namespace UPnP_Device
 			string delPath = "";
 
 			string[] s = cburl.Split('/');
-			string[] f = s[1].Split (':');
+			string[] f = s[2].Split (':');
 			IPAddress ip = IPAddress.Parse (f[0]);
 			int port = Convert.ToInt32(f[1]);
 
 			ipep = new IPEndPoint(ip, port);
 
-			for(int i = 2; i < s.Length; i++)
+			for(int i = 3; i < s.Length; i++)
 			{
-				delPath = delPath + s[2];
+				delPath = delPath + s[i];
 			}
 
 

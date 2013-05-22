@@ -13,7 +13,7 @@ namespace UPnP_Device
 {
 	public class Publisher
 	{
-		private List<Subscriber> _Subscribtions;
+		public List<Subscriber> _Subscribtions;
 
 		public event PropertyChangedDel PropEvent;
 
@@ -24,11 +24,13 @@ namespace UPnP_Device
 		{
 			PropEvent += PropertyChangedFunc;
 			ipconf = ip;
+			_Subscribtions = new List<Subscriber>();
 		}
 
 		public void NewSubscriber (string uuid, string cburl)
 		{
-
+			Console.WriteLine("uuid: " + uuid);
+			Console.WriteLine ("cburl: " + cburl);
 			_Subscribtions.Add (new Subscriber (uuid, cburl));
 		}
 

@@ -168,12 +168,13 @@ namespace UPnP_Device.TCP
 		{
 			string ResponseHeader = "HTTP/1.1 200 OK\r\n" +
 					"SID: uuid:" + guid + "\r\n" +
-					"TIMEOUT: seconds-30\r\n\r\n";
+					"TIMEOUT: Second-30\r\n\r\n";
+			return ResponseHeader;
 		}
 
 		private string GetURL (string rec)
 		{
-			string splitter = "\r\n";
+			string[] splitter = new string[] {"\r\n"}; 
 			string[] allHeaders = rec.Split (splitter, StringSplitOptions.None);
 			string url ="";
 
