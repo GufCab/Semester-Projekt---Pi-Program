@@ -82,7 +82,7 @@ namespace FileSenderServer
         /// <summary>
         /// The BUFSIZE
         /// </summary>
-        private const int BUFSIZE = 5000 * 8;
+        private const int BUFSIZE =  5000 * 8;
 
         private void ReceiveFile(String fileName, NetworkStream io)
         {
@@ -102,9 +102,22 @@ namespace FileSenderServer
             do
             {
                 Console.WriteLine("Remaining number of bytes: {0}", remainingSize);
-                bytesRead = io.Read(fileData, 0, BUFSIZE); // Read max 1000 bytes from server via socket (actual value is placed in "bytesRead"
-                bWrite.Write(fileData, 0, bytesRead); // write the received bytes into file. the number of received bytes is placed in "bytesRead"
-                remainingSize -= bytesRead;
+                if (Convert.ToInt32(_fileSize) >= BUFSIZE)
+                {
+                    bytesRead = io.Read(fileData, 0, BUFSIZE);
+                        // Read max 5000 bytes from server via socket (actual value is placed in "bytesRead"
+                    bWrite.Write(fileData, 0, bytesRead);
+                        // write the received bytes into file. the number of received bytes is placed in "bytesRead"
+                    remainingSize -= bytesRead;
+                }
+                else if (Convert.ToInt32(_fileSize) < BUFSIZE)
+                {
+                    bytesRead = io.Read(fileData, 0, Convert.ToInt32(remainingSize));
+                    // Read max 5000 bytes from server via socket (actual value is placed in "bytesRead"
+                    bWrite.Write(fileData, 0, bytesRead);
+                    // write the received bytes into file. the number of received bytes is placed in "bytesRead"
+                    remainingSize -= bytesRead;
+                }
             }
             while (remainingSize > 0);
             writeFileStream.Flush();

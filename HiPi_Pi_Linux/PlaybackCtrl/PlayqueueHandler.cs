@@ -92,13 +92,13 @@ namespace PlaybackCtrl
 
         public void AddToPlayQueue(ITrack src)
         {
-			src.ParentID = "Playqueue";
+			src.ParentID = "playqueue";
             _Queue.Add(src);
         }
 
         public void AddToPlayQueue(ITrack src, int index)
         {
-			src.ParentID = "Playqueue";
+			src.ParentID = "playqueue";
             if(index <= _Queue.Count)
                 _Queue.Insert(index, src);
         }
