@@ -38,6 +38,7 @@ namespace UPnP_Device
 
 		public void PropertyChangedFunc (UPnPArg e)
 		{
+			Console.WriteLine (" >> Prop Changed Event! <<");
 			string body = EventBody(e);
 
 			foreach (Subscriber sub in _Subscribtions)

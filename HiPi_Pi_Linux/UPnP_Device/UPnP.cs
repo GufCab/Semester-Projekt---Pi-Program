@@ -12,6 +12,7 @@ namespace UPnP_Device
     public interface IUPnP
     {
         event ActionEventDel ActionEvent;
+		string GetIP();
         
     }
 
@@ -62,5 +63,10 @@ namespace UPnP_Device
             
                 ActionEvent(e, args, callBack);
         }
+
+		public string GetIP()
+		{
+			return IpConf.IP;
+		}
     }
 }

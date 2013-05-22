@@ -32,14 +32,18 @@ namespace DBClasses
             CreateDictionary();
         }
 
-        void _sourceDevice_ActionEvent(object e, UPnPEventArgs args, CallBack cb)
-        {
-            Console.WriteLine("DB Handle Action: " + args.Action);
-            if(args.Action == "Browse")
-            {
-                IDBStrategy strat = _strategies[args.Action];
-                strat.Handle(args.Args, cb, _dbXmlWriter, _PQHandler);
-            }
+        void _sourceDevice_ActionEvent (object e, UPnPEventArgs args, CallBack cb)
+		{
+			Console.WriteLine ("DB Handle Action: " + args.Action);
+			if (args.Action == "Browse")
+			{
+				IDBStrategy strat = _strategies [args.Action];
+				strat.Handle (args.Args, cb, _dbXmlWriter, _PQHandler);
+			}
+			else if (args.Action == "GetIPAddress")
+			{
+				HandleGetIP(cb);
+			}
             
         }
 
@@ -48,6 +52,13 @@ namespace DBClasses
             _strategies = new Dictionary<string, IDBStrategy>();
             _strategies.Add("Browse", new BrowseStrat(_dbLookup));
         }
+
+		public void HandleGetIP(CallBack b)
+		{
+			UPnPArg p = new UPnPArg("IPAddress", _sourceDevice.GetIP());
+
+			b(new List<UPnPArg>() {p}, "GetIPAddress");
+		}
     }
 
     public interface IDBStrategy

@@ -30,7 +30,6 @@ namespace PlaybackCtrl
             SubscribeToSink();
 			paused = "STOPPED";
 
-
         }
 
         private void Next()
@@ -56,6 +55,8 @@ namespace PlaybackCtrl
 
         private void Pause ()
 		{
+			Console.WriteLine (" >> Play called!");
+
 			Player.PauseTrack ();
 			if (Player.GetPaused ()) 
 			{
@@ -66,8 +67,10 @@ namespace PlaybackCtrl
 				paused = "PLAYING";
 			}
 
+
 			if (propEvent != null)
 			{
+				Console.WriteLine ("propEvent not null!");
 				UPnPArg arg = new UPnPArg("Pause", paused);
 				propEvent (arg);
 			}
