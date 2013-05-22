@@ -116,7 +116,7 @@ namespace PlaybackCtrl
 
         private void SetVol(ref List<UPnPArg> retValRef)
         {
-            Player.SetVolume(Convert.ToInt32(retValRef[1].ArgVal));
+            Player.SetVolume(Convert.ToInt32(retValRef[2].ArgVal));
         }
 
         private void SubscribeToWrapper()
@@ -177,12 +177,12 @@ namespace PlaybackCtrl
                         returnVal = null;
                         break;
 
-                    case "SetVol":
+                    case "SetVolume":
                         SetVol(ref returnVal);
                         returnVal = null;
                         break;
 
-                    case "SetPos":
+                    case "SetPosition":
                         SetPos(ref returnVal);
                         break;
 
@@ -193,7 +193,7 @@ namespace PlaybackCtrl
 						returnVal.Add (new UPnPArg("CurrentVolume", str)); //return the volume
                         break;
 
-                    case "GetPos":
+                    case "GetPosition":
                         returnVal.Add(new UPnPArg("GetPos", GetPos())); //return the position
                         break;
 

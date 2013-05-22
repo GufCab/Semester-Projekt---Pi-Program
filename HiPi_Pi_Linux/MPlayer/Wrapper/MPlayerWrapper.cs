@@ -182,6 +182,7 @@ namespace MPlayer
 
         public void SetVolume(int pos)
         {
+			Console.WriteLine ("\n>>Inside wrapper, volume: " + pos);
             if (pos <= 100 && pos >= 0)
                 inStream.WriteLine("volume " + pos + " 1");
             else if (pos > 100)
