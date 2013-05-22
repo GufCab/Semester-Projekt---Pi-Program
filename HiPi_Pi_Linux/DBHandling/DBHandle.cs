@@ -88,7 +88,7 @@ namespace DBClasses
 
 				cb (retArgs, "Browse");
 			}
-			else if (containerId == "PlayQueue") 
+			else if (containerId == "playqueue") 
 			{
 				retArgs = new List<UPnPArg>();
 				string retVal = writer.ConvertITrackToXML(pqhandl.GetQueue());
