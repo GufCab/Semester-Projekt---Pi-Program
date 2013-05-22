@@ -154,22 +154,65 @@ namespace UPnP_Device.TCP
 		//Skraldet way to do this.
 		public void Respond (INetworkUtillity util)
 		{
+			string SID = GetSid (_rec);
+			string createdHead;
 
-			string subscriberUrl = GetURL(_rec);
-			string uuid = Guid.NewGuid().ToString();
+			if (SID == null) 
+			{
+			
+				string subscriberUrl = GetURL (_rec);
+				string uuid = Guid.NewGuid ().ToString ();
 
-			string createdHead = GetHead(_rec,uuid);
-			_pub.NewSubscriber(uuid, subscriberUrl);
-
+				createdHead = GetHeadNewSubscriberResponse (_rec, uuid);
+				_pub.NewSubscriber (uuid, subscriberUrl);
+			} 
+			else 
+			{
+				createdHead = GetHeadRenewResponse (_rec, SID);
+			}
 			util.Send(createdHead);
+			
 		}
 
-		private string GetHead (string rec,string guid)
+		private string GetHeadRenewResponse (string rec, string uuid)
+		{
+			string ResponseHeader = "HTTP/1.1 200 OK\r\n" +
+					"SID: uuid:" + uuid + "\r\n" +
+					"TIMEOUT: Second-30\r\n\r\n";
+			return ResponseHeader;
+		}
+
+		private string GetHeadNewSubscriberResponse(string rec,string guid)
 		{
 			string ResponseHeader = "HTTP/1.1 200 OK\r\n" +
 					"SID: uuid:" + guid + "\r\n" +
 					"TIMEOUT: Second-30\r\n\r\n";
 			return ResponseHeader;
+		}
+
+		private string GetSid (string rec)
+		{
+			string[] splitter = new string[] {"\r\n"};
+			string[] allHeaders = rec.Split (splitter, StringSplitOptions.None);
+
+			string SidHeader ="";
+			string[] SidHeaderArray = null;
+			string Sid = "";
+
+			foreach (string s in allHeaders) 
+			{
+				if(s.Contains("SID"))
+				{
+					SidHeaderArray = s;
+				}
+			}
+
+			if(SidHeader == "")
+				return null;
+
+			Sid = SidHeaderArray[2].Split(':');
+			Sid = Sid.Replace(" ", "");
+			return Sid;
 		}
 
 		private string GetURL (string rec)
