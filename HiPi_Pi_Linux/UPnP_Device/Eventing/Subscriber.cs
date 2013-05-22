@@ -34,7 +34,6 @@ namespace UPnP_Device
 		}
 
 
-
 		public Subscriber (string uuid, string cburl)
 		{
 			EventNo = 0;
@@ -56,7 +55,7 @@ namespace UPnP_Device
 			}
 
 
-			}
 		}
 	}
+}
 

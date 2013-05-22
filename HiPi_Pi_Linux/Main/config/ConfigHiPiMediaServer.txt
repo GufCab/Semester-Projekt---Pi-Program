@@ -6,3 +6,4 @@ Social Soundsystem
 
 urn:schemas-upnp-org:device:MediaServer:1
 ContentDirectory:1
+ConnectionManager:1

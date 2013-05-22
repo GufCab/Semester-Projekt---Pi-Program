@@ -25,7 +25,8 @@ namespace UPnPConfigFactory
             List<string> serviceconf = new List<string>
                 {
                     "../../config/ConfigServiceAVTransport.txt",
-                    "../../config/ConfigServiceRenderingControl.txt"
+                    "../../config/ConfigServiceRenderingControl.txt",
+					"../../config/ConfigServiceConnectionManager.txt"
                 };
 
             IUPnPConfigPackage pack = new UPnPConfigPackage(ip, upnp, serviceconf);
@@ -46,6 +47,7 @@ namespace UPnPConfigFactory
             List<string> serviceconf = new List<string>
                 {
                     "../../config/ConfigServiceContentDirectory.txt",
+					"../../config/ConfigServiceConnectionManager.txt"
                 };
 
             IUPnPConfigPackage pack = new UPnPConfigPackage(ipConf,upnp,serviceconf);

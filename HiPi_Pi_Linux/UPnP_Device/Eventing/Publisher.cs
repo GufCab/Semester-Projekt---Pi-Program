@@ -34,13 +34,15 @@ namespace UPnP_Device
 
 
 
-		public void PropertyChangedFunc (object e, string PropertyName)
+		public void PropertyChangedFunc (UPnPArg e)
 		{
-			string val = (string)e;
+			string body = EventBody(e);
 
 			foreach (Subscriber sub in _Subscribtions)
 			{
-				string msg = GenerateResponse(PropertyName, val, sub);
+				string head = EventHead(sub, ipconf, body.Length);
+				string msg = head + "\r\n" + body;
+
 				Thread t = new Thread(new ParameterizedThreadStart(SendEventMsg));
 				object[] g = new object[] {sub, msg};
 
@@ -51,21 +53,28 @@ namespace UPnP_Device
 		private void SendEventMsg (object e)
 		{
 			Object[] g = (object[]) e;
-			TcpClient p = new TcpClient((IPEndPoint)g[0]);
+			Subscriber sub = (Subscriber)g[0];
+			TcpClient p = new TcpClient(sub.ipep);
 			INetworkUtillity util = new NetworkUtillity(p);
 			util.Send ((string)g[1]);
+			Console.WriteLine("Event msg send to CP");
+
+			string answer = util.Receive();
+			Console.WriteLine("Anwser from CP: " + answer);
 		}
 
+		/*
 		public string GenerateResponse(string ChangedProp, string value, ISubscriber sub)
 		{
-			List<UPnPArg> list = new List<UPnPArg>();
-			list.Add (new UPnPArg(ChangedProp, value));
-			string body = EventResponse(list);
+			UPnPArg arg = new UPnPArg();
+			arg (new UPnPArg(ChangedProp, value));
+			string body = EventResponse(arg);
 
 			string head = EventHead (sub, ipconf, body.Length);
 					
 			return head + "\r\n" + body;
 		}
+		*/
 
 		public string EventHead (ISubscriber sub, IIpConfig ipconf, int length)
 		{
@@ -79,7 +88,7 @@ namespace UPnP_Device
 					"SEQ: " + sub.EventNo + "\r\n";
 		}
 
-		public string EventResponse (List<UPnPArg> args)
+		public string EventBody (UPnPArg arg)
 		{
 			XmlDocument doc = new XmlDocument ();
 			XmlDeclaration dec = doc.CreateXmlDeclaration ("1.0", null, null);
@@ -92,12 +101,10 @@ namespace UPnP_Device
 			property.Prefix = "e";
 			prop.AppendChild (property);
 
-			foreach (UPnPArg s in args)
-			{
-				XmlElement variable = doc.CreateElement (s.ArgName);
-				property.AppendChild (variable);
-				variable.InnerText = s.ArgVal;
-			}
+			XmlElement variable = doc.CreateElement (arg.ArgName);
+			property.AppendChild (variable);
+			variable.InnerText = arg.ArgVal;
+		
             //Saved for debugging:
             doc.Save(@"InvokeEvent.xml");
 
