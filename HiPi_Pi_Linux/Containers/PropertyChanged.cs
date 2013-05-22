@@ -5,6 +5,22 @@ namespace Containers
 {
 	public delegate void PropertyChangedDel(UPnPArg args);
 
+	public static class PropertyChangedEvent
+	{
+		public static event PropertyChangedDel PropEvent;// = delegate { };
+
+		public static void Fire(UPnPArg u)
+		{
+			PropEvent(u);
+		}
+
+		public static bool HasSubscribers()
+		{
+			return PropEvent != null;
+		}
+	}
+
+
 	public class UPnPArg
     {
         public string ArgName { get; private set; }

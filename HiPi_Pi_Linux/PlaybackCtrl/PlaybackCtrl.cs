@@ -18,7 +18,7 @@ namespace PlaybackCtrl
         private IUPnP UPnPSink;
         private XMLReader1 XMLconverter;
 		private string paused;
-		public event PropertyChangedDel propEvent;
+		//public event PropertyChangedDel propEvent;
 
         public PlaybackControl(IUPnP sink, IPlayqueueHandler pqhandl)
         {
@@ -68,11 +68,12 @@ namespace PlaybackCtrl
 			}
 
 
-			if (propEvent != null)
-			{
+			if (PropertyChangedEvent.HasSubscribers())
+		    {
 				Console.WriteLine ("propEvent not null!");
 				UPnPArg arg = new UPnPArg("Pause", paused);
-				propEvent (arg);
+				PropertyChangedEvent.Fire(arg);
+				//propEvent (arg);
 			}
         }
 

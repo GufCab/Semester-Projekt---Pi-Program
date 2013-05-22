@@ -11,18 +11,20 @@ using System.Threading;
 
 namespace UPnP_Device
 {
+
+
 	public class Publisher
 	{
 		public List<Subscriber> _Subscribtions;
 
-		public event PropertyChangedDel PropEvent;
+		//public event PropertyChangedDel PropEvent;
 
 		private IIpConfig ipconf;
 
 
 		public Publisher (IIpConfig ip)
 		{
-			PropEvent += PropertyChangedFunc;
+			PropertyChangedEvent.PropEvent += PropertyChangedFunc;
 			ipconf = ip;
 			_Subscribtions = new List<Subscriber>();
 		}

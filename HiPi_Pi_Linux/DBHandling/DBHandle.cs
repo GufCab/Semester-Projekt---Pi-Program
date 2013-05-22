@@ -19,6 +19,8 @@ namespace DBClasses
 		private DBLookup _dbLookup;
 		private IPlayqueueHandler _PQHandler;
 
+		public event PropertyChangedDel propEvent;
+
         public DBHandle(IUPnP sourceDevice, IPlayqueueHandler pqhandl)
         {
             _sourceDevice = sourceDevice;
@@ -42,6 +44,7 @@ namespace DBClasses
 			}
 			else if (args.Action == "GetIPAddress")
 			{
+				propEvent(new UPnPArg("hej", "hej"));
 				HandleGetIP(cb);
 			}
             

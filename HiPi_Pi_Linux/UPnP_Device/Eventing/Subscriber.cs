@@ -54,6 +54,12 @@ namespace UPnP_Device
 				delPath = delPath + s[i];
 			}
 
+			Console.WriteLine ("=================================");
+			Console.WriteLine (" >> New Subscriber:");
+			Console.WriteLine ("IP: " + ip.ToString ());
+			Console.WriteLine("Port: " + port.ToString ());
+			Console.WriteLine ("Delevery Path: " + delPath);
+
 
 		}
 	}

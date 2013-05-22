@@ -203,14 +203,17 @@ namespace UPnP_Device.TCP
 			{
 				if(s.Contains("SID"))
 				{
-					SidHeaderArray = s;
+					SidHeader = s;
 				}
+
 			}
 
 			if(SidHeader == "")
 				return null;
 
-			Sid = SidHeaderArray[2].Split(':');
+			SidHeaderArray = SidHeader.Split(':');
+
+			Sid = SidHeaderArray[2];
 			Sid = Sid.Replace(" ", "");
 			return Sid;
 		}
