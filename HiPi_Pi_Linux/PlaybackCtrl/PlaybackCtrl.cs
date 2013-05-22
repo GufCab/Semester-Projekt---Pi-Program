@@ -117,12 +117,14 @@ namespace PlaybackCtrl
         private void SetVol(ref List<UPnPArg> retValRef)
         {
             Player.SetVolume(Convert.ToInt32(retValRef[2].ArgVal));
+			Console.WriteLine("\nInside Setvol!");
         }
 
         private void SubscribeToWrapper()
         {
             Player.EOF_Event += NewSongHandler;
         }
+
 
         private void SubscribeToSink()
         {
@@ -132,6 +134,7 @@ namespace PlaybackCtrl
         private void UPnPHandler(object e, UPnPEventArgs args, CallBack cb)
         {
             string action = args.Action;
+			Console.WriteLine(">> Inside UPnPHandler: " + action);
             List<UPnPArg> returnVal = args.Args;
             if (action != "Browse")
             {
@@ -178,6 +181,7 @@ namespace PlaybackCtrl
                         break;
 
                     case "SetVolume":
+						Console.WriteLine("INSIDE SETVOLUME!");
                         SetVol(ref returnVal);
                         returnVal = null;
                         break;
