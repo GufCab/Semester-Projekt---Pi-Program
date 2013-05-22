@@ -230,9 +230,10 @@ namespace MPlayer
             inStream.WriteLine("pausing_keep get_property volume");
             VolGetEvent += volHandler;
             volResetEvent.WaitOne(5000);
+			var ret = volRetval.Split('.');
 
-            Console.WriteLine("VolRetVal: " + volRetval);
-            return volRetval;
+            Console.WriteLine("VolRetVal: " + ret[0]);
+            return ret[0];
         }
 
         private void volHandler(object e, InputData args)

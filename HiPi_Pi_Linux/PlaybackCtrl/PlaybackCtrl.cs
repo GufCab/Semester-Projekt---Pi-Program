@@ -65,7 +65,8 @@ namespace PlaybackCtrl
 			{
 				paused = "PLAYING";
 			}
-			//propEvent(paused, "Pause");
+			if(propEvent != null)
+				propEvent(paused, "Pause");
         }
 
         private void SetCurrentURI(ref List<UPnPArg> retValRef)
@@ -110,8 +111,8 @@ namespace PlaybackCtrl
 
         private string GetVol()
         {
-            string vol = Player.GetVolume();
-            return vol;
+            return Player.GetVolume();
+
         }
 
         private void SetVol(ref List<UPnPArg> retValRef)
@@ -136,6 +137,7 @@ namespace PlaybackCtrl
             string action = args.Action;
 			Console.WriteLine(">> Inside UPnPHandler: " + action);
             List<UPnPArg> returnVal = args.Args;
+
             if (action != "Browse")
             {
                 switch (args.Action)
@@ -157,7 +159,7 @@ namespace PlaybackCtrl
 
                     case "Pause":
                         Pause();
-                        returnVal = null;
+						returnVal = null;
                         break;
 
                     case "SetNextAVTransportURI":
@@ -191,9 +193,8 @@ namespace PlaybackCtrl
                         break;
 
                     case "GetVolume":
-						//returnVal.Add (new UPnPArg("CurrentVolume", GetVol().ToString())); //return the volume
 						string  str = GetVol();
-
+						returnVal = new List<UPnPArg>();
 						returnVal.Add (new UPnPArg("CurrentVolume", str)); //return the volume
                         break;
 
