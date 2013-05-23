@@ -262,7 +262,7 @@ namespace UPnP_Device.XML
             //only for debug
             //doc.Save(type + "Service.xml");
 
-            SaveFile(doc.OuterXml, type);
+            //SaveFile(doc.OuterXml, type);
         }
     }
 }

@@ -50,6 +50,7 @@ namespace PlaybackCtrl
             _Index = 0;
             _Queue = new List<ITrack>();
 
+			/*
 			var trk = new Track();
 			trk.FileName = "filnavn";
 			trk.Album = "albumnavn";
@@ -58,6 +59,7 @@ namespace PlaybackCtrl
 			trk.Genre = "genre";
 
 			AddToPlayQueue(trk);
+			*/
         }
 
         public ITrack GetNextTrack ()

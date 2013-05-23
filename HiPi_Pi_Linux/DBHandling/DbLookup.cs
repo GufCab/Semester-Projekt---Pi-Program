@@ -16,22 +16,7 @@ namespace DBClasses
 
 
         public List<ITrack> Browse(string info)
-        {
-            //MySqlCommand c = new MySqlCommand("Hej");
-
-            //MySqlConnection _con;
-			/*
-            try
-            {
-                _con = new MySqlConnection(_conStr);
-                _con.Open();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("DB Connetion error");
-                throw;
-            }*/
-            
+        {            
             List<ITrack> trkList;
 
             SetupConnection();
