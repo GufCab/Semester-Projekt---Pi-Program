@@ -23,6 +23,8 @@ namespace PlaybackCtrl
         int GetCurrentTrackIndex();
         ITrack GetCurrentTrack();
 		List<ITrack> GetQueue();
+
+		string PlayQueueChanged { get; set; }
     }
 
     public class PlayqueueHandler : IPlayqueueHandler

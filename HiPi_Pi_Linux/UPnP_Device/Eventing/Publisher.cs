@@ -67,9 +67,9 @@ namespace UPnP_Device
 			util.Send ((string)g[1]);
 			Console.WriteLine("Event msg send to CP");
 
-			string answer = util.Receive();
-			Console.WriteLine("Anwser from CP: " + answer);
-			util.Close();
+			//string answer = util.Receive();
+			//Console.WriteLine("Anwser from CP: " + answer);
+			//util.Close();
 		}
 
 		/*
@@ -115,7 +115,7 @@ namespace UPnP_Device
 			variable.InnerText = arg.ArgVal;
 		
             //Saved for debugging:
-            doc.Save(@"InvokeEvent.xml");
+            //doc.Save(@"InvokeEvent.xml");
 
             return doc.OuterXml;
         }

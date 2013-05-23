@@ -8,6 +8,7 @@ using UPnP_Device;
 using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
 using XMLReader;
+using XMLHandler;
 
 namespace PlaybackCtrl
 {
@@ -17,6 +18,7 @@ namespace PlaybackCtrl
         private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
         private XMLReader1 XMLconverter;
+		private XMLWriterPi wr;
 		private string _TransportState;
 
 		public string TransportState
@@ -41,11 +43,10 @@ namespace PlaybackCtrl
             Player = new MPlayerWrapper();
 			PlayQueueHandler = pqhandl; 
             XMLconverter = new XMLReader1();
+			wr = new XMLWriterPi();
             SubscribeToWrapper();
             SubscribeToSink();
 			_TransportState = "STOPPED";
-
-
         }
 
         private void Next()
@@ -229,6 +230,11 @@ namespace PlaybackCtrl
                     case "GetPosition":
                        	returnVal = CreatePosArgs(returnVal);
                         break;
+
+					case "GetCurrentTrack":
+					returnVal.Add(new UPnPArg("CurrentTrack",  wr.ConvertITrackToXML(new List<ITrack>() {PlayQueueHandler.GetCurrentTrack()})));
+						returnVal.Add (new UPnPArg("PlayQueueChanged", PlayQueueHandler.PlayQueueChanged));
+						break;
 
                     default:
                         Console.WriteLine("PLaybackControl class switchcase default");
