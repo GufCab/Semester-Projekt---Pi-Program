@@ -223,7 +223,8 @@ namespace PlaybackCtrl
 			//Todo: Should also transfer Metadata + AbsTime
 			List<UPnPArg> createdArgs = new List<UPnPArg>();
 			createdArgs.Add(new UPnPArg("CurrentPosition", GetPos()));
-
+			//createdArgs.Add(new UPnPArg("Duration", PlayQueueHandler.GetCurrentTrack().Duration));
+			createdArgs.Add(new UPnPArg("Duration", "100"));
 			/*
 			createdArgs.Add	(new UPnPArg("TrackDuration", PlayQueueHandler.GetCurrentTrack().Duration));
 			createdArgs.Add	(new UPnPArg("TrackMetaData", "MetaData not supplied here"));

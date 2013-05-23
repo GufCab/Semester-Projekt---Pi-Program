@@ -3,4 +3,4 @@ SetMute/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;Channel:in:A_ARG_TYPE_Channel
 GetVolume/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;Channel:in:A_ARG_TYPE_Channel:no:string;CurrentVolume:out:Volume:no:ui2
 SetVolume/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;Channel:in:A_ARG_TYPE_Channel:no:string;DesiredVolume:in:Volume:no:ui2
 SetPosition/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;DesiredPosition:in:Position:no:ui2
-GetPosition/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;CurrentPosition:out:Position:no:ui2
+GetPosition/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;CurrentPosition:out:Position:no:ui2;Duration:out:TrackDur:no:ui2
