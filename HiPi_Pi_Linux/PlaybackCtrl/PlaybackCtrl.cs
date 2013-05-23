@@ -111,12 +111,12 @@ namespace PlaybackCtrl
         private void SetPos(ref List<UPnPArg> retValRef) //used for going back and forth in a track
         {
             Player.SetPosition(Convert.ToInt32(retValRef[1].ArgVal));
+			retValRef = null;
         }
 
         private string GetVol()
         {
             return Player.GetVolume();
-
         }
 
         private void SetVol(ref List<UPnPArg> retValRef)
@@ -193,6 +193,7 @@ namespace PlaybackCtrl
 
                     case "SetPosition":
                         SetPos(ref returnVal);
+						returnVal = null;
                         break;
 
                     case "GetVolume":
@@ -221,6 +222,9 @@ namespace PlaybackCtrl
 			//Not using the instance ID right now..
 			//Todo: Should also transfer Metadata + AbsTime
 			List<UPnPArg> createdArgs = new List<UPnPArg>();
+			createdArgs.Add(new UPnPArg("CurrentPosition", GetPos()));
+
+			/*
 			createdArgs.Add	(new UPnPArg("TrackDuration", PlayQueueHandler.GetCurrentTrack().Duration));
 			createdArgs.Add	(new UPnPArg("TrackMetaData", "MetaData not supplied here"));
 			createdArgs.Add (new UPnPArg("TrackURI", PlayQueueHandler.GetCurrentTrack().Path));
@@ -228,7 +232,7 @@ namespace PlaybackCtrl
 			createdArgs.Add (new UPnPArg("AbsTime", "CalcThisYourself"));
 			createdArgs.Add (new UPnPArg("RelCount", "cnt"));
 			createdArgs.Add (new UPnPArg("AbsCount", "absCnt"));
-
+			*/
 			return createdArgs;
 		}
 
