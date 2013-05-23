@@ -1,38 +1,41 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="UPnP_Device/TCP/TCPHandle.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Main/Program.cs">
     <Files>
       <File FileName="UPnP_Device/TCP/Server.cs" Line="25" Column="3" />
-      <File FileName="UPnP_Device/TCP/TCPHandle.cs" Line="62" Column="14" />
+      <File FileName="UPnP_Device/TCP/TCPHandle.cs" Line="46" Column="2" />
       <File FileName="UPnP_Device/Eventing/Publisher.cs" Line="19" Column="3" />
-      <File FileName="UPnP_Device/UPnP.cs" Line="48" Column="36" />
+      <File FileName="UPnP_Device/UPnP.cs" Line="48" Column="13" />
       <File FileName="UPnP_Device/UPnPConfig/IpConfig.cs" Line="6" Column="26" />
       <File FileName="UPnP_Device/UPnPConfig/ConfigInjector.cs" Line="1" Column="1" />
       <File FileName="UPnP_Device/InvokeResponseGen.cs" Line="6" Column="18" />
       <File FileName="UPnP_Device/EventHandler.cs" Line="5" Column="18" />
       <File FileName="Containers/Track.cs" Line="1" Column="14" />
-      <File FileName="MPlayer/Wrapper/MPlayerWrapper.cs" Line="217" Column="10" />
+      <File FileName="MPlayer/Wrapper/MPlayerWrapper.cs" Line="217" Column="1" />
       <File FileName="MPlayer/Wrapper/IWrapper.cs" Line="17" Column="9" />
-      <File FileName="Containers/PropertyChanged.cs" Line="15" Column="31" />
+      <File FileName="Containers/PropertyChanged.cs" Line="15" Column="4" />
       <File FileName="Containers/Container.cs" Line="1" Column="1" />
-      <File FileName="UPnP_Device/TCP/TCPResponses.cs" Line="162" Column="15" />
+      <File FileName="UPnP_Device/TCP/TCPResponses.cs" Line="180" Column="4" />
       <File FileName="UPnP_Device/XML/XMLReader.cs" Line="7" Column="18" />
-      <File FileName="PlaybackCtrl/PlaybackCtrl.cs" Line="36" Column="24" />
+      <File FileName="PlaybackCtrl/PlaybackCtrl.cs" Line="74" Column="1" />
+      <File FileName="Main/Program.cs" Line="30" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Containers" expanded="True" />
           <Node name="DBHandling" expanded="True" />
+          <Node name="Main" expanded="True">
+            <Node name="Program.cs" selected="True" />
+          </Node>
           <Node name="MPlayer" expanded="True">
             <Node name="Wrapper" expanded="True" />
           </Node>
           <Node name="PlaybackCtrl" expanded="True" />
           <Node name="UPnP_Device" expanded="True">
             <Node name="Eventing" expanded="True" />
-            <Node name="TCP" expanded="True">
-              <Node name="TCPHandle.cs" selected="True" />
-            </Node>
+            <Node name="TCP" expanded="True" />
+            <Node name="UPnPConfig" expanded="True" />
             <Node name="XML" expanded="True" />
           </Node>
           <Node name="UPnPConfigFactory" expanded="True" />

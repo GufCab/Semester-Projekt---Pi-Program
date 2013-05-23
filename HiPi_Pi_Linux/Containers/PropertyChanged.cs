@@ -7,7 +7,7 @@ namespace Containers
 
 	public static class PropertyChangedEvent
 	{
-		public static event PropertyChangedDel PropEvent;// = delegate { };
+		public static event PropertyChangedDel PropEvent = delegate { };
 
 		public static void Fire(UPnPArg u)
 		{

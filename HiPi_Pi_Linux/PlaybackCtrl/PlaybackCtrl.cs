@@ -66,10 +66,10 @@ namespace PlaybackCtrl
 				paused = "PLAYING";
 			}
 
-			if (propEvent != null)
+			if (PropertyChangedEvent.HasSubscribers())
 			{
 				UPnPArg arg = new UPnPArg("Pause", paused);
-				propEvent (arg);
+				PropertyChangedEvent.Fire (arg);
 			}
         }
 

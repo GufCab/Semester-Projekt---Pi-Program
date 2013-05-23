@@ -59,8 +59,11 @@ namespace UPnP_Device
 		{
 			Object[] g = (object[]) e;
 			Subscriber sub = (Subscriber)g[0];
-			TcpClient p = new TcpClient(sub.ipep);
+			TcpClient p = new TcpClient();
+			p.Connect(sub.ipep);
+
 			INetworkUtillity util = new NetworkUtillity(p);
+
 			util.Send ((string)g[1]);
 			Console.WriteLine("Event msg send to CP");
 
