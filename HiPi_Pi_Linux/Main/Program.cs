@@ -20,16 +20,16 @@ namespace Main
             IUPnPConfigFactory sinkfact = new SinkFactory();
             IUPnPConfigFactory sourceFact = new SourceFactory();
 
+			UPnP sink = new UPnP(sinkfact.CreatePackage());
             UPnP source = new UPnP(sourceFact.CreatePackage());
-            UPnP sink = new UPnP(sinkfact.CreatePackage());
+            
             
 			IPlayqueueHandler pqhandl = new PlayqueueHandler();
 
             PlaybackControl PlayCtrl = new PlaybackControl(sink, pqhandl);
             DBHandle dbHandle = new DBHandle(source, pqhandl);
             
-			IServer Fserver = new Server();
-
+			Server Fserver = new Server();
 
 
             Console.Read();

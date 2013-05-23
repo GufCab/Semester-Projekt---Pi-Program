@@ -315,6 +315,4 @@ namespace UPnP_Device.TCP
             
         }
     }
-     
- 
 }
