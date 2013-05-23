@@ -169,7 +169,6 @@ namespace MPlayer
             inStream.WriteLine("pausing_keep get_time_pos");
             timeResetEvent.WaitOne(5000);
 
-            //Console.WriteLine("TimeRetVal: " + timeRetVal);
             return timeRetVal;
         }
 

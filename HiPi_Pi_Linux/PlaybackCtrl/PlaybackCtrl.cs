@@ -18,7 +18,7 @@ namespace PlaybackCtrl
         private IUPnP UPnPSink;
         private XMLReader1 XMLconverter;
 		private string paused;
-		//public event PropertyChangedDel propEvent;
+		public event PropertyChangedDel propEvent;
 
         public PlaybackControl(IUPnP sink, IPlayqueueHandler pqhandl)
         {
@@ -29,6 +29,7 @@ namespace PlaybackCtrl
             SubscribeToWrapper();
             SubscribeToSink();
 			paused = "STOPPED";
+
 
         }
 
@@ -55,8 +56,6 @@ namespace PlaybackCtrl
 
         private void Pause ()
 		{
-			Console.WriteLine (" >> Play called!");
-
 			Player.PauseTrack ();
 			if (Player.GetPaused ()) 
 			{
@@ -67,13 +66,10 @@ namespace PlaybackCtrl
 				paused = "PLAYING";
 			}
 
-
-			if (PropertyChangedEvent.HasSubscribers())
-		    {
-				Console.WriteLine ("propEvent not null!");
+			if (propEvent != null)
+			{
 				UPnPArg arg = new UPnPArg("Pause", paused);
-				PropertyChangedEvent.Fire(arg);
-				//propEvent (arg);
+				propEvent (arg);
 			}
         }
 
@@ -191,8 +187,7 @@ namespace PlaybackCtrl
                         break;
 
                     case "SetVolume":
-						Console.WriteLine("INSIDE SETVOLUME!");
-                        SetVol(ref returnVal);
+						SetVol(ref returnVal);
                         returnVal = null;
                         break;
 
@@ -201,13 +196,12 @@ namespace PlaybackCtrl
                         break;
 
                     case "GetVolume":
-						string  str = GetVol();
-						returnVal = new List<UPnPArg>();
-						returnVal.Add (new UPnPArg("CurrentVolume", str)); //return the volume
-                        break;
+						string  vol = GetVol();
+						returnVal = new List<UPnPArg>(){new UPnPArg("CurrentVolume", vol)};
+						break;
 
                     case "GetPosition":
-                        returnVal.Add(new UPnPArg("GetPos", GetPos())); //return the position
+                       	returnVal = CreatePosArgs(returnVal);
                         break;
 
                     default:
@@ -218,9 +212,27 @@ namespace PlaybackCtrl
             Console.WriteLine("PlaybackCtrl ready for callback");
             cb(returnVal, args.Action);
         }
+
+
     }
 
-        private void NewSongHandler (object e, EventArgs args)
+ 		private List<UPnPArg> CreatePosArgs (List<UPnPArg> inArgs)
+		{
+			//Not using the instance ID right now..
+			//Todo: Should also transfer Metadata + AbsTime
+			List<UPnPArg> createdArgs = new List<UPnPArg>();
+			createdArgs.Add	(new UPnPArg("TrackDuration", PlayQueueHandler.GetCurrentTrack().Duration));
+			createdArgs.Add	(new UPnPArg("TrackMetaData", "MetaData not supplied here"));
+			createdArgs.Add (new UPnPArg("TrackURI", PlayQueueHandler.GetCurrentTrack().Path));
+			createdArgs.Add (new UPnPArg("RelTime", GetPos()));
+			createdArgs.Add (new UPnPArg("AbsTime", "CalcThisYourself"));
+			createdArgs.Add (new UPnPArg("RelCount", "cnt"));
+			createdArgs.Add (new UPnPArg("AbsCount", "absCnt"));
+
+			return createdArgs;
+		}
+
+		private void NewSongHandler (object e, EventArgs args)
         {
             //Plays next song. If playqueue is empty it stops playing.
             if (PlayQueueHandler.GetNumberOfTracks() > PlayQueueHandler.GetCurrentTrackIndex())
