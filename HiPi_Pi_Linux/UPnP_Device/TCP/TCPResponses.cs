@@ -203,7 +203,7 @@ namespace UPnP_Device.TCP
 			{
 				if(s.Contains("SID"))
 				{
-					SidHeader = s;
+					SidHeader = s.ToLower();
 				}
 
 			}
