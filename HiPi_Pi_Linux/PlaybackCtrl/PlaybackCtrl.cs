@@ -244,20 +244,12 @@ namespace PlaybackCtrl
 
  		private List<UPnPArg> CreatePosArgs (List<UPnPArg> inArgs)
 		{
-			//Not using the instance ID right now..
-			//Todo: Should also transfer Metadata + AbsTime
 			List<UPnPArg> createdArgs = new List<UPnPArg>();
 			createdArgs.Add(new UPnPArg("CurrentPosition", GetPos()));
 
-			/*
-			createdArgs.Add	(new UPnPArg("TrackDuration", PlayQueueHandler.GetCurrentTrack().Duration));
-			createdArgs.Add	(new UPnPArg("TrackMetaData", "MetaData not supplied here"));
-			createdArgs.Add (new UPnPArg("TrackURI", PlayQueueHandler.GetCurrentTrack().Path));
-			createdArgs.Add (new UPnPArg("RelTime", GetPos()));
-			createdArgs.Add (new UPnPArg("AbsTime", "CalcThisYourself"));
-			createdArgs.Add (new UPnPArg("RelCount", "cnt"));
-			createdArgs.Add (new UPnPArg("AbsCount", "absCnt"));
-			*/
+			//createdArgs.Add(new UPnPArg("Duration", PlayQueueHandler.GetCurrentTrack().Duration));
+			createdArgs.Add(new UPnPArg("Duration", "100"));
+
 			return createdArgs;
 		}
 

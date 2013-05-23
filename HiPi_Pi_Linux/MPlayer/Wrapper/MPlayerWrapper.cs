@@ -168,8 +168,9 @@ namespace MPlayer
             TimePosEvent += posHandler;
             inStream.WriteLine("pausing_keep get_time_pos");
             timeResetEvent.WaitOne(5000);
+			string[] ret = timeRetVal.Split('.');
 
-            return timeRetVal;
+            return ret[0];
         }
 
         private void posHandler(object e, InputData args)
