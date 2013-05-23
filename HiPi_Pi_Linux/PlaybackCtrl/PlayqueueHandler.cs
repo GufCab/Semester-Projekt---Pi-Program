@@ -30,6 +30,21 @@ namespace PlaybackCtrl
         private int _Index;
         private List<ITrack> _Queue; 
 
+		private string _PlayQueueChanged;
+
+		public string PlayQueueChanged
+		{
+			get{return _PlayQueueChanged;}
+			set
+			{
+				_PlayQueueChanged = value;
+
+				UPnPArg arg = new UPnPArg("PlayQueueChanged", _PlayQueueChanged);
+
+				PropertyChangedEvent.Fire(arg);
+			}
+		}
+
         public PlayqueueHandler()
         {
             _Index = 0;
@@ -79,6 +94,7 @@ namespace PlaybackCtrl
 		{
 			if (index <= _Queue.Count && index > 0) 
 			{
+				PlayQueueChanged = "GET";
 				_Index = index;
 				return _Queue [_Index-1];
 			}
@@ -94,6 +110,7 @@ namespace PlaybackCtrl
         {
 			src.ParentID = "playqueue";
             _Queue.Add(src);
+			PlayQueueChanged = "TrackAdded";
         }
 
         public void AddToPlayQueue(ITrack src, int index)
@@ -101,6 +118,8 @@ namespace PlaybackCtrl
 			src.ParentID = "playqueue";
             if(index <= _Queue.Count)
                 _Queue.Insert(index, src);
+
+			PlayQueueChanged = "TrackAdded";
         }
 
         public void RemoveFromPlayQueue(int index)
@@ -111,6 +130,7 @@ namespace PlaybackCtrl
                 if (index < _Index)
                     --_Index;
             }
+			PlayQueueChanged = "TrackRemoved";
         }
 
         public int GetCurrentTrackIndex()
