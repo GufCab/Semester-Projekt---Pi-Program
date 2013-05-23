@@ -17,8 +17,23 @@ namespace PlaybackCtrl
         private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
         private XMLReader1 XMLconverter;
-		private string TransportState;
-		public event PropertyChangedDel propEvent;
+		private string _TransportState;
+
+		public string TransportState
+		{
+			set
+			{
+				_TransportState = value;
+
+				if (PropertyChangedEvent.HasSubscribers ())
+				{
+					UPnPArg arg = new UPnPArg ("TransportState", _TransportState);
+					PropertyChangedEvent.Fire (arg);
+				}
+			}
+			get {return _TransportState; }
+		}
+		//public event PropertyChangedDel propEvent;
 
         public PlaybackControl(IUPnP sink, IPlayqueueHandler pqhandl)
         {
@@ -28,21 +43,27 @@ namespace PlaybackCtrl
             XMLconverter = new XMLReader1();
             SubscribeToWrapper();
             SubscribeToSink();
-			TransportState = "STOPPED";
+			_TransportState = "STOPPED";
 
 
         }
 
         private void Next()
         {
-            var myTrack = PlayQueueHandler.GetNextTrack();
+			TransportState = "TRANSITIONING";
+            
+			var myTrack = PlayQueueHandler.GetNextTrack();
             Player.PlayTrack(myTrack.Path);
+
+			TransportState = "PLAYING";
         }
 
         private void Prev()
         {
+			TransportState = "TRANSITIONING";
             ITrack myTrack = PlayQueueHandler.GetPrevTrack();
             Player.PlayTrack(myTrack.Path);
+			TransportState = "PLAYING";
         }
 
         private void Play ()
@@ -66,16 +87,20 @@ namespace PlaybackCtrl
 				TransportState = "PLAYING";
 			}
 
+			/*
 			if (PropertyChangedEvent.HasSubscribers())
 			{
 				UPnPArg arg = new UPnPArg("TransportState", TransportState);
 				PropertyChangedEvent.Fire (arg);
 			}
+			*/
         }
 
         private void SetCurrentURI(ref List<UPnPArg> retValRef)
         {
+			TransportState = "TRANSITIONING";
             Player.PlayTrack(retValRef[1].ArgVal);
+			TransportState = "PLAYING";
         }
 
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)

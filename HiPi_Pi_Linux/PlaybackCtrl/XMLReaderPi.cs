@@ -45,8 +45,8 @@ namespace XMLReader
         public List<ITrack> itemReader(string xml)
         {
             var doc = new XmlDocument();
-            doc.Load("item.xml");
-            //doc.LoadXml(xml);
+            //doc.Load("item.xml");
+            doc.LoadXml(xml);
 
             var tracks = new List<ITrack>();
 

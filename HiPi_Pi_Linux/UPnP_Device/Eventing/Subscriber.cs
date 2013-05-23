@@ -51,8 +51,10 @@ namespace UPnP_Device
 
 			for(int i = 3; i < s.Length; i++)
 			{
-				delPath = delPath + s[i];
+				delPath = delPath + s[i] + "/";
 			}
+
+			DeliveryPath = delPath;
 
 			Console.WriteLine ("=================================");
 			Console.WriteLine (" >> New Subscriber:");

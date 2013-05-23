@@ -69,6 +69,7 @@ namespace UPnP_Device
 
 			string answer = util.Receive();
 			Console.WriteLine("Anwser from CP: " + answer);
+			util.Close();
 		}
 
 		/*

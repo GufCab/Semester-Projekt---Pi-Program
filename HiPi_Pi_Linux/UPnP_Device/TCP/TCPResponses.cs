@@ -225,7 +225,7 @@ namespace UPnP_Device.TCP
 			string url ="";
 
 			foreach (string header in allHeaders) {
-				if(header.Contains("CALLBACK"))
+				if(header.ToLower().Contains("callback"))
 				{
 					string[] CallBackHeaderArr = header.Split('<');
 					url = CallBackHeaderArr[1].Replace(">", "");
