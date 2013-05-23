@@ -152,7 +152,7 @@ namespace MPlayer
 
         public void PlayTrack(string path)
         {
-            string order = "loadfile " + path;
+			string order = "loadfile " + "\"" + path + "\"";
             inStream.WriteLine(order);
         }
 
