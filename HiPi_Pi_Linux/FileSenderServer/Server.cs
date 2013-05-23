@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace FileSenderServer
 {
-    public class Server : IServer, IDisposable
+    public class Server : IDisposable
     {
         public IPAddress _IP { get; private set; }
         public TcpListener _serverSocket { get; private set; }
@@ -136,7 +136,7 @@ namespace FileSenderServer
             _clientSocket.Close();
         }
 
-        public void Run()
+        private void Run()
         {
             try
             {
