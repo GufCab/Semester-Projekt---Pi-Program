@@ -61,7 +61,7 @@ namespace UPnP_Device
 			Subscriber sub = (Subscriber)g[0];
 			TcpClient p = new TcpClient();
 			p.Connect(sub.ipep);
-
+			Console.WriteLine("IP Endpoint for events: " + sub.ipep.Address.ToString());
 			INetworkUtillity util = new NetworkUtillity(p);
 
 			util.Send ((string)g[1]);

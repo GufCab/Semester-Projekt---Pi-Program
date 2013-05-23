@@ -6,3 +6,4 @@ Next/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4
 Previous/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4
 SetAVTransportURI/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;CurrentURI:in:AVTransportURI:no:string;CurrentURIMetaData:in:AVTransportURIMetaData:no:string
 SetNextAVTransportURI/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;NextURI:in:NextAVTransportURI:no:string;NextURIMetaData:in:NextAVTransportURIMetaData:no:string
+GetTransportInfo/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;CurrentTransportState:out:TransportState:yes:string;CurrentTransportStatus:out:TransportStatus:yes:string;CurrentSpeed:out:TransportPlaySpeed:no:string

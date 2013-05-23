@@ -17,7 +17,7 @@ namespace PlaybackCtrl
         private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
         private XMLReader1 XMLconverter;
-		private string paused;
+		private string TransportState;
 		public event PropertyChangedDel propEvent;
 
         public PlaybackControl(IUPnP sink, IPlayqueueHandler pqhandl)
@@ -28,7 +28,7 @@ namespace PlaybackCtrl
             XMLconverter = new XMLReader1();
             SubscribeToWrapper();
             SubscribeToSink();
-			paused = "STOPPED";
+			TransportState = "STOPPED";
 
 
         }
@@ -59,16 +59,16 @@ namespace PlaybackCtrl
 			Player.PauseTrack ();
 			if (Player.GetPaused ()) 
 			{
-				paused = "STOPPED";
+				TransportState = "STOPPED";
 			}
 			else
 			{
-				paused = "PLAYING";
+				TransportState = "PLAYING";
 			}
 
 			if (PropertyChangedEvent.HasSubscribers())
 			{
-				UPnPArg arg = new UPnPArg("Pause", paused);
+				UPnPArg arg = new UPnPArg("TransportState", TransportState);
 				PropertyChangedEvent.Fire (arg);
 			}
         }

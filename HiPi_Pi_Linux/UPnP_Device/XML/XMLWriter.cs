@@ -240,15 +240,17 @@ namespace UPnP_Device.XML
             {
                     XmlElement stateVariable = doc.CreateElement("stateVariable");
                     serviceStateTable.AppendChild(stateVariable);
-                    //stateVariable.SetAttribute("sendEvents", "yes");
+                    stateVariable.SetAttribute("sendEvents", arg.sendEventAttribute);
 
                     XmlElement name_stateVariable = doc.CreateElement("name");
                     stateVariable.AppendChild(name_stateVariable);
                     name_stateVariable.InnerText = arg.relatedStateVariable;
 
+					/*
                     XmlElement sendEventAttribute = doc.CreateElement("sendEventAttribute");
                     stateVariable.AppendChild(sendEventAttribute);
                     sendEventAttribute.InnerText = arg.sendEventAttribute;
+                    */
 
                     XmlElement dataType = doc.CreateElement("dataType");
                     stateVariable.AppendChild(dataType);
