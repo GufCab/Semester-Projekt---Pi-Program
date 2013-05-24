@@ -152,7 +152,7 @@ namespace MPlayer
 
         public void PlayTrack(string path)
         {
-			string order = "loadfile " + "\"" + path + "\"";
+			string order = "loadfile " + path.Replace(" ", "\\ ");
             inStream.WriteLine(order);
         }
 
@@ -163,7 +163,7 @@ namespace MPlayer
 
         public string GetPosition()
         {
-            timeRetVal = "Failure";
+            timeRetVal = "0";
             timeResetEvent = new AutoResetEvent(false);
             TimePosEvent += posHandler;
             inStream.WriteLine("pausing_keep get_time_pos");
@@ -182,7 +182,6 @@ namespace MPlayer
 
         public void SetVolume(int pos)
         {
-			Console.WriteLine ("\n>>Inside wrapper, volume: " + pos);
             if (pos <= 100 && pos >= 0)
                 inStream.WriteLine("volume " + pos + " 1");
             else if (pos > 100)
@@ -225,7 +224,7 @@ namespace MPlayer
 
         public string GetVolume()
         {
-            volRetval = "Failure";
+            volRetval = "0";
             volResetEvent = new AutoResetEvent(false);
             inStream.WriteLine("pausing_keep get_property volume");
             VolGetEvent += volHandler;
