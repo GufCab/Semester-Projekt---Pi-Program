@@ -44,7 +44,7 @@ namespace DBClasses
 			}
 			else if (args.Action == "GetIPAddress")
 			{
-				propEvent(new UPnPArg("hej", "hej"));
+				//propEvent(new UPnPArg("hej", "hej"));
 				HandleGetIP(cb);
 			}
             
