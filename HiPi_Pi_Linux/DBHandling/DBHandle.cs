@@ -19,7 +19,7 @@ namespace DBClasses
 		private DBLookup _dbLookup;
 		private IPlayqueueHandler _PQHandler;
 
-		public event PropertyChangedDel propEvent;
+		//public event PropertyChangedDel propEvent;
 
         public DBHandle(IUPnP sourceDevice, IPlayqueueHandler pqhandl)
         {
@@ -44,7 +44,7 @@ namespace DBClasses
 			}
 			else if (args.Action == "GetIPAddress")
 			{
-				//propEvent(new UPnPArg("hej", "hej"));
+				Console.WriteLine ("GetIPAddress");
 				HandleGetIP(cb);
 			}
             
@@ -56,11 +56,16 @@ namespace DBClasses
             _strategies.Add("Browse", new BrowseStrat(_dbLookup));
         }
 
-		public void HandleGetIP(CallBack b)
+		public void HandleGetIP(CallBack cb)
 		{
 			UPnPArg p = new UPnPArg("IPAddress", _sourceDevice.GetIP());
+			Console.WriteLine ("Arg: " + p.ArgVal);
 
-			b(new List<UPnPArg>() {p}, "GetIPAddress");
+			List<UPnPArg> argList = new List<UPnPArg>();
+			argList.Add (p);
+			Console.WriteLine (">> UPnPARGLIST:");
+			Console.WriteLine (argList[0].ArgVal);
+			cb(argList, "GetIPAddress");
 		}
     }
 
