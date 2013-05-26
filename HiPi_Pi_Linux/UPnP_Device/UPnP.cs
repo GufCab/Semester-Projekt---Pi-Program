@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +28,7 @@ namespace UPnP_Device
         private IXMLWriter XmlWriter;
 
         private TcpServer TCPServer;
-        private UDPHandler UDPServer;
+        private UDPServer UDPServer;
 
         public EventClass evt = new EventClass();
 
@@ -47,7 +47,7 @@ namespace UPnP_Device
             XMLServicesConfig servicesConfig = new XMLServicesConfig(config.ServiceConfPaths, XmlWriter);
             
             TCPServer = new TcpServer(IpConf, UpnpConf.BasePath);
-            UDPServer = new UDPHandler(IpConf, UpnpConf);
+            UDPServer = new UDPServer(IpConf, UpnpConf);
             UDPServer.Start();
 
             SubscribeToUpnpEvents();

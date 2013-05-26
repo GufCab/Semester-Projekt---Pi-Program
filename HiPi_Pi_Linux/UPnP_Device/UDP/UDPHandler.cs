@@ -6,74 +6,43 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using UPnP_Device.UPnPConfig;
+using UPnP_Device.UDP;
 
 namespace UPnP_Device.UDP
 {
-    public class UDPHandler
-    {
-        public MulticastSender sender;
-        public MulticastReceiver receiver;
+	/// <summary>
+	/// UDPHandler handles incoming messages
+	/// </summary>
+	public partial class UDPHandler
+	{
+		public MulticastSender sender;
+        //public MulticastReceiver receiver;
 
-        private Thread NotifyThread;
-        private Thread ReceiveThread;
-
-        private IIpConfig _ip;
         private IUPnPConfig _upnPConfig; 
 
-        //Todo: Separate into UDPHandler and UDPServer
+		/// <summary>
+		/// Initializes a new instance of the <see cref="UPnP_Device.UDP.UDPHandler"/> class.
+		/// </summary>
+		/// <param name='send'>
+		/// An instance of the MulticastSender
+		/// </param>
+		/// <param name='conf'>
+		/// Configuration information about the UPnP Device
+		/// </param>
+		public UDPHandler(MulticastSender send, IUPnPConfig conf)
+		{
+			sender = send;
+			_upnPConfig = conf;
+		}
 
-        //Explicit contructor that takes the UPnPConfig classes:
-        public UDPHandler(IIpConfig ipconf, IUPnPConfig upnpconf)
-        {
-            sender = new MulticastSender(ipconf, upnpconf);          //Creates sender
-            receiver = new MulticastReceiver();
-            //receiver = new MulticastReceiver(IpConf, upnpconf);     //Creates receiver
 
-            NotifyThread = new Thread(sender.NotifySender);     //Thread for notifier. Runs every _cacheexpire seconds
-            ReceiveThread = new Thread(Run);                    //Run thread. The default UDP Thread
-
-            _ip = ipconf;
-            _upnPConfig = upnpconf;
-        }
-
-        /* //Todo: Should probably be removed:
-        //Exlicit contructor. Takes arguments used for UDP communication
-        public UDPHandler(string uuid, int cacheexpire, string localip, int tcpport)
-        {
-            sender = new MulticastSender(uuid, cacheexpire, localip, tcpport);          //Creates sender
-            receiver = new MulticastReceiver(uuid, cacheexpire, localip, tcpport);      //Creates receiver
-
-            NotifyThread = new Thread(sender.NotifySender);     //Thread for notifier. Runs every _cacheexpire seconds
-            ReceiveThread = new Thread(Run);                    //Run thread. The default UDP Thread
-        
-         */
-
-        //Starts the two thread
-        public void Start()
-        {
-            NotifyThread.Start();
-            ReceiveThread.Start();
-        }
-
-        //Run Thread. Receives incoming messages and parses them to handler
-        public void Run()
-        {
-            while (true)
-            {
-                IPEndPoint ipep = default(IPEndPoint);              //initiates the IPEndPont as default
-                string msg = receiver.ReceiveMulticast(ref ipep);   //Blocking until new connection. A ref to ipep is parsed, and is set to the endpoint of the sender
-                
-                if(UDP_Debug.DEBUG) {Console.WriteLine("ipep: " + ipep.ToString());}        //Used for debuging. Set in UDP_Debug class
-
-                object[] objPackage = new object[2];
-                objPackage[0] = msg;
-                objPackage[1] = ipep;
-                ThreadPool.QueueUserWorkItem(new WaitCallback(Handler), objPackage);
-            }
-        }
-
-        //Handler. Initiated in new thread @ incoming message
-        public void Handler(object obj)
+		/// <summary>
+		/// Invoked from at thread in the ThreadPool. Handles the incoming messages to 
+		/// </summary>
+		/// <param name='obj'>
+		/// Object.
+		/// </param>
+        public void Handle(object obj)
         {
             //casting parsed obj:
             object[] objArray = (object[])obj;              //Casting objects and object array
@@ -99,6 +68,15 @@ namespace UPnP_Device.UDP
             else if (UDP_Debug.DEBUG) { Console.WriteLine("Unknown input"); }              
         }
 
+		/// <summary>
+		/// Checks if ST is present in received Message
+		/// </summary>
+		/// <param name='f'>
+		/// An array of strings. One of these should be "ST"
+		/// </param>
+		/// <param name='ipend'>
+		/// IpEndPoint used if ST is present in the message.
+		/// </param>
         private void STCheck(string[] f, IPEndPoint ipend)
         {
             if (f[0] == "ST")
@@ -112,6 +90,15 @@ namespace UPnP_Device.UDP
             }
         }
 
+		/// <summary>
+		/// Checks if the requested device type is known
+		/// </summary>
+		/// <param name='s'>
+		/// String to check for devicetype
+		/// </param>
+		/// <param name='ipend'>
+		/// IpendPint to respond to
+		/// </param>
         public void checkDeviceType(string s, IPEndPoint ipend)
         {
             if ((s.Contains(_upnPConfig.DeviceType)) | (s.Contains("rootdevice")))
@@ -119,5 +106,8 @@ namespace UPnP_Device.UDP
                 sender.OKSender(ipend);
             }
         }
-    }
+
+
+	}
 }
+

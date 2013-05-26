@@ -11,8 +11,6 @@ using System.Threading;
 
 namespace UPnP_Device
 {
-
-
 	public class Publisher
 	{
 		public List<Subscriber> _Subscribtions;
@@ -36,22 +34,23 @@ namespace UPnP_Device
 			_Subscribtions.Add (new Subscriber (uuid, cburl));
 		}
 
-
-
 		public void PropertyChangedFunc (UPnPArg e)
 		{
 			Console.WriteLine (" >> Prop Changed Event! <<");
-			string body = EventBody(e);
+			string body = EventBody (e);
 
-			foreach (Subscriber sub in _Subscribtions)
+			if (_Subscribtions.Count > 0)
 			{
-				string head = EventHead(sub, ipconf, body.Length);
-				string msg = head + "\r\n" + body;
+				foreach (Subscriber sub in _Subscribtions)
+				{
+					string head = EventHead (sub, ipconf, body.Length);
+					string msg = head + "\r\n" + body;
 
-				Thread t = new Thread(new ParameterizedThreadStart(SendEventMsg));
-				object[] g = new object[] {sub, msg};
+					Thread t = new Thread (new ParameterizedThreadStart (SendEventMsg));
+					object[] g = new object[] {sub, msg};
 
-				t.Start (g);
+					t.Start (g);
+				}
 			}
 		}
 	

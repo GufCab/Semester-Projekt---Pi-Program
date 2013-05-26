@@ -9,16 +9,11 @@ using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.UDP
 {
+	/// <summary>
+	/// Can receive multicast messages
+	/// </summary>
     public class MulticastReceiver
     {
-        //Local variables
-        /*
-        private string _UUID;
-        private int _cacheexpire;
-        private string _localip;
-        private int _tcpport;
-         */
-
         //multicast variables:
         private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
         private static readonly int multicastPort = 1900;
@@ -26,25 +21,18 @@ namespace UPnP_Device.UDP
         private static UdpClient recClient;
         private static IPEndPoint recIPep;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="UPnP_Device.UDP.MulticastReceiver"/> class.
+		/// The contructor runs the private Setup method
+		/// </summary>
         public MulticastReceiver()
         {
             SetupMulticastReceiver();
         }
 
-        //Todo: should probably be removed:
-        /*
-        public MulticastReceiver(IIpConfig IpConf, IUPnPConfig upnpconf)
-        {
-            /*
-            _UUID = IpConf.GUID;
-            _cacheexpire = upnpconf.cacheExpire;
-            _localip = IpConf.IP;
-            _tcpport = IpConf.TCPPort;
-            
-
-            SetupMulticastReceiver();
-        }*/
-
+		/// <summary>
+		/// Setups the multicast receiver.
+		/// </summary>
         private static void SetupMulticastReceiver()
         {
             recClient = new UdpClient();
@@ -55,7 +43,15 @@ namespace UPnP_Device.UDP
             recClient.JoinMulticastGroup(multicastIp);
         }
 
-        //Blocks until reception
+        /// <summary>
+        /// Receives multicast message. Blocks if no connection is pending
+        /// </summary>
+        /// <returns>
+        /// Received message as string
+        /// </returns>
+        /// <param name='ipep'>
+        /// IpEndPoint of sending client.
+        /// </param>
         public string ReceiveMulticast(ref IPEndPoint ipep)
         {
             Byte[] data = recClient.Receive(ref ipep);

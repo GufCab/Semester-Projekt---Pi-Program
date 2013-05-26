@@ -7,6 +7,6 @@ namespace UPnP_Device.UDP
 {
     public static class UDP_Debug
     {
-        public static bool DEBUG = true;
+        public static bool DEBUG =false;
     }
 }

@@ -171,46 +171,35 @@ namespace PlaybackCtrl
 
             if (action != "Browse")
             {
+				returnVal = null;
                 switch (args.Action)
                 {
                 case "Play":
                     Play();
-                    returnVal = null;
                     break;
 
                 case "Next":
                     Next();
-                    returnVal = null;
                     break;
 
                 case "Prev":
                     Prev();
-                    returnVal = null;
                     break;
 
                 case "Pause":
                     Pause();
-					returnVal = null;
                     break;
 
                 case "SetNextAVTransportURI":
                     AddToPlayQueue(ref returnVal);
-                    returnVal = null;
                     break;
 
                 case "SetAVTransportURI":
                     SetCurrentURI(ref returnVal);
-                    returnVal = null;
                     break;
-
-                    //case "AddAt":
-                    //    AddToPlayQueue(ref returnVal); //Also needs an int, index. Is it contained in returnVal?
-                    //    returnVal = null;
-                    //    break;
 
                 case "Remove":
                     RemoveFromPlayQueue(ref returnVal);
-                    returnVal = null;
                     break;
 
                 case "SetVolume":
@@ -220,7 +209,6 @@ namespace PlaybackCtrl
 
                 case "SetPosition":
                     SetPos(ref returnVal);
-					returnVal = null;
                     break;
 
                 case "GetVolume":
@@ -242,8 +230,7 @@ namespace PlaybackCtrl
 					break;
 
                 default:
-                    Console.WriteLine("PLaybackControl class switchcase default");
-					
+                    Console.WriteLine("PlaybackControl class switchcase default");
                     break;
                 }
 

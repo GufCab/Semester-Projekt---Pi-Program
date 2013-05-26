@@ -9,6 +9,9 @@ using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.UDP
 {
+	/// <summary>
+	/// Multicast sender. Enables sending of multicast messages.
+	/// </summary>
     public class MulticastSender
     {
         private static readonly IPAddress multicastIp = IPAddress.Parse("239.255.255.250");
@@ -40,7 +43,8 @@ namespace UPnP_Device.UDP
             notify = HTTPNotifygenerator(upnpconf.NT);
         }
 
-
+		//Todo: Remove:
+		/* Should probably be removed
         //Constructor
         public MulticastSender(string uuid, int cacheexpire, string localip, int tcpport)
         {
@@ -63,8 +67,11 @@ namespace UPnP_Device.UDP
 
             notify = HTTPNotifygenerator(NTs);
         }
+        */
         
-        //Setup:
+        /// <summary>
+        /// Sets up the multicast sender.
+        /// </summary>
         private static void SetupMulticastSender()
         {
             MulticastClient = new UdpClient();
@@ -72,6 +79,15 @@ namespace UPnP_Device.UDP
             remoteep = new IPEndPoint(multicastIp, multicastPort);
         }
 
+		/// <summary>
+		/// Send a unicast message
+		/// </summary>
+		/// <param name='s'>
+		/// Message to send as a string
+		/// </param>
+		/// <param name='ipend'>
+		/// IpEndPoint of receiver.
+		/// </param>
         private void SendUnicast(string s, IPEndPoint ipend)
         {
             using (var Unicast = new UdpClient())
@@ -84,6 +100,9 @@ namespace UPnP_Device.UDP
             }
         }
 
+		/// <summary>
+		/// Sends the notify messages.
+		/// </summary>
         public void NotifySender()
         {
             while (true)
@@ -100,15 +119,18 @@ namespace UPnP_Device.UDP
             }
         }
 
-        //Needs cleanup:
+        /// <summary>
+        /// Sends the OK message by Unicast
+        /// </summary>
+        /// <param name='ipend'>
+        /// IpEndPoint of receiving client
+        /// </param>
         public void OKSender(IPEndPoint ipend)
         {
             string f = HTTPOKgenerator();
 
             Thread.Sleep(400);
             
-            //Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram,ProtocolType.Udp);
-
             using (var sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
             {
                 byte[] sendbuf = Encoding.UTF8.GetBytes(f);
@@ -116,15 +138,29 @@ namespace UPnP_Device.UDP
             }
         }
 
+		/// <summary>
+		/// Sends the multicast message
+		/// </summary>
+		/// <param name='s'>
+		/// message to send
+		/// </param>
         private void SendMulticast(string s)
         {
             sendBuffer = Encoding.UTF8.GetBytes(s);
             MulticastClient.Send(sendBuffer, sendBuffer.Length, remoteep);
         }
 
+		/// <summary>
+		/// Generates the HTTP messages for notify
+		/// </summary>
+		/// <returns>
+		/// returns a list of HTTP headers
+		/// </returns>
+		/// <param name='NTs'>
+		/// A list of the different NTs used in the messages
+		/// </param>
         private List<string> HTTPNotifygenerator(List<string> NTs)
         {
-            int i = 0;
             List<string> slist = new List<string>();
 
             string id = "uuid:" + _UUID;
@@ -156,7 +192,12 @@ namespace UPnP_Device.UDP
             return slist;
         }
 
-
+		/// <summary>
+		/// Generates the HTTP messages for OK
+		/// </summary>
+		/// <returns>
+		/// Returns a OK message as a string
+		/// </returns>
         private string HTTPOKgenerator()
         {
             string s = "HTTP/1.1 200 OK\r\n" +
@@ -165,7 +206,6 @@ namespace UPnP_Device.UDP
                        "CACHE-CONTROL: max-age=" + _cacheexpire + " \r\n" +
                        "EXT: \r\n" +
                        "USN: uuid:" + _UUID + "::" + _upnPConfig.DeviceType + "\r\n" +
-                       //"USN: " + _UUID + "::" + IPHandler.GetInstance().DeviceType + "\r\n" +
                        "SERVER: Windows NT/5.0, UPnP/1.0\r\n" +
                        "LOCATION: http://" + _localip + ":" + _tcpport + "\r\n" +
                        "Content-Length: 0\r\n" + 

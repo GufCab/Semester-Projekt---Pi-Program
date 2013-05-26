@@ -1,25 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DBHandling/DBHandle.cs">
-    <Files>
-      <File FileName="PlaybackCtrl/PlaybackCtrl.cs" Line="27" Column="5" />
-      <File FileName="DBHandling/DBHandle.cs" Line="56" Column="65" />
-      <File FileName="PlaybackCtrl/PlayqueueHandler.cs" Line="123" Column="38" />
-      <File FileName="UPnP_Device/Eventing/Publisher.cs" Line="72" Column="19" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Containers" expanded="True" />
-          <Node name="DBHandling" expanded="True">
-            <Node name="DBHandle.cs" selected="True" />
-          </Node>
-          <Node name="Main" expanded="True" />
+          <Node name="DBHandling" expanded="True" />
           <Node name="PlaybackCtrl" expanded="True" />
           <Node name="UPnP_Device" expanded="True">
             <Node name="Eventing" expanded="True" />
             <Node name="TCP" expanded="True" />
-            <Node name="UPnPConfig" expanded="True" />
+            <Node name="UDP" expanded="True">
+              <Node name="MulticastSender.cs" selected="True" />
+            </Node>
             <Node name="XML" expanded="True" />
           </Node>
           <Node name="UPnPConfigFactory" expanded="True" />

@@ -42,6 +42,13 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="Mono.Posix" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UPnP.cs" />
@@ -55,7 +62,6 @@
     <Compile Include="TCP\TCPResponses.cs" />
     <Compile Include="TCP\NetworkUtillity.cs" />
     <Compile Include="TCP\UpnpEvents.cs" />
-    <Compile Include="UDP\UDPHandler.cs" />
     <Compile Include="UDP\MulticastReceiver.cs" />
     <Compile Include="UDP\MulticastSender.cs" />
     <Compile Include="UDP\UDP_Debug.cs" />
@@ -68,6 +74,10 @@
     <Compile Include="XML\XMLWriter.cs" />
     <Compile Include="Eventing\Subscriber.cs" />
     <Compile Include="Eventing\Publisher.cs" />
+    <Compile Include="UDP\UDPServer.cs" />
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="gtk-gui\UPnP_Device.UDPHandler.cs" />
+    <Compile Include="UDP\UDPHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -85,5 +95,10 @@
       <Project>{50FDC392-2CA9-4114-9789-2C1B2AAAF766}</Project>
       <Name>Containers</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
