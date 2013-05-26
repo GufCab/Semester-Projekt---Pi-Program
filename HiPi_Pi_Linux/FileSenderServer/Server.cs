@@ -6,6 +6,10 @@ using System.Threading;
 
 namespace FileSenderServer
 {
+    /// <summary>
+    /// Author: Michael Thy Oksen, 11492@iha.dk.
+    /// Description: This class is responsible for handling the task of receiving files from the Client (The PC) to the Server (The Raspberry Pi).
+    /// </summary>
     public class Server : IDisposable
     {
         public IPAddress _IP { get; private set; }
@@ -15,12 +19,21 @@ namespace FileSenderServer
         public string _fileName { get; private set; }
         public string _fileSize { get; private set; }
 
+        /// <summary>
+        /// Sets the constructor to start a new thread running the Run() function.
+        /// </summary>
         public Server()
         {
                 var thread = new Thread(Run);
                 thread.Start();
         }
 
+        /// <summary>
+        /// This method gets an array of the IP-addresses that the system uses.
+        /// </summary>
+        /// <returns>
+        /// A string containing an IP.
+        /// </returns>
         private string LocalIpAddress()
         {
             string localIp = "";
@@ -35,6 +48,9 @@ namespace FileSenderServer
             return localIp;
         }
 
+        /// <summary>
+        /// This method is responsible for setting up the required variables and external classes.
+        /// </summary>
         private void SetUp()
         {
             try
@@ -44,17 +60,19 @@ namespace FileSenderServer
                 _clientSocket = new TcpClient();
                 _clientSocket = default(TcpClient);
                 _serverSocket.Start();                                                              //Start listening on serverSocket
-                Console.WriteLine(" >> TCP server started - Listening on port {0}...", PORT);       //Write which port we're listening to
-                Console.WriteLine(" >> The IP:Port is: {0}:{1}", LocalIpAddress(), PORT);           //Write local end point
-                Console.WriteLine(" >> Waiting for connection.....");                               //Indicate server is waiting for connection
-                Console.WriteLine();
+                ////For testing purpose only
+                //Console.WriteLine(" >> TCP server started - Listening on port {0}...", PORT);       //Write which port we're listening to
+                //Console.WriteLine(" >> The IP:Port is: {0}:{1}", LocalIpAddress(), PORT);           //Write local end point
+                //Console.WriteLine(" >> Waiting for connection.....");                               //Indicate server is waiting for connection
+                //Console.WriteLine();
                 _clientSocket = _serverSocket.AcceptTcpClient();                                    //Set server to accept connections
                 _serverStream = _clientSocket.GetStream();                                          //Prepare to receive file name
-                if (_clientSocket != null)
-                {
-                    Console.WriteLine(" >> TCP server connected to {0} on port {1}...",
-                                        _clientSocket.Client.LocalEndPoint, PORT);                    //Tell user that client is started on chosen port
-                }
+                ////For testing purpose only
+                //if (_clientSocket != null)
+                //{
+                //    Console.WriteLine(" >> TCP server connected to {0} on port {1}...",
+                //                        _clientSocket.Client.LocalEndPoint, PORT);                    //Tell user that client is started on chosen port
+                //}
             }
             catch (Exception e)
             {
@@ -63,16 +81,24 @@ namespace FileSenderServer
             }
         }
         
+        /// <summary>
+        /// Receives the file name through TCP and sets it.
+        /// </summary>
         private void ReadFileName()
         {
             _fileName = Path.GetFileName(LIB.readTextTCP(_serverStream)); //Read file name
-            Console.WriteLine("File name is: '{0}'", Path.GetFileName(_fileName)); //Tell the user the file name
+            ////For testing purpose only
+            //Console.WriteLine("File name is: '{0}'", Path.GetFileName(_fileName)); //Tell the user the file name
         }
 
+        /// <summary>
+        /// Receives the file size through TCP and sets it.
+        /// </summary>
         private void ReadFileSize()
         {
             _fileSize = LIB.readTextTCP(_serverStream); //Read file size
-            Console.WriteLine("File size is: {0} bytes.", _fileSize); //Output file size to console
+            ////For testing purpose only
+            //Console.WriteLine("File size is: {0} bytes.", _fileSize); //Output file size to console
         }
 
         /// <summary>
@@ -84,6 +110,11 @@ namespace FileSenderServer
         /// </summary>
         private const int BUFSIZE =  5000 * 8;
 
+        /// <summary>
+        /// Receives the file sequantially.
+        /// </summary>
+        /// <param name="fileName">File name of the file-to-be-received</param>
+        /// <param name="io"></param>
         private void ReceiveFile(String fileName, NetworkStream io)
         {
             // TO DO Din egen kode
@@ -101,7 +132,8 @@ namespace FileSenderServer
 
             do
             {
-                Console.WriteLine("Remaining number of bytes: {0}", remainingSize);
+                ////For testing purpose only
+                //Console.WriteLine("Remaining number of bytes: {0}", remainingSize);
                 if (Convert.ToInt32(_fileSize) >= BUFSIZE)
                 {
                     bytesRead = io.Read(fileData, 0, BUFSIZE);
@@ -125,17 +157,25 @@ namespace FileSenderServer
             bWrite.Close();
         }
 
+        /// <summary>
+        /// This method closes the socket connection to the client.
+        /// </summary>
         private void CloseSocketConnection()
         {
             _clientSocket.Close();
         }
-
+        /// <summary>
+        /// Implemented so usage of "using(xxxxxx)" is possible. 
+        /// </summary>
         public void Dispose()
         {
             _serverSocket.Stop();
             _clientSocket.Close();
         }
 
+        /// <summary>
+        /// Runs Sequentially through the process of receiving the file as bytes.
+        /// </summary>
         private void Run()
         {
             try
