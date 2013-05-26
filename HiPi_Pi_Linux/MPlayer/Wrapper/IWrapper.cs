@@ -2,6 +2,11 @@ using System;
 
 namespace MPlayer
 {
+    /// <summary>
+    /// Interface exposing the MediaPlayers functionality.
+    /// An implementing class should wrap a MediaPlayer and
+    /// feed commands send through this interface to the mediaplayer.
+    /// </summary>
     public interface IWrapper
     {
         void PlayTrack(string path);

@@ -7,6 +7,14 @@ using MPlayer;
 
 namespace MPlayer
 {
+    /// <summary>
+    /// This class serves as the wrapper/adapter for the MPlayer Process.
+    /// MPlayerWrapper implements the interface IWrapper and is responsible
+    /// for creating and starting the MPlayer Process. 
+    /// 
+    /// In a future Refactoring, some functionality of this class will be 
+    /// delegated to smaller sub-classes. 
+    /// </summary>
     public class MPlayerWrapper : IWrapper
     {
         private MPlayerOut mout;
@@ -41,6 +49,12 @@ namespace MPlayer
         public delegate void PauseHandle(object e, InputData args);
         public event PauseHandle PauseGetEvent;
 
+        /// <summary>
+        /// Constructor. Sets up the MPlayer Process with the 
+        /// correct arguments and startup-parameters. 
+        ///  
+        /// Creates an instance of MPlayerOut.
+        /// </summary>
         public MPlayerWrapper()
         {
             SetupMPlayer();
@@ -49,6 +63,24 @@ namespace MPlayer
             Subscribe();
         }
 
+        /// <summary>
+        /// Sets up MPlayer with correct startup Arguments.
+        /// Startup arguments are:
+        /// -idle
+        ///     MPlayer will not kill itself when a song ends
+        ///     but instead sit in idle and wait for next song
+        /// -quiet
+        ///     MPlayer will only output the neccessary information in 
+        ///     the redirected Console. What is outputted is specified
+        ///     in MPlayers Configuration file.
+        /// -slave
+        ///     MPlayer is running as a slave to the main program.
+        ///     It will accept slave commands.
+        /// 
+        /// Also redirects the StdOut, StdIn and StdErr streams and
+        /// sets in and out streams to outStream and inStream, wich
+        /// will be used in the program. 
+        /// </summary>
         private void SetupMPlayer()
         {
             mplayer = new Process();
@@ -74,17 +106,32 @@ namespace MPlayer
             inStream = mplayer.StandardInput;
         }
 
+        /// <summary>
+        /// MPlayerWrapper will subscribe to the mout instance
+        /// of MPlayerOut's OutPut event.
+        /// </summary>
         private void Subscribe()
         {
             mout.outPut += new MPlayerOut.OutHandle(OutputEventHandler);
         }
 
+        /// <summary>
+        /// Handler for MPlayerOut's OutputEvent.
+        /// </summary>
+        /// <param name="e">Sender</param>
+        /// <param name="args">InputData object containing MPlayers output.</param>
         private void OutputEventHandler(object e, InputData args)
         {
             var dataArray = InterpreterClass.DataToArray(args.Data);
             FireEvents(dataArray);
         }
 
+        /// <summary>
+        /// Determines which event to raise, bases on what was outputted from MPlayerOut.
+        /// First index of the arr param is the output type.
+        /// Second index of the arr param is the output value.
+        /// </summary>
+        /// <param name="arr">Data outputted from MPlayerOut as a string array</param>
         private void FireEvents(string[] arr)
         {
             //Console.WriteLine(arr[0]);
@@ -119,11 +166,13 @@ namespace MPlayer
         }
         //All methods used to fire events
         #region All  event firer's
+
         private void FireEOF_Event()
         {
             if (EOF_Event != null)
                 EOF_Event(this, null);
         }
+
 
         private void FireFileGetEvent(InputData data)
         {
@@ -150,17 +199,31 @@ namespace MPlayer
         }
         #endregion
 
+        /// <summary>
+        /// Orders MPlayer to play at path specified by the path param.
+        /// The replace action used on the path variable, is to replace
+        /// whitespaces in the path with escaped whitespaces.
+        /// </summary>
+        /// <param name="path">path to start playing from</param>
         public void PlayTrack(string path)
         {
 			string order = "loadfile " + path.Replace(" ", "\\ ");
             inStream.WriteLine(order);
         }
 
+        /// <summary>
+        /// Pause current track
+        /// </summary>
         public void PauseTrack()
         {
             inStream.WriteLine("pause");
         }
 
+        /// <summary>
+        /// Asks MPlayer to output the current position in the playing track.
+        /// Waits 5 seconds for response, if no response return 0.
+        /// </summary>
+        /// <returns>Position in seconds as a string.</returns>
         public string GetPosition()
         {
             timeRetVal = "0";
@@ -180,6 +243,10 @@ namespace MPlayer
             timeResetEvent.Set();
         }
 
+        /// <summary>
+        /// Set volume of MPlayer
+        /// </summary>
+        /// <param name="pos">Volume in range 0 - 100</param>
         public void SetVolume(int pos)
         {
             if (pos <= 100 && pos >= 0)
@@ -190,6 +257,10 @@ namespace MPlayer
                 inStream.WriteLine("volume 0 1");
         }
 
+        /// <summary>
+        /// Change position in current playing.
+        /// </summary>
+        /// <param name="pos">Position in 0% - 100%</param>
         public void SetPosition(int pos)
         {
             if (pos <= 100 && pos >= 0)
@@ -199,7 +270,12 @@ namespace MPlayer
             else if (pos < 0)
                 inStream.WriteLine("set_property percent_pos 1");
         }
-
+        
+        /// <summary>
+        /// Returns paused state as bool.
+        /// True if paused, false if not.
+        /// </summary>
+        /// <returns>Paused state as bool</returns>
         public bool GetPaused ()
 		{
 			pauseRetval = "Failure";
@@ -222,6 +298,11 @@ namespace MPlayer
 			pauseResetEvent.Set();
 		}
 
+        /// <summary>
+        /// Asks MPlayer to output the current volume.
+        /// Waits 5 seconds for response, if no response return 0.
+        /// </summary>
+        /// <returns>Volume as int in range 0 - 100</returns>
         public string GetVolume()
         {
             volRetval = "0";
@@ -242,6 +323,11 @@ namespace MPlayer
             volResetEvent.Set();
         }
 
+        /// <summary>
+        /// Asks MPlayer to output the current path of playing track.
+        /// Waits 5 seconds for response, if no response return "Failure".
+        /// </summary>
+        /// <returns>Path to current playing file</returns>
         public string GetPlayingFile()
         {
 
