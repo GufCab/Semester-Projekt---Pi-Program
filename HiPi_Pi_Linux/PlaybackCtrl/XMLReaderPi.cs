@@ -16,8 +16,8 @@ namespace XMLReader
         public List<Container> containerReader(string xml)
         {
             var xmlDocument = new XmlDocument();
-            xmlDocument.Load("container.xml");
-            //xmlDocument.LoadXml(xml);
+            //xmlDocument.Load("container.xml");
+            xmlDocument.LoadXml(xml);
 
             var tmpList = new List<Container>();
             
