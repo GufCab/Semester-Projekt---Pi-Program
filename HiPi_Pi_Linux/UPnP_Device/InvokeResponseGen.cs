@@ -52,7 +52,7 @@ namespace UPnP_Device
             }
 
             //Saved for debugging:
-            doc.Save(@"InvokeResponse.xml");
+            //doc.Save(@"InvokeResponse.xml");
 
             string msg = AppendHead(doc.OuterXml);
             return msg;
