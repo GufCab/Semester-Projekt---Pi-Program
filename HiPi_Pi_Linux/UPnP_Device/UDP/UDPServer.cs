@@ -31,6 +31,8 @@ namespace UPnP_Device.UDP
         private IIpConfig _ip;
         private IUPnPConfig _upnPConfig; 
 
+		private UDPHandler hand;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UPnP_Device.UDP.UDPServer"/> class.
 		/// </summary>
@@ -51,6 +53,7 @@ namespace UPnP_Device.UDP
 
             _ip = ipconf;
             _upnPConfig = upnpconf;
+			hand = new UDPHandler(sender, _upnPConfig);
         }
 
         /// <summary>
@@ -77,10 +80,11 @@ namespace UPnP_Device.UDP
                 object[] objPackage = new object[2];
                 objPackage[0] = msg;
                 objPackage[1] = ipep;
-                ThreadPool.QueueUserWorkItem(new WaitCallback(Handle), objPackage);
+                ThreadPool.QueueUserWorkItem(new WaitCallback(hand.Handle), objPackage);
             }
         }
 
+		/*
 		/// <summary>
 		/// Handles incoming messages by parsing them to an instance of UDPHandler. This is a new Thread that runs on the ThreadPool.
 		/// </summary>
@@ -89,9 +93,10 @@ namespace UPnP_Device.UDP
 		/// </param>
 		private void Handle(object e)
 		{
-			UDPHandler hand = new UDPHandler(sender, _upnPConfig);
+
 			hand.Handle(e);
 		}
+		*/
 
         
     }
