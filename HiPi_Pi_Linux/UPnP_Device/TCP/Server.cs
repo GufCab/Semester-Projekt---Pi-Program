@@ -43,9 +43,8 @@ namespace UPnP_Device.TCP
             //Todo: Nice, MDS.. Comments needed
             while (true)
             {
-                Console.WriteLine("Blocking");
                 TcpClient client = welcomeSocket.AcceptTcpClient();
-                Console.WriteLine("New connection");
+                Console.WriteLine("New TCP connection");
                 Thread clientThread = new Thread(new ParameterizedThreadStart(tcpHandle.HandleHTTP));
                 clientThread.Start(client);               
             }

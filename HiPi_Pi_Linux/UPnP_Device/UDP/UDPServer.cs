@@ -74,13 +74,17 @@ namespace UPnP_Device.UDP
             {
                 IPEndPoint ipep = default(IPEndPoint);              //initiates the IPEndPont as default
                 string msg = receiver.ReceiveMulticast(ref ipep);   //Blocking until new connection. A ref to ipep is parsed, and is set to the endpoint of the sender
-                
+                if(UDP_Debug.MSG)
+					Console.WriteLine ("New UDP message received");
+
                 if(UDP_Debug.DEBUG) {Console.WriteLine("ipep: " + ipep.ToString());}        //Used for debuging. Set in UDP_Debug class
 
                 object[] objPackage = new object[2];
                 objPackage[0] = msg;
                 objPackage[1] = ipep;
-                ThreadPool.QueueUserWorkItem(new WaitCallback(hand.Handle), objPackage);
+                //ThreadPool.QueueUserWorkItem(new WaitCallback(hand.Handle), objPackage);
+				Thread t = new Thread(new ParameterizedThreadStart(hand.Handle));
+				t.Start (objPackage);
             }
         }
 

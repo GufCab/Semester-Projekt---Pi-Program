@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Sockets;
 using System.IO;
+using UPnP_Device.TCP;
 
 namespace UPnP_Device
 {
@@ -39,28 +40,33 @@ namespace UPnP_Device
         public string Receive()
         {
             BUFFERSIZE = (_client.ReceiveBufferSize+1);
-            Console.WriteLine("Buffer size: " + BUFFERSIZE);
+			if(TCPDebug.DEBUG) 
+            	Console.WriteLine("Buffer size: " + BUFFERSIZE);
             byte[] receiveBuffer = new byte[BUFFERSIZE];
 
             try
             {
                 Socket s = _client.Client;
-                Console.WriteLine("Remote end:" + s.RemoteEndPoint.ToString());
-                Console.WriteLine("Local : " + s.LocalEndPoint.ToString());
+                if(TCPDebug.DEBUG) {
+					Console.WriteLine("Remote end:" + s.RemoteEndPoint.ToString());
+					Console.WriteLine("Local : " + s.LocalEndPoint.ToString());
+				}
                 
                // _stream.Flush();
 
-                Console.WriteLine("Data available: " + _stream.DataAvailable);
+				if(TCPDebug.DEBUG) { Console.WriteLine("Data available: " + _stream.DataAvailable);}
 
                 int size = 0;
 
                 size = _stream.Read(receiveBuffer, 0, BUFFERSIZE);
-                Console.WriteLine("Stream read");
+
+				if(TCPDebug.DEBUG) 
+                	Console.WriteLine("Stream read");
                 _stream.Flush();
 
                 string msg = Encoding.UTF8.GetString(receiveBuffer, 0, size);
 
-                Console.WriteLine("Received TCP: " + msg);
+				if(TCPDebug.DEBUG) { Console.WriteLine("Received TCP: " + msg);}
 
                 return msg;
             }
@@ -96,13 +102,13 @@ namespace UPnP_Device
 
         public void Send(string msg)
         {
-            Console.WriteLine("Sending msg: " + msg);
+			if(TCPDebug.DEBUG) {Console.WriteLine("Sending msg: " + msg);}
             _stream.Flush();
 
             byte[] sendBuffer = Encoding.UTF8.GetBytes(msg);
 
             _stream.Write(sendBuffer, 0, sendBuffer.Length);
-            Console.WriteLine("TCP Message sent");
+            Console.WriteLine(">> TCP Message sent");
         }
     }
 }

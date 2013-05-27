@@ -51,16 +51,18 @@ namespace UPnP_Device.TCP
             XMLreader = new DescriptionReader(path);
         }
 
-        public void Respond(INetworkUtillity utillity)
-        {
-            string body = XMLreader.Read();
-            string head = "HTTP/1.1 200 OK\r\n" +
-                          "CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
-                          "CONTENT-LENGTH: " + body.Length + "\r\n";
+        public void Respond (INetworkUtillity utillity)
+		{
+			string body = XMLreader.Read ();
+			string head = "HTTP/1.1 200 OK\r\n" +
+				"CONTENT-TYPE: text/xml;charset=utf-8\r\n" +
+				"CONTENT-LENGTH: " + body.Length + "\r\n";
             
-            string message = head + "\r\n" + body;
+			string message = head + "\r\n" + body;
 
-            Console.WriteLine("TCP Message: \r\n" + message);
+			if (TCPDebug.DEBUG) {
+				Console.WriteLine ("TCP Message: \r\n" + message);
+			}
 
             try
             {
@@ -87,16 +89,21 @@ namespace UPnP_Device.TCP
             message = ctrl;
         }
 
-        public void Respond(INetworkUtillity util)
-        {
-            action = DetermineOrder(message);
-            var args = DetermineArgs(message,action);
-            Console.WriteLine("\nPost action was: " + action);
-            Console.WriteLine("With arguments: ");
-            foreach (var arg in args)
-            {
-                Console.Write(arg.ArgName + ": " + arg.ArgVal);
-            }
+        public void Respond (INetworkUtillity util)
+		{
+			action = DetermineOrder (message);
+			var args = DetermineArgs (message, action);
+
+			if (TCPDebug.DEBUG) {
+				Console.WriteLine ("\nPost action was: " + action);
+				Console.WriteLine ("With arguments: ");
+			}
+
+			if (TCPDebug.DEBUG) {
+				foreach (var arg in args) {
+					Console.Write (arg.ArgName + ": " + arg.ArgVal);
+				}
+			}
             
             orderClass = new Order(action, util);
             orderClass.execOrder(args);
@@ -303,7 +310,8 @@ namespace UPnP_Device.TCP
 
                 string response = invokeResponseGen.InvokeResponse(act, argList);
 
-                Console.WriteLine("invoke answer: \n\r" + response);
+				if(TCPDebug.DEBUG) 
+                	Console.WriteLine("invoke answer: \n\r" + response);
 
                 util.Send(response);
                 util.Close();
