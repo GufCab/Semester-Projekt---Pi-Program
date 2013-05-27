@@ -70,7 +70,8 @@ namespace UPnP_Device.UDP
 
                 Unicast.Send(buf, buf.Length);
                 Unicast.Close();
-				Console.WriteLine("!>> Unicast sent");
+				if(UDP_Debug.MSG)
+					Console.WriteLine("!>> Unicast sent");
             }
         }
 
@@ -122,7 +123,8 @@ namespace UPnP_Device.UDP
         {
             sendBuffer = Encoding.UTF8.GetBytes(s);
             MulticastClient.Send(sendBuffer, sendBuffer.Length, remoteep);
-			Console.WriteLine("!>> Multicast sent");
+			if(UDP_Debug.MSG)
+				Console.WriteLine("!>> Multicast sent");
         }
 
 		/// <summary>

@@ -31,9 +31,7 @@ namespace UPnP_Device.UPnPConfig
 
         private string GetGUID()
         {
-			Console.WriteLine ("Getting GUID");
-
-            string g;
+			string g;
             const string folderpath = @"../../config/";
             const string filename = "SinkGUID.key";
             const string fullpath = folderpath + filename;

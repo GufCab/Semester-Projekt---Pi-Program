@@ -44,7 +44,8 @@ namespace UPnP_Device.TCP
             while (true)
             {
                 TcpClient client = welcomeSocket.AcceptTcpClient();
-                Console.WriteLine("New TCP connection");
+                if(TCPDebug.MSG)
+					Console.WriteLine("New TCP connection");
                 Thread clientThread = new Thread(new ParameterizedThreadStart(tcpHandle.HandleHTTP));
                 clientThread.Start(client);               
             }

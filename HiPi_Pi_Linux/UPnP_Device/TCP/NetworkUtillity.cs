@@ -108,7 +108,8 @@ namespace UPnP_Device
             byte[] sendBuffer = Encoding.UTF8.GetBytes(msg);
 
             _stream.Write(sendBuffer, 0, sendBuffer.Length);
-            Console.WriteLine(">> TCP Message sent");
+			if(TCPDebug.MSG)
+            	Console.WriteLine(">> TCP Message sent");
         }
     }
 }
