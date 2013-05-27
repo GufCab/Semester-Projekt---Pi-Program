@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="508c751b-1d03-46eb-addd-4ec90f3cc812"
+  name="UDP"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="0caa10af-df34-4b0c-9d39-06661946db9a"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DUPnP_Device.UDP"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="7535360a-94cb-462b-969e-491132fd5f77"
+        name="IUDPServer"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="0157f92b-47ee-4901-b997-59689c8833c5"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FD:%2FRepository%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device.UDP Type%3DIUDPServer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b7a87019-ee72-4103-8290-292f3389b221"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a35c4920-d4b4-4c8f-9986-966cbc77ab4b">
+                <propertyInstance
+                  Id="bd12e469-10e4-427c-91a5-baab7b58b1cf"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="48e8625c-47be-44ba-9cab-21e63d3b0e44">
+                <propertyInstance
+                  Id="74b08024-696d-414d-929a-1e0b065d9080"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="06129ecb-3d0b-4bda-bfcc-2fa40c471445">
+                <propertyInstance
+                  Id="9c8f462d-379c-466f-ac8f-0e70c81a7f95"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="42090246-f22d-47e6-b960-0718ed2958cd">
+                <propertyInstance
+                  Id="7e69910d-c23c-4691-92db-4261b7389dd9"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="28df2aa2-0923-4a78-990f-9c8d23aad832"
+        name="UDPServer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="0f5af93e-c7ce-47c1-828f-fe3db7b45c4a"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FRepository%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device.UDP Type%3DUDPServer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="80cb56fe-7a98-4fa5-a1ba-7666abb09bef"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="979b36b8-0d48-4e71-8423-e8905c9e4c10">
+                <propertyInstance
+                  Id="cfeae866-9747-41f9-bd90-f5024a3e5db7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5a7bc7f2-601d-4e97-98cb-4cd30665f3b3">
+                <propertyInstance
+                  Id="724841e0-31a9-48ff-936f-56f4b6d17b90"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ef4fcc23-cc2f-40d8-ab8e-3fe1c26316bf">
+                <propertyInstance
+                  Id="a3ad09f7-368b-4b46-b039-bb8b5aa89d83"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3939f9f5-9ed0-4511-ada3-0d61c6343f69">
+                <propertyInstance
+                  Id="70348ea2-dc35-4f25-8ee3-d3d2b4ac91a7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fe95a8e5-4933-470a-b8fe-52410bd831b0">
+                <propertyInstance
+                  Id="3664b9bf-a32b-47b3-a504-30b32c1b6f82"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="5447b702-c2b7-4e53-aaba-0d70ecc7ff99">
+            <interfaceMoniker
+              Id="7535360a-94cb-462b-969e-491132fd5f77"
+              LastKnownName="IUDPServer"
+              LastKnownLocation="Package2_1711.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

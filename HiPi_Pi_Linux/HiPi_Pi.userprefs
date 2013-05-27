@@ -6,14 +6,7 @@
         <State expanded="True">
           <Node name="DBHandling" expanded="True" />
           <Node name="PlaybackCtrl" expanded="True" />
-          <Node name="UPnP_Device" expanded="True">
-            <Node name="Eventing" expanded="True" />
-            <Node name="TCP" expanded="True" />
-            <Node name="UDP" expanded="True">
-              <Node name="MulticastSender.cs" selected="True" />
-            </Node>
-            <Node name="XML" expanded="True" />
-          </Node>
+          <Node name="UPnP_Device" expanded="True" />
           <Node name="UPnPConfigFactory" expanded="True" />
         </State>
       </Pad>

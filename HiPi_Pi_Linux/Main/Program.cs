@@ -17,6 +17,7 @@ namespace Main
     {
         static void Main()
         {
+            //something about main
             IUPnPConfigFactory sinkfact = new SinkFactory();
             IUPnPConfigFactory sourceFact = new SourceFactory();
 

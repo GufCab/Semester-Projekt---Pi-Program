@@ -9,10 +9,18 @@ using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.UDP
 {
-	/// <summary>
+    public interface IUDPServer
+    {
+        /// <summary>
+        /// Starts the threads of the UDP Server
+        /// </summary>
+        void Start();
+    }
+
+    /// <summary>
 	/// Handles all UDP actions. Creates multiple threads for sending and receiving
 	/// </summary>
-    public class UDPServer
+    public class UDPServer : IUDPServer
     {
         public MulticastSender sender;
         public MulticastReceiver receiver;
@@ -57,7 +65,7 @@ namespace UPnP_Device.UDP
         /// <summary>
         /// Run Thread. Receives incoming messages and parses them to handler
         /// </summary>
-        public void Run()
+        private void Run()
         {
             while (true)
             {
@@ -69,7 +77,7 @@ namespace UPnP_Device.UDP
                 object[] objPackage = new object[2];
                 objPackage[0] = msg;
                 objPackage[1] = ipep;
-                ThreadPool.QueueUserWorkItem(new WaitCallback(handle), objPackage);
+                ThreadPool.QueueUserWorkItem(new WaitCallback(Handle), objPackage);
             }
         }
 
@@ -79,7 +87,7 @@ namespace UPnP_Device.UDP
 		/// <param name='e'>
 		/// An object containing information about received message
 		/// </param>
-		public void handle(object e)
+		private void Handle(object e)
 		{
 			UDPHandler hand = new UDPHandler(sender, _upnPConfig);
 			hand.Handle(e);

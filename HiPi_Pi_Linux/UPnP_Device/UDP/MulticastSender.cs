@@ -27,8 +27,7 @@ namespace UPnP_Device.UDP
         private string _localip;
         private int _tcpport;
 
-        public List<string> NTs;
-        public List<string> notify { get; private set; }
+        private List<string> _notify { get; private set; }
 
         public MulticastSender(IIpConfig ipconf, IUPnPConfig upnpconf)
         {
@@ -40,35 +39,9 @@ namespace UPnP_Device.UDP
 
             SetupMulticastSender();     //Setup
 
-            notify = HTTPNotifygenerator(upnpconf.NT);
+            _notify = HTTPNotifygenerator(upnpconf.NT);
         }
-
-		//Todo: Remove:
-		/* Should probably be removed
-        //Constructor
-        public MulticastSender(string uuid, int cacheexpire, string localip, int tcpport)
-        {
-            _UUID = uuid;
-            _cacheexpire = cacheexpire;
-            _localip = localip;
-            _tcpport = tcpport;
-
-
-            SetupMulticastSender();     //Setup
-
-            //Create NTs:
-            NTs = new List<string>
-                {
-                    "upnp:rootdevice",
-                    "urn:schemas-upnp-org:device:MediaRenderer:1",
-                    "urn:schemas-upnp-org:service:AVTransport:1",
-                    "urn:schemas-upnp-org:service:RenderingControl:1"
-                };
-
-            notify = HTTPNotifygenerator(NTs);
-        }
-        */
-        
+       
         /// <summary>
         /// Sets up the multicast sender.
         /// </summary>
@@ -101,7 +74,7 @@ namespace UPnP_Device.UDP
         }
 
 		/// <summary>
-		/// Sends the notify messages.
+		/// Sends the _notify messages.
 		/// </summary>
         public void NotifySender()
         {
@@ -109,7 +82,7 @@ namespace UPnP_Device.UDP
             {
                 for (int l = 0; l < 4; l++)
                 {
-                    foreach (string s in notify)
+                    foreach (string s in _notify)
                     {
                         SendMulticast(s);
                     }
@@ -151,7 +124,7 @@ namespace UPnP_Device.UDP
         }
 
 		/// <summary>
-		/// Generates the HTTP messages for notify
+		/// Generates the HTTP messages for _notify
 		/// </summary>
 		/// <returns>
 		/// returns a list of HTTP headers

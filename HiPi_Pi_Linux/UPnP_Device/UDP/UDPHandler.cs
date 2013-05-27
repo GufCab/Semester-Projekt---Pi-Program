@@ -99,7 +99,7 @@ namespace UPnP_Device.UDP
 		/// <param name='ipend'>
 		/// IpendPint to respond to
 		/// </param>
-        public void checkDeviceType(string s, IPEndPoint ipend)
+        private void checkDeviceType(string s, IPEndPoint ipend)
         {
             if ((s.Contains(_upnPConfig.DeviceType)) | (s.Contains("rootdevice")))
             {
