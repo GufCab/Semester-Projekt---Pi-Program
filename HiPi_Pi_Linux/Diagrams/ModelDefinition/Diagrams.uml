@@ -42,6 +42,54 @@
         LastKnownName="UPnP"
         LastKnownLocation="Package_1719.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d1431c97-cf33-4603-84e6-7589ecede55e"
+        LastKnownName="PlaybackCtrl"
+        LastKnownLocation="Package_1651.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b6a04abe-58c4-4d30-ac2c-a10bbb875b15"
+        LastKnownName="Containers"
+        LastKnownLocation="Package1_1651.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ca1c88b7-ae1e-4812-b3d3-4e4de397feee"
+        LastKnownName="MPlayer"
+        LastKnownLocation="Package2_1651.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b6ec66f5-6c36-420b-a8bb-efc617932f0a"
+        LastKnownName="XMLReader"
+        LastKnownLocation="Package3_1651.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b24b8172-9d6b-46b3-91dd-add499548934"
+        LastKnownName="XMLHandler"
+        LastKnownLocation="Package4_1651.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="37fd096a-d2d8-4695-abb4-822cf2a9a9f4"
+        LastKnownName="Playback Control package"
+        LastKnownLocation="Package_1656.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="73ed6ae0-720a-4e84-b8ed-e00d555b438c"
+        LastKnownName="Media Player Wrapper package"
+        LastKnownLocation="Package3_1711.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="3f615ae2-ce3d-4353-bf98-20e3f3774bbd"
+        LastKnownName="UPnP package"
+        LastKnownLocation="Package1_1719.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

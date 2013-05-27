@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b6ec66f5-6c36-420b-a8bb-efc617932f0a"
+  name="XMLReader"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="d9bd32e5-a144-4b9f-a115-4336f21849d6"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DXMLReader"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="633202c0-7231-4c1c-a405-9fdb50832df2"
+        name="XMLReader1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a9a9b793-049e-4489-9403-c54c16f7667a"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DXMLReader Type%3DXMLReader1"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="dc02b724-aeac-4b40-922b-e9406cf0eb6e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="74fb5348-8efd-41e7-ae6e-727144b851f0">
+                <propertyInstance
+                  Id="614379b5-08d2-43dc-8665-d557a41cdf4f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f64f9bd2-01a1-47c7-a7fa-6e5be352729d">
+                <propertyInstance
+                  Id="d70f1080-4348-4e78-8621-cdfe89a40f42"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="95ce0fc9-5b23-45cc-b3f8-475cde46e065">
+                <propertyInstance
+                  Id="5891eb96-fcdd-48f6-bbc3-2c1e828122fa"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e0d6e39a-f0b3-4ef1-8beb-d104c62dc93c">
+                <propertyInstance
+                  Id="492f157f-5b9e-43b7-9708-285bab33e72a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="54ff7132-2166-4676-a6cb-cfeaa661629b">
+                <propertyInstance
+                  Id="78bcd631-4529-4447-b313-ff57ea98a47b"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

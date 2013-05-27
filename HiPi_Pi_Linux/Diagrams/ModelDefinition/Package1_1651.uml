@@ -1,66 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
-  Id="9ea97ee1-3d40-4fa1-8b1b-95e1d9f46320"
-  name="System"
+  Id="b6a04abe-58c4-4d30-ac2c-a10bbb875b15"
+  name="Containers"
   visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <referencesInternal>
     <reference
-      Id="6fc84550-9cc6-418d-af47-1d69c56dfa97"
-      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem"
+      Id="433899ec-f2c1-4317-97db-2b5ffbec47af"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DContainers"
       tag="ViewCode" />
   </referencesInternal>
   <packagedElements>
     <packageHasNamedElement>
       <class
-        Id="248a4c1b-9f81-43c5-be4e-f2255695f056"
-        name="Object"
+        Id="30921089-9e0b-4045-aacd-6f7a0a1ba9d3"
+        name="UPnPArg"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
         <referencesInternal>
           <reference
-            Id="5f74a773-1074-4879-a09d-29db1d6b9b6b"
-            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject"
+            Id="b15bea92-94dc-4e00-9a23-0774e3818cd5"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FContainers%2Fbin%2FDebug%2FContainers.dll Namespace%3DContainers Type%3DUPnPArg"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="9f47ba6b-c0dd-4724-9c70-9dcda8327566"
+            Id="4d4af098-b9a5-4c2b-95bd-ecebaa3cdb04"
             name="class"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="82d5e3b5-384e-4bee-b373-5e892fcf930d">
+                Id="38c7680f-a088-4854-b388-058a7cae4c5d">
                 <propertyInstance
-                  Id="be619107-a5a5-45c5-b247-06a7849f6b78"
+                  Id="fb038d20-1987-47ed-bbcf-1b8eed542f85"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="3ef2b523-c54d-42c9-92ff-42c030855084">
+                Id="2e05e04c-ce08-43e5-90ee-beb7ebce1173">
                 <propertyInstance
-                  Id="512d9206-1caa-40c5-80a2-a0fe3241baa1"
+                  Id="d0082ddc-6604-4dd4-81e6-f22e695f0835"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="02e9563c-9436-424a-afaa-b232096a2bac">
+                Id="b288a76a-2f6b-4628-9abf-d461988c0905">
                 <propertyInstance
-                  Id="0de22935-a17f-4ca6-80ac-413ca6e4bd80"
+                  Id="ea377e38-ac9a-40ba-8ad1-5401c41103e4"
                   name="IsStatic"
                   value="False" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="2287e635-e24e-418f-bb79-42a6fc7026cf">
+                Id="de8e8c5b-d40d-491b-8082-5d2414cd7b9a">
                 <propertyInstance
-                  Id="79b3ea5d-edb1-48dd-9cc1-ef47ff203294"
+                  Id="fe93a108-1c19-4ecc-ad81-23c2479accae"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="603d687b-b4c6-46c0-98d2-29af2647c5af">
+                Id="f8ea4921-d621-4887-9f12-bff519179019">
                 <propertyInstance
-                  Id="f088bb9a-b354-4bc9-a77a-dfadaf935eca"
+                  Id="38f0f2d9-62f5-4452-bb05-4d3179470055"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>
@@ -70,132 +70,105 @@
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <packageMoniker
-        Id="c4b716c4-2cce-4c57-a74d-ecdb1e46b210"
-        LastKnownName="Threading"
-        LastKnownLocation="Package2_1712.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
-        Id="4849a066-2211-411a-9c99-c4d0239d7939"
-        LastKnownName="Net"
-        LastKnownLocation="Package_1713.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
-        Id="0a540729-1c3d-4f86-a392-8c0bca5b61bb"
-        LastKnownName="Collections"
-        LastKnownLocation="Package2_1713.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="9a973496-9a34-4e3e-8a9a-737c5c62856b"
-        name="Byte"
-        visibility="Private"
+      <Interface
+        Id="f1b791bc-80d8-4a3f-aab3-03f3a19c0be2"
+        name="ITrack"
         isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
+        isLeaf="false">
         <referencesInternal>
           <reference
-            Id="e75e6d0d-fc2a-433b-ae97-b0843a6567ec"
-            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DByte ArrayRank%3D1 ParentType%3DByte)"
+            Id="904d3d88-65cd-4f8b-ba5b-a075b37eefa4"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FContainers%2Fbin%2FDebug%2FContainers.dll Namespace%3DContainers Type%3DITrack"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="333d0b74-9a01-4de2-8211-4fe2e95845d9"
-            name="class"
+            Id="6006dbcf-fff3-49ed-8ae7-63090e3d5fd1"
+            name="interface"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="720a5062-2b7e-459b-bb30-900a10188e0d">
+                Id="7abab4d6-9934-47a6-b01e-3771fe1287e6">
                 <propertyInstance
-                  Id="ca392023-d979-4fdd-a85a-a09cdff2d6ab"
+                  Id="2a71fe35-31ac-41e3-aa1f-6f148d6d3688"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="30a2f72b-7f9e-4a22-b46d-ea94a5cc0cd1">
+                Id="19612f0f-5bc1-4d4e-8ff4-ff02d0070946">
                 <propertyInstance
-                  Id="419c3a62-c799-4794-b4c7-e69f4163d51d"
+                  Id="32c32248-e5c0-4a0b-8fae-367d8debaf21"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="ce977a68-c5e5-4a51-9800-cb94947ff27c">
+                Id="7044e783-b7c0-4b0f-9081-971d07e3f4af">
                 <propertyInstance
-                  Id="16c6cdd3-01a7-4276-b900-1fc5c8fed7a0"
-                  name="IsStatic"
-                  value="False" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="41a57a4f-b66a-4b5f-bb19-1b91ccbc67ae">
-                <propertyInstance
-                  Id="2a10a768-b051-4b85-99c6-29df63a0e9c9"
+                  Id="2c6b5532-492d-411a-9f41-93ee0ccfe695"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="13a03a1e-163d-4276-b95d-1234f435ec77">
+                Id="6f5a843f-7e50-43dd-8a28-4a80ff4ca043">
                 <propertyInstance
-                  Id="bc5e17b3-e750-4add-8577-ff7333dabb03"
+                  Id="85e5d614-ed99-43a8-89e2-50b2e974ebab"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-      </class>
+      </Interface>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
-        Id="e12fd8f0-5993-4236-b1ad-e59fdcbd9158"
-        name="EventArgs"
+        Id="9dd7a053-87b2-46ce-b142-f50bdf41d03b"
+        name="Container"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
         <referencesInternal>
           <reference
-            Id="9ce20081-eaf1-42e2-b453-ac5a3dbae887"
-            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs"
+            Id="eba4cea5-9591-48e4-b763-060959b996cc"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FContainers%2Fbin%2FDebug%2FContainers.dll Namespace%3DContainers Type%3DContainer"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="c3569c22-dc2c-42e8-97ac-190dc2db0726"
+            Id="ce3f5870-cf48-470d-87f3-f0c8318608c4"
             name="class"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="e10b1e8e-ce60-4d3d-a53f-baa8aeb8cc0d">
+                Id="b6e8bd53-9850-4be4-a560-2c13ca5ad982">
                 <propertyInstance
-                  Id="2685c551-6571-4f9e-bb97-b04917008767"
+                  Id="dea63623-1cff-443a-9142-25aa399fe28c"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="2ede97e8-b1ae-429b-bd5c-3d0b6cad8d20">
+                Id="7625d382-0866-4b7b-bb5a-202c4eb4c3fa">
                 <propertyInstance
-                  Id="eac9ff18-fa3b-4c3e-97a1-4786ac3b4b5f"
+                  Id="668e41c5-2e0b-41ce-9d74-98b7568c551c"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="2a7aaef5-9b85-404d-a7ee-7bcc27b93d24">
+                Id="2b22be96-e0c3-4647-a21c-0e9f47d7dcb8">
                 <propertyInstance
-                  Id="0477c6fe-2ddb-4cc3-8f6a-348aac117b6b"
+                  Id="0621f7f5-f811-4311-8cea-740a8691df0b"
                   name="IsStatic"
                   value="False" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="19dd30e4-0b7c-4f22-bfff-f355172a5ffa">
+                Id="fc8c0326-0717-4dee-a451-34396e751dcc">
                 <propertyInstance
-                  Id="3a952a6f-3378-4d4b-a044-c0be5ee21dc0"
+                  Id="ca5fd8eb-df02-4603-a515-d10037f67db7"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="9fbebb51-7a77-403c-bb1b-9ac5b0e70e2d">
+                Id="c90ec4e3-1a40-4793-9349-85f88dcbbbfc">
                 <propertyInstance
-                  Id="a7a3b22f-2bc4-4153-a6ba-91da473c600b"
+                  Id="2199cba9-5e95-4975-bc81-6f92adeef57c"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>

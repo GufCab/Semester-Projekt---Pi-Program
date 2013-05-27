@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ca1c88b7-ae1e-4812-b3d3-4e4de397feee"
+  name="MPlayer"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="3882fd03-c9eb-4f8d-a18c-c87b49cc1d36"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DMPlayer"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="1f2e5150-7d4e-4724-ba94-df7c3abac19b"
+        name="EOFHandle"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="1d739e00-7c6c-4580-b4a3-59c99879a0d6"
+            handle="viewcode://./CodeSchema_Delegate?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3D(Name%3DEOFHandle ParentType%3DMPlayerWrapper)"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b9ab3e35-9271-48bf-8993-adc03afd91e5"
+            name="delegate"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bd93d9c2-6bcd-4ea2-a791-6fd29ec0ab6d">
+                <propertyInstance
+                  Id="0b0b09fe-869a-467f-b6c2-05ed1d74f5a2"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5efa61f1-d54a-4997-80c8-42c6e4682dc7">
+                <propertyInstance
+                  Id="b37f45ed-cc7b-4438-8c29-cae545ebd800"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6f6245b7-05b3-4172-a3ff-fbd969ee4049">
+                <propertyInstance
+                  Id="390448a4-26ac-4219-b054-97dcd9a4a04d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

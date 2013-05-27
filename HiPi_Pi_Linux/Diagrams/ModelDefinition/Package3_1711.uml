@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="73ed6ae0-720a-4e84-b8ed-e00d555b438c"
+  name="Media Player Wrapper package" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="201bee76-1d2a-462a-8448-617e383b9caf"
+        name="IWrapper"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="a7f1e03b-ea46-413c-b972-7ae8dbf7abe5"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="bfab655a-a611-4495-a099-3b6140b8c653"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="72024f9e-85ad-480b-885f-d50086e2df8f">
+                <propertyInstance
+                  Id="8625195c-8a9d-48d8-a322-5c89ac543fc1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fbb3f805-c0db-47f8-a345-f19604d3de6c">
+                <propertyInstance
+                  Id="4c5544e6-aff7-4a08-a585-534a736f0ef0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b90ad8ec-9013-4d37-a22d-6cc6d3a2558a">
+                <propertyInstance
+                  Id="cb6a7c4c-8d12-4e59-9489-42948c8105f3"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="24b387ee-f6a1-434e-8f93-efc768fdd40e">
+                <propertyInstance
+                  Id="98b08086-cfe4-4113-af8d-1f646ccec587"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributes>
+          <property
+            Id="75f95b7d-e4a0-484e-b9e3-34b3729acf65"
+            name="EOF_Event"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="aeed081d-4f7a-4bfa-b2d3-aad0839d41de"
+                handle="viewcode://./CodeSchema_Event?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3DEOF_Event"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1fa600bd-b994-4109-a0a0-3fa7d15404cb"
+                name="event"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c42eb76c-0efd-4a94-a49f-775efa679540">
+                    <propertyInstance
+                      Id="e1dd6fd9-1ace-4a28-bc33-a6c0e0c5c8bc"
+                      name="Add"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d9a72f7-7aa2-4f80-9fa6-468bdec9098b">
+                    <propertyInstance
+                      Id="2cc174e4-06cc-47f3-8209-2829bd5b2930"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0541921-a66f-4d7d-b672-36aa9df3b328">
+                    <propertyInstance
+                      Id="b8ded086-e640-4eb5-88c5-9379480668b6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c2a488d-4c72-4744-8d09-35bbf7290991">
+                    <propertyInstance
+                      Id="0257e6de-2586-42c1-bcc7-51fcfbe4c131"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eae6e375-14df-45e4-89ef-ea147a698184">
+                    <propertyInstance
+                      Id="73ef2cc9-c32e-4564-acfb-1980f8bb4fbb"
+                      name="Remove"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="1f2e5150-7d4e-4724-ba94-df7c3abac19b"
+                LastKnownName="EOFHandle"
+                LastKnownLocation="Package2_1651.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="583e7728-cb9a-4b2a-b42d-616160ce932e"
+            name="PlayTrack"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="db735502-1222-464d-9ab3-874a9d821910"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3D(Name%3DPlayTrack OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="39855d7c-1c99-4a5c-a5bf-8f57763d5e87"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a088eb4b-8ed3-4f0d-92e7-7786cfca2129">
+                    <propertyInstance
+                      Id="787e1e98-b901-4fa1-a409-9ec54e865bbd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="384ebba4-a1d8-49f1-8b36-1dc3f049c5cb">
+                    <propertyInstance
+                      Id="7996be6f-7bee-4679-9fb0-16a06bdaff79"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa8c8f8f-29ee-48e1-89ab-377dbc4b7584">
+                    <propertyInstance
+                      Id="23d79d9b-693c-4b79-9b3f-c2cc8b754030"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c710a252-de43-433a-9c7f-429154ae4c46">
+                    <propertyInstance
+                      Id="5d0f4b82-4ebd-40e2-b200-770d67ef8e77"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30c2647e-66a4-4f8e-ab56-1343a53114c0">
+                    <propertyInstance
+                      Id="b4d6400a-9c35-41b9-b6f5-66095be4724f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="df665fe9-ae7a-4aa4-9efb-9f43a579ff0a">
+                    <propertyInstance
+                      Id="de6b2a1b-484f-43e8-b79f-940743f9b348"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa466e0e-680a-40f9-b5b9-51f67b5f08c3"
+                  name="path"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f4bc4038-50a6-4fcb-be56-47379952dd1c"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3D(Name%3DPlayTrack OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dpath"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="01be856b-4666-423f-acfb-3f8740a02c0d"
+            name="PauseTrack"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e3557a45-d9e2-41f5-8602-2bb59fcac453"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3DPauseTrack"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="524fd10f-68c2-4152-8571-ba0685be9295"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30eb797c-d839-4310-b771-fe019a08e3cd">
+                    <propertyInstance
+                      Id="f3ee0b36-9cfb-4110-84f4-89cd829926c1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="642d7e68-51ec-437c-9d1f-5fe355c938d9">
+                    <propertyInstance
+                      Id="0daaed6f-ffa9-4e0a-9169-7d94c1533c95"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48fd8441-89f9-45e1-b36c-bcfd16d42935">
+                    <propertyInstance
+                      Id="64c410dd-2250-4966-b68d-9e6eee16cca0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3902a7f-9e50-42b5-9c72-80ba02791b0e">
+                    <propertyInstance
+                      Id="317657d0-23df-4827-9de1-a51bd29eb2de"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14b355dd-8ba0-4f46-a471-2e9cc71aa5f1">
+                    <propertyInstance
+                      Id="fb62a529-8bad-4458-82ee-78590a4fc2a7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="05cb9137-b638-4ab9-808f-ae69c16f4dff">
+                    <propertyInstance
+                      Id="422fccf4-4821-4055-b29e-886ecf6a5f7b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="f6c6b194-6353-464e-a486-66f379ab2a4b"
+            name="SetVolume"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a0d8b836-dc70-401b-b3c2-e5783a400e8f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3D(Name%3DSetVolume OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6cdd373d-e864-48b7-be2b-6d5b92c7c0a3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5856b6d6-5f29-4861-8ce0-080ebcc8a4f4">
+                    <propertyInstance
+                      Id="50d23ee4-c8a3-4803-ad8b-170686d1e840"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e545aaff-3950-422b-aa7d-a5515cf200cd">
+                    <propertyInstance
+                      Id="a5631545-0718-433e-b2fd-d96794094bed"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1fc4b9d6-47f0-4e19-b397-7c6c1c299f8e">
+                    <propertyInstance
+                      Id="0844460b-41c3-40a1-abe0-9bdfd897931e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf4b9d7a-1ead-49fb-a073-ce08d83e8fd0">
+                    <propertyInstance
+                      Id="b1cc1f0f-9fb6-4ed2-9562-0611a097fff0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ecfce42-fc06-49c8-9b7e-305959a62d9d">
+                    <propertyInstance
+                      Id="6492f833-a36d-4f85-a502-7391faeeb14e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6de396b8-3ccd-411f-a420-de8f361e5e77">
+                    <propertyInstance
+                      Id="41a982e0-0575-4d18-add4-73c25e20359e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a9026da3-71a5-4571-b791-c9bb1e216946"
+                  name="vol"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fcef15e8-7003-40d3-a4e2-44ccfb89d73a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3D(Name%3DSetVolume OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dvol"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6e96771b-7f9a-4b1e-b88e-a8e1ced574a5"
+            name="SetPosition"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ce055a46-a97f-4a74-87c4-26a12d2ce3a8"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3D(Name%3DSetPosition OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0ae1089f-6ed2-4372-a507-4b985abe6418"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a00d9b0b-f53d-495d-8aaa-69a76fc84549">
+                    <propertyInstance
+                      Id="df02de41-e79b-4224-85ba-474eee083c80"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="112641f8-d577-40c8-aeb2-07f8b443b377">
+                    <propertyInstance
+                      Id="f1aa84ae-2e4e-4dac-9665-db3fcd37e0a0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a154ffe-a91e-49f2-815b-1cf68053899d">
+                    <propertyInstance
+                      Id="2843cdfa-ef1c-4779-a932-b86abfe4135c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="930f269d-ddf7-47c1-ac9a-1a895c76862c">
+                    <propertyInstance
+                      Id="eb743352-2b65-4042-b5a4-54fe85078e68"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7efd8912-f3c9-4599-9031-8a07d7a34e59">
+                    <propertyInstance
+                      Id="edae84f5-568c-48ef-bc48-c6f858854dc6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a67d5789-47cb-4128-816f-f804bd5c273a">
+                    <propertyInstance
+                      Id="df4723c0-5888-4416-8e0d-5d70ec9baa2a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0ca4bb42-eeb5-414b-837d-003cfaa25478"
+                  name="pos"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="bd8bcd70-bddb-4645-b3e4-5a9402cdfac1"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3D(Name%3DSetPosition OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dpos"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="55ec6730-aa20-4ed1-b59d-0e251594db87"
+            name="GetPosition"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="15233b7e-3f50-4267-8a49-9a5f1a8df6c1"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3DGetPosition"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7cc59cb3-2dbc-46c2-935e-c05b4956071e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f799ac40-43f9-4685-9ba4-90cd7bfff7a2">
+                    <propertyInstance
+                      Id="b33633e4-80fa-493a-917c-01befd851b09"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8934e5cd-36b8-466d-87ae-e2eb15defd6a">
+                    <propertyInstance
+                      Id="7a5952db-deaa-467d-b0bb-ea6d606948d6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5122e7de-8538-4b6b-b838-a1985dc57ac4">
+                    <propertyInstance
+                      Id="a07ba659-77f4-4073-8891-12e29fd49f32"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8df5e98c-8f41-4cd8-a1ef-beac437a8256">
+                    <propertyInstance
+                      Id="23baf90e-8385-47d2-a4fa-25320c2389dd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c6e8f88-ba68-4013-9c90-a20e62b081ba">
+                    <propertyInstance
+                      Id="50cec665-9d36-4067-b07c-816d0e6ba763"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37a6d0be-10e1-4a28-aa1d-a4b68fa9c97a">
+                    <propertyInstance
+                      Id="39965c83-33a3-46ff-87f9-c4afb4b8ae79"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e17beb2e-f9f3-4d03-8b09-78bbb27899c9"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="debea5f1-0fba-4ad5-b368-32cb5fb96fa4"
+            name="GetVolume"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3586b84a-f58b-4cc8-bb3f-ec80c6fbe86e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3DGetVolume"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4692a8a1-753b-4763-9e95-0c543aca5cd7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="657a9512-5e69-4057-949a-9a317c15742d">
+                    <propertyInstance
+                      Id="1275e696-912f-4bd8-b5ce-2d345810bc2c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d1880f8-835f-420b-b493-4c9029faa384">
+                    <propertyInstance
+                      Id="ed025562-4c2d-42cc-a8bc-7dcb9f017937"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c084ef1-26d4-440c-9a41-2cb9f4aded38">
+                    <propertyInstance
+                      Id="016017f3-f2f3-4afc-8e58-c93df2e1e7fc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="222d5c3c-83f4-4a73-b25d-a68ee372ccc2">
+                    <propertyInstance
+                      Id="f7c9dae1-6b2d-4fa2-86ea-ac37598e5f21"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cde920ae-eb94-4c38-a0b4-6ff766c90d23">
+                    <propertyInstance
+                      Id="eec8df9a-0a15-42ef-bf66-8ca3a8eceab5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f5fb0809-685f-4cd5-b19a-89569f235220">
+                    <propertyInstance
+                      Id="e4d90926-fb18-476c-9732-35aa0c849f10"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5bedf944-5f04-47dd-a492-0a92de1a735e"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e5e91198-2cdb-47b2-8c00-a2910abd2402"
+            name="GetPlayingFile"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="642bc381-6fbe-4139-914e-8c831e0755d3"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3DGetPlayingFile"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="935235c7-fbab-45d0-9f32-b42e999c902d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a5f4b834-a125-4178-bf2b-c37c2b023e7b">
+                    <propertyInstance
+                      Id="06f1b0a7-932a-4c87-9919-7b5097208a6c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7da3ffd8-1b85-4be6-97ff-ae5f54c89b35">
+                    <propertyInstance
+                      Id="11355a36-6199-4b41-96a8-67fecd55eec9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3cc839f-7fd9-4ee9-9f9a-31f75c25d8cb">
+                    <propertyInstance
+                      Id="0e318f68-c277-4bf8-be31-7f698f389789"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e683e43b-37f6-4be2-b8da-41e7e9277e3d">
+                    <propertyInstance
+                      Id="05ea5d21-1947-42eb-a8ff-e75f3f634f6d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c66a0f93-01a8-4f27-a171-67e8337c2670">
+                    <propertyInstance
+                      Id="46f2ec0a-2ec5-4f46-863f-23c5b5b14020"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="467aca51-e6c8-402b-97a7-17f097d0e8dd">
+                    <propertyInstance
+                      Id="9807abe6-5f2d-4366-9daf-398649e8d6c5"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8390d104-6c56-44be-846e-5d25ccf3f976"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6b908d19-cc0a-4d89-8f67-be64d269dce4"
+            name="GetPaused"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="086e938c-8159-4c9b-80db-cd3e2b15fbb2"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper Member%3DGetPaused"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ce9afca7-0d15-4a9c-b01a-fc406f4ef5d7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87b00e96-bc74-4a93-a6e2-b7b12eaa44da">
+                    <propertyInstance
+                      Id="23df397e-710d-42b8-98ce-e066765e62f1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23f207e5-4124-420c-a933-b55677272345">
+                    <propertyInstance
+                      Id="f5744124-ec8b-4d1b-8881-6e37e9a3c9ba"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="def99277-7ccf-47f7-9467-f93d2fb611f0">
+                    <propertyInstance
+                      Id="b62ebf77-ffe3-4c55-a04c-f291b9d2316b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8cfe682d-3691-4442-8e4b-3e36fd161d67">
+                    <propertyInstance
+                      Id="85677486-d92e-404b-91ab-1118764f3649"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89d68459-bffa-4774-bd34-0e07a53ab3d2">
+                    <propertyInstance
+                      Id="704d34e1-c7f5-4724-89e2-8008e7c9e654"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b17f96c3-419c-46a7-a8d1-82e99fb0634f">
+                    <propertyInstance
+                      Id="40418235-4809-4602-af1c-6019e334335c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53d0bc46-1c5b-4b23-8322-b2d6a95549c6"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
