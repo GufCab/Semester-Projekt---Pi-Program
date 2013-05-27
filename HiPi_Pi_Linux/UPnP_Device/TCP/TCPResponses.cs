@@ -279,9 +279,7 @@ namespace UPnP_Device.TCP
             Console.WriteLine("This is callback");
             if (util.IsConnected())
             {
-				Console.WriteLine("This is callback with connection");
-				Console.WriteLine ("args: " + argList[0].ArgName + " " + argList[0].ArgVal);
-                string response = invokeResponseGen.InvokeResponse(act, argList);
+				string response = invokeResponseGen.InvokeResponse(act, argList);
 
                 if(TCPDebug.DEBUG) 
                     Console.WriteLine("invoke answer: \n\r" + response);

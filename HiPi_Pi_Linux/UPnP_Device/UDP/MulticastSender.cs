@@ -27,7 +27,7 @@ namespace UPnP_Device.UDP
         private string _localip;
         private int _tcpport;
 
-        private List<string> _notify { get; private set; }
+        private List<string> _notify { get; set; }
 
         public MulticastSender(IIpConfig ipconf, IUPnPConfig upnpconf)
         {

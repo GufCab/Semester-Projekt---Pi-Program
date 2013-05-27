@@ -171,35 +171,42 @@ namespace PlaybackCtrl
 
             if (action != "Browse")
             {
-				returnVal = null;
+				//returnVal = null;
                 switch (args.Action)
                 {
                 case "Play":
                     Play();
-                    break;
+					returnVal = null;
+					break;
 
                 case "Next":
                     Next();
-                    break;
+					returnVal = null;
+					break;
 
                 case "Prev":
                     Prev();
+					returnVal = null;
                     break;
 
                 case "Pause":
                     Pause();
+					returnVal = null;
                     break;
 
                 case "SetNextAVTransportURI":
                     AddToPlayQueue(ref returnVal);
+					returnVal = null;
                     break;
 
                 case "SetAVTransportURI":
                     SetCurrentURI(ref returnVal);
+					returnVal = null;
                     break;
 
                 case "Remove":
                     RemoveFromPlayQueue(ref returnVal);
+					returnVal = null;
                     break;
 
                 case "SetVolume":
@@ -209,6 +216,7 @@ namespace PlaybackCtrl
 
                 case "SetPosition":
                     SetPos(ref returnVal);
+					returnVal = null;
                     break;
 
                 case "GetVolume":
@@ -221,7 +229,8 @@ namespace PlaybackCtrl
                     break;
 
 				case "GetCurrentTrack":
-				returnVal.Add(new UPnPArg("CurrentTrack",  wr.ConvertITrackToXML(new List<ITrack>() {PlayQueueHandler.GetCurrentTrack()})));
+					returnVal = new List<UPnPArg>();
+					returnVal.Add(new UPnPArg("CurrentTrack",  wr.ConvertITrackToXML(new List<ITrack>() {PlayQueueHandler.GetCurrentTrack()})));
 					returnVal.Add (new UPnPArg("PlayQueueChanged", PlayQueueHandler.PlayQueueChanged));
 					break;
 
