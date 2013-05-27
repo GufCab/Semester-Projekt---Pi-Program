@@ -32,6 +32,13 @@ namespace Main
             
 			Server Fserver = new Server();
 
+			Console.WriteLine ("==============================================================");
+			Console.WriteLine ("Welcome to the HiPi Server solution");
+			Console.WriteLine ("All UPnP devices SHOULD work, but that's probably not the case");
+			Console.WriteLine ("Feel free to get our Windows application to get all features");
+			Console.WriteLine ("Enjoy! ;)");
+			Console.WriteLine ("==============================================================");
+
 
             Console.Read();
         }
