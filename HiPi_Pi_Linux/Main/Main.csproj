@@ -45,6 +45,10 @@
       <Project>{8B17FF89-8315-4AF5-8F49-76A51812E3C3}</Project>
       <Name>DBHandling</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileSenderServer\FileSenderServer.csproj">
+      <Project>{17cd7f4f-b27f-46d5-833a-051cd0a3dd8b}</Project>
+      <Name>FileSenderServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlaybackCtrl\PlaybackCtrl.csproj">
       <Project>{87B9575A-B472-4B75-8078-96BCE428B386}</Project>
       <Name>PlaybackCtrl</Name>
@@ -56,10 +60,6 @@
     <ProjectReference Include="..\UPnP_Device\UPnP_Device.csproj">
       <Project>{5C01DC6E-62F3-46AB-8634-971363261B01}</Project>
       <Name>UPnP_Device</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FileSenderServer\FileSenderServer.csproj">
-      <Project>{17CD7F4F-B27F-46D5-833A-051CD0A3DD8B}</Project>
-      <Name>FileSenderServer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

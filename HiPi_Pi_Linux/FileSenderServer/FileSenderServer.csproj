@@ -40,10 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IServer.cs" />
+    <Compile Include="AbstractFileSenderServer.cs" />
     <Compile Include="LIB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="FileSenderServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FileSenderServer_FileSenderServer.sequencediagram" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileSenderServer_FileSenderServer.sequencediagram.layout">
+      <DependentUpon>FileSenderServer_FileSenderServer.sequencediagram</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

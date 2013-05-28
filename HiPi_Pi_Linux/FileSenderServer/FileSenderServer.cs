@@ -10,7 +10,7 @@ namespace FileSenderServer
     /// Author: Michael Thy Oksen, 11492@iha.dk.
     /// Description: This class is responsible for handling the task of receiving files from the Client (The PC) to the Server (The Raspberry Pi).
     /// </summary>
-    public class Server : IDisposable
+    public class FileSenderServer : AbstractFileSenderServer, IDisposable
     {
         public IPAddress _IP { get; private set; }
         public TcpListener _serverSocket { get; private set; }
@@ -22,7 +22,7 @@ namespace FileSenderServer
         /// <summary>
         /// Sets the constructor to start a new thread running the Run() function.
         /// </summary>
-        public Server()
+        public FileSenderServer()
         {
                 var thread = new Thread(Run);
                 thread.Start();
@@ -34,7 +34,7 @@ namespace FileSenderServer
         /// <returns>
         /// A string containing an IP.
         /// </returns>
-        private string LocalIpAddress()
+        protected override string LocalIpAddress()
         {
             string localIp = "";
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -51,7 +51,7 @@ namespace FileSenderServer
         /// <summary>
         /// This method is responsible for setting up the required variables and external classes.
         /// </summary>
-        private void SetUp()
+        protected override void SetUp()
         {
             try
             {
@@ -84,7 +84,7 @@ namespace FileSenderServer
         /// <summary>
         /// Receives the file name through TCP and sets it.
         /// </summary>
-        private void ReadFileName()
+        protected override void ReadFileName()
         {
             _fileName = Path.GetFileName(LIB.readTextTCP(_serverStream)); //Read file name
             ////For testing purpose only
@@ -94,7 +94,7 @@ namespace FileSenderServer
         /// <summary>
         /// Receives the file size through TCP and sets it.
         /// </summary>
-        private void ReadFileSize()
+        protected override void ReadFileSize()
         {
             _fileSize = LIB.readTextTCP(_serverStream); //Read file size
             ////For testing purpose only
@@ -115,7 +115,7 @@ namespace FileSenderServer
         /// </summary>
         /// <param name="fileName">File name of the file-to-be-received</param>
         /// <param name="io"></param>
-        private void ReceiveFile(String fileName, NetworkStream io)
+        protected override void ReceiveFile(String fileName, NetworkStream io)
         {
             // TO DO Din egen kode
             byte[] fileData = new byte[BUFSIZE];
@@ -160,14 +160,14 @@ namespace FileSenderServer
         /// <summary>
         /// This method closes the socket connection to the client.
         /// </summary>
-        private void CloseSocketConnection()
+        protected override void CloseSocketConnection()
         {
             _clientSocket.Close();
         }
         /// <summary>
         /// Implemented so usage of "using(xxxxxx)" is possible. 
         /// </summary>
-        public void Dispose()
+        public override void Dispose()
         {
             _serverSocket.Stop();
             _clientSocket.Close();
@@ -176,7 +176,7 @@ namespace FileSenderServer
         /// <summary>
         /// Runs Sequentially through the process of receiving the file as bytes.
         /// </summary>
-        private void Run()
+        protected override void Run()
         {
             try
             {

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b157a955-b176-4b40-bd01-99cac3baa541"
+  name="HiPi_Pi" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="d82fa31d-55ce-48be-ab4a-5d98c11162c3"
+        name="Program"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="5bb73849-f133-42e9-a27e-c68f62c7efb6"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMain%2Fbin%2FDebug%2FMain.exe&quot; Namespace%3DMain Type%3DProgram"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="bbc46a4e-80e2-4845-b7f0-7dc90cad1ac1"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="28cc16f6-5aa4-48e3-bc8a-9ea5e9aeaf1a">
+                <propertyInstance
+                  Id="2d6b44a8-d0f2-4175-b32f-3a410901d32a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a23b94fb-3e22-4dbd-b49a-cba8e11df559">
+                <propertyInstance
+                  Id="c43b8c6b-7f3c-4b1c-b88b-9d74a1a94267"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e6295684-5442-43c1-b1e3-f35375e3472c">
+                <propertyInstance
+                  Id="8be123f2-758f-41e5-8ab2-4104aea8c119"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f719a40c-4a4b-4642-b82a-e46ac9f5ac86">
+                <propertyInstance
+                  Id="6b8b80df-a01b-42cd-a54d-12d307ad434f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b5bf11cc-90c0-4f1f-93ee-9d74429844fb">
+                <propertyInstance
+                  Id="74c06b8a-83cd-4f30-9f8e-38f601a067f3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="471f614b-4757-4b02-ad63-0a096a461359"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6253065c-a5ef-47e8-b05e-5668ae22cd2e"
+              LastKnownName="AbstractFileSenderServer"
+              LastKnownLocation="Package1_1009.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="01cb21ee-a4c1-404f-8228-05058c9c62a6"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="1c85d75c-7570-4c3b-a444-bfd6a9f3dd81"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b0accdb1-f560-4030-867d-cd02969b5221"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9aab3187-9c0b-45c0-9297-33477152580e"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="cb65b0ca-d37a-42f2-bfde-ac41f350df00"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="2419235f-0457-493c-8bd5-741ba2f2f922"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="59211549-7722-41ea-9659-28f044441391"
+            name="Main"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="56bd7117-f6f4-4d34-8f3c-f6fcf2b50bee"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMain%2Fbin%2FDebug%2FMain.exe&quot; Namespace%3DMain Type%3DProgram Member%3DMain"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="27514172-557c-4d44-a75e-e009ce3062a6"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fd1108cc-23c3-4091-bb5a-3fd701e3e3bc">
+                    <propertyInstance
+                      Id="5113fda6-c42f-4dc1-bc7a-9a04e14ed5be"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4526340f-aa67-410a-8457-bde32bb1352b">
+                    <propertyInstance
+                      Id="b995e0ed-031c-4945-9265-894b0facc3b1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e3888c5-8603-47b3-85b4-0d492c67b77c">
+                    <propertyInstance
+                      Id="d066f135-280d-4c2e-b08a-d4d513ee0fcd"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0771e666-c233-44cc-888b-86e7bed003d7">
+                    <propertyInstance
+                      Id="450a764f-9405-423a-ad94-8e7c89f93725"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c8b1aa23-6f95-4ac0-9804-46622c05789f">
+                    <propertyInstance
+                      Id="c92e393a-9daf-41d2-adac-5e586fad5410"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="be5ff5e0-75ac-4fd5-8afe-caeb5b5f0fb7">
+                    <propertyInstance
+                      Id="1671b717-c811-4d36-896f-ee7d8a6ebe88"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="cec8b3a6-5b54-4939-80d5-f0c49bdd130a"
+            name="Program"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7460f18c-b716-4d99-8261-cf779af3f799"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMain%2Fbin%2FDebug%2FMain.exe&quot; Namespace%3DMain Type%3DProgram Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="df880bf6-d176-47cb-b747-6c6d3b05609b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eff24798-793c-4795-b25f-d9fa1cf997e8">
+                    <propertyInstance
+                      Id="439561df-9e83-4164-a82d-63aadd3589c4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c56991fa-73ee-4261-8721-23d53e05276f">
+                    <propertyInstance
+                      Id="1be8b485-9491-499d-8945-29a86a40a20a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="655c5681-581b-4932-96c7-4a3ef0b0a7d8">
+                    <propertyInstance
+                      Id="a8bc38ed-a34f-48ed-8355-f396cb90d605"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bec0279e-42f7-4c76-bb75-b5ff35c31d2b">
+                    <propertyInstance
+                      Id="a8e6bd23-01a8-49dc-b10d-c14a25cb52f8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f81d1ef5-cdf6-4e17-836f-6a41561b05de">
+                    <propertyInstance
+                      Id="7c9eccc5-d3ee-4833-b54f-2f039129268a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6fe5108c-e6bb-4a60-9946-f889ed76e832">
+                    <propertyInstance
+                      Id="88176081-9891-4f44-9fc6-724fab00cd80"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="92ae7d56-4444-4d4e-b94a-b7d6a87e0dad"
+  name="FileSenderServer"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="da34dddc-7aab-4155-8b78-816f912fa271"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DFileSenderServer"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="db781d69-fe9e-4c1b-920e-34b0adc36b60"
+        name="AbstractFileSenderServer"
+        visibility="Package"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ff2585de-6520-4e08-aff0-9a0aa157afe7"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="43b8a621-17dd-4a89-9a6c-1ad336c808dd"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="92cdf5f3-df28-43fe-b730-bb458bbfc1a5">
+                <propertyInstance
+                  Id="338b0574-31b2-4756-b47a-1f57112b52e8"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="394f12db-12a2-4460-afaa-62363302887a">
+                <propertyInstance
+                  Id="d65b8abd-e03e-4376-9220-65f3e45f36a1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c7e27f69-52e9-4aae-a1d7-5d831e4193c8">
+                <propertyInstance
+                  Id="afe9d74a-6e4c-4fa5-aa1f-a9c49bae4b46"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="55628866-eec4-41e4-a55a-bcc2aaffe1ba">
+                <propertyInstance
+                  Id="5a399d70-9918-44b7-80cb-f12b6ca045f9"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="292cda8f-3909-4218-8091-66440e3fd2f4">
+                <propertyInstance
+                  Id="1c8bde61-0b4f-4278-814a-fd3ee00fcef0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

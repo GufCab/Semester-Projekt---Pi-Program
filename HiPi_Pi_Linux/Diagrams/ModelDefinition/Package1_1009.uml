@@ -1,0 +1,2950 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e1ea1bfa-1b48-4d55-b5d5-b8c371c3e2b3"
+  name="FileSenderServer" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="6253065c-a5ef-47e8-b05e-5668ae22cd2e"
+        name="AbstractFileSenderServer"
+        visibility="Package"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="af619d7d-67a1-4c0e-bc90-1261415d598e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="5aab4e91-f519-46a3-a9e3-b844a18a0aec"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6b0fd7f9-717f-4ac0-8f5b-83f5bd2ede2a">
+                <propertyInstance
+                  Id="11f4998f-d9ae-4f02-bb2e-8cefcc2837b4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bddb72fe-f6a7-4320-be33-dbaf0368994d">
+                <propertyInstance
+                  Id="19c6d357-e28f-4c0e-88a6-aa9c261597e1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4f8d63be-3d49-4917-a66d-73ff7321fc2d">
+                <propertyInstance
+                  Id="b5c20886-200d-436e-84b0-67097e9a4a27"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5d83ac06-2e6e-442d-919e-a20260c1756e">
+                <propertyInstance
+                  Id="e80ca792-8134-43f0-8b80-8de1acea5b6d"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5574a198-c6dd-409a-8fdd-87eb9a2acfc6">
+                <propertyInstance
+                  Id="0978c70f-ab52-4750-a4e5-e284d2baeb25"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="25fd0863-f64d-4659-bce7-bc68f80f5f25"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6cfd9845-4593-4b50-8ff2-b9b678ca7ab4"
+              LastKnownName="FileSenderServer"
+              LastKnownLocation="Package1_1009.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d1842b0b-7d45-4b16-9076-db5a5ed8897c"
+            name="LocalIpAddress"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e2f7d959-3a1c-4948-a976-faef87e66176"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3DLocalIpAddress"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c3558b80-8cb8-4e92-8b35-0eace38bcad5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c186a3fd-58c8-42b6-97e1-6e99d38a8b8d">
+                    <propertyInstance
+                      Id="1774cd97-4707-4d7d-86eb-a4949d8e35b0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d66aec7a-20d5-4e52-831e-76b51ebb00d6">
+                    <propertyInstance
+                      Id="0f4644ce-c604-4ac7-a65f-0cd1bf61abb9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f69de05d-e10b-41a7-90b0-18b8f5c374e4">
+                    <propertyInstance
+                      Id="59128ad6-dbd5-42c5-8104-e2f0d1423094"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ac55ca9-26f7-4ee2-8008-67bc8ee047ca">
+                    <propertyInstance
+                      Id="e229559b-565f-445a-8fcc-03bdf060bfa8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa67fa33-0069-44e1-a3e0-763374d50c08">
+                    <propertyInstance
+                      Id="546c94de-d2eb-41a2-a6bb-6a0bb0a06b7d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="afea7cb8-1c8c-45f4-86a7-b0a5a9fc64a4">
+                    <propertyInstance
+                      Id="4d54f94a-9303-4c12-be2e-576efa0acda7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="824fa5e5-f40d-47ce-af8c-f1f8e724f19b"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="21b28443-fbff-4f09-b306-32f1474286fa"
+            name="SetUp"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0bb5eea8-b549-40a0-baa1-83fd0da3bac1"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3DSetUp"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="73c2b936-e95f-4150-ae3e-0abb6055cd2b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c20369f2-85ae-4108-b515-f040c1d2b1b8">
+                    <propertyInstance
+                      Id="1e82fb4b-12a0-45d7-9271-b2e2ed04da5b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61f791ee-f050-4443-9538-e2e922e33a0e">
+                    <propertyInstance
+                      Id="9bf0e36e-010c-4b3f-b977-406d25783b84"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="27e5a88f-2269-4967-b742-17dcd929d9d0">
+                    <propertyInstance
+                      Id="ded08af9-2950-44bf-b469-74584d0d47b1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20b62dbd-d188-4d3a-a759-2e899a61625a">
+                    <propertyInstance
+                      Id="2763624c-759c-4bbf-9e75-af04ea735e9e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c992d3a7-8ef4-4598-a71a-57082223d222">
+                    <propertyInstance
+                      Id="98c2c909-d834-43a4-b426-0449fda94374"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5531e373-c6c4-40d0-8039-03c7507ce9bf">
+                    <propertyInstance
+                      Id="617bbcc0-8956-4851-90fb-53a67e761b36"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="691f6781-9911-49d2-9190-d63db9cd8ba1"
+            name="ReadFileName"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6cfb751d-cf68-4eab-9381-e6043d0f6dce"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3DReadFileName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c3ea7f36-ad17-4d00-843d-72a5952fe874"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0f830da-5ab7-46af-90d9-d4ce25c8cb35">
+                    <propertyInstance
+                      Id="1205f1db-0fd6-41f8-b884-584345d9bb5c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51b79844-34dc-41c0-86a7-da5ec8b52562">
+                    <propertyInstance
+                      Id="f102647f-1e18-4ad4-8561-a17e83f8e0f7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8adf07cc-31d5-4211-8151-feb65a394b5c">
+                    <propertyInstance
+                      Id="2dab5297-7367-4afe-a701-c4038160aee2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93ec4bf0-1299-4606-bd19-45b1e9e28bb3">
+                    <propertyInstance
+                      Id="87fd0b02-5331-4774-a717-2bf5bd14b8b7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45598bfb-8f92-458c-ba82-a745946dd2e1">
+                    <propertyInstance
+                      Id="c06c767e-d783-4c48-af3a-81e48ef06082"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="850d0466-2c4d-40a7-af15-bd91ad6e2441">
+                    <propertyInstance
+                      Id="b909ed6d-7e7f-4a59-9b84-a57801a771d4"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="016f29de-1442-4e38-a7d7-20ee176bfd27"
+            name="ReadFileSize"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="dd0b1a01-be68-4490-824e-9dcd08b56b0b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3DReadFileSize"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cfab2626-efd5-4353-8b8b-25853fcc60e5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dade314c-0f64-430d-9b2d-021de6c84902">
+                    <propertyInstance
+                      Id="50375928-07dd-45e6-8840-557a079839fa"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c743b5e4-21d7-4d5f-9f80-d2adfcb0f5f5">
+                    <propertyInstance
+                      Id="a2006fb6-e59f-40a7-aaee-a92e510fea6d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b7e4941c-9640-4b37-88d3-7ee52d4831ee">
+                    <propertyInstance
+                      Id="18615e42-9d8d-45ed-b89d-e20cc6c4e19f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="428bed35-0dfd-4cd1-bac3-a5549bffab69">
+                    <propertyInstance
+                      Id="146e8f66-c9de-4fa6-bd70-05153837c6ad"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1990c09f-900c-4143-8cb2-4e770af7826e">
+                    <propertyInstance
+                      Id="ab8d06ff-cf73-4bf4-967c-21f0046a47c3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff4b0167-11d6-4683-9315-c285330cf608">
+                    <propertyInstance
+                      Id="4b08e87f-2c09-40e4-82e0-f62117de2995"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="39019963-2610-4675-881e-bef5d625d6fc"
+            name="ReceiveFile"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c82e8a7b-d0f6-4ebe-8256-20cd35704707"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3D(Name%3DReceiveFile OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2b268d51-a639-47f4-97bb-180bb0769038"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6ce86a7-9444-4069-ae95-261bdb91aad8">
+                    <propertyInstance
+                      Id="12ad405a-642d-450c-a135-a2f734ff630b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21d20a26-d8d9-4959-8b8d-55b96bb2cc5c">
+                    <propertyInstance
+                      Id="912880ae-f4c2-439c-ae44-b7cb8ee03d9d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="950b7862-7eaa-4a76-8f30-fc4d82b9e2ec">
+                    <propertyInstance
+                      Id="4621e634-b78a-456f-ba86-dfc02fcf6f18"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9262747b-9661-4d27-a2a6-22e70f609301">
+                    <propertyInstance
+                      Id="abd67bd9-1843-4c32-8542-2a67b3d51fa0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4467cbad-d589-4262-8ef2-1ce0a08c33d6">
+                    <propertyInstance
+                      Id="020388bd-d1d1-4565-bc76-972b2a8552ae"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4aaf641d-23b0-4d35-8477-f834208083b5">
+                    <propertyInstance
+                      Id="778491e4-95c7-478f-b8a2-6d350190ec3c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eb3a352c-2ab8-4b2d-9288-28638490d8e4"
+                  name="fileName"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2a07bbd2-918c-419b-a852-f793be10ba36"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3D(Name%3DReceiveFile OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)]) ParameterIdentifier%3DfileName"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="495d0066-42ef-49b1-8459-ed133b880351"
+                  name="io"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1e5eb105-3240-4a08-9326-9732dc765574"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3D(Name%3DReceiveFile OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)]) ParameterIdentifier%3Dio"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="577d6c68-74d9-42fb-951e-f1ed977b7891"
+                      LastKnownName="NetworkStream"
+                      LastKnownLocation="Package1_1713.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8bd3dad4-412d-4ee6-95e1-9f0053d3bf87"
+            name="CloseSocketConnection"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="b3126e77-b612-4c2e-a73a-a5c0ba1e8bce"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3DCloseSocketConnection"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="06f3f958-9c49-4b17-83ca-e7ecca30a1a1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0abe9484-2ace-4e2e-a168-377b05708867">
+                    <propertyInstance
+                      Id="939abf51-fc72-403f-944c-975b41a336cd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6455b6fd-9b7c-4186-ab11-7e331ccbce18">
+                    <propertyInstance
+                      Id="e5346a00-9885-48bc-82d3-f26e04a86cce"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5575410d-5af9-4174-a8c1-af913e64b086">
+                    <propertyInstance
+                      Id="95792ebd-dcfb-4e9d-9c51-6069bed30810"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ddd2234b-2f7f-40c1-a1fe-38bd0a30fb15">
+                    <propertyInstance
+                      Id="d6cac988-3221-4b82-8716-8098c44a6fc0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d951ec62-c0e7-4ec7-8246-19185708549a">
+                    <propertyInstance
+                      Id="1485b627-0e41-4226-812e-80f0c90dbc39"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="abee4517-1fba-45d2-8290-430c753565a0">
+                    <propertyInstance
+                      Id="f248a80d-19e1-45ff-8b6c-2353a3a40560"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="245dd90e-9c29-4153-94b9-bf8becf46aa4"
+            name="Dispose"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9d82de9c-230d-4197-a2c9-8f1b6f5b3cdb"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3DDispose"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="468baee6-bd57-4ee0-b467-0968728bca12"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="50836fae-3122-4ea4-8953-40447b7fcf9c">
+                    <propertyInstance
+                      Id="064fa2c3-5159-467e-bcc2-53d41141acf8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24aa9ba1-d136-4cfa-b211-149c3e12b4cb">
+                    <propertyInstance
+                      Id="7c095daa-97a4-4bbc-a68b-11cd32eb3e02"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c8e9daf4-5213-4000-9b87-8f528ce463bf">
+                    <propertyInstance
+                      Id="3c8d49e9-09bf-4baf-9424-0e29ca992b64"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a4aa462-b1da-4ab2-8548-2c0cdcb59c98">
+                    <propertyInstance
+                      Id="ecf23f6f-9ea6-4310-9bdb-2dbb9fbd3c76"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e434f93a-1e35-4eb8-855e-fe888499e6f5">
+                    <propertyInstance
+                      Id="b6b284ef-a490-4c23-9429-0a1d64210ec9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="64b2f36d-7420-4355-b724-828fbd205567">
+                    <propertyInstance
+                      Id="6c735718-c474-4472-88d4-bcbbefb4ffcb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="bf7df595-0fb9-4954-859b-09e657d12595"
+            name="Run"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1920ac43-e60f-4ecf-a358-96b811abe949"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3DRun"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="773b9745-b6ba-4f79-8fb7-b56eca7cb613"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="def18177-9737-4b00-a8db-65bd5e1b0a61">
+                    <propertyInstance
+                      Id="6025efe5-186b-4e8b-8708-64963fe04d4d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ce9c999-a38e-4f1d-b4b7-43342ffea6fb">
+                    <propertyInstance
+                      Id="973fde95-b789-41a3-9851-425e918efda5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8066da4c-75a2-4c5d-a06d-888dd9f200db">
+                    <propertyInstance
+                      Id="02a5b579-36dd-4957-aee5-b10c415108c1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="27cb533b-6edf-48f5-8514-9012f30f2249">
+                    <propertyInstance
+                      Id="0da19cd6-5f74-46f5-8878-0ecc835c5aa4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="351d03de-8abf-4c99-ac0f-b83f5efbf3f9">
+                    <propertyInstance
+                      Id="5aa5e71a-6b32-4e19-a5d4-ca86399b72ea"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff3d7f1f-bcb3-4eb8-b637-9cb5a3f8dfb7">
+                    <propertyInstance
+                      Id="650bfee5-d811-49aa-ba3a-e3cf379fc00b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="e7c556c3-9720-49eb-9688-6fe3becf54c1"
+            name="AbstractFileSenderServer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="63b1e813-0b93-498c-a151-186dc207f11f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DAbstractFileSenderServer Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1bae4bbd-4a7e-402b-b8f2-159590ce1fa5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b336d704-96d3-4cea-81f7-9d99f6eaad1f">
+                    <propertyInstance
+                      Id="b1f1cb19-9a3a-4888-a71b-b67459ac6b82"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="580f7013-023f-4cfe-819d-6b0f0512037d">
+                    <propertyInstance
+                      Id="425c972e-727a-43c1-96ec-dcbd97f3191a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0fd5f43-dc68-423b-a571-c1e3d6df22a0">
+                    <propertyInstance
+                      Id="80b4849d-8a69-4619-8abd-b8a0074e8794"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8248a471-8c98-4c8e-8061-339613b31538">
+                    <propertyInstance
+                      Id="d076fb51-a6cb-43dc-bd3e-9ee3a2240be5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54b1bf85-6852-4ca1-bb68-8ef3e7b290b1">
+                    <propertyInstance
+                      Id="42cb091a-76a5-4a45-bf2e-baef06c04954"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d61097b7-989c-43ec-a775-2f967735cafe">
+                    <propertyInstance
+                      Id="f5b791d0-95ee-4d91-9d2f-b4c173ed9eae"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6cfd9845-4593-4b50-8ff2-b9b678ca7ab4"
+        name="FileSenderServer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="42b3d865-6011-40f6-917a-4b79c13c796d"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3b423e56-45bb-4ed1-bb37-81534bb56c52"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cf7d6031-77b7-48d8-8eaf-9a5774f3b860">
+                <propertyInstance
+                  Id="a0d2da16-8dd9-4abc-95cf-01dfea3c0a04"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="08050457-5a0c-47e8-9708-7c418d2bfa1c">
+                <propertyInstance
+                  Id="07b8b432-f8a8-41dd-9204-31faa1f76316"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8251ef27-13be-46c5-bd95-a1bf84bd4c7f">
+                <propertyInstance
+                  Id="fadd4692-801f-4485-97fd-149035882de4"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d7fbb1f2-a4bc-4aed-8c43-638e4c26728e">
+                <propertyInstance
+                  Id="de1f8258-8de7-403c-8d7a-2126ef72b94c"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b48e2326-1f59-4565-a0d2-dc70667c65a8">
+                <propertyInstance
+                  Id="8ca732bd-003e-457a-89bb-1cb39b9a5870"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="b474a9c1-bf77-4bee-8a9e-233016477b5e">
+            <interfaceMoniker
+              Id="5dca47e8-9de1-4024-9d10-d2e02f7ad16d"
+              LastKnownName="IDisposable"
+              LastKnownLocation="Package1_1712.uml" />
+          </interfaceRealization>
+          <dependency
+            Id="be72faa6-649b-4123-b0d5-ab67bd229eee">
+            <classMoniker
+              Id="9056d12a-a265-4b55-ab2c-f657b2d36531"
+              LastKnownName="LIB"
+              LastKnownLocation="Package1_1009.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="39255b8e-5e82-424e-bddc-ecb626138a56"
+            isSubstitutable="false">
+            <classMoniker
+              Id="db781d69-fe9e-4c1b-920e-34b0adc36b60"
+              LastKnownName="AbstractFileSenderServer"
+              LastKnownLocation="Package_1009.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="27cac61d-3eb6-4ed8-a944-60deb90d8e34"
+            isDerived="false"
+            sourceEndRoleName="FileSenderServer"
+            targetEndRoleName="_IP"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f764f2e5-5bff-4e7f-8fd7-ef5ea7cd0b31"
+              LastKnownName="IPAddress"
+              LastKnownLocation="Package_1713.uml" />
+            <description>Property _IP references type IPAddress.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2700c8f3-2b0b-473c-b1c4-6dbc44a6d14a"
+                  name="FileSenderServer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="915b1615-ac3d-4f45-95b4-ee2a1079be07"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0aa992fc-137c-44b8-82b0-8aa708c8629f"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6262184d-a67e-4aff-959b-642cdeb39eb9"
+                  name="_IP"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3b88d124-7f99-4867-9d87-1e5589d3dc26"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6ca2796d-5e27-489a-85f2-403923e9a494"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="428a9e55-01c9-4e6e-b264-888919d0e94c"
+            isDerived="false"
+            sourceEndRoleName="FileSenderServer"
+            targetEndRoleName="_serverSocket"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3bacf19d-8e62-4eac-9e25-6f16c0d83a5f"
+              LastKnownName="TcpListener"
+              LastKnownLocation="Package1_1713.uml" />
+            <description>Property _serverSocket references type TcpListener.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="083104b9-3bf6-46e6-9154-bf37583f7658"
+                  name="FileSenderServer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="9a4f83b8-c93a-4a17-8fd9-e761470517ca"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7a5b39bf-9e83-4119-8e32-0678f3fcb667"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="be384f08-1b91-412e-b709-ae25992eeb9d"
+                  name="_serverSocket"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4596d37d-998a-4428-b1f6-92e096f62e23"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="94433e84-a61d-41ab-a7c9-4a326bd378d7"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6a09be88-bac1-4fd3-8bd0-c35f080ceeb3"
+            isDerived="false"
+            sourceEndRoleName="FileSenderServer"
+            targetEndRoleName="_clientSocket"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="675f4cd7-5e35-46d0-8e4e-1368928790f9"
+              LastKnownName="TcpClient"
+              LastKnownLocation="Package1_1713.uml" />
+            <description>Property _clientSocket references type TcpClient.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0eb70fae-928c-40ca-b22b-294fb817e363"
+                  name="FileSenderServer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="47c6efac-35bd-4584-806d-b5ee0c111373"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a0b296dd-a5fb-4113-a177-1eac28f1448d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e029ec5b-663b-4c45-80fe-41b8fbc71936"
+                  name="_clientSocket"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="037d5c84-b904-43d5-a93f-ff2b7c0cc283"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="665a0d46-50c3-4fba-b7cb-0b808485b081"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="992abebc-55ab-4870-921b-e64ff0217cac"
+            isDerived="false"
+            sourceEndRoleName="FileSenderServer"
+            targetEndRoleName="_serverStream"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="577d6c68-74d9-42fb-951e-f1ed977b7891"
+              LastKnownName="NetworkStream"
+              LastKnownLocation="Package1_1713.uml" />
+            <description>Property _serverStream references type NetworkStream.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="633487a4-72b1-4c45-a08c-aa99aaa74ff1"
+                  name="FileSenderServer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e73913c8-ddfd-4548-bf47-18ad367fbfa0"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="637fac00-1264-43e4-9b4e-324e481f01e3"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c4f4757c-ba2d-4fd2-aadc-19b5006e1662"
+                  name="_serverStream"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="65ca1893-5aae-4206-89e3-6ab01aada43d"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="5f3a96c5-ded5-42b3-8942-fccdc357552f"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="c40ae6d9-3655-42ee-9ccb-f2c3d129780b"
+            name="_IP"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="81deeb48-80a1-42f2-b230-e86fcd6f4172"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D_IP"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e62d61df-07e5-48c0-8924-bd0a8812f9d7"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3c1e02f-8ece-4626-b756-d164aaa84f4e">
+                    <propertyInstance
+                      Id="31a30a98-d7e3-45d6-8d89-5072a76bc16f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c29372b6-77fa-423e-8d30-f414ee4298c9">
+                    <propertyInstance
+                      Id="9c87ce4c-a780-46e4-8d9c-a611035d2ca2"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="171b28a3-51c8-430f-8196-503d78578f0d">
+                    <propertyInstance
+                      Id="44450419-931e-4e5a-b102-01ac2b518890"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b6787a42-22bc-4a1b-85d3-1536831cf982">
+                    <propertyInstance
+                      Id="00cab78a-b8b8-4aff-b393-ffd0626c27a7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="287135da-72e0-4a62-a9bf-347e341f34d0">
+                    <propertyInstance
+                      Id="12dd322c-b751-43cc-9d36-17c57ba6a2c1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ffee7a0-5b65-490e-94e3-2d06ad9d1707">
+                    <propertyInstance
+                      Id="42e59bce-51bd-4753-9bb8-5ca411ef6ac8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1c7dbe8-6ada-4b46-bc63-c5bdeb77be07">
+                    <propertyInstance
+                      Id="e00a50c5-127e-4d72-98bc-f66c3747197e"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="f764f2e5-5bff-4e7f-8fd7-ef5ea7cd0b31"
+                LastKnownName="IPAddress"
+                LastKnownLocation="Package_1713.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7bff35f6-a923-432b-994f-e1a3719c0b47"
+            name="_serverSocket"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="694635a7-3b48-4375-9a84-a1fe05e89998"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D_serverSocket"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2a44b9dd-3792-4501-856e-e3e7a389ae40"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="faeec4f0-ae26-4fce-8276-85a023e8ad82">
+                    <propertyInstance
+                      Id="c25f5c44-6c7b-470f-8c62-ad2e55c27a1c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="942a19f2-09e3-4db5-bf80-ae90acf4b351">
+                    <propertyInstance
+                      Id="18a0deb9-91ff-4dc3-8a78-99718249c915"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81ae11f7-1453-4792-a6f2-ac824633b73f">
+                    <propertyInstance
+                      Id="ccc55a35-8cb9-40da-83d8-fe41f6bfe914"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="58d44c66-077a-42bc-9750-5da60f0869b8">
+                    <propertyInstance
+                      Id="dff0a123-16fa-4380-bbb8-6b8ef1f06042"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="549ed035-fbef-44d5-b4a2-01620e31dec4">
+                    <propertyInstance
+                      Id="3d2b73be-6913-42f7-bfeb-01bfd58fb49a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4bb3041-91eb-423e-9cea-eb279834fe12">
+                    <propertyInstance
+                      Id="6599f01c-7f39-4bae-a52d-42ec0f36e6f9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c09992d9-b752-4672-88ed-5d04e24117d2">
+                    <propertyInstance
+                      Id="f04ef254-94e8-49d0-a78e-3484f784106f"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="3bacf19d-8e62-4eac-9e25-6f16c0d83a5f"
+                LastKnownName="TcpListener"
+                LastKnownLocation="Package1_1713.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2aeca864-e28e-4784-b4a5-6868555a0107"
+            name="_clientSocket"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="444dc0fa-db59-45e5-a2c0-d2b23fded685"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D_clientSocket"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ef7cb7c2-bdd0-44c6-b3c3-770f27acdfd5"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc717a99-fde4-4238-aa51-81ba49efb1a1">
+                    <propertyInstance
+                      Id="5bfea915-9323-4705-8e3a-0274afbee108"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c22dd567-de11-4c3d-8a88-0d021cbfc1a2">
+                    <propertyInstance
+                      Id="cf2ba4bd-8d35-45b5-96ac-83432e5afca5"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="611011bd-0f6a-4d2a-9796-2eec56bf230a">
+                    <propertyInstance
+                      Id="5926c118-fd67-470e-b0c8-55fbf3345189"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d186779a-49a9-49c2-842c-91bebb8dd5b6">
+                    <propertyInstance
+                      Id="6d89dd07-9603-481b-8f95-79d1c079efb3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="844386da-5479-4a3b-af37-004b2e0c7990">
+                    <propertyInstance
+                      Id="cc6620b1-deca-4a5a-86a4-1eb0f0c9c872"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="16823c3f-1dcb-4d0d-9564-7dc51f871160">
+                    <propertyInstance
+                      Id="c4050f8e-521d-4e17-a604-71abfbb7da80"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93a3d060-502b-4012-8a56-41d067f36d48">
+                    <propertyInstance
+                      Id="fbcc99e7-a36a-480c-bc1d-20e8dfcbfabe"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="675f4cd7-5e35-46d0-8e4e-1368928790f9"
+                LastKnownName="TcpClient"
+                LastKnownLocation="Package1_1713.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="613d124a-5423-4eb4-a987-ff6c8d8ef5a1"
+            name="_serverStream"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b6f20e8e-920a-46eb-b6fe-cc031e8a5105"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D_serverStream"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="24d3661e-9fce-4d62-9c6f-9ed3415e7bd5"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7dcf4f6-9f9a-48c2-b54e-b1294e030f69">
+                    <propertyInstance
+                      Id="3d6ff384-564e-4380-8fb1-9b53d8aa6ef8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08a07ad3-e167-4efb-a083-91acc7bcb17c">
+                    <propertyInstance
+                      Id="0467df1d-1427-49a6-b3f8-dd3384427679"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f830247-e046-4db2-96a3-1a5cea77d726">
+                    <propertyInstance
+                      Id="55016dab-6a77-4791-92ee-15c01d3c95ef"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3402bb21-aed4-4fcb-954e-0cd85d7e81db">
+                    <propertyInstance
+                      Id="820013a2-8d74-422d-974c-899fe90b5f7a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2743d31a-456a-47b2-b1b6-295db4699e83">
+                    <propertyInstance
+                      Id="2d0baec5-a357-4c59-9371-3c46528e42b4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45b6f1cf-fee8-4b86-aa1c-bca761657b1b">
+                    <propertyInstance
+                      Id="9feefaab-7df4-407a-9f09-934ced223e28"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06a74e0e-ca97-4ef8-a07e-864fdd8c3246">
+                    <propertyInstance
+                      Id="e2819a3e-49e6-4237-925e-d7acbeaa9c23"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="577d6c68-74d9-42fb-951e-f1ed977b7891"
+                LastKnownName="NetworkStream"
+                LastKnownLocation="Package1_1713.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="069a02a2-cdbb-4e3a-b1e4-2e330d372e02"
+            name="_fileName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9ade0a28-128f-49b3-a136-06460ef06f94"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D_fileName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="eeaf577b-4573-4ec9-8c00-60538604d482"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a69eeec1-b0af-429b-88f9-8cd621b8b30c">
+                    <propertyInstance
+                      Id="39846fd9-5047-42c3-8f64-d82b5574fb0e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a6713ebe-6af3-43c7-964c-d359a454b9de">
+                    <propertyInstance
+                      Id="f8f0d00a-e759-4bab-ab12-5dff71718cc9"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34cc8662-7ea6-407a-9a43-b594c872a6c1">
+                    <propertyInstance
+                      Id="2d00e6ab-b23b-4231-9d81-f53d29daa80f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c2a965ec-f203-4099-92dc-f875da5cea1f">
+                    <propertyInstance
+                      Id="f1a3b807-e051-464c-9f35-8bfb927d5c26"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7248f629-22b1-464b-9dba-2bb4482045c1">
+                    <propertyInstance
+                      Id="e587f97a-9cfa-4600-a817-d36d090ff456"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3a8a421-3fa2-4538-ab6e-4f9c1c92b783">
+                    <propertyInstance
+                      Id="d912e118-a6ae-4a82-a8c9-a2ffe25605b2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e97b6a8-6aea-47c3-9917-4cb504789e34">
+                    <propertyInstance
+                      Id="7928b8a5-13e4-41cc-8293-d3e9a66136f1"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Diagrams.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="511c2bc8-f2af-45f6-9a59-3c282294b2d8"
+            name="_fileSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fff52abc-893f-44d7-a1b8-2f5269338f1f"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D_fileSize"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b6cf4a76-ce53-4c6e-b4bf-30df087fec56"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85c44620-ae24-44cc-aa57-b5a078065dcd">
+                    <propertyInstance
+                      Id="d98e2d01-5790-4b16-99e3-75a956349cb7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="52915128-be42-43c7-91ee-4821702e1040">
+                    <propertyInstance
+                      Id="02243e1f-6511-415e-856a-56be4c64f3db"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="82030ae9-ed89-41af-aff4-4641807b9ff9">
+                    <propertyInstance
+                      Id="24a02ffb-96e9-4724-ad82-a72f7e1ec4c4"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fff6d7b6-b647-40c3-9084-d5b79fa8a1e4">
+                    <propertyInstance
+                      Id="0a9cdbe0-8fd9-41a9-9954-0fb5ac75dbae"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7530adf0-dd6f-4e52-b7f8-6e469c8101d3">
+                    <propertyInstance
+                      Id="0a58240e-1b04-4656-8e8b-4c4546a2cd23"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1aa386b3-f038-4196-81f6-16a1652d8337">
+                    <propertyInstance
+                      Id="989804c5-c8d3-4cc0-8616-ab87ff174612"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06337cf8-dcf0-412d-8318-916de8e29a33">
+                    <propertyInstance
+                      Id="6a8acb84-d3a3-4bd3-9885-e3accc8563fd"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Diagrams.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="08955992-78d1-430a-b35f-2da0aa59d003"
+            name="PORT"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="dac72d1f-a0b9-48b5-84ce-76f747cf2342"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DPORT"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="56faec42-35e9-4493-94ea-ee2e694fe22c"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9c18cc8a-1079-488b-86d3-a022a27a8909">
+                    <propertyInstance
+                      Id="dab01b2c-3221-44a6-932d-bfaab9f8c71b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="598ecf46-48d2-4b4e-9ec8-57de6e36c58a">
+                    <propertyInstance
+                      Id="c16519ca-e6ed-48d0-a600-39abe7d146df"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21f8b3e7-83fb-4752-aa13-05a308df3de3">
+                    <propertyInstance
+                      Id="98b3c6aa-0c8d-4eec-b085-fab908943273"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="075d328b-5365-4171-97ca-2ccfa5eb2f98">
+                    <propertyInstance
+                      Id="52a807bf-5c31-46dc-bfd0-cbb1e90fb335"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="744f751c-3f42-499e-a7d6-39f801ad2f32">
+                    <propertyInstance
+                      Id="b4b3e93a-b6d4-4a42-a506-2fec97e05433"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="4d19e920-8daf-4158-a86c-337ec1e962ea"
+            name="BUFSIZE"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ae748da5-668d-4695-9b01-759813ba120d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DBUFSIZE"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="76b205e4-979f-4c5f-af75-af9e5540e950"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9143f144-f432-4e9c-a129-b771f8829cf7">
+                    <propertyInstance
+                      Id="8ca69536-9490-414c-8c03-152c6b0e0a32"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="187ee426-2399-4b01-b821-4254670bb54a">
+                    <propertyInstance
+                      Id="ac533cb2-e445-4696-b249-4e278c33b85d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a28df393-223f-4099-935f-081565bf2dbb">
+                    <propertyInstance
+                      Id="5d164dd7-32e7-4266-a9f4-b6a018543056"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="84908287-2efb-4639-ba4c-766b4c7f776e">
+                    <propertyInstance
+                      Id="ca738c04-1baa-4d7a-856f-75ce1bad4dc7"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="981bbfcf-47f8-4b7d-bde4-85f62172b852">
+                    <propertyInstance
+                      Id="2c8270ee-7817-4b73-a365-ca2eda4d85c2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="0dd4185a-1d70-412a-bd26-955790501fef"
+            name="FileSenderServer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9350c986-d0e8-44fd-822b-2b197fc77594"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="29453ae1-696c-4519-af1b-def58fd6a91e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="39dd78bb-8c98-4fc7-8d9b-e4ac6af8d44b">
+                    <propertyInstance
+                      Id="293ea367-8ba0-438c-8059-8bb1d3d5d9b0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9cd60dd-91ad-478d-8be7-7ea0588f9849">
+                    <propertyInstance
+                      Id="75022361-89f8-46a2-b6fc-d80f40166aa8"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf021aeb-3a3a-4b64-9953-614952b4ffc8">
+                    <propertyInstance
+                      Id="5c4e144c-21e3-4cae-929b-f582d2f5da76"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="925c2499-2542-4500-8c82-150e7ef1ca4e">
+                    <propertyInstance
+                      Id="6046112e-1c19-4850-945a-ef79ff1051c8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c713cfd9-7329-47f8-8a01-811415db3aed">
+                    <propertyInstance
+                      Id="1310a3a3-0259-433d-94af-4b02878cac60"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="40a0ee4a-67ce-44bb-94a2-ef9243adc22c">
+                    <propertyInstance
+                      Id="8e440fdb-8f7a-46ea-8ddb-76e797d5b8bb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="048ce754-40a9-4e22-a8c3-06ccbbf5c5ae"
+            name="LocalIpAddress"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3dabe4dd-8763-403d-905a-fd8f7338edbd"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DLocalIpAddress"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fa35ee42-9a70-4afa-9da9-0fad77cff613"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a413dc36-662d-44a9-a90c-eae23e84f8b6">
+                    <propertyInstance
+                      Id="9acaa60f-3826-4f8c-9cda-84269dbdf16f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78042b4c-59d6-42cf-8d56-bfe774fec92d">
+                    <propertyInstance
+                      Id="ac3ba476-cbc0-4505-8076-03a67b708dc4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c48ba6c-faf7-484f-8968-624f7bf903e5">
+                    <propertyInstance
+                      Id="1663b5f5-ccfd-43eb-a871-5fc2c62e3f8d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af5ab66a-48cd-4132-9242-ce3f485fc0f7">
+                    <propertyInstance
+                      Id="0794b49f-d2f0-4b95-8a13-f1877db943bf"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bbbc574-5485-4129-8055-39296dd9063a">
+                    <propertyInstance
+                      Id="655aadfd-10a7-4b62-8547-b76a222caaaa"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="abd99ec3-68ff-4a55-a88c-fba7a97ea539">
+                    <propertyInstance
+                      Id="2ded37c1-01eb-4a49-999e-160b5cc1a26b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ca1c86e1-c0d0-4968-9958-ea02501c32fb"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="16dd3d31-8334-4d97-a418-1cb4f851d7cf"
+            name="SetUp"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9c256fd0-2d62-4712-b83e-d9b3fee76f66"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DSetUp"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="49938d18-1e02-4874-b624-b4cbc9abc163"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e8abf91-ec1a-483f-9445-4895377c215e">
+                    <propertyInstance
+                      Id="e0fd431c-09b6-4c8b-a852-57193da26947"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c57b581b-cea4-464b-9070-af7b4fa86e67">
+                    <propertyInstance
+                      Id="f586e6a0-2e2c-4432-a545-fc0eda0c9a50"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ab29859-36ff-42db-9fbd-6a42f18ab67a">
+                    <propertyInstance
+                      Id="bfab6c10-9fb3-4cfd-9f84-b14ffef8c363"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e845a3f4-1773-478e-affd-c29c8c49e684">
+                    <propertyInstance
+                      Id="6c5267bb-78ea-408b-952a-1910e935796f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="de40587a-344d-4fa9-a0ab-002228c66851">
+                    <propertyInstance
+                      Id="1a7005d3-b555-430a-a589-b88db12185c1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb1750c3-d691-4eab-9587-fc0495260f1a">
+                    <propertyInstance
+                      Id="284e318a-3cdc-4c6f-881b-13aee83456ba"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="8392508e-ae5a-4318-a716-019276add061"
+            name="ReadFileName"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0663146e-62b6-420f-8acc-866859e2c22c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DReadFileName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a53da101-b6e4-4e44-805f-82c606ff68af"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f975e44d-9553-4c78-a856-56a14731be74">
+                    <propertyInstance
+                      Id="3a6f0aba-23e6-4277-81c1-eef01ec37748"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19d42c4e-035f-4ed3-9723-2aac8939c1fa">
+                    <propertyInstance
+                      Id="4bfbdf80-b2e3-48da-a4ff-ad53ffbfd4ec"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b802cd6-b94b-447e-a62c-21a4eb4da2ac">
+                    <propertyInstance
+                      Id="1b0337b4-9494-4da0-be98-3de8ac6d2535"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb11eae7-7fa8-49bd-af1f-9a1d21728f72">
+                    <propertyInstance
+                      Id="7667c2e6-a602-482b-a431-2a0608edaaa3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7cf01538-eead-46f9-acb1-6de4432f9e45">
+                    <propertyInstance
+                      Id="b78b17a0-397f-4580-897f-b06da44a403c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac09fd19-024c-4ae6-b775-7ed014c34a4f">
+                    <propertyInstance
+                      Id="934e3eb3-7e71-48fd-95f8-8c59a829e1db"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="16289e36-0f2d-402c-9ed6-a48f808deadf"
+            name="ReadFileSize"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="79250ab4-653a-46e6-9d69-59632d37dd19"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DReadFileSize"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3b74cdcb-4cfb-4f63-8c46-a3402732add1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a2a1ca7-82ae-407d-914b-b3d1987507b1">
+                    <propertyInstance
+                      Id="d3595211-c0ba-40c5-bd10-6b067c63d4cf"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61bde2cc-326a-49fd-8b54-1e06bb2f4e5d">
+                    <propertyInstance
+                      Id="ca00b3f2-8a91-4af0-a4b3-1abbcfde6f2a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98210f74-c845-440e-8f58-f444240fb4ef">
+                    <propertyInstance
+                      Id="42487faa-2e00-4694-81d8-3e47a5441bde"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90ee1fa9-6dac-4ea3-b389-6637c4d8487e">
+                    <propertyInstance
+                      Id="2cdfc339-5d34-47e5-89e4-377a5d2945a5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="552e3447-e40d-491d-82d9-19a7be4704ed">
+                    <propertyInstance
+                      Id="5c33fe04-34bf-46b8-9bcc-6b74298c8ae4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f11ccb5-f4de-44a6-a370-658fa131d713">
+                    <propertyInstance
+                      Id="0d93b445-ab31-4452-9e93-e226b898dc7f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="e44752aa-a5c6-4a8c-a49a-84918c42bf2b"
+            name="ReceiveFile"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="26e9f03e-a1c1-4120-94c4-49edce11899d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D(Name%3DReceiveFile OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f855bae5-0a40-410e-a251-934b5f50b2fe"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e75d5635-a06b-40f9-a8c3-3258c4538cd8">
+                    <propertyInstance
+                      Id="1ca3fcc4-6bd8-49a8-84f5-63b82f8c5f36"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fe8cc314-499e-4b03-b6bd-71d9d00a273f">
+                    <propertyInstance
+                      Id="b0a65a29-43f9-457e-a304-56fc780e6235"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d0eefc1-8ba5-4240-8aa1-f925f382642b">
+                    <propertyInstance
+                      Id="79e0b479-7638-4284-80d6-c21fea3b30dd"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d857c30f-34fc-4795-8318-8d41b2177108">
+                    <propertyInstance
+                      Id="1feac975-9c63-41d6-9543-3c9e86f6eda6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8af56431-1e8f-452f-8bed-a76b42855281">
+                    <propertyInstance
+                      Id="5010cfe5-9013-403a-9e70-d2ae64febc30"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d35a8342-4727-4a40-988d-ea43da676eb9">
+                    <propertyInstance
+                      Id="19f4b56e-c277-4a53-bfc2-e7ff2d3b511e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2af7d45c-1077-4be3-a262-857b9d3f5059"
+                  name="fileName"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="dcf6504b-eb28-4b60-af65-4924de0999f1"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D(Name%3DReceiveFile OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)]) ParameterIdentifier%3DfileName"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0ec8e769-85f4-4291-95df-cd506fc737dd"
+                  name="io"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="edc15433-c347-44d6-bc81-97c743ea64d2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3D(Name%3DReceiveFile OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)]) ParameterIdentifier%3Dio"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="577d6c68-74d9-42fb-951e-f1ed977b7891"
+                      LastKnownName="NetworkStream"
+                      LastKnownLocation="Package1_1713.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d3914d2d-29cb-4cb4-b01b-d2b8eef8140f"
+            name="CloseSocketConnection"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1d81cece-ef00-46c1-a800-7b5d2d0a6bdd"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DCloseSocketConnection"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="083390d7-7744-4393-a416-bda048adb4b9"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd497222-ecbb-40e8-b3ca-cd6af8e91630">
+                    <propertyInstance
+                      Id="679c8767-ac62-4478-9da6-03960bc32000"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="859992ba-2df1-41c6-a020-71366bb173ef">
+                    <propertyInstance
+                      Id="aad1945c-d24e-4bd2-b69c-24c36ea96ebb"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61095622-bdae-44e1-87ac-387be0a52048">
+                    <propertyInstance
+                      Id="c51b6a3c-0874-4ce7-bd9c-faf132f05e29"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66e724fe-60f3-4d22-ad7a-95893340531d">
+                    <propertyInstance
+                      Id="997dd9ac-0fdf-4706-b231-a5eb64971345"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0bcb213-492c-41d9-9916-9872c54ed554">
+                    <propertyInstance
+                      Id="511d2f2c-adba-4102-912e-12f538efb5d9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="762d897c-ab85-4530-9afd-7f2873133a2d">
+                    <propertyInstance
+                      Id="38fe0c4c-321c-4bfa-81cb-ce84f49957d0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="0ce6ec4c-30ae-4088-9710-9325e54cc2f3"
+            name="Dispose"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="dd730c84-fdcc-46de-bddf-3b09f66d525f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DDispose"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="602ef1ce-1fb0-4869-8077-a025cbbd28a9"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="26528b7c-e05b-48d6-9e22-7b052f6da93e">
+                    <propertyInstance
+                      Id="27a243f6-ccd3-4f71-abb0-7f2fd10f095f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01be9939-4372-411f-8be8-34b5391577df">
+                    <propertyInstance
+                      Id="60d4df1d-2488-45ed-b310-55561797d390"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56d42cc0-9a82-4a4e-82bf-acdcae57b54d">
+                    <propertyInstance
+                      Id="37722a65-e699-49a4-9bde-b724ece805fd"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="46016f68-bab9-4dc4-abce-b102417d2239">
+                    <propertyInstance
+                      Id="2909a116-c71c-4beb-b1b3-4fc4678398a1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54b05afb-ad00-4214-a8c7-c884078812c2">
+                    <propertyInstance
+                      Id="8ebe3eb7-b9ca-48bf-86a1-04a508136316"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="041d5309-e591-4cdc-ab62-6e84713515dc">
+                    <propertyInstance
+                      Id="4a17de96-49b9-415a-ad68-f40c2fd158e8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="b97ecdf4-60a1-4196-aacd-54ec826eecfa"
+            name="Run"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1f5872f5-6bb9-4b12-b349-ec73410f998d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DFileSenderServer Member%3DRun"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="766c1019-afcf-45ca-b2ce-d61ed8af9366"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2285d34-26e2-4e23-8a40-cf4beb58a411">
+                    <propertyInstance
+                      Id="6ab1be0b-474c-42a9-809c-60037394056f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79fae00b-7136-4587-b304-6d494d3e9275">
+                    <propertyInstance
+                      Id="17fb039c-fb94-445f-a445-fac500de587c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d6bb47f-670b-4cd1-b78c-c05adbf99928">
+                    <propertyInstance
+                      Id="4fdb38d1-fe2b-4a9b-b83b-8b4681ae975a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="746eaabe-d596-4582-926f-e5c1acedc8e7">
+                    <propertyInstance
+                      Id="419cd8f6-cf86-4470-8aee-ab81f48a240a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d199f670-bcce-408a-a595-1e7afde1b166">
+                    <propertyInstance
+                      Id="c9765798-0a02-4488-b601-83e6ffe260c1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23dd4386-951e-4d66-92fe-955711b6f7e4">
+                    <propertyInstance
+                      Id="5e59551e-579a-4ba5-b792-466333061980"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9056d12a-a265-4b55-ab2c-f657b2d36531"
+        name="LIB"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="dd2f832a-fa18-4688-9880-f56d398df66b"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c7da49d9-8bf7-47b7-b2dd-70faf619cd72"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3b6e5cec-d09f-4acc-8fc6-4f4668c7fad7">
+                <propertyInstance
+                  Id="841c509e-b58c-4027-b9d2-0767f1f188a4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e2fb9ceb-fd71-40e3-bfb9-65200863cba0">
+                <propertyInstance
+                  Id="13fed499-4a53-40db-b67e-fb0f911ed397"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9f08795f-893a-48f3-a321-512563705f9f">
+                <propertyInstance
+                  Id="6bef9f02-f1a2-4461-bb23-fd2b5e26fd81"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b39a6699-277e-48c4-9b3f-6b286de58d6e">
+                <propertyInstance
+                  Id="8c731b1a-92c0-46b1-8796-d7d2312f37e7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="60db8240-f8e7-46a6-b262-85171a4f7457">
+                <propertyInstance
+                  Id="7ecdcf63-a8ec-4480-895b-b915998e06ce"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1c17a596-b96f-4e67-bb2b-fe143f67564d"
+            name="LIB"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d5def0d6-f944-4257-9264-dc4c6573fd6e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1fdbb8ec-b3b3-465e-9d7b-0ccc34dc7e70"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04d1140a-4594-44f5-b209-b877ce81e4ab">
+                    <propertyInstance
+                      Id="04ca124f-3b37-4821-8551-22c6213c9799"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5078e60-4956-4bc4-99bf-ffa48c87a79b">
+                    <propertyInstance
+                      Id="f08a11cd-84a7-4131-8518-8a8dc3a75d96"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4dcccaea-9788-4d97-b565-4c1a689917c8">
+                    <propertyInstance
+                      Id="e42285ea-e450-4ff5-b192-f4d1fb58876c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="642a8d3a-5fd4-4d7f-a30b-dab453e6db92">
+                    <propertyInstance
+                      Id="a446d103-13a3-44e3-b570-b5b444f9d3a1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb3c4b60-e5fd-48d1-b828-6d9a7eadcd00">
+                    <propertyInstance
+                      Id="ed5ffe30-1f91-4c61-b244-75000054a46e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="99aac1f2-ad53-4bef-8f3d-383cda7bb8a1">
+                    <propertyInstance
+                      Id="c6c15dd7-b8a0-4d01-ba9c-0a1d53b41b22"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="0723832a-07d4-4880-be96-fa82cfac6f49"
+            name="extractFileName"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="df9b4abf-8563-4f54-91da-dc9680e81e2e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DextractFileName OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4113a528-30a0-49a6-b360-8c89574b6a84"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd273893-281a-412d-84dd-39ed4970fad3">
+                    <propertyInstance
+                      Id="77e510f0-310b-4153-a40f-5889d2d6432e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="92bf636e-cbb1-40cf-82ad-14105c641e29">
+                    <propertyInstance
+                      Id="393ac0e4-257a-421b-99bc-a70ce2fa33df"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e395ed7e-1921-465d-82b2-9483dd6ef006">
+                    <propertyInstance
+                      Id="c668e840-fcc4-45c2-a0a7-bf964c73ad56"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32f779ba-44e6-49db-9619-d3879f5c3c6f">
+                    <propertyInstance
+                      Id="c832787e-7b1f-44f3-a5dd-48874704ab1b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3b81144b-8d25-458c-8974-d2d3e4c695d4">
+                    <propertyInstance
+                      Id="ad124cc5-982f-49db-a193-ae0b6d9dffa0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="779125fa-a81f-474a-a879-6a43b1363fcd">
+                    <propertyInstance
+                      Id="206496cd-6864-4594-86da-e22be7edad2a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7233fd55-7d70-4f8b-87f1-1f664574d25c"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1447b1ef-e45b-45f5-be89-9e29aef76ff9"
+                  name="fileName"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1869c223-0ea5-4395-9c28-46e444e593c9"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DextractFileName OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DfileName"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="37a9036a-9607-43a3-88b6-bf4f71863801"
+            name="readTextTCP"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="93c35d2e-5229-416d-8c49-e5e0a6d10b49"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DreadTextTCP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b026230a-975c-4c48-92c5-be938515f51e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="906a4ac1-dfd3-4715-9ea9-1c7ecfa94bba">
+                    <propertyInstance
+                      Id="9ec2de9b-76f1-48c8-942b-39cfd4590ee7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="848984a6-0f33-4de7-8b3a-41a05bfe3921">
+                    <propertyInstance
+                      Id="e2a0efab-a7e9-4329-a636-9ac7aa3680fb"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6805ce22-7d87-4907-9b57-4f6e6e7fe5a6">
+                    <propertyInstance
+                      Id="2873eb61-7e71-4ec7-b24d-4a62f760ed0e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ac4f264-a618-448b-9a25-01918b7f3b90">
+                    <propertyInstance
+                      Id="24e0c7e4-920f-4d06-b41c-2f230ecf53cb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91c202c7-e077-44fa-83f4-7bd0905b8840">
+                    <propertyInstance
+                      Id="844bd11d-7907-4bab-bb4b-c832f93c0320"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75487dac-d04d-4699-bbc4-76047468c8be">
+                    <propertyInstance
+                      Id="5cae9edb-a511-4e19-9c0c-36865037b0d0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3d23cb8d-a1bc-4161-b3ce-2c36fec0e0e9"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="869fb46b-8d32-4eae-918e-d6671b2e5520"
+                  name="io"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="178fcc87-a716-489f-aec2-76c3b04cd416"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DreadTextTCP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)]) ParameterIdentifier%3Dio"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="577d6c68-74d9-42fb-951e-f1ed977b7891"
+                      LastKnownName="NetworkStream"
+                      LastKnownLocation="Package1_1713.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f5052845-934f-450d-bf72-9c137f0e8629"
+            name="writeTextTCP"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d1995db8-6865-44c3-b53e-ef6b89d92e50"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DwriteTextTCP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7a63b491-0ac9-4c11-aeda-b14ac93595d3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e21f5af0-ef52-4495-9e9e-8e03b4350874">
+                    <propertyInstance
+                      Id="c4d74740-9aa4-494f-9307-22e2b39bbf69"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7450ef0f-903b-4146-8488-fff0e46569a0">
+                    <propertyInstance
+                      Id="8bacabf5-26c4-48c9-95c4-0ce02ebad377"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="779bfa9d-0059-4118-8d65-9363bca754d7">
+                    <propertyInstance
+                      Id="4af84074-32ad-4da4-bc49-edfd377bd651"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd4aced7-0430-4211-9a4f-169365be6616">
+                    <propertyInstance
+                      Id="9b559d5a-3fe5-481a-b808-db77fe253496"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="63c4cc35-0cb8-474c-a56d-c42b6823b1e1">
+                    <propertyInstance
+                      Id="8d2e415c-43b0-482c-a351-4fce9142e169"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6eeb2e36-4e82-41bf-8674-4a9c49c88cc8">
+                    <propertyInstance
+                      Id="efcc9532-2c46-4d6c-a9c5-6faa73333d0a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6a4481e5-f3f6-4a4f-8d4c-0c6f569ad9aa"
+                  name="outToServer"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ff0ad8c1-67f7-4c70-9a63-f54becfdda13"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DwriteTextTCP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DoutToServer"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="577d6c68-74d9-42fb-951e-f1ed977b7891"
+                      LastKnownName="NetworkStream"
+                      LastKnownLocation="Package1_1713.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c5973e4c-2bea-4106-bdfc-80359a656f00"
+                  name="line"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="afb5eefa-1fe8-43ef-988b-e6b5f2fb4fa2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DwriteTextTCP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dline"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e86cd84d-9596-4ac9-b885-1ed8dadf3ece"
+            name="getFileSizeTCP"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8a0d4921-a4e3-4ca5-b27c-2764b352a1e4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DgetFileSizeTCP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cae18068-abac-4766-b627-d9bfec1e4c92"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5f4fdea3-dc6c-4f29-975b-9e05b18c9e1b">
+                    <propertyInstance
+                      Id="746ab20a-8872-4d04-971c-2785c2454e4f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ec88dfab-a656-4b51-b3cf-dd39982dfdf4">
+                    <propertyInstance
+                      Id="c9713dcf-843b-4ee6-a19c-485e04fc16e7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5f33dbca-972d-4a58-b982-db6de8edb223">
+                    <propertyInstance
+                      Id="5883e961-ea18-4639-a1b1-9ed8e6c0af2f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="898f0869-ba49-4283-b279-9716f5692e7c">
+                    <propertyInstance
+                      Id="144ebb0b-b758-41a1-b11a-746b27087d5b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7f2a928e-0c7c-4683-975b-9c9af3122a8c">
+                    <propertyInstance
+                      Id="890cc894-c89c-42e6-a42b-4cade5c83196"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b5c492bd-49b1-4839-96d8-646cb22a6385">
+                    <propertyInstance
+                      Id="b39ab913-0d5c-4aa1-8376-5402f84f70c0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="81e4726b-8d8f-459b-a7df-4f88e97c8207"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="c53eafeb-2e7c-4562-8bed-7c464436a753"
+                      LastKnownName="Int64"
+                      LastKnownLocation="Package1_1712.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="49e1da12-c3b8-443b-9295-ed56faffb636"
+                  name="inFromServer"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="3bb1f962-eadb-45ab-8bb8-b5bcba106467"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3DgetFileSizeTCP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FSystem.dll&quot; Namespace%3DSystem.Net.Sockets Type%3DNetworkStream)]) ParameterIdentifier%3DinFromServer"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="577d6c68-74d9-42fb-951e-f1ed977b7891"
+                      LastKnownName="NetworkStream"
+                      LastKnownLocation="Package1_1713.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ce393db0-3de9-4ae0-a028-748947e7e7fb"
+            name="check_File_Exists"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5d11981d-e639-4592-a662-c35bf4eafdaf"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3Dcheck_File_Exists OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="303c010b-10e9-497c-b363-ab98e759cf8f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aed6229e-aad6-4589-ac07-b426842701e6">
+                    <propertyInstance
+                      Id="0af80e33-5662-4cc9-9f9d-56f627d9fe53"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7b37216-f092-4856-ac0f-6edb1a7a00d2">
+                    <propertyInstance
+                      Id="b42a2602-96df-433c-b28d-c216f7469811"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="525607a1-f50f-45fe-b760-a9dfa35bb0e6">
+                    <propertyInstance
+                      Id="18cc9265-3aa5-4905-88c4-6b3ece2bfe16"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4da346d4-5c6e-4379-9d83-d9be7f9e751e">
+                    <propertyInstance
+                      Id="b487f7fd-d55f-430c-a78b-3053b457d1cb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4a88700-2c5b-4255-8c0b-01e74b870a2c">
+                    <propertyInstance
+                      Id="e6ddbfb9-cd32-4f98-b467-843aa9273ec6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ea39bd04-6b12-4264-9568-9700c39ec2c3">
+                    <propertyInstance
+                      Id="b5cecf31-bd73-4165-b516-fdb736cc3e4b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3e69825e-fc50-441a-a156-3662cebb3e18"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="c53eafeb-2e7c-4562-8bed-7c464436a753"
+                      LastKnownName="Int64"
+                      LastKnownLocation="Package1_1712.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa38c810-902d-4098-a171-fbe7f2446a69"
+                  name="fileName"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2af80e62-92cd-4316-b704-559edb5b36bc"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMichael O%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FFileSenderServer%2Fbin%2FDebug%2FFileSenderServer.dll&quot; Namespace%3DFileSenderServer Type%3DLIB Member%3D(Name%3Dcheck_File_Exists OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DfileName"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

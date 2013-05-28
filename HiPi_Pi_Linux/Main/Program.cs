@@ -30,7 +30,7 @@ namespace Main
             PlaybackControl PlayCtrl = new PlaybackControl(sink, pqhandl);
             DBHandle dbHandle = new DBHandle(source, pqhandl);
             
-			Server Fserver = new Server();
+			AbstractFileSenderServer Fserver = new FileSenderServer.FileSenderServer();
 
 			Console.WriteLine ("==============================================================");
 			Console.WriteLine ("Welcome to the HiPi Server solution");

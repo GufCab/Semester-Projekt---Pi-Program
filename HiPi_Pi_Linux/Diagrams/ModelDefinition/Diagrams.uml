@@ -90,6 +90,30 @@
         LastKnownName="UPnP package"
         LastKnownLocation="Package1_1719.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="92ae7d56-4444-4d4e-b94a-b7d6a87e0dad"
+        LastKnownName="FileSenderServer"
+        LastKnownLocation="Package_1009.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e1ea1bfa-1b48-4d55-b5d5-b8c371c3e2b3"
+        LastKnownName="FileSenderServer"
+        LastKnownLocation="Package1_1009.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c79d5844-cd25-4a4a-974f-025176be2626"
+        LastKnownName="Main"
+        LastKnownLocation="Package_1026.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b157a955-b176-4b40-bd01-99cac3baa541"
+        LastKnownName="HiPi_Pi"
+        LastKnownLocation="Package1_1026.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

@@ -22,6 +22,26 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="FileSender\FileSenderServer_FileSenderServer.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="FileSender\FileSenderServer_FileSenderServer.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>FileSender\FileSenderServer_FileSenderServer.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="FileSender\PackageDiagram.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="FileSender\PackageDiagram.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>FileSender\PackageDiagram.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1009.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1026.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package1_1651.uml">
       <SubType>Content</SubType>
     </Content>
@@ -64,6 +84,12 @@
     <Content Include="ModelDefinition\Package4_1651.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_1009.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1026.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package_1651.uml">
       <SubType>Content</SubType>
     </Content>
@@ -103,6 +129,7 @@
     <Content Include="ModelDefinition\Diagrams.uml">
       <SubType>Content</SubType>
     </Content>
+    <Folder Include="FileSender" />
     <Folder Include="PlaybackCtrl" />
     <Folder Include="UPnP_Device" />
   </ItemGroup>
