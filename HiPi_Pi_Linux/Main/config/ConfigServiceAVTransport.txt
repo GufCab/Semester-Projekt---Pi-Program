@@ -1,7 +1,6 @@
 AVTransport:1
 Play/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;Speed:in:A_ARG_TYPE_Speed:no:string
 Pause/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4
-Stop/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4
 Next/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4
 Previous/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4
 SetAVTransportURI/InstanceID:in:A_ARG_TYPE_InstanceID:no:ui4;CurrentURI:in:AVTransportURI:no:string;CurrentURIMetaData:in:AVTransportURIMetaData:no:string

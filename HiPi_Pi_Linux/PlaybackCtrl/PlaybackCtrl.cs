@@ -184,7 +184,7 @@ namespace PlaybackCtrl
 					returnVal = null;
 					break;
 
-                case "Prev":
+                case "Previous":
                     Prev();
 					returnVal = null;
                     break;
