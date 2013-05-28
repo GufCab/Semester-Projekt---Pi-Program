@@ -55,55 +55,5 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
-    <packageHasNamedElement>
-      <Interface
-        Id="a4064b4c-ec92-4c19-8e5b-88d548cab99c"
-        name="IWrapper"
-        isAbstract="false"
-        isLeaf="false">
-        <referencesInternal>
-          <reference
-            Id="75fe4ee9-0b0f-4c3e-ac70-a294de2da1b5"
-            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FMPlayer%2Fbin%2FDebug%2FMPlayer.dll Namespace%3DMPlayer Type%3DIWrapper"
-            tag="ViewCode" />
-        </referencesInternal>
-        <appliedStereotypesInternal>
-          <stereotypeInstance
-            Id="9604f38d-c799-4475-9ddb-568f89fd2f7b"
-            name="interface"
-            profile="CSharpProfile">
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="189f546e-708c-4e13-9450-6058cb5cd8ee">
-                <propertyInstance
-                  Id="5a579f50-4b6d-4e8b-a505-0a5ef020f34b"
-                  name="ClrAttributes" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="5a5bbc46-fed1-4ad8-b091-6f2f56f0b6a6">
-                <propertyInstance
-                  Id="e602f47a-8572-4a14-8cd8-078c9774a6f9"
-                  name="IsPartial"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="4955d569-c437-4ae1-a851-cec9e4286763">
-                <propertyInstance
-                  Id="5f6a4c46-9a35-4a8e-96b6-29e9e16a9403"
-                  name="IsUnsafe"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="803331ed-abd7-4192-b5b6-749d101072b0">
-                <propertyInstance
-                  Id="5c2eabee-3f1e-404f-ad35-d5440eb86afd"
-                  name="PackageVisibility"
-                  value="internal" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-      </Interface>
-    </packageHasNamedElement>
   </packagedElements>
 </package>

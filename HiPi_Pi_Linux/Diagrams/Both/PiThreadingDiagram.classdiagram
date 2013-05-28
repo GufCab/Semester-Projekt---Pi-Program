@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="5d0b6b12-f6ca-445b-abe2-d552834cb6b9" name="PiThreadingDiagram" linkedPackageId="eb4d3ee7-b9df-4d43-84ad-bdc441fd68b4" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="dd953bf8-b189-4b6d-b2ef-ab670a631e9f">
+      <profileInstance Id="6c5d03a6-0c7c-4802-a13d-d13fec72f8ce" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="285368bd-b14b-46d5-a7a8-edd03647888e">
+      <profileInstance Id="ebb4f74e-e4e7-4399-877b-8973b49236a9" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="086644ca-64e6-47f0-8626-d019ec88f52b">
+      <profileInstance Id="3bed95a7-832e-4923-898a-ba8e418ee082" name="CSharpProfile">
+        <elementDefinition Id="3f89d833-3107-42cb-98aa-398f2ff46c6e" />
+      </profileInstance>
+      <elementDefinition Id="474911f8-d052-4b69-8655-48ffab808273" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="19086dee-7953-48ca-92a9-b8b61b736174" name="Threading" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="70ae4c6b-6d99-43bc-9680-dcd29ee0fa95" />
+        <generalsInternal>
+          <generalization Id="d5f966e2-cf3f-4ef7-a598-cb15a7b28ec4" isSubstitutable="false">
+            <classMoniker Id="92022c97-7301-4bae-9c04-117e2ecdb382" LastKnownName="DB Lookup" />
+            <elementDefinition Id="4a45c216-e9f1-4619-bfda-2e822fa834b4" />
+          </generalization>
+          <generalization Id="7b1a0077-e2d7-4c16-ad91-c792c30d1b3b" isSubstitutable="false">
+            <classMoniker Id="562693e7-3b08-45a9-b68f-3d68a4afe7f0" LastKnownName="TCP server" />
+            <elementDefinition Id="90e66f84-8a9f-43cb-b663-38ae0b2fa9df" />
+          </generalization>
+          <generalization Id="1bca91c2-e2d7-4caf-8452-e4fbb90c0aa9" isSubstitutable="false">
+            <classMoniker Id="4498d6e6-aaa3-40c2-801c-70893596fd52" LastKnownName="UDP server" />
+            <elementDefinition Id="4788b07c-071e-47bf-a69a-41c5ee918172" />
+          </generalization>
+          <generalization Id="7fe29e16-4bf1-41eb-8594-6365a18f747d" isSubstitutable="false">
+            <classMoniker Id="ca9b3f3d-5924-4896-ae2c-ae3ed45a5479" LastKnownName="MPlayer" />
+            <elementDefinition Id="107f4450-f017-4cf8-88d6-18a43d3c3a9d" />
+          </generalization>
+          <generalization Id="156ef625-9b61-46dc-bc30-24c00212c8fd" isSubstitutable="false">
+            <classMoniker Id="4d07593c-c412-4857-a953-b6c2173f0d66" LastKnownName="FileSenderServer" />
+            <elementDefinition Id="861a26fe-d45e-46f4-a97f-6916043a60c1" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="562693e7-3b08-45a9-b68f-3d68a4afe7f0" name="TCP server" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bac026be-c363-491e-971e-de94dc4e1159" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4498d6e6-aaa3-40c2-801c-70893596fd52" name="UDP server" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e901bffc-8f8f-4c21-8964-c52a61c3be1c" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ca9b3f3d-5924-4896-ae2c-ae3ed45a5479" name="MPlayer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e92b9e73-fafe-473b-a21a-821b3d0b1531" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4d07593c-c412-4857-a953-b6c2173f0d66" name="FileSenderServer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="66b4867b-53fd-4741-a4ff-3a1967e27693" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="92022c97-7301-4bae-9c04-117e2ecdb382" name="DB Lookup" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="136e75d9-ad60-4fa1-88c2-5033e0061c43" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="eb4d3ee7-b9df-4d43-84ad-bdc441fd68b4" name="Diagrams">
+    <elementDefinition Id="f78da2d3-967b-448b-bd01-d4cc077bfb84" />
+  </package>
+</logicalClassDesignerModel>

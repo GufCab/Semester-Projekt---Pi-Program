@@ -6,45 +6,14 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2013-05-28T13:15:02" Importance="High" Text="Reverse Engineering Started." />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '0fb857e2-cf2e-4a29-86bc-cfa459d7d89c' -  (ClassifierTemplateParameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '392b08ca-0341-4a88-aa2a-0d78dcc3db72' -  (ClassifierTemplateParameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses' -  (Package)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Medium" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle' -  (Class)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_dbLookup' -  (Property)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_dbXmlWriter' -  (Property)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_PQHandler' -  (Property)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_sourceDevice' -  (Property)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_sourceDevice_ActionEvent' -  (Operation)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_sourceDevice_ActionEvent::args' -  (Parameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_sourceDevice_ActionEvent::cb' -  (Parameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_sourceDevice_ActionEvent::e' -  (Parameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::_strategies' -  (Property)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::CreateDictionary' -  (Operation)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::DBHandle' -  (Operation)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::DBHandle::pqhandl' -  (Parameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::DBHandle::sourceDevice' -  (Parameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::HandleGetIP' -  (Operation)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBHandle::HandleGetIP::cb' -  (Parameter)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::IDBStrategy' -  (Interface)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::PlaybackCtrl' -  (Package)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::PlaybackCtrl::IPlayqueueHandler' -  (Interface)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System' -  (Package)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections' -  (Package)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic' -  (Package)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic::Dictionary' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic::Dictionary&lt;String‎, IDBStrategy‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Object' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device' -  (Package)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::CallBack' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IUPnP' -  (Interface)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::UPnPEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::XMLHandler' -  (Package)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::XMLHandler::XMLWriter' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Diagrams::UPnP_Device::UPnPEventArgs to Diagrams::System::EventArgs (Generalization)" />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="High" Text="(1) type(s) fully reverse engineered." />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="High" Text="(10) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
-  <Message Timestamp="2013-05-28T13:15:03" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+  <Message Timestamp="2013-05-27T17:20:57" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device' -  (Package)" />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::ActionEventDel' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="Medium" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IUPnP' -  (Interface)" />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IUPnP::ActionEvent' -  (Property)" />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IUPnP::GetIP' -  (Operation)" />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="High" Text="(1) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2013-05-27T17:20:58" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
 </Log>

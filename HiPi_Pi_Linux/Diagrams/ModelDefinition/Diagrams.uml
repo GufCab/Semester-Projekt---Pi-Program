@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="f78da2d3-967b-448b-bd01-d4cc077bfb84"
   name="Diagrams" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -115,16 +115,95 @@
         LastKnownLocation="Package1_1026.uml" />
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <packageMoniker
-        Id="6ddc980b-242a-4e80-b2c9-d11f17ae0370"
-        LastKnownName="DB Lookup package"
-        LastKnownLocation="Package_1314.uml" />
+      <class
+        Id="70ae4c6b-6d99-43bc-9680-dcd29ee0fa95"
+        name="Threading"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="4a45c216-e9f1-4619-bfda-2e822fa834b4"
+            isSubstitutable="false">
+            <classMoniker
+              Id="136e75d9-ad60-4fa1-88c2-5033e0061c43"
+              LastKnownName="DB Lookup"
+              LastKnownLocation="Diagrams.uml" />
+          </generalization>
+          <generalization
+            Id="90e66f84-8a9f-43cb-b663-38ae0b2fa9df"
+            isSubstitutable="false">
+            <classMoniker
+              Id="bac026be-c363-491e-971e-de94dc4e1159"
+              LastKnownName="TCP server"
+              LastKnownLocation="Diagrams.uml" />
+          </generalization>
+          <generalization
+            Id="4788b07c-071e-47bf-a69a-41c5ee918172"
+            isSubstitutable="false">
+            <classMoniker
+              Id="e901bffc-8f8f-4c21-8964-c52a61c3be1c"
+              LastKnownName="UDP server"
+              LastKnownLocation="Diagrams.uml" />
+          </generalization>
+          <generalization
+            Id="107f4450-f017-4cf8-88d6-18a43d3c3a9d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="e92b9e73-fafe-473b-a21a-821b3d0b1531"
+              LastKnownName="MPlayer"
+              LastKnownLocation="Diagrams.uml" />
+          </generalization>
+          <generalization
+            Id="861a26fe-d45e-46f4-a97f-6916043a60c1"
+            isSubstitutable="false">
+            <classMoniker
+              Id="66b4867b-53fd-4741-a4ff-3a1967e27693"
+              LastKnownName="FileSenderServer"
+              LastKnownLocation="Diagrams.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <packageMoniker
-        Id="96ef360b-3932-48c1-9140-f7bab47e91cd"
-        LastKnownName="DBClasses"
-        LastKnownLocation="Package_1315.uml" />
+      <class
+        Id="bac026be-c363-491e-971e-de94dc4e1159"
+        name="TCP server"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e901bffc-8f8f-4c21-8964-c52a61c3be1c"
+        name="UDP server"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e92b9e73-fafe-473b-a21a-821b3d0b1531"
+        name="MPlayer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="66b4867b-53fd-4741-a4ff-3a1967e27693"
+        name="FileSenderServer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="136e75d9-ad60-4fa1-88c2-5033e0061c43"
+        name="DB Lookup"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
