@@ -79,12 +79,17 @@ namespace XMLReader
 
                 string tmpString = "/";
 
+				Console.WriteLine (" << Inside XML Reader");
+				Console.WriteLine ("Filename: " + track.FileName);
+
                 for (int i = 3; i < s.Count() - 1; i++)
                 {
                     tmpString = tmpString + s[i] + "/";
+					Console.WriteLine ("## " + tmpString);
                 }
 
                 track.Path = tmpString;
+				Console.WriteLine ("Final path: " + track.Path);
                 track.Duration = titleList[0].Attributes["duration"].Value;
                 tracks.Add(track);
             }

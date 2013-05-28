@@ -39,6 +39,7 @@ namespace UPnP_Device
 			Console.WriteLine (" >> Prop Changed Event! <<");
 			string body = EventBody (e);
 
+			/*
 			if (_Subscribtions.Count > 0)
 			{
 				foreach (Subscriber sub in _Subscribtions)
@@ -51,7 +52,7 @@ namespace UPnP_Device
 
 					t.Start (g);
 				}
-			}
+			}*/
 		}
 	
 		private void SendEventMsg (object e)
@@ -64,7 +65,7 @@ namespace UPnP_Device
 			INetworkUtillity util = new NetworkUtillity(p);
 
 			util.Send ((string)g[1]);
-			Console.WriteLine("Event msg send to CP");
+			Console.WriteLine("Event msg sent to CP");
 
 			//string answer = util.Receive();
 			//Console.WriteLine("Anwser from CP: " + answer);

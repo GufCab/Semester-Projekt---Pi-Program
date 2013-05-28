@@ -59,7 +59,15 @@ namespace XMLHandler
                 XmlElement res = doc.CreateElement("res");
                 item.AppendChild(res);
                 res.SetAttribute("duration", track.Duration.ToString());
-                res.InnerText = track.Protocol + track.DeviceIP + "/" + track.Path + "/" + track.FileName;
+				Console.WriteLine (" >> inside XML writer");
+				Console.WriteLine ("Path: " + track.Path);
+				Console.WriteLine("Filename: " + track.FileName);
+
+
+
+				res.InnerText = track.Protocol + track.DeviceIP + track.Path + track.FileName;
+
+				Console.WriteLine("Full path: " + res.InnerText);
             }
 
             doc.Save("CreatedXML.xml");
