@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Containers;
+using System.Threading;
 
 namespace PlaybackCtrl
 {
@@ -31,6 +32,7 @@ namespace PlaybackCtrl
     {
         //Used for keeping track of the current position in the playqueue
         private int _Index;
+		private Mutex mu;
 
         //List containing the Tracks in the playqueue
         private List<ITrack> _Queue; 
@@ -58,6 +60,7 @@ namespace PlaybackCtrl
         {
             _Index = 0;
             _Queue = new List<ITrack>();
+			mu = new Mutex();
         }
 
         /// <summary>
@@ -67,15 +70,19 @@ namespace PlaybackCtrl
         /// <returns>Next Track in playqueue or dummy Track</returns>
         public ITrack GetNextTrack ()
 		{
+			mu.WaitOne();
 			if (_Index < _Queue.Count) 
 			{
 				++_Index;
-				return _Queue [_Index-1];
+				mu.ReleaseMutex();
+				return  _Queue [_Index-1];
+                //Console.WriteLine("Inside GetNextTrack: " + retVal.Title);
 			} 
 			else 
 			{
 				ITrack dummy = new Track();
 				dummy.Path = "";
+				mu.ReleaseMutex();
 				return dummy;
 			}
         }
@@ -86,15 +93,18 @@ namespace PlaybackCtrl
         /// <returns>Previous Track in playqueue or dummy Track</returns>
         public ITrack GetPrevTrack()
         {
+			mu.WaitOne();
             if (_Index > 1) 
 			{
 				--_Index;
+				mu.ReleaseMutex();
 				return _Queue [_Index-1];
 			} 
 			else 
 			{
 				ITrack dummy = new Track();
 				dummy.Path = "";
+				mu.ReleaseMutex();
 				return dummy;
 			}
         }
@@ -106,18 +116,21 @@ namespace PlaybackCtrl
         /// <returns>Track at position index in playqueue or dummy Track</returns>
         public ITrack GetTrack (int index)
 		{
+			mu.WaitOne();
 			if (index <= _Queue.Count && index > 0) 
 			{
-				PlayQueueChanged = "GET";
 				_Index = index;
+				mu.ReleaseMutex();
 				return _Queue [_Index-1];
 			}
 			else 
 			{
 				Track dummy = new Track();
 				dummy.Path = "";
+				mu.ReleaseMutex();
 				return dummy;
 			}
+
         }
 
         /// <summary>
@@ -126,9 +139,11 @@ namespace PlaybackCtrl
         /// <param name="trk">Track to be added to playqueue</param>
         public void AddToPlayQueue(ITrack trk)
         {
+			mu.WaitOne();
 			trk.ParentID = "playqueue";
             _Queue.Add(trk);
 			PlayQueueChanged = "TrackAdded";
+			mu.ReleaseMutex();
         }
 
         /// <summary>
@@ -138,11 +153,13 @@ namespace PlaybackCtrl
         /// <param name="index">Integer indicating position in playqueue to add Track to</param>
         public void AddToPlayQueue(ITrack trk, int index)
         {
+			mu.WaitOne();
 			trk.ParentID = "playqueue";
             if(index <= _Queue.Count)
                 _Queue.Insert(index, trk);
 
 			PlayQueueChanged = "TrackAdded";
+			mu.ReleaseMutex();
         }
 
         /// <summary>
@@ -151,6 +168,7 @@ namespace PlaybackCtrl
         /// <param name="index">Integer indicating position in playqueue to remove Track from</param>
         public void RemoveFromPlayQueue(int index)
         {
+			mu.WaitOne();
             if (index <= _Queue.Count)
             {
                 _Queue.RemoveAt(index-1);
@@ -158,6 +176,7 @@ namespace PlaybackCtrl
                     --_Index;
             }
 			PlayQueueChanged = "TrackRemoved";
+			mu.ReleaseMutex();
         }
 
         /// <summary>
@@ -175,6 +194,7 @@ namespace PlaybackCtrl
         /// <returns>Track at position</returns>
         public ITrack GetCurrentTrack()
         {
+
             return _Queue[_Index];
         }
 
@@ -184,7 +204,9 @@ namespace PlaybackCtrl
         /// <returns>Integer indicating number of Tracks</returns>
         public int GetNumberOfTracks()
         {
+
             return _Queue.Count;
+
         }
 
         /// <summary>
@@ -193,7 +215,9 @@ namespace PlaybackCtrl
         /// <returns>List of Tracks in playqueue</returns>
 		public List<ITrack> GetQueue ()
 		{
+			
 			return _Queue;
+			
 		}
     }
 }

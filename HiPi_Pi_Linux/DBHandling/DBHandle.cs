@@ -36,9 +36,10 @@ namespace DBClasses
 
         void _sourceDevice_ActionEvent (object e, UPnPEventArgs args, CallBack cb)
 		{
-			Console.WriteLine ("DB Handle Action: " + args.Action);
+			
 			if (args.Action == "Browse")
 			{
+                Console.WriteLine("DB Handle Action: " + args.Action);
 				IDBStrategy strat = _strategies [args.Action];
 				strat.Handle (args.Args, cb, _dbXmlWriter, _PQHandler);
 			}
@@ -110,8 +111,10 @@ namespace DBClasses
 			else if (containerId == "playqueue") 
 			{
 				retArgs = new List<UPnPArg>();
-				string retVal = writer.ConvertITrackToXML(pqhandl.GetQueue());
+                List<ITrack> lis = new List<ITrack>();
 
+			    string retVal = writer.ConvertITrackToXML(pqhandl.GetQueue());
+                
 				retArgs.Add (new UPnPArg ("Result", retVal));
 				retArgs.Add (new UPnPArg ("NumberReturned", pqhandl.GetQueue().Count.ToString()));
 				retArgs.Add (new UPnPArg ("TotalMatches", pqhandl.GetQueue().Count.ToString()));

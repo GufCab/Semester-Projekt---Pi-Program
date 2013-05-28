@@ -132,8 +132,10 @@ namespace PlaybackCtrl
         /// <param name="retValRef">UPnPArg containing a Track</param>
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)
         {
+            Console.WriteLine("Inside AddToPlayQueue");
             List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
             PlayQueueHandler.AddToPlayQueue(myTrackList[0]);
+            Console.WriteLine("Inside AddToPlayQueue");
         }
 
         /// <summary>

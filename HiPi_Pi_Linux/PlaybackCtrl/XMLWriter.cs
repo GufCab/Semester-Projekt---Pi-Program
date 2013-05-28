@@ -7,11 +7,14 @@ using System.Xml;
 using System.IO;
 using Containers;
 using PlaybackCtrl;
+using System.Threading;
 
 namespace XMLHandler
 {
     public class XMLWriter
     {
+        private static Mutex mu = new Mutex();
+
         public string ConvertITrackToXML(List<ITrack> tracks)
         {
             XmlDocument doc = new XmlDocument();
@@ -24,6 +27,8 @@ namespace XMLHandler
             root.SetAttribute("xmlns:sec", "http://www.sec.co.kr/");
 
 			int i = 0;
+
+                       
             foreach (ITrack track in tracks)
             {
 				++i;
@@ -60,18 +65,22 @@ namespace XMLHandler
                 item.AppendChild(res);
                 res.SetAttribute("duration", track.Duration.ToString());
 				Console.WriteLine (" >> inside XML writer");
-				Console.WriteLine ("Path: " + track.Path);
-				Console.WriteLine("Filename: " + track.FileName);
+				
+                Console.WriteLine("Protocol: "+ track.Protocol);
+                Console.WriteLine("Device IP: " + track.DeviceIP);
+                Console.WriteLine ("Path: " + track.Path);
+                Console.WriteLine("Filename: " + track.FileName);
+                string tmpString = track.DeviceIP +"/"+ track.Path  +"/"+ track.FileName;
+                //char[] chArr = new char[]{'/','/'};
 
+                tmpString = tmpString.Replace("//", "/");
 
-
-				res.InnerText = track.Protocol + track.DeviceIP + track.Path + track.FileName;
-
+				//res.InnerText = track.Protocol + track.DeviceIP +"/" + track.Path+"/"  +track.FileName;
+                res.InnerText = track.Protocol + tmpString;
 				Console.WriteLine("Full path: " + res.InnerText);
             }
-
-            doc.Save("CreatedXML.xml");
-			string msg = doc.OuterXml;
+            
+            string msg = doc.OuterXml;
 			return msg;
         }
     }

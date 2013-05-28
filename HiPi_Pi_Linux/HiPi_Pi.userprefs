@@ -1,28 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PlaybackCtrl/XMLWriter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PlaybackCtrl/PlaybackCtrl.cs">
     <Files>
-      <File FileName="PlaybackCtrl/PlaybackCtrl.cs" Line="60" Column="34" />
-      <File FileName="UPnP_Device/UPnP.cs" Line="31" Column="37" />
-      <File FileName="PlaybackCtrl/PlayqueueHandler.cs" Line="51" Column="4" />
-      <File FileName="PlaybackCtrl/XMLReaderPi.cs" Line="78" Column="17" />
-      <File FileName="UPnP_Device/XML/XMLReader.cs" Line="1" Column="1" />
-      <File FileName="UPnP_Device/XML/XMLWriter.cs" Line="1" Column="1" />
-      <File FileName="PlaybackCtrl/XMLWriter.cs" Line="28" Column="14" />
-      <File FileName="UPnP_Device/Eventing/Publisher.cs" Line="65" Column="1" />
-      <File FileName="DBHandling/DbLookup.cs" Line="29" Column="4" />
-      <File FileName="DBHandling/DBHandle.cs" Line="100" Column="34" />
+      <File FileName="UPnP_Device/UDP/MulticastSender.cs" Line="25" Column="23" />
+      <File FileName="PlaybackCtrl/PlaybackCtrl.cs" Line="280" Column="38" />
+      <File FileName="UPnP_Device/EventHandler.cs" Line="1" Column="1" />
+      <File FileName="UPnP_Device/TCP/TCPResponses.cs" Line="282" Column="5" />
+      <File FileName="MPlayer/Wrapper/MPlayerWrapper.cs" Line="295" Column="4" />
+      <File FileName="PlaybackCtrl/XMLReaderPi.cs" Line="11" Column="1" />
+      <File FileName="PlaybackCtrl/XMLWriter.cs" Line="1" Column="1" />
+      <File FileName="PlaybackCtrl/PlayqueueHandler.cs" Line="119" Column="5" />
+      <File FileName="DBHandling/DbLookup.cs" Line="11" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="DBHandling" expanded="True" />
           <Node name="PlaybackCtrl" expanded="True">
-            <Node name="XMLWriter.cs" selected="True" />
-          </Node>
-          <Node name="UPnP_Device" expanded="True">
-            <Node name="Eventing" expanded="True" />
-            <Node name="XML" expanded="True" />
+            <Node name="PlaybackCtrl.cs" selected="True" />
           </Node>
           <Node name="UPnPConfigFactory" expanded="True" />
         </State>
