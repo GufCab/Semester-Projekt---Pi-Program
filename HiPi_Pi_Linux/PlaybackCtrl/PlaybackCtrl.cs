@@ -9,6 +9,7 @@ using UPnP_Device.UPnPConfig;
 using UPnP_Device.XML;
 using XMLReader;
 using XMLHandler;
+using XMLWriter = XMLHandler.XMLWriter;
 
 namespace PlaybackCtrl
 {
@@ -20,8 +21,8 @@ namespace PlaybackCtrl
         private IWrapper Player;
         private IPlayqueueHandler PlayQueueHandler;
         private IUPnP UPnPSink;
-        private XMLReader1 XMLconverter;
-		private XMLWriterPi wr;
+        private XMLReader.XMLReader XMLconverter;
+		private XMLWriter wr;
 		private string _TransportState;
 
 
@@ -52,8 +53,8 @@ namespace PlaybackCtrl
             UPnPSink = sink;
             Player = new MPlayerWrapper();
 			PlayQueueHandler = pqhandl; 
-            XMLconverter = new XMLReader1();
-			wr = new XMLWriterPi();
+            XMLconverter = new XMLReader.XMLReader();
+			wr = new XMLWriter();
             SubscribeToWrapper();
             SubscribeToSink();
 			_TransportState = "STOPPED";

@@ -10,7 +10,7 @@ using PlaybackCtrl;
 
 namespace XMLHandler
 {
-    public class XMLWriterPi
+    public class XMLWriter
     {
         public string ConvertITrackToXML(List<ITrack> tracks)
         {

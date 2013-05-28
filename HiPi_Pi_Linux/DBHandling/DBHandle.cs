@@ -13,7 +13,7 @@ namespace DBClasses
     public class DBHandle
     {
         private IUPnP _sourceDevice;
-        private XMLWriterPi _dbXmlWriter;
+        private XMLWriter _dbXmlWriter;
         private Dictionary<string, IDBStrategy> _strategies;
         
 		private DBLookup _dbLookup;
@@ -26,7 +26,7 @@ namespace DBClasses
             _sourceDevice = sourceDevice;
             _sourceDevice.ActionEvent += _sourceDevice_ActionEvent;
 
-            _dbXmlWriter = new XMLWriterPi();
+            _dbXmlWriter = new XMLWriter();
             _dbLookup = new DBLookup();
 
 			_PQHandler = pqhandl;
@@ -71,7 +71,7 @@ namespace DBClasses
 
     public interface IDBStrategy
     {
-        void Handle(List<UPnPArg> args, CallBack cb, XMLWriterPi writer, IPlayqueueHandler pqhandl);
+        void Handle(List<UPnPArg> args, CallBack cb, XMLWriter writer, IPlayqueueHandler pqhandl);
     }
 
     public class BrowseStrat : IDBStrategy
@@ -83,7 +83,7 @@ namespace DBClasses
             _dbLookup = lookup;
         }
 
-        public void Handle (List<UPnPArg> args, CallBack cb, XMLWriterPi writer, IPlayqueueHandler pqhandl)
+        public void Handle (List<UPnPArg> args, CallBack cb, XMLWriter writer, IPlayqueueHandler pqhandl)
 		{
 			Console.WriteLine ("Browse Was called (BrowseStrat)");
 			List<UPnPArg> retArgs = null;

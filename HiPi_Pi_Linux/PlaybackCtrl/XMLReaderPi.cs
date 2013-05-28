@@ -11,7 +11,7 @@ using PlaybackCtrl;
 
 namespace XMLReader
 {
-    public class XMLReader1
+    public class XMLReader
     {
         public List<Container> containerReader(string xml)
         {
