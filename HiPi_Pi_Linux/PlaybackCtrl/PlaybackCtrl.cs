@@ -12,6 +12,9 @@ using XMLHandler;
 
 namespace PlaybackCtrl
 {
+    /// <summary>
+    /// This class manages communication between the UPnP sink, PlayqueueHandler and Audio Player Wrapper
+    /// </summary>
     public class PlaybackControl
     {
         private IWrapper Player;
@@ -21,6 +24,8 @@ namespace PlaybackCtrl
 		private XMLWriterPi wr;
 		private string _TransportState;
 
+
+        //What is this [Todo]: describe this
 		public string TransportState
 		{
 			set
@@ -37,6 +42,11 @@ namespace PlaybackCtrl
 		}
 		//public event PropertyChangedDel propEvent;
 
+        /// <summary>
+        /// Constructor. Creates Audio Player Wrapper, XMLreader and XMLwriter and subscribes to wrapper and UPnP Sink
+        /// </summary>
+        /// <param name="sink">UPnP Sink</param>
+        /// <param name="pqhandl">Playqueue Handler</param>
         public PlaybackControl(IUPnP sink, IPlayqueueHandler pqhandl)
         {
             UPnPSink = sink;
@@ -49,6 +59,9 @@ namespace PlaybackCtrl
 			_TransportState = "STOPPED";
         }
 
+        /// <summary>
+        /// Gets next Track in playqueue and passes it to Audio Player Wrapper
+        /// </summary>
         private void Next()
         {
 			TransportState = "TRANSITIONING";
@@ -59,6 +72,10 @@ namespace PlaybackCtrl
 			TransportState = "PLAYING";
         }
 
+
+        /// <summary>
+        /// Gets previous Track in playqueue and passes it to Audio Player Wrapper
+        /// </summary>
         private void Prev()
         {
 			TransportState = "TRANSITIONING";
@@ -67,6 +84,9 @@ namespace PlaybackCtrl
 			TransportState = "PLAYING";
         }
 
+        /// <summary>
+        /// Gets next Track in playqueue and passes it to Audio Player Wrapper
+        /// </summary>
         private void Play ()
 		{
 			if (!Player.GetPaused())
@@ -76,6 +96,9 @@ namespace PlaybackCtrl
 			}
         }
 
+        /// <summary>
+        /// Toggles pause.
+        /// </summary>
         private void Pause ()
 		{
 			Player.PauseTrack ();
@@ -97,6 +120,10 @@ namespace PlaybackCtrl
 			*/
         }
 
+        /// <summary>
+        /// Immediately starts playing the Track contained in param.
+        /// </summary>
+        /// <param name="retValRef">UPnPArg containing a Track</param>
         private void SetCurrentURI(ref List<UPnPArg> retValRef)
         {
 			TransportState = "TRANSITIONING";
@@ -104,64 +131,101 @@ namespace PlaybackCtrl
 			TransportState = "PLAYING";
         }
 
+        /// <summary>
+        /// Adds Track contained in param to playqueue.
+        /// </summary>
+        /// <param name="retValRef">UPnPArg containing a Track</param>
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)
         {
             List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
             PlayQueueHandler.AddToPlayQueue(myTrackList[0]);
         }
 
+        //Not used at the moment
 
-        private void PlayAt(int index)
-        {
-            var myTrack = PlayQueueHandler.GetTrack(index);
-            Player.PlayTrack(myTrack.Path);
-        }
+        //private void PlayAt(int index)
+        //{
+        //    var myTrack = PlayQueueHandler.GetTrack(index);
+        //    Player.PlayTrack(myTrack.Path);
+        //}
 
 
-        private void AddToPlayQueue(ref List<UPnPArg> retValRef, int index)
-        {
-            List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
-            PlayQueueHandler.AddToPlayQueue(myTrackList[0], index);
-        }
+        //private void AddToPlayQueue(ref List<UPnPArg> retValRef, int index)
+        //{
+        //    List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
+        //    PlayQueueHandler.AddToPlayQueue(myTrackList[0], index);
+        //}
 
+        /// <summary>
+        /// Removes Track at specified position in playqueue.
+        /// </summary>
+        /// <param name="retValRef">UPnPArg containing the position to remove from</param>
         private void RemoveFromPlayQueue(ref List<UPnPArg> retValRef)
         {
 			PlayQueueHandler.RemoveFromPlayQueue(Convert.ToInt32(retValRef[1].ArgVal));
         }
 
+        /// <summary>
+        /// Returns position in playback.
+        /// </summary>
+        /// <returns>String containing position</returns>
         private string GetPos() //returns how far into the track MPlayer is
         {
             return Player.GetPosition();
         }
 
-        private void SetPos(ref List<UPnPArg> retValRef) //used for going back and forth in a track
+        /// <summary>
+        /// Sets position in playback, used for skipping in Track
+        /// </summary>
+        /// <param name="retValRef">UPnPArg containing desired position</param>
+        private void SetPos(ref List<UPnPArg> retValRef)
         {
             Player.SetPosition(Convert.ToInt32(retValRef[1].ArgVal));
 			retValRef = null;
         }
 
+        /// <summary>
+        /// Returns current volume of Audio Player Wrapper.
+        /// </summary>
+        /// <returns>String indicating volume</returns>
         private string GetVol()
         {
             return Player.GetVolume();
         }
 
+        /// <summary>
+        /// Sets volume of Audio Player Wrapper.
+        /// </summary>
+        /// <param name="retValRef">UPnPArg containing desired volume</param>
         private void SetVol(ref List<UPnPArg> retValRef)
         {
             Player.SetVolume(Convert.ToInt32(retValRef[2].ArgVal));
 			Console.WriteLine("\nInside Setvol!");
         }
 
+
+        /// <summary>
+        /// Subscribes to Wrapper 
+        /// </summary>
         private void SubscribeToWrapper()
         {
             Player.EOF_Event += NewSongHandler;
         }
 
-
+        /// <summary>
+        /// Subscribes to UPnP Sink
+        /// </summary>
         private void SubscribeToSink()
         {
             UPnPSink.ActionEvent += UPnPHandler;
         }
 
+        /// <summary>
+        /// Called whenever an UPnP event is received, reads the Action argument and responds appropriately
+        /// </summary>
+        /// <param name="e">Unused param to comply with standard</param>
+        /// <param name="args">UPnPEventArgs containing desired action and params for the action</param>
+        /// <param name="cb">Callback function to call at end of function</param>
         private void UPnPHandler(object e, UPnPEventArgs args, CallBack cb)
         {
             string action = args.Action;
@@ -252,7 +316,7 @@ namespace PlaybackCtrl
 
 
     }
-
+        //[Todo]:Describe this
  		private List<UPnPArg> CreatePosArgs (List<UPnPArg> inArgs)
 		{
 			List<UPnPArg> createdArgs = new List<UPnPArg>();
@@ -264,6 +328,11 @@ namespace PlaybackCtrl
 			return createdArgs;
 		}
 
+        /// <summary>
+        /// Called when Audio Player Wrapper completes playback of a Track. Starts playback of next Track in playqueue if there are more, otherwise playback ends.
+        /// </summary>
+        /// <param name="e">Unused param to comply with standard</param>
+        /// <param name="args">Unused param to comply with standard</param>
 		private void NewSongHandler (object e, EventArgs args)
         {
             //Plays next song. If playqueue is empty it stops playing.

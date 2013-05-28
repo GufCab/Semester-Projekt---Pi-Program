@@ -25,13 +25,14 @@ namespace PlaybackCtrl
     }
 
     /// <summary>
-    /// This class handles the playqueue containing a List of Tracks
+    /// This class handles the playqueue for the system
     /// </summary>
     public class PlayqueueHandler : IPlayqueueHandler
     {
         //Used for keeping track of the current position in the playqueue
         private int _Index;
-        //
+
+        //List containing the Tracks in the playqueue
         private List<ITrack> _Queue; 
 
 		private string _PlayQueueChanged;
