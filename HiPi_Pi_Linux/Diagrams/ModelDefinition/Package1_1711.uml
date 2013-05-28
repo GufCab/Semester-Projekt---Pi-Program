@@ -293,5 +293,55 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="1a37f7c4-33b3-4ab3-b658-500d941e9527"
+        name="IUPnP"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="e73c9fcb-cf92-4e00-9349-af180486939d"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DIUPnP"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c3edd63a-bb2f-4c68-bce5-4b4ec6e9c056"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3ff48908-fb46-42ec-835f-2347a6a8850b">
+                <propertyInstance
+                  Id="42e0b428-c180-4daa-819d-84fe292c2945"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="21e67560-4740-4601-b55d-f535307591d6">
+                <propertyInstance
+                  Id="9c1e65d3-c1a2-494a-a184-c31c93e94b08"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8b119d54-e215-4a1b-a2c9-288e505e5866">
+                <propertyInstance
+                  Id="63472a21-a10f-4ae1-a176-ef80331b7682"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b33936c6-8ade-4186-9349-b0169e504834">
+                <propertyInstance
+                  Id="3a2ca38c-1756-46cd-9866-a1e7c7a17cd5"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
   </packagedElements>
 </package>

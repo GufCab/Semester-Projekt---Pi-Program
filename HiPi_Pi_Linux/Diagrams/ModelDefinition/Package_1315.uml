@@ -1,124 +1,116 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
-  Id="b6ec66f5-6c36-420b-a8bb-efc617932f0a"
-  name="XMLReader"
+  Id="96ef360b-3932-48c1-9140-f7bab47e91cd"
+  name="DBClasses"
   visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <referencesInternal>
     <reference
-      Id="d9bd32e5-a144-4b9f-a115-4336f21849d6"
-      handle="viewcode://./CodeSchema_Namespace?Namespace%3DXMLReader"
+      Id="11b1c4f9-0f29-412b-ac87-53f5b93f486c"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DDBClasses"
       tag="ViewCode" />
   </referencesInternal>
   <packagedElements>
     <packageHasNamedElement>
-      <class
-        Id="633202c0-7231-4c1c-a405-9fdb50832df2"
-        name="XMLReader1"
+      <Interface
+        Id="c4790de7-adf5-464b-a4b4-30399c01a1ac"
+        name="IDBStrategy"
         isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
+        isLeaf="false">
         <referencesInternal>
           <reference
-            Id="a9a9b793-049e-4489-9403-c54c16f7667a"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DXMLReader Type%3DXMLReader1"
+            Id="ed0d921b-fe6b-46d6-b5d7-5801c3cbf6be"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DIDBStrategy"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="dc02b724-aeac-4b40-922b-e9406cf0eb6e"
-            name="class"
+            Id="bc033298-a6fb-4ca3-bf2f-f5d89b228c52"
+            name="interface"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="74fb5348-8efd-41e7-ae6e-727144b851f0">
+                Id="77de60ae-382e-4833-81bc-568a77b4624f">
                 <propertyInstance
-                  Id="614379b5-08d2-43dc-8665-d557a41cdf4f"
+                  Id="121338f7-0bc2-46f9-a63c-3d16414c760d"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="f64f9bd2-01a1-47c7-a7fa-6e5be352729d">
+                Id="e243d277-e8c7-4d6e-801d-afed30f7bac5">
                 <propertyInstance
-                  Id="d70f1080-4348-4e78-8621-cdfe89a40f42"
+                  Id="28084175-c61a-4632-83e3-ae2b84d39514"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="95ce0fc9-5b23-45cc-b3f8-475cde46e065">
+                Id="1ed00882-ced5-439b-96fe-ed3492789c5b">
                 <propertyInstance
-                  Id="5891eb96-fcdd-48f6-bbc3-2c1e828122fa"
-                  name="IsStatic"
-                  value="False" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="e0d6e39a-f0b3-4ef1-8beb-d104c62dc93c">
-                <propertyInstance
-                  Id="492f157f-5b9e-43b7-9708-285bab33e72a"
+                  Id="f6d0539c-83d0-4fc6-a958-52acd4aa8c74"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="54ff7132-2166-4676-a6cb-cfeaa661629b">
+                Id="892261c3-f1b7-4f53-8279-3c3378219dee">
                 <propertyInstance
-                  Id="78bcd631-4529-4447-b313-ff57ea98a47b"
+                  Id="c03e177a-4d30-4630-a24d-98b14889ac9c"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-      </class>
+      </Interface>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
-        Id="2baf01cf-df60-46cb-a517-989b2b049aa9"
-        name="XMLReader"
+        Id="cec8fde5-8216-4a42-8168-a923cae1dbe1"
+        name="DBLookup"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
         <referencesInternal>
           <reference
-            Id="9c89af66-136e-4b49-b1da-3e92303eda27"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DXMLReader Type%3DXMLReader"
+            Id="858e01b0-dabd-4f1a-bde1-c78767ee3816"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="6ea08132-32a5-4263-be38-1a847fc95f5c"
+            Id="b091b751-eba8-473e-bc99-6c4b3d10752a"
             name="class"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="49206ddc-7290-4d29-8888-6dc65b71e884">
+                Id="0506913b-6faa-45d8-80d1-88209d93f6c0">
                 <propertyInstance
-                  Id="a2dfc509-8155-439d-91ec-a18cd78b6199"
+                  Id="7c4edea6-2e91-4a83-8e0f-05c99a53c689"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="48a9a73e-d9ee-41a4-ac53-a94bf698f44a">
+                Id="5b93067c-5641-4f3a-8295-740fcda81367">
                 <propertyInstance
-                  Id="aed12cdf-f08b-4d2f-888e-5396bdb4037c"
+                  Id="f9c46d1f-1003-42f6-8c36-985ec5dfc9a3"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="b878e2de-f5df-4ba4-b595-891f259ad269">
+                Id="53abeea0-91f5-432b-a385-2f9c48442acf">
                 <propertyInstance
-                  Id="d9a26da6-6f82-4853-93df-461948819677"
+                  Id="e3aecb47-b98b-4ab1-9bba-29282a36f292"
                   name="IsStatic"
                   value="False" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="bdfe186e-013d-4cb4-b5ec-47892ee4534c">
+                Id="8a04e6aa-6dc0-4f82-90fa-15dfe469010e">
                 <propertyInstance
-                  Id="cb379b6a-04d0-4bc2-a205-423da02b0f6f"
+                  Id="e3c886c4-7764-486e-8015-b5b20574f0e9"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="7f4b4df6-759e-49c4-b964-0ab3e04bd9ab">
+                Id="cff002e8-e75f-4f8a-86cd-788bd6c58dcd">
                 <propertyInstance
-                  Id="87e8e3f6-ac12-4865-8fe8-87ded2b59c88"
+                  Id="01f98459-9c63-4a10-8fcc-4334c55a0cca"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>

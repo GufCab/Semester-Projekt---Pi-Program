@@ -26,7 +26,9 @@ namespace PlaybackCtrl
 		private string _TransportState;
 
 
-        //What is this [Todo]: describe this
+        /// <summary>
+        /// Keeps track of evented variables. String contains current state of the playback and broadcasts it whenever it changes.
+        /// </summary>
 		public string TransportState
 		{
 			set
@@ -111,14 +113,6 @@ namespace PlaybackCtrl
 			{
 				TransportState = "PLAYING";
 			}
-
-			/*
-			if (PropertyChangedEvent.HasSubscribers())
-			{
-				UPnPArg arg = new UPnPArg("TransportState", TransportState);
-				PropertyChangedEvent.Fire (arg);
-			}
-			*/
         }
 
         /// <summary>
@@ -142,20 +136,26 @@ namespace PlaybackCtrl
             PlayQueueHandler.AddToPlayQueue(myTrackList[0]);
         }
 
-        //Not used at the moment
+        /// <summary>
+        /// Plays Track at specific position in queue
+        /// </summary>
+        /// <param name="index">integer specifying position to play at</param>
+        private void PlayAt(int index)
+        {
+            var myTrack = PlayQueueHandler.GetTrack(index);
+            Player.PlayTrack(myTrack.Path);
+        }
 
-        //private void PlayAt(int index)
-        //{
-        //    var myTrack = PlayQueueHandler.GetTrack(index);
-        //    Player.PlayTrack(myTrack.Path);
-        //}
-
-
-        //private void AddToPlayQueue(ref List<UPnPArg> retValRef, int index)
-        //{
-        //    List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
-        //    PlayQueueHandler.AddToPlayQueue(myTrackList[0], index);
-        //}
+        /// <summary>
+        /// Adds Track contained in param to specific position in playqueue
+        /// </summary>
+        /// <param name="retValRef">UPnPArg containing a Track</param>
+        /// <param name="index">Integer specifying desired position in playqueue</param>
+        private void AddToPlayQueue(ref List<UPnPArg> retValRef, int index)
+        {
+            List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal);
+            PlayQueueHandler.AddToPlayQueue(myTrackList[0], index);
+        }
 
         /// <summary>
         /// Removes Track at specified position in playqueue.
@@ -170,7 +170,7 @@ namespace PlaybackCtrl
         /// Returns position in playback.
         /// </summary>
         /// <returns>String containing position</returns>
-        private string GetPos() //returns how far into the track MPlayer is
+        private string GetPos()
         {
             return Player.GetPosition();
         }
@@ -236,8 +236,7 @@ namespace PlaybackCtrl
 
             if (action != "Browse")
             {
-				//returnVal = null;
-                switch (args.Action)
+			    switch (args.Action)
                 {
                 case "Play":
                     Play();

@@ -114,6 +114,18 @@
         LastKnownName="HiPi_Pi"
         LastKnownLocation="Package1_1026.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6ddc980b-242a-4e80-b2c9-d11f17ae0370"
+        LastKnownName="DB Lookup package"
+        LastKnownLocation="Package_1314.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="96ef360b-3932-48c1-9140-f7bab47e91cd"
+        LastKnownName="DBClasses"
+        LastKnownLocation="Package_1315.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
