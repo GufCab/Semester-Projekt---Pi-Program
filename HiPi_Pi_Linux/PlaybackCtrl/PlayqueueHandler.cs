@@ -86,6 +86,7 @@ namespace PlaybackCtrl
 				return dummy;
 			}
         }
+
         /// <summary>
         /// Returns the previous Track in the playqueue unless _Index is at the first position in the playqueue.
         /// If _Index is at the first position in the playqueue (or 0), returns a dummy Track.
@@ -194,7 +195,6 @@ namespace PlaybackCtrl
         /// <returns>Track at position</returns>
         public ITrack GetCurrentTrack()
         {
-
             return _Queue[_Index];
         }
 
@@ -204,9 +204,7 @@ namespace PlaybackCtrl
         /// <returns>Integer indicating number of Tracks</returns>
         public int GetNumberOfTracks()
         {
-
             return _Queue.Count;
-
         }
 
         /// <summary>
@@ -215,9 +213,7 @@ namespace PlaybackCtrl
         /// <returns>List of Tracks in playqueue</returns>
 		public List<ITrack> GetQueue ()
 		{
-			
 			return _Queue;
-			
 		}
     }
 }

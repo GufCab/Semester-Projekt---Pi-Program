@@ -27,7 +27,7 @@ namespace PlaybackCtrl
 
 
         /// <summary>
-        /// Keeps track of evented variables. String contains current state of the playback and broadcasts it whenever it changes.
+        /// Keeps track of evented variables. String contains current state of the playback and broadcasts whenever it changes.
         /// </summary>
 		public string TransportState
 		{
