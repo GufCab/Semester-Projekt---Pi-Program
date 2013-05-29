@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.5, 8.5" name="Deployment">
+  <componentModelMoniker Id="6c0cc46d-0fa8-41b8-b938-b5c632a12f43" />
+  <nestedChildShapes>
+    <componentShape Id="b97470aa-ee2d-45de-bc11-588229261485" absoluteBounds="0.5, 0.5, 5.3229166666666661, 4.3874999999999993" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="5aeb0420-d3a1-4ee3-ab06-7bc64b66047f" LastKnownName="Raspberry Pi" />
+    </componentShape>
+    <componentShape Id="109ce812-5f89-4b22-89fb-782c49d33012" absoluteBounds="7.25, 0.5, 5.96875, 4.39375" customColor="161, 199, 231" whiteBoxBoundsHeight="0" whiteBoxBoundsWidth="0" blackBoxBoundsHeight="0" blackBoxBoundsWidth="0" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0">
+      <componentMoniker Id="1b47bed1-0ec1-47ba-8220-e1f69eabdf7f" LastKnownName="PC applikation" />
+    </componentShape>
+    <componentShape Id="0b41b190-ea72-4b0d-bb02-a9e83b94f0ff" isExpanded="false" absoluteBounds="3.875, 4, 1.6875, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="1.3354166666666667" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="5cc4bdf3-b4ed-42cb-9812-66ad5b476e3b" LastKnownName="UPnP_Device.dll" />
+    </componentShape>
+    <componentShape Id="e2fe0d08-3310-4ed6-8fe3-3762409a7b59" isExpanded="false" absoluteBounds="7.375, 4, 1.5, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="f97b17ab-92c8-44d9-8297-fcb6c6fdb5e6" LastKnownName="UPnP_cp.dll" />
+    </componentShape>
+    <componentShape Id="48b518bc-60ed-4f82-b685-76a0d8b12fa4" isExpanded="false" absoluteBounds="2.875, 2.875, 1.5, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="3f71591b-a59e-4b46-9c98-bcfc3ed46a9a" LastKnownName="PlaybackCtrl.dll" />
+    </componentShape>
+    <componentShape Id="20d9a23b-4bff-4898-94b2-ce4c7b2c3d1f" isExpanded="false" absoluteBounds="2, 4, 1.5, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="55411930-7b98-42fd-875c-dc7761ca7065" LastKnownName="MPlayer.dll" />
+    </componentShape>
+    <dependencyConnector edgePoints="[(3.1875 : 3.575); (3.1875 : 4)]" fixedFrom="Caller" fixedTo="Caller" customColor="Black">
+      <dependencyMoniker Id="a816f2ed-4efb-45bd-ba4b-6e5d89ffd3ad" />
+      <relativeChildShapes />
+      <nodes>
+        <componentShapeMoniker Id="48b518bc-60ed-4f82-b685-76a0d8b12fa4" />
+        <componentShapeMoniker Id="20d9a23b-4bff-4898-94b2-ce4c7b2c3d1f" />
+      </nodes>
+    </dependencyConnector>
+    <dependencyConnector edgePoints="[(4.125 : 3.575); (4.125 : 4)]" fixedFrom="Caller" fixedTo="Caller" customColor="Black">
+      <dependencyMoniker Id="aa149800-0ad2-4470-8c06-b358a8a8f6ca" />
+      <relativeChildShapes />
+      <nodes>
+        <componentShapeMoniker Id="48b518bc-60ed-4f82-b685-76a0d8b12fa4" />
+        <componentShapeMoniker Id="0b41b190-ea72-4b0d-bb02-a9e83b94f0ff" />
+      </nodes>
+    </dependencyConnector>
+    <dependencyConnector edgePoints="[(7.375 : 4.35); (5.5625 : 4.35)]" fixedFrom="Caller" fixedTo="Caller" customColor="Black">
+      <dependencyMoniker Id="e82f57a5-72af-404f-899e-b66b04e56f84" />
+      <relativeChildShapes />
+      <nodes>
+        <componentShapeMoniker Id="e2fe0d08-3310-4ed6-8fe3-3762409a7b59" />
+        <componentShapeMoniker Id="0b41b190-ea72-4b0d-bb02-a9e83b94f0ff" />
+      </nodes>
+    </dependencyConnector>
+  </nestedChildShapes>
+</componentDiagram>

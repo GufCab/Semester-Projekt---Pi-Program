@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>Both\PiThreadingDiagram.classdiagram</DependentUpon>
     </Content>
+    <Content Include="Deployment.componentdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Deployment.componentdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Deployment.componentdiagram</DependentUpon>
+    </Content>
     <Content Include="FileSender\FileSenderServer_FileSenderServer.sequencediagram">
       <SubType>Content</SubType>
     </Content>

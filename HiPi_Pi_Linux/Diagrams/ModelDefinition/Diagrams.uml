@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
   dslVersion="1.0.0.0"
   Id="f78da2d3-967b-448b-bd01-d4cc077bfb84"
   name="Diagrams" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -222,6 +222,105 @@
         Id="18e7c022-ffee-400f-964e-12a2e2d1ff45"
         LastKnownName="MySql"
         LastKnownLocation="Package1_1746.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="83c9493b-bafb-4ed6-9c0e-b137c0143103"
+        name="Raspberry Pi"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="12aaf177-cb58-48ba-a810-f1dc7d129488"
+        name="PC applikation"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="b605df30-459e-46fe-a7be-e64e6f44d73c"
+        name="Component3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="f1df268b-2696-463d-89a9-188b61dce3f7"
+        name="Component4"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="c8d5754a-d26d-4e50-bbd8-0e4a71ea5aa7"
+        name="UPnP_Device.dll"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="968db292-4d8c-43f9-b511-9b9e19dbf679"
+        name="Component6"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="541a060a-448e-442e-956c-7cb4281d64a1"
+        name="UPnP_cp.dll"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="bcf77117-c0b1-4ee1-a882-df5d770ab796">
+            <componentMoniker
+              Id="c8d5754a-d26d-4e50-bbd8-0e4a71ea5aa7"
+              LastKnownName="UPnP_Device.dll"
+              LastKnownLocation="Diagrams.uml" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="4943e956-fc47-4a25-93f1-7f170f78c87d"
+        name="PlaybackCtrl.dll"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="1ea6055d-4df9-476f-ae12-1eec464d1603">
+            <componentMoniker
+              Id="16864056-c6db-4f79-bde0-c0203263da85"
+              LastKnownName="MPlayer.dll"
+              LastKnownLocation="Diagrams.uml" />
+          </dependency>
+          <dependency
+            Id="e2acbc17-8857-4e7e-8d8d-68d828885240">
+            <componentMoniker
+              Id="c8d5754a-d26d-4e50-bbd8-0e4a71ea5aa7"
+              LastKnownName="UPnP_Device.dll"
+              LastKnownLocation="Diagrams.uml" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="16864056-c6db-4f79-bde0-c0203263da85"
+        name="MPlayer.dll"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
