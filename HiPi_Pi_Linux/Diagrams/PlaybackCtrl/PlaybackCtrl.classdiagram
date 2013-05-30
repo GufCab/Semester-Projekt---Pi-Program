@@ -4804,366 +4804,622 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasPackages>
-      <package Id="27b0c342-72ee-4efe-96c3-81e85b3352e3" name="DB Lookup package">
-        <elementDefinition Id="a4a132b7-2022-4343-badf-834ef8dda702" />
+      <package Id="d19e8353-2d8b-4e55-abf3-43972e53851d" name="DB Handler package">
+        <elementDefinition Id="397e8665-5b91-43bf-8454-af2343bcaca2" />
         <packagedElements>
           <packageHasNamedElement>
-            <class Id="a4daceae-a188-49b2-a980-050817eb23ad" name="DBLookup" isAbstract="false" isLeaf="false" isActiveClass="false">
+            <class Id="d99ad7de-c2ce-4b7d-a768-396c467b2a81" name="DBHandle" isAbstract="false" isLeaf="false" isActiveClass="false">
               <referencesInternal>
-                <reference Id="d2e357f8-5ec8-453d-ba55-4876481d40b9" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup" tag="ViewCode">
-                  <elementDefinition Id="3465a86f-4e0e-4848-a8ea-cf05b4f96c27" />
+                <reference Id="5981f5dd-0434-4343-96db-091bc7a6de4c" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle" tag="ViewCode">
+                  <elementDefinition Id="31fcfdd7-6c5c-4451-a574-faecfa5efe3c" />
                 </reference>
               </referencesInternal>
               <appliedStereotypesInternal>
-                <stereotypeInstance Id="443a6156-f30f-47b4-8cbb-b830c462023e" name="class" profile="CSharpProfile">
-                  <elementDefinition Id="9e910d81-4d19-4c27-a409-d87ff0b4d0f3" />
+                <stereotypeInstance Id="24e7d3f1-5326-4730-be33-5758ad5b07ee" name="class" profile="CSharpProfile">
+                  <elementDefinition Id="0521615b-dc93-4826-b3a1-0197b9887ca4" />
                   <propertyInstances>
-                    <stereotypeInstanceHasPropertyInstances Id="681d1a06-07ce-4848-9dd2-dcb2589f65b0">
-                      <propertyInstance Id="4e3d2e65-1b66-4d53-aa8e-f92aab2f2086" name="ClrAttributes">
-                        <elementDefinition Id="48b60394-b9ab-496a-bc89-1b5c2f2c1fdc" />
+                    <stereotypeInstanceHasPropertyInstances Id="eb6e9e45-8859-4caa-b72c-9502e604e791">
+                      <propertyInstance Id="f580faa9-1723-4cb8-8367-e015239fe68f" name="ClrAttributes">
+                        <elementDefinition Id="d6ea88b3-a8d0-45f0-bd4a-ed905861dff8" />
                       </propertyInstance>
-                      <elementDefinition Id="b943ec06-a67a-4ec2-9229-99829442b5bb" />
+                      <elementDefinition Id="656c566c-fdde-46c8-9bd7-1caaa273a209" />
                     </stereotypeInstanceHasPropertyInstances>
-                    <stereotypeInstanceHasPropertyInstances Id="ae4ad318-d0bc-4c54-945b-10211570f895">
-                      <propertyInstance Id="20d3053a-b49b-45df-93b8-aa8bc407bd95" name="IsPartial" value="false">
-                        <elementDefinition Id="fd5cbcff-7267-4efe-b68e-516faea4bb4f" />
+                    <stereotypeInstanceHasPropertyInstances Id="4025b949-6a86-45f9-83a8-1b5c6fe028dd">
+                      <propertyInstance Id="aeb9961a-18ea-4cbc-aa66-a8cfe618babd" name="IsPartial" value="false">
+                        <elementDefinition Id="60d1f125-fb36-4b43-a260-83093fc0d6cc" />
                       </propertyInstance>
-                      <elementDefinition Id="51157256-7d4c-405d-b5e2-054c6c76ba88" />
+                      <elementDefinition Id="fc22cd62-7b7c-4a27-beaf-c133d454f944" />
                     </stereotypeInstanceHasPropertyInstances>
-                    <stereotypeInstanceHasPropertyInstances Id="58abe753-b12f-45a1-9368-7a554b8eceeb">
-                      <propertyInstance Id="1589ebe0-cab7-4a42-85fe-06f9c25bc398" name="IsStatic" value="False">
-                        <elementDefinition Id="027e4851-39c1-4740-a613-8c9a24c3719b" />
+                    <stereotypeInstanceHasPropertyInstances Id="8f295f97-f9b9-4c75-a328-3476c6ffd5a5">
+                      <propertyInstance Id="0f87e4ad-f33a-40c7-8827-b8904a1ef9ea" name="IsStatic" value="False">
+                        <elementDefinition Id="207053a0-2f13-4ee8-b819-5155db334f2b" />
                       </propertyInstance>
-                      <elementDefinition Id="acc1311f-83fb-4545-82e5-6e278bb45050" />
+                      <elementDefinition Id="87307ca3-b834-43e7-b997-5fca0234e37e" />
                     </stereotypeInstanceHasPropertyInstances>
-                    <stereotypeInstanceHasPropertyInstances Id="4e6428c6-4388-4398-b4e4-370eda9b1412">
-                      <propertyInstance Id="b535e688-9cbd-45f3-8b4e-dd01804bc613" name="IsUnsafe" value="false">
-                        <elementDefinition Id="d4011230-adc5-4046-bb63-9b8f559285c7" />
+                    <stereotypeInstanceHasPropertyInstances Id="fc3dbe6b-7b54-48c3-bf09-86756bfb3d98">
+                      <propertyInstance Id="fe845b13-3104-4a39-872c-bca6ccbcffb6" name="IsUnsafe" value="false">
+                        <elementDefinition Id="f7620489-25f8-4eeb-b4e4-e3d559b1abe2" />
                       </propertyInstance>
-                      <elementDefinition Id="790840ad-b562-4212-a86f-046b390557c3" />
+                      <elementDefinition Id="8f7a7ba0-cacf-4890-bf47-28d9ffb45163" />
                     </stereotypeInstanceHasPropertyInstances>
-                    <stereotypeInstanceHasPropertyInstances Id="681964fd-5e25-4fcd-9b3b-288a8a219366">
-                      <propertyInstance Id="08b401d2-937e-4b47-a5c8-622b20d104f1" name="PackageVisibility" value="internal">
-                        <elementDefinition Id="1415d0fb-09b9-402f-be38-3099270ce1f6" />
+                    <stereotypeInstanceHasPropertyInstances Id="20b0e820-bfda-4c66-ac4e-74bcc774b2dd">
+                      <propertyInstance Id="9fd9541d-976b-409d-a221-ec4a80a4d365" name="PackageVisibility" value="internal">
+                        <elementDefinition Id="03e317d4-13c1-4203-95d1-e4f120590379" />
                       </propertyInstance>
-                      <elementDefinition Id="3080e661-a912-413d-b7b5-b5d550742f0b" />
+                      <elementDefinition Id="bc452b80-2e99-4034-a82f-d5b7e84a04ea" />
                     </stereotypeInstanceHasPropertyInstances>
                   </propertyInstances>
                 </stereotypeInstance>
               </appliedStereotypesInternal>
-              <elementDefinition Id="fdf7df32-fd32-4833-9095-e86c23a487a3" />
+              <elementDefinition Id="d2fc9250-5ca9-4372-8449-693ed0292213" />
               <targetEnds>
-                <association Id="33ee9ba9-7ba8-409e-b3d2-3f0a55070bfc" isDerived="false" sourceEndRoleName=" " targetEndRoleName=" " isLeaf="false" isAbstract="false">
+                <association Id="6b67b9ff-5461-4143-9454-522e8460f11d" isDerived="false" sourceEndRoleName=" " targetEndRoleName=" " isLeaf="false" isAbstract="false">
                   <interfaceMoniker Id="3fefbbde-f9a1-4ebd-a3c0-1761727361e7" LastKnownName="IPlayqueueHandler" />
                   <relationshipOwnedElementsInternal>
                     <associationHasOwnedEnds>
-                      <memberEnd Id="77d26e1f-ea5c-41a9-8b6a-f25a4f4f9411" name=" " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                      <memberEnd Id="b53aef1b-dec7-4824-8693-d23817869645" name=" " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
                         <lowerValueInternal>
-                          <literalString Id="f566356d-478e-44af-85af-8bfc81a4b0d5" name="Lower">
-                            <elementDefinition Id="94ce03db-22a5-4467-a20c-d74d1df84c2e" />
+                          <literalString Id="e7b38890-e7b8-474e-a167-c493135b497e" name="Lower">
+                            <elementDefinition Id="a5f7cfb1-b06b-47f2-8476-af4250fd1db0" />
                           </literalString>
                         </lowerValueInternal>
                         <upperValueInternal>
-                          <literalString Id="19700825-0124-4c2f-ab74-7cddbbccc977" name="Upper">
-                            <elementDefinition Id="27f079dd-9d99-4ef2-bc59-41d9d040e90e" />
+                          <literalString Id="036a2014-fb4c-4e24-b647-63b5d035028c" name="Upper">
+                            <elementDefinition Id="fbd5d50e-0555-461a-86ea-56cb948fdacf" />
                           </literalString>
                         </upperValueInternal>
-                        <elementDefinition Id="96760514-7cb8-4aac-9843-4816aa43deb5" />
+                        <elementDefinition Id="df586124-2a04-4cd6-8e0c-73abcd182280" />
                       </memberEnd>
                     </associationHasOwnedEnds>
                     <associationHasOwnedEnds>
-                      <memberEnd Id="e026ae36-88d6-4958-b221-bee0f670a0ce" name=" " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                      <memberEnd Id="05bf9117-74e6-4444-86b7-70a5afcde5ec" name=" " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                         <lowerValueInternal>
-                          <literalString Id="2a8866bb-c1de-449b-a95d-4f9374254170" name="Lower">
-                            <elementDefinition Id="b9a192f9-c427-403b-a763-e41a2d522bed" />
+                          <literalString Id="80bcca26-7f6a-4399-8aef-ce346e9dfc11" name="Lower">
+                            <elementDefinition Id="666387d2-c035-4adb-b5ca-153cf0d90f90" />
                           </literalString>
                         </lowerValueInternal>
                         <upperValueInternal>
-                          <literalString Id="c0b1e0f0-fe8a-4c72-8207-e2feb6702e35" name="Upper">
-                            <elementDefinition Id="9528f5ef-59ae-4091-aea1-17365f4ff86a" />
+                          <literalString Id="2d577e51-4baa-4782-b0fd-5853506c2dd9" name="Upper">
+                            <elementDefinition Id="57281500-1889-4c08-9f2f-3a6be9de9b07" />
                           </literalString>
                         </upperValueInternal>
-                        <elementDefinition Id="fc53bd74-1c68-4686-afbd-cb677527eb86" />
+                        <elementDefinition Id="3679cbaf-f965-4358-87b1-51ea6af3c411" />
                       </memberEnd>
                     </associationHasOwnedEnds>
                   </relationshipOwnedElementsInternal>
-                  <elementDefinition Id="aa54811b-e528-44da-becb-ccec308b4ed2" />
+                  <elementDefinition Id="17fa47a2-6fb1-47fa-a7f4-b8386d1dc73c" />
                 </association>
               </targetEnds>
               <ownedAttributesInternal>
-                <property Id="e2d217d1-a618-4afd-9ca6-e3ceb8326348" name="_conStr" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                <property Id="050353d3-828f-4f6c-94f0-f5bab34ff271" name="_sourceDevice" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <referencesInternal>
-                    <reference Id="905078d7-eb60-4900-83ff-f1f48e1fec2b" handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup Member%3D_conStr" tag="ViewCode">
-                      <elementDefinition Id="869c6e71-4f2a-4783-a5f9-5383a0c54eb1" />
+                    <reference Id="a87ec760-b4b8-4c9d-803d-a2b6748b981b" handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D_sourceDevice" tag="ViewCode">
+                      <elementDefinition Id="ee3297d5-bff3-4358-9fb5-df8820fa0dea" />
                     </reference>
                   </referencesInternal>
                   <appliedStereotypesInternal>
-                    <stereotypeInstance Id="e7df2aa4-bd2b-4b1a-b3b9-5032126f9225" name="field" profile="CSharpProfile">
-                      <elementDefinition Id="f6d41386-1bd6-4374-a739-e8d6adba8084" />
+                    <stereotypeInstance Id="2003f93d-74fb-47db-90e4-411c0c8fc1b4" name="field" profile="CSharpProfile">
+                      <elementDefinition Id="d6e9038b-ccdf-4925-a72c-fac5080a1c28" />
                       <propertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="dcc0ee11-c013-4c1a-b3e7-778204fe1d01">
-                          <propertyInstance Id="8431b102-2091-4d22-8e60-b33251c56e5d" name="ClrAttributes">
-                            <elementDefinition Id="870af8f6-9988-4fbc-a1fa-1dcc9b271cc2" />
+                        <stereotypeInstanceHasPropertyInstances Id="aef4d72f-058b-4bd1-807c-98380d9fd062">
+                          <propertyInstance Id="0861ac8b-8130-4550-8658-dfa1f1e31612" name="ClrAttributes">
+                            <elementDefinition Id="aa6e371e-6ce2-411a-aef4-79868953ad14" />
                           </propertyInstance>
-                          <elementDefinition Id="8cb96026-13fc-4f7f-822f-2a916821ce11" />
+                          <elementDefinition Id="69ac7682-bac9-443a-9206-43db1913b5c1" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="57dd5039-612b-4736-9a5f-a2922b69450c">
-                          <propertyInstance Id="00f11d81-6ac1-4594-9f8c-6666d56d5f56" name="IsConst" value="false">
-                            <elementDefinition Id="86be1295-ac3f-47ad-b6be-a7e31329ff12" />
+                        <stereotypeInstanceHasPropertyInstances Id="53d6b37b-f72d-42e5-b206-ca969f01e53a">
+                          <propertyInstance Id="aee71568-50f7-467c-a043-8e1055b44c4b" name="IsConst" value="false">
+                            <elementDefinition Id="01d50ba7-5bea-47f5-a560-98aaca053867" />
                           </propertyInstance>
-                          <elementDefinition Id="a2970caf-f184-42f8-971f-508ef56dee63" />
+                          <elementDefinition Id="016913e9-0f94-483d-a687-7340b3664a52" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="6b6e76c8-fd3d-4d4e-a48d-11d96097e7e7">
-                          <propertyInstance Id="67b2e347-1427-4d74-8e50-c39f11c69557" name="IsNullable" value="false">
-                            <elementDefinition Id="0198cdf7-9127-4f1c-af3b-68c64ae0f7f8" />
+                        <stereotypeInstanceHasPropertyInstances Id="07ac1362-7997-4828-9ef5-d2137ebf6f2a">
+                          <propertyInstance Id="a03b3429-162d-4acb-ad72-b5dff9ba6e51" name="IsNullable" value="false">
+                            <elementDefinition Id="8cdaf26e-316f-4c37-8cd0-accc8196ba1f" />
                           </propertyInstance>
-                          <elementDefinition Id="dd927b6f-49ea-4cbf-b5fb-74cd4930e612" />
+                          <elementDefinition Id="c9999726-53ee-42e1-b9c5-59e9a6491a4c" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="d750248b-a779-460a-9487-6bb709d04fe5">
-                          <propertyInstance Id="395bb3d1-596a-499b-adf7-0bd9d9c4d698" name="IsVolatile" value="false">
-                            <elementDefinition Id="5f37d4d3-88c3-4249-9158-38fe6148c036" />
+                        <stereotypeInstanceHasPropertyInstances Id="cc95a350-0bd0-4333-8f8c-9feb6d56fd66">
+                          <propertyInstance Id="6b90ce5f-f222-4222-ade8-8079f56239d0" name="IsVolatile" value="false">
+                            <elementDefinition Id="4eafc874-46cb-430b-bcc3-80722a160a70" />
                           </propertyInstance>
-                          <elementDefinition Id="de038a95-869c-4d2e-9334-cca9d70466bc" />
+                          <elementDefinition Id="6510f845-3244-406c-9a54-56a096095213" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="e94ead51-5217-4c62-892e-6bdf6fc91081">
-                          <propertyInstance Id="fc0cad60-b5d4-4f1a-a641-debf765a5110" name="PackageVisibility" value="internal">
-                            <elementDefinition Id="bceaa0fa-25db-4356-8344-469060c2954b" />
+                        <stereotypeInstanceHasPropertyInstances Id="6d4c05bf-015e-460e-a0d1-136ee14c7de9">
+                          <propertyInstance Id="77a0a88a-28c5-4ee6-84dc-b499787e52c7" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="638358dc-b9d8-41b2-9e9d-760d1e973712" />
                           </propertyInstance>
-                          <elementDefinition Id="f7131b18-0183-4834-8e68-b2bb78928643" />
+                          <elementDefinition Id="017e9b83-0482-4270-a3e7-794baeb036e1" />
                         </stereotypeInstanceHasPropertyInstances>
                       </propertyInstances>
                     </stereotypeInstance>
                   </appliedStereotypesInternal>
-                  <elementDefinition Id="8676e25c-8aae-4d07-90bc-dcfa7393c725" />
+                  <elementDefinition Id="814cbdd6-0184-4a8d-aac9-24c769af597b" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="03255beb-1765-468d-8510-21eb1c5685c6" LastKnownName="String" />
+                    <referencedTypeMoniker Id="cbe15d4b-eef4-4207-879e-50a73ca3cd55" LastKnownName="IUPnP" />
                   </type_NamedElement>
                 </property>
-                <property Id="96436ae2-fabe-436a-a887-c36b39077414" name="_con" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                <property Id="15ee8a5a-4012-4af5-a5f0-47d19c6554a5" name="_dbXmlWriter" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <referencesInternal>
-                    <reference Id="74e27b68-d058-4890-986a-19e9f5e1c0e8" handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup Member%3D_con" tag="ViewCode">
-                      <elementDefinition Id="10eb8cf0-8de1-4a51-888f-310a8d190bf2" />
+                    <reference Id="74a996e7-a04a-4026-9149-bf88b5bd356d" handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D_dbXmlWriter" tag="ViewCode">
+                      <elementDefinition Id="296aa323-5de5-43a5-baef-55ca57e78b5a" />
                     </reference>
                   </referencesInternal>
                   <appliedStereotypesInternal>
-                    <stereotypeInstance Id="fba42212-9828-4fae-b4fb-c3990b65f1a2" name="field" profile="CSharpProfile">
-                      <elementDefinition Id="fd576b23-a21e-4c72-a0bd-5160c47adb00" />
+                    <stereotypeInstance Id="f466d769-1fe6-46bc-9fea-83c4cb08cdfa" name="field" profile="CSharpProfile">
+                      <elementDefinition Id="cd6b0425-d810-45d5-b6f7-e1c65c8a71de" />
                       <propertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="39d8c503-6fa1-40c2-80ea-9a238e830218">
-                          <propertyInstance Id="394d911c-933a-4c65-93e0-377ba232816b" name="ClrAttributes">
-                            <elementDefinition Id="4b2bd10b-7195-48d9-8c8a-421fc9ace89a" />
+                        <stereotypeInstanceHasPropertyInstances Id="12a9a5c4-deda-4dd1-8502-d71a145e49e0">
+                          <propertyInstance Id="87c8d626-f079-44e8-b851-09961d9e8081" name="ClrAttributes">
+                            <elementDefinition Id="f07f8c9a-79d7-4dea-b65d-9bd6e12ab648" />
                           </propertyInstance>
-                          <elementDefinition Id="50c5c758-74b9-4070-bbd7-c30b09620e40" />
+                          <elementDefinition Id="1dc13f4e-b645-40e0-ba5f-de548a5d2c24" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="a34d5514-dfb5-4b88-af32-794388510518">
-                          <propertyInstance Id="d61fdcc3-8321-46b4-8eb5-9c7715827365" name="IsConst" value="false">
-                            <elementDefinition Id="a524fc48-e7ba-47c3-ac03-2bad64250dab" />
+                        <stereotypeInstanceHasPropertyInstances Id="720b43be-7f24-4ddf-81dc-fa1b575fb435">
+                          <propertyInstance Id="6ffcd5c1-17ef-4fdd-902c-80cb10c3e2a1" name="IsConst" value="false">
+                            <elementDefinition Id="97920610-abd3-49e7-8a6d-aa4c1621a7e3" />
                           </propertyInstance>
-                          <elementDefinition Id="924835ce-27b6-47ff-ba10-32b325177f52" />
+                          <elementDefinition Id="074e7243-566b-4c36-835a-b1593153e8a8" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="a3b98532-c1ba-451c-ac2d-844c3e727f44">
-                          <propertyInstance Id="8defa966-a59f-48d7-9700-7375732c8c34" name="IsNullable" value="false">
-                            <elementDefinition Id="d13ec63b-ef8d-49bd-a384-40573dd55ef1" />
+                        <stereotypeInstanceHasPropertyInstances Id="f48a698b-a8c7-435c-b97d-0668cc84c31a">
+                          <propertyInstance Id="4c06e3fb-ff66-49a2-bc97-e7269809b5af" name="IsNullable" value="false">
+                            <elementDefinition Id="cac929d4-1c67-4910-a919-60b4820ffd13" />
                           </propertyInstance>
-                          <elementDefinition Id="4fe330d5-3dcd-4f60-b3f7-7c3447afa406" />
+                          <elementDefinition Id="b8a7a40a-1e2e-48ad-aa09-798a0b02abef" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="360828f2-7192-4519-b80c-8ce257cdc10c">
-                          <propertyInstance Id="125b1935-1f0b-4991-8548-a334a8db6703" name="IsVolatile" value="false">
-                            <elementDefinition Id="5238aadd-a0ef-410b-95f7-3e3ae8128582" />
+                        <stereotypeInstanceHasPropertyInstances Id="dd870fa2-d1ed-4bb6-9be8-d938aff7ddb3">
+                          <propertyInstance Id="d8041622-404f-4e47-8cef-b9f8f95b1e2e" name="IsVolatile" value="false">
+                            <elementDefinition Id="f530ce2a-27bf-4970-87d2-8f03b5374027" />
                           </propertyInstance>
-                          <elementDefinition Id="7bd1cd61-dff3-4c65-b660-7aac0cfa7e2b" />
+                          <elementDefinition Id="74d3f26e-2726-498e-8f14-5750e86ba4bd" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="36c685b3-6097-4be1-b7ab-0c83343e7c92">
-                          <propertyInstance Id="6af5f443-76a6-4130-a524-fb90c74a7e34" name="PackageVisibility" value="internal">
-                            <elementDefinition Id="319869ec-88a8-4e57-b024-5fda3310d91b" />
+                        <stereotypeInstanceHasPropertyInstances Id="e19e8ec5-c1fe-46e9-8b56-a51207048b97">
+                          <propertyInstance Id="37e8cba1-7135-4b4e-9a89-49894e63141d" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="3ef3c9b8-3692-40a4-a52c-f1cac70bc84c" />
                           </propertyInstance>
-                          <elementDefinition Id="4bc5a93a-3601-420d-b1ed-fce551fa4a80" />
+                          <elementDefinition Id="9e9046bb-c393-4579-b866-c287415eaddd" />
                         </stereotypeInstanceHasPropertyInstances>
                       </propertyInstances>
                     </stereotypeInstance>
                   </appliedStereotypesInternal>
-                  <elementDefinition Id="34f5179b-6946-414f-a8a6-9e38f8e4292d" />
+                  <elementDefinition Id="9c6c71c5-dfa9-4aac-bea4-382980353a9a" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="a1de2f00-feb2-4877-86a7-2fc0777c0320" LastKnownName="MySqlConnection" />
+                    <referencedTypeMoniker Id="d54d59d3-6c70-491f-9972-b8ce79c0b123" LastKnownName="XMLWriter" />
+                  </type_NamedElement>
+                </property>
+                <property Id="23b386ce-8b14-4e5b-a366-6c9d36e9f346" name="_strategies" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <referencesInternal>
+                    <reference Id="bb8b61a0-fd73-4549-b0da-a62d91849f0c" handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D_strategies" tag="ViewCode">
+                      <elementDefinition Id="b8fba86a-f6ff-47f2-b121-e1592de0c6b7" />
+                    </reference>
+                  </referencesInternal>
+                  <appliedStereotypesInternal>
+                    <stereotypeInstance Id="d7c28f29-e8d1-4974-a388-a1e01893bd68" name="field" profile="CSharpProfile">
+                      <elementDefinition Id="5b8d4717-4b2a-4a9d-840a-67276b8b9bbf" />
+                      <propertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="36931dc4-2614-4de7-a61c-de2200d6c884">
+                          <propertyInstance Id="4b654fdf-2156-441d-b7b4-abaf9c199268" name="ClrAttributes">
+                            <elementDefinition Id="a29e89c7-2460-4b36-9900-03da63764ddb" />
+                          </propertyInstance>
+                          <elementDefinition Id="a44c3430-7800-47ee-9564-19ce1a0a49cc" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="2292c232-6605-45ba-9899-03469b02ec1a">
+                          <propertyInstance Id="beec075d-2db5-4599-af77-36e5bf5e0e45" name="IsConst" value="false">
+                            <elementDefinition Id="4820deea-6800-4c7d-8167-c658b4801c10" />
+                          </propertyInstance>
+                          <elementDefinition Id="ecaf1da5-444f-4150-b836-c39ea60b61c4" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="66327949-632e-46dd-ab16-0e2e09211121">
+                          <propertyInstance Id="9d2ac74c-95c7-4e2c-957a-1ea0f8d813dd" name="IsNullable" value="false">
+                            <elementDefinition Id="eaee203f-76a7-414f-a233-be44525831fa" />
+                          </propertyInstance>
+                          <elementDefinition Id="b1124a97-1ad5-4ec0-bf34-0143084d0728" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="3fe6d9a6-c63e-464e-8269-43210e30c200">
+                          <propertyInstance Id="451c7081-3796-401e-8651-985f96ab0341" name="IsVolatile" value="false">
+                            <elementDefinition Id="819cd7b9-5639-49aa-beb0-141fc24a3cc0" />
+                          </propertyInstance>
+                          <elementDefinition Id="b984dc66-7998-4875-9086-f7b0b52a1f8b" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="155a919c-c138-479d-9df9-9f4652add302">
+                          <propertyInstance Id="9ce7853e-830c-41b2-a315-cb7a0fbd7fba" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="1862aa67-9158-4846-8a03-dc06f6aaa9cc" />
+                          </propertyInstance>
+                          <elementDefinition Id="76a654a8-8ed3-488e-8906-b5504839ecc6" />
+                        </stereotypeInstanceHasPropertyInstances>
+                      </propertyInstances>
+                    </stereotypeInstance>
+                  </appliedStereotypesInternal>
+                  <elementDefinition Id="39e10356-b9d6-46ff-a2f3-43f75cc95775" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a9900592-48d6-4a34-bcb0-b9b4b3141657" LastKnownName="Dictionary&lt;String‎, IDBStrategy‎&gt;" />
+                  </type_NamedElement>
+                </property>
+                <property Id="8e2de3e8-037c-4b95-9552-868cc58c1db8" name="_dbLookup" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <referencesInternal>
+                    <reference Id="bca758b9-0569-4eca-b164-ac972bcf11c2" handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D_dbLookup" tag="ViewCode">
+                      <elementDefinition Id="813a58a6-f739-4b05-b323-3d88a12c08bf" />
+                    </reference>
+                  </referencesInternal>
+                  <appliedStereotypesInternal>
+                    <stereotypeInstance Id="7c5344b1-0c19-4167-b41e-607e5b669655" name="field" profile="CSharpProfile">
+                      <elementDefinition Id="33fe0c73-8a24-4a73-9485-ebcd83f43564" />
+                      <propertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="c488d873-8be0-4ce3-bfd7-1b25661fec66">
+                          <propertyInstance Id="d7c7517d-4318-4008-aa62-7b1107a116a9" name="ClrAttributes">
+                            <elementDefinition Id="c6454df4-683a-4a35-b44d-115b64d5b1e0" />
+                          </propertyInstance>
+                          <elementDefinition Id="d9e87821-bb24-472c-aa7d-202e4d30adab" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="acbcc286-093d-4247-9026-cdceac90fdd4">
+                          <propertyInstance Id="3e6fc91b-23d9-4b58-8c6c-411f09ed2e0d" name="IsConst" value="false">
+                            <elementDefinition Id="1aa8f82b-b53d-4e96-825a-ef0a34fefdc3" />
+                          </propertyInstance>
+                          <elementDefinition Id="01d35f8e-a7d7-4c9a-ad90-7606c93e8eee" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="d742b71e-5012-4f8a-8832-4a77bb7b0fcf">
+                          <propertyInstance Id="6ee799f4-78ff-400c-a42c-20323a79b35c" name="IsNullable" value="false">
+                            <elementDefinition Id="12948244-e12e-4c30-b944-a470025397f9" />
+                          </propertyInstance>
+                          <elementDefinition Id="bd37badf-685a-4742-89ef-c07bb4935d32" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="a838e187-22a5-4e64-b5bc-1742c9e0ad4e">
+                          <propertyInstance Id="db352041-53d9-4164-8baa-163c20900f2e" name="IsVolatile" value="false">
+                            <elementDefinition Id="c6318e8d-5be7-4b37-bc4b-adf0800b8b56" />
+                          </propertyInstance>
+                          <elementDefinition Id="5972f938-cf44-4cad-8735-39abf9630eaa" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="a974ebe9-9f6a-4281-adc3-e0732666d111">
+                          <propertyInstance Id="7bb45e1b-60e4-40db-8fb1-abe74f854073" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="59ea3ada-5a85-42b5-a56a-1a667980581a" />
+                          </propertyInstance>
+                          <elementDefinition Id="b4e31d40-22e5-482e-bbe0-e8cc3a3b3b95" />
+                        </stereotypeInstanceHasPropertyInstances>
+                      </propertyInstances>
+                    </stereotypeInstance>
+                  </appliedStereotypesInternal>
+                  <elementDefinition Id="ffc1d7f9-6692-4274-ba73-3b714d426ab7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="95bc0df8-3e61-47ec-8c16-11f07dd67ccc" LastKnownName="DBLookup" />
+                  </type_NamedElement>
+                </property>
+                <property Id="068da145-9b4d-4ad1-beeb-e589f902f196" name="_PQHandler" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <referencesInternal>
+                    <reference Id="e5aa9bbf-696b-4563-b081-aa6a74f92fff" handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D_PQHandler" tag="ViewCode">
+                      <elementDefinition Id="87d776a4-a0d8-40f3-9fe4-1161821070e1" />
+                    </reference>
+                  </referencesInternal>
+                  <appliedStereotypesInternal>
+                    <stereotypeInstance Id="00788a05-e180-40b3-80a0-f32d42bd02e9" name="field" profile="CSharpProfile">
+                      <elementDefinition Id="d12431bb-0d53-4bae-85fc-090b915ba389" />
+                      <propertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="30e48106-268c-484d-baf0-b7d72c76b81f">
+                          <propertyInstance Id="3ebd81c8-b0df-4d2f-9af5-e34801b4d0bd" name="ClrAttributes">
+                            <elementDefinition Id="3c171f3b-96ae-430b-ad08-83c77a0ff8de" />
+                          </propertyInstance>
+                          <elementDefinition Id="a99a1878-6cff-44b4-8afb-de98fdf023d3" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="34577f2e-aa26-4cff-95fd-36f7c7b55dda">
+                          <propertyInstance Id="56eedabf-c68b-4e9b-814c-033a493ba8cb" name="IsConst" value="false">
+                            <elementDefinition Id="1744e53c-1832-45d3-96aa-64423a56539b" />
+                          </propertyInstance>
+                          <elementDefinition Id="e3d9706a-1029-4f01-bfaa-ed65c9514daf" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="f201787f-bbd0-4472-8074-0ade7fc4253d">
+                          <propertyInstance Id="cf7bc02a-62ec-4905-8418-13022148e52d" name="IsNullable" value="false">
+                            <elementDefinition Id="3328002c-07fb-491c-8119-5fb477589071" />
+                          </propertyInstance>
+                          <elementDefinition Id="f3d8a84a-0819-480a-a908-a92d6fc3f8a9" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="47b38299-f297-4f53-8bee-afda77a3b291">
+                          <propertyInstance Id="29872c8b-f7af-4d4b-9f33-c8674a2200d9" name="IsVolatile" value="false">
+                            <elementDefinition Id="5739c8b4-1639-456a-b2c8-441aa0a1c2d1" />
+                          </propertyInstance>
+                          <elementDefinition Id="f6f03d71-bdd8-4c9b-bd3d-f930510253d5" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="f6b7cf1c-d92d-4820-a63f-4bb171795bc4">
+                          <propertyInstance Id="968c2fba-022e-4087-8762-6a9a4a87e45a" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="387bd036-44e1-4b4b-bd70-416bf3c49bd7" />
+                          </propertyInstance>
+                          <elementDefinition Id="42d52d90-d3ec-495f-a954-88854081720c" />
+                        </stereotypeInstanceHasPropertyInstances>
+                      </propertyInstances>
+                    </stereotypeInstance>
+                  </appliedStereotypesInternal>
+                  <elementDefinition Id="5a512f13-2eb6-4f38-9464-268509074b42" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="12fc7601-7380-4fd9-a74b-78079993812d" LastKnownName="IPlayqueueHandler" />
                   </type_NamedElement>
                 </property>
               </ownedAttributesInternal>
               <ownedOperationsInternal>
-                <operation Id="7dd41d64-31ee-4a90-9d91-eb0480a996b4" name="Browse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                <operation Id="ab78cfd3-77d6-4846-b921-e4cf6e0b4883" name="DBHandle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <referencesInternal>
-                    <reference Id="22be4637-c96c-4dfa-937e-e289fd63cc0e" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup Member%3D(Name%3DBrowse OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])" tag="ViewCode">
-                      <elementDefinition Id="e35b2127-14cf-4fff-890f-76d097749dfb" />
+                    <reference Id="c565a6ce-79ee-4f8d-b849-a019b70a9e9d" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DIUPnP)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DPlaybackCtrl Type%3DIPlayqueueHandler)])" tag="ViewCode">
+                      <elementDefinition Id="7306f9df-7b95-4a6b-8605-e582e1b9fe98" />
                     </reference>
                   </referencesInternal>
                   <appliedStereotypesInternal>
-                    <stereotypeInstance Id="5122829f-de28-40f3-b28d-bd01ba06cc12" name="method" profile="CSharpProfile">
-                      <elementDefinition Id="2c2c4e2d-38cc-4c4b-b365-0851017809d9" />
+                    <stereotypeInstance Id="6ea3f0bb-7f2f-41e9-8903-61a48756071e" name="method" profile="CSharpProfile">
+                      <elementDefinition Id="969af98f-2408-476e-a4be-7a1cfed0a1bf" />
                       <propertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="a83652a4-c304-4ea5-a883-1e53a8960ece">
-                          <propertyInstance Id="f3413e48-5e59-4159-a781-115466e73ecc" name="ClrAttributes">
-                            <elementDefinition Id="dbf57c03-7a9d-40ee-9e7d-d8c32774e86e" />
+                        <stereotypeInstanceHasPropertyInstances Id="6c09dd53-1ca1-4509-9318-8b1377bad644">
+                          <propertyInstance Id="900e2238-63e2-4d84-bdf8-44803df5b77a" name="ClrAttributes">
+                            <elementDefinition Id="6a30cc0a-8a15-450d-b432-7ffbec9036df" />
                           </propertyInstance>
-                          <elementDefinition Id="45c4ea15-7575-445e-bd8b-5af7a97390dd" />
+                          <elementDefinition Id="914683d9-a02b-4fa0-828f-d04e164f9970" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="bbc0e2f9-e580-41b9-bad2-e0dc6f5bb32b">
-                          <propertyInstance Id="0ffb703f-f196-438d-85ee-06d18f6f9f5e" name="IsPartial" value="false">
-                            <elementDefinition Id="eae81d54-85be-4fdc-85b2-ecfbdaa658c6" />
+                        <stereotypeInstanceHasPropertyInstances Id="60672129-0a8f-40e2-9f4c-c795d5488020">
+                          <propertyInstance Id="0938adda-a172-44fe-b405-dd9b6e585449" name="IsPartial" value="false">
+                            <elementDefinition Id="1dd50a2b-9e3c-4157-9c78-d579fb0e4dbf" />
                           </propertyInstance>
-                          <elementDefinition Id="fe5c90c3-23dc-4391-a025-fc2e5225e0e5" />
+                          <elementDefinition Id="f9cbf0e6-fc99-470a-9496-6dc73c0fa384" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="5c79eda0-3f66-41ef-8f8b-b5166471e0ef">
-                          <propertyInstance Id="ba2c2c59-5034-40f7-adfb-a7d8d4a57bf0" name="IsUnsafe" value="false">
-                            <elementDefinition Id="667a1cc1-30f4-448a-9518-1be77437c548" />
+                        <stereotypeInstanceHasPropertyInstances Id="359ca23a-145b-49a1-b80a-a70cb3598e78">
+                          <propertyInstance Id="d6af25bf-e6f3-43e8-a908-ceabef672ac4" name="IsUnsafe" value="false">
+                            <elementDefinition Id="b00bb2e1-3990-4d99-bdfd-51aca4439b25" />
                           </propertyInstance>
-                          <elementDefinition Id="1e600491-88df-4f53-a3d8-042903aa55e3" />
+                          <elementDefinition Id="1511eff9-442b-43f1-8063-14a2db8aab08" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="7e847b70-98c2-4f3c-a133-11ff5a3c1191">
-                          <propertyInstance Id="177ad8b1-c477-47a1-a942-4c303000d020" name="Inheritance" value="none">
-                            <elementDefinition Id="be664ffb-b9b0-4827-8460-4ee9cb3f6f71" />
+                        <stereotypeInstanceHasPropertyInstances Id="56eb1137-8a0d-435b-9858-b065f2156e3b">
+                          <propertyInstance Id="6eab469f-607b-4052-b89c-ff019ef9fd7b" name="Inheritance" value="none">
+                            <elementDefinition Id="f2cda728-28a0-4917-a8ec-f4d37e402835" />
                           </propertyInstance>
-                          <elementDefinition Id="b686b9da-d1cb-42fd-beba-7e40969ca933" />
+                          <elementDefinition Id="0b6fa5d1-f49a-4fc6-9616-400627e517f6" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="c5294bfe-8df7-4e4f-b1d3-550056f9f262">
-                          <propertyInstance Id="94595237-7d65-4e59-a9f0-47fe215c9568" name="PackageVisibility" value="internal">
-                            <elementDefinition Id="0dcc18af-c201-496b-a75b-e700c5c5da7e" />
+                        <stereotypeInstanceHasPropertyInstances Id="c045ec26-891d-4e0b-873e-d289970d86e7">
+                          <propertyInstance Id="053ad5e4-80d1-458c-8fd2-33b4470aabcf" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="a3afb52a-0311-4f81-9fde-b63c3dd0cf70" />
                           </propertyInstance>
-                          <elementDefinition Id="366eab55-be06-4c93-a4ae-03dfef051a79" />
+                          <elementDefinition Id="8b5985c4-31c9-426e-a296-6e08a30d5038" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="78a34906-753a-4fbd-839a-5331b138a8bd">
-                          <propertyInstance Id="b8e06d65-955a-4a34-be32-b731f0695264" name="params" value="false">
-                            <elementDefinition Id="d203003c-370b-4070-a498-75e484bebe11" />
+                        <stereotypeInstanceHasPropertyInstances Id="ce81b9dd-d0ae-4e8a-baa8-f1b95bd22571">
+                          <propertyInstance Id="0dae36c4-7b83-4ba3-b1f5-0bf6cf7a367e" name="params" value="false">
+                            <elementDefinition Id="b596cb1f-b954-453f-ad6f-90503ecaf55b" />
                           </propertyInstance>
-                          <elementDefinition Id="f283588a-4453-4be5-a0b4-491c235c587e" />
+                          <elementDefinition Id="46d981c9-f3c2-49a3-922f-decc6ed2245d" />
                         </stereotypeInstanceHasPropertyInstances>
                       </propertyInstances>
                     </stereotypeInstance>
                   </appliedStereotypesInternal>
-                  <elementDefinition Id="729181c6-a2fb-4322-bb8a-808e89886a9f" />
+                  <elementDefinition Id="342151ea-fd4b-4376-b29b-ba41c46f7385" />
                   <ownedParameters>
                     <operationHasOwnedParameters>
-                      <parameter Id="1f981d82-d596-4c91-8ddd-831cae99a6e9" direction="Return">
-                        <elementDefinition Id="7bdb38a0-804a-47b4-a7f3-9f7be140d703" />
+                      <parameter Id="a5672ac0-b8d0-4b46-bc87-bd2b5cac3001" name="sourceDevice" direction="In">
+                        <referencesInternal>
+                          <reference Id="ba36878b-e1fe-45c3-ab71-253b9a955011" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DIUPnP)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DPlaybackCtrl Type%3DIPlayqueueHandler)]) ParameterIdentifier%3DsourceDevice" tag="ViewCode">
+                            <elementDefinition Id="f4da177e-5b3a-4b60-a696-2ba8dc95b1ac" />
+                          </reference>
+                        </referencesInternal>
+                        <elementDefinition Id="4443b365-5a1b-491b-b068-7af7f8a0b6da" />
                         <type_NamedElement>
-                          <referencedTypeMoniker Id="bd174f1f-a000-4eb4-ad32-3aed7535181a" LastKnownName="List&lt;ITrack‎&gt;" />
+                          <referencedTypeMoniker Id="cbe15d4b-eef4-4207-879e-50a73ca3cd55" LastKnownName="IUPnP" />
                         </type_NamedElement>
                       </parameter>
                     </operationHasOwnedParameters>
                     <operationHasOwnedParameters>
-                      <parameter Id="e26e00fe-0115-4ab7-9c38-273e6220d6d4" name="info" direction="In">
+                      <parameter Id="057a034c-2240-4871-a896-69c4af436ac8" name="pqhandl" direction="In">
                         <referencesInternal>
-                          <reference Id="88dade51-3d67-400c-8fad-f6326365f55e" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup Member%3D(Name%3DBrowse OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dinfo" tag="ViewCode">
-                            <elementDefinition Id="eb9ce108-20c4-41c6-b3de-d9085bff7090" />
+                          <reference Id="9b6f681b-81b7-4c13-905c-c2515fecaaeb" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DIUPnP)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DPlaybackCtrl Type%3DIPlayqueueHandler)]) ParameterIdentifier%3Dpqhandl" tag="ViewCode">
+                            <elementDefinition Id="2381f6a5-844a-49fc-b727-6543c4ddff9a" />
                           </reference>
                         </referencesInternal>
-                        <elementDefinition Id="ade81185-9f04-48bc-bc4e-035e4ad395de" />
+                        <elementDefinition Id="a58a68ac-9e86-4a0b-baea-ed77d866470f" />
                         <type_NamedElement>
-                          <referencedTypeMoniker Id="03255beb-1765-468d-8510-21eb1c5685c6" LastKnownName="String" />
+                          <referencedTypeMoniker Id="12fc7601-7380-4fd9-a74b-78079993812d" LastKnownName="IPlayqueueHandler" />
                         </type_NamedElement>
                       </parameter>
                     </operationHasOwnedParameters>
                   </ownedParameters>
                 </operation>
-                <operation Id="394684c8-140a-406b-9068-a513c79c113c" name="SetupConnection" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                <operation Id="b1fcfb99-7025-4f88-a36d-4fce4f07da93" name="_sourceDevice_ActionEvent" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <referencesInternal>
-                    <reference Id="66f26a16-fd70-49cd-a6af-b903a75ab8eb" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup Member%3DSetupConnection" tag="ViewCode">
-                      <elementDefinition Id="75a2a097-b01f-4826-ac3a-ab368d44f1e9" />
+                    <reference Id="fc5eb2f3-4d0a-41b4-8fd4-602e31896778" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3D_sourceDevice_ActionEvent OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DUPnPEventArgs)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack)])" tag="ViewCode">
+                      <elementDefinition Id="33635774-b560-4713-87c9-d11d24483600" />
                     </reference>
                   </referencesInternal>
                   <appliedStereotypesInternal>
-                    <stereotypeInstance Id="ea9251dc-0cf2-4a5b-9746-decd3dbf47ee" name="method" profile="CSharpProfile">
-                      <elementDefinition Id="5079461e-985e-407a-a150-4ddcd271b882" />
+                    <stereotypeInstance Id="1c1c9d42-76ea-4578-a697-ca4039c47965" name="method" profile="CSharpProfile">
+                      <elementDefinition Id="f476b71f-296b-42fc-9aa0-08ea656f0b1c" />
                       <propertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="d4bc75b4-84b3-45a6-9ca7-07af275c2b7e">
-                          <propertyInstance Id="ea984ab2-0c7b-473c-8c43-af99226099a3" name="ClrAttributes">
-                            <elementDefinition Id="d3cc6652-d460-45d2-8d87-ce13a14c5737" />
+                        <stereotypeInstanceHasPropertyInstances Id="73baacc9-3ea7-48a0-b110-79d9980a9231">
+                          <propertyInstance Id="94dd2e18-ba01-48bf-9fb3-09c860ddd12c" name="ClrAttributes">
+                            <elementDefinition Id="b06b683f-ba12-4d0a-8624-59f3017066f9" />
                           </propertyInstance>
-                          <elementDefinition Id="ee7336da-2406-4192-981c-536611a30adc" />
+                          <elementDefinition Id="a4d92e19-b3e9-4ae3-a6bd-ec3892a92980" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="c8a1c52c-372f-4316-bab5-ed61b05e1dec">
-                          <propertyInstance Id="b6b79385-89a5-404f-beef-9e867c6a6e56" name="IsPartial" value="false">
-                            <elementDefinition Id="2bd0b45e-5af6-4a0a-86ab-c3cca3eebf18" />
+                        <stereotypeInstanceHasPropertyInstances Id="4a076c4f-5520-4bb7-be26-029135f0c022">
+                          <propertyInstance Id="0c3ec36d-7614-43d4-9b78-1918f2b3cd5f" name="IsPartial" value="false">
+                            <elementDefinition Id="e0d9ba96-14ac-450a-b2b0-62fcafdf6e5b" />
                           </propertyInstance>
-                          <elementDefinition Id="1fec9abd-ee5f-4a2f-b0a9-d00aaaada28e" />
+                          <elementDefinition Id="3bba4e04-2511-475d-af6b-3ee3ee79a5e9" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="cb008f50-d567-4e37-a3f5-c2f850fc0bb9">
-                          <propertyInstance Id="f0a59ca9-357c-4b13-a9b0-209ad20d2cfd" name="IsUnsafe" value="false">
-                            <elementDefinition Id="0d123185-1329-450c-af91-e8e9ba1650c0" />
+                        <stereotypeInstanceHasPropertyInstances Id="a6a0d2a9-9a9d-488f-945d-374c5467c4c5">
+                          <propertyInstance Id="58df7c9e-7e6a-4b02-8d91-2f3cb1c46196" name="IsUnsafe" value="false">
+                            <elementDefinition Id="d8a27a72-7b8b-493a-91d0-d6c0c85e1a12" />
                           </propertyInstance>
-                          <elementDefinition Id="70ca0743-b33b-4383-99a0-9c5e58931655" />
+                          <elementDefinition Id="98e11d25-8ca2-4b7e-ac35-616f2f647d8b" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="25cf3de1-1838-4c99-b32e-d3c8d5b54d5b">
-                          <propertyInstance Id="71916e38-1feb-4a0c-9dd2-5e8081151338" name="Inheritance" value="none">
-                            <elementDefinition Id="0c8222fa-a113-41c8-8c47-73c282b5b8d9" />
+                        <stereotypeInstanceHasPropertyInstances Id="b2b621bb-5a77-4d3a-931d-6411288804c9">
+                          <propertyInstance Id="bdf9d992-baa4-4bb8-b4ec-3fd00287a782" name="Inheritance" value="none">
+                            <elementDefinition Id="365e79c1-c5ac-40fd-9bdc-10f22c685391" />
                           </propertyInstance>
-                          <elementDefinition Id="9b56c705-ef8f-4210-a0e4-2b2ade831315" />
+                          <elementDefinition Id="fe6b53f5-31c1-46d1-8459-5271b3430468" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="73769f28-74da-4dde-8b37-b753266ee382">
-                          <propertyInstance Id="35a0b633-7c15-4f38-b686-aa6eb7c358e0" name="PackageVisibility" value="internal">
-                            <elementDefinition Id="ad13274c-f90f-420b-b214-ee32f6337ac7" />
+                        <stereotypeInstanceHasPropertyInstances Id="ddf1eaf6-3e0b-4e44-8ded-03e57f26193e">
+                          <propertyInstance Id="77c98de1-7525-41e1-b8df-4dbcb67910de" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="f2b9f2a7-e7f9-4cd7-8359-3e8cf5a4ca6a" />
                           </propertyInstance>
-                          <elementDefinition Id="82a99a58-cfc8-4709-b407-c23c3b7f1678" />
+                          <elementDefinition Id="bfff7269-b13a-4777-a80a-7e6dde8460c4" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="71828432-a09b-48a2-8b2a-50b9999cfb59">
-                          <propertyInstance Id="83005881-703d-4dc9-a8cb-3ae3532c950a" name="params" value="false">
-                            <elementDefinition Id="d70ea5e5-b260-4265-8128-2e1aa22298cb" />
+                        <stereotypeInstanceHasPropertyInstances Id="163e36bd-1a7f-433b-8f37-62ca414a9dd4">
+                          <propertyInstance Id="6c505f6f-7dd6-4a98-98d3-a526e43b422f" name="params" value="false">
+                            <elementDefinition Id="2707c5bb-f84f-4695-b7d2-84b5eecd258e" />
                           </propertyInstance>
-                          <elementDefinition Id="139d95a1-1bd7-4fa7-93a5-3c781f913c8d" />
+                          <elementDefinition Id="a9fb9dc9-36cf-4564-9e8d-79152f7795f1" />
                         </stereotypeInstanceHasPropertyInstances>
                       </propertyInstances>
                     </stereotypeInstance>
                   </appliedStereotypesInternal>
-                  <elementDefinition Id="d9d7ce29-2e7f-4b4f-a590-e12f58e5aa52" />
+                  <elementDefinition Id="f89d597e-5f32-439c-bf0e-454d3997ec6c" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="51215c43-8266-41c1-9768-25955d4aa3ac" name="e" direction="In">
+                        <referencesInternal>
+                          <reference Id="36f9fca7-a082-4d8d-a282-2f8b66ee2ff8" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3D_sourceDevice_ActionEvent OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DUPnPEventArgs)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack)]) ParameterIdentifier%3De" tag="ViewCode">
+                            <elementDefinition Id="24f5500a-4aab-43e8-ad6a-8f5ca9c3a2a3" />
+                          </reference>
+                        </referencesInternal>
+                        <elementDefinition Id="bfb1a465-be80-410b-8f29-8ce42856dd9f" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="ca0485e3-6a1a-4a0d-bb09-b32567bcbe52" LastKnownName="Object" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b4772e37-052d-422c-b0e1-8875fff8e8db" name="args" direction="In">
+                        <referencesInternal>
+                          <reference Id="6db03379-55d5-412a-a5e8-26e5e42186bd" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3D_sourceDevice_ActionEvent OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DUPnPEventArgs)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack)]) ParameterIdentifier%3Dargs" tag="ViewCode">
+                            <elementDefinition Id="2bdaad1e-cac4-44fd-a866-c584f2e40363" />
+                          </reference>
+                        </referencesInternal>
+                        <elementDefinition Id="db6c33de-c80b-48eb-b32e-b854590c0a28" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="a11bf938-66e2-4304-b2a7-18d3979ffbf6" LastKnownName="UPnPEventArgs" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="c8915477-0517-4567-9b74-08d75dd6ab7e" name="cb" direction="In">
+                        <referencesInternal>
+                          <reference Id="b9106e78-ccce-4934-97bd-7782fb8c50be" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3D_sourceDevice_ActionEvent OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DUPnPEventArgs)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack)]) ParameterIdentifier%3Dcb" tag="ViewCode">
+                            <elementDefinition Id="07f8689d-a503-453f-9140-6b7a7ac3eae0" />
+                          </reference>
+                        </referencesInternal>
+                        <elementDefinition Id="22cba184-1dbd-4b27-a53b-6899096ef0c3" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="41228007-bee5-4c64-a63c-a46415c8d29d" LastKnownName="CallBack" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
-                <operation Id="fc5bccc2-1ff7-4c6a-a46c-c34d9716049f" name="DBLookup" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                <operation Id="3ae38bf3-f7ca-452a-b673-8846ba72006a" name="CreateDictionary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <referencesInternal>
-                    <reference Id="f0dc2679-6806-46c5-8a5a-bd0f634fd527" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup Member%3D.ctor" tag="ViewCode">
-                      <elementDefinition Id="8b579e60-534a-42ba-a836-b05973038a27" />
+                    <reference Id="3603d0e3-af0b-4de5-9b50-b662d55e5abe" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3DCreateDictionary" tag="ViewCode">
+                      <elementDefinition Id="d7abf829-cb4d-494e-9a8b-ffceb52d1b4a" />
                     </reference>
                   </referencesInternal>
                   <appliedStereotypesInternal>
-                    <stereotypeInstance Id="77dd2f8c-06d7-44b6-9a25-2d0730493e80" name="method" profile="CSharpProfile">
-                      <elementDefinition Id="2910c702-d2bb-486d-bd23-e33229e9ff3c" />
+                    <stereotypeInstance Id="e9bb77d5-b0f3-4834-a43a-5b3f85a70863" name="method" profile="CSharpProfile">
+                      <elementDefinition Id="649def16-5778-44dd-b817-481ef8fa4431" />
                       <propertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="0bc614c2-64c6-4a32-adc3-acd64fd1cb86">
-                          <propertyInstance Id="f5558864-ebde-4818-a174-7a3ee8737b1c" name="ClrAttributes">
-                            <elementDefinition Id="1abf718c-14c2-40eb-aa6a-8bfc859ec5cd" />
+                        <stereotypeInstanceHasPropertyInstances Id="bb07d8a9-f70c-47a6-b4e9-c6cd10874968">
+                          <propertyInstance Id="70f83418-0240-42c6-9799-ef48945549e1" name="ClrAttributes">
+                            <elementDefinition Id="a00bc19e-bfd9-4297-be9c-702c4f7d74a1" />
                           </propertyInstance>
-                          <elementDefinition Id="4dd2096c-eb30-4559-aea6-9f266a561023" />
+                          <elementDefinition Id="fd10f78b-f6f4-4834-a49a-413d83708bc0" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="4b096dd0-e251-415e-be99-2ab7fcd8f7f2">
-                          <propertyInstance Id="654f4403-f24d-4a69-9f1c-dfde2ac01a81" name="IsPartial" value="false">
-                            <elementDefinition Id="1d6a2178-242f-489f-a09c-3bfa18d0e32b" />
+                        <stereotypeInstanceHasPropertyInstances Id="f9905e73-c445-479a-a0dc-c60b0efa1703">
+                          <propertyInstance Id="25080db8-43f6-4b37-b483-ea4f75679ecb" name="IsPartial" value="false">
+                            <elementDefinition Id="799e0332-50e9-4edf-98ed-5ff23fd070c5" />
                           </propertyInstance>
-                          <elementDefinition Id="0942414f-1488-4cb6-b647-ff2e0a0ba35c" />
+                          <elementDefinition Id="32b4fe69-646f-49e9-82e6-43d34f5cbefc" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="1f21aeea-eec0-431e-b47f-9c680c20f931">
-                          <propertyInstance Id="8dc5e486-c77f-481b-9163-333b4854c9bb" name="IsUnsafe" value="false">
-                            <elementDefinition Id="1ac93902-b6aa-4b2f-bea2-c9ee4ab1a01e" />
+                        <stereotypeInstanceHasPropertyInstances Id="a18a4019-c47c-44ab-9b1b-00faa65c3cee">
+                          <propertyInstance Id="279631ad-7409-4248-ad15-af83169663a1" name="IsUnsafe" value="false">
+                            <elementDefinition Id="c2f5d1c9-5d6b-4f3d-857b-547c8d429060" />
                           </propertyInstance>
-                          <elementDefinition Id="90684a81-7b94-429f-8bec-e8c81416135a" />
+                          <elementDefinition Id="0dc58fb1-7c5e-48d7-9da9-1ebf1fc36d88" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="96169ed0-57b8-49aa-abad-58bf82dc0199">
-                          <propertyInstance Id="718a2ed3-7e33-4cf2-9774-0c37496b926d" name="Inheritance" value="none">
-                            <elementDefinition Id="9586846f-638a-42cd-b3dd-a240c200258b" />
+                        <stereotypeInstanceHasPropertyInstances Id="4edd4409-140d-4ab1-80f5-021d7bd2c56e">
+                          <propertyInstance Id="4c85c1af-d4cb-47b4-a123-916c2c1df0c1" name="Inheritance" value="none">
+                            <elementDefinition Id="48956ee4-1053-47f4-86e2-03c622c1863e" />
                           </propertyInstance>
-                          <elementDefinition Id="aa0ca5a7-6fa9-46d5-b9de-583fbbc7addd" />
+                          <elementDefinition Id="a1b74461-43a2-434a-a0c9-24d7b11383fb" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="b1631cd1-e123-4e52-85c7-cc26a8d81924">
-                          <propertyInstance Id="bcdcb9bc-044d-4217-9fe2-ac9f641ccc73" name="PackageVisibility" value="internal">
-                            <elementDefinition Id="d5231555-3561-4d3e-b92f-64094148fb01" />
+                        <stereotypeInstanceHasPropertyInstances Id="be73a9bf-2c20-4a4d-bad9-c2c7ef8c146d">
+                          <propertyInstance Id="f859f40a-86c8-4aa1-af65-133d2e902717" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="2f9c1546-7a21-4f0c-b090-85fdbf3201be" />
                           </propertyInstance>
-                          <elementDefinition Id="0c5bda49-838b-4a71-8aba-aaf71793b6a1" />
+                          <elementDefinition Id="f6e732fd-636e-4f7c-a3e8-6dfb98c1e8b6" />
                         </stereotypeInstanceHasPropertyInstances>
-                        <stereotypeInstanceHasPropertyInstances Id="365a0ed4-6819-4bed-ab7b-9d8affa0f51a">
-                          <propertyInstance Id="fb8c8769-5359-4f15-a95d-58ec4f6d02bc" name="params" value="false">
-                            <elementDefinition Id="c99d240a-430c-42f7-b230-b94c1f32e9c0" />
+                        <stereotypeInstanceHasPropertyInstances Id="952c23b0-2420-4f97-9303-16dadea6d5ef">
+                          <propertyInstance Id="6b9ae2de-3b68-4198-8c4d-7b7d1e1f6d13" name="params" value="false">
+                            <elementDefinition Id="3b9fe2ce-ad19-4d56-aa5e-a0bf3bd7c545" />
                           </propertyInstance>
-                          <elementDefinition Id="99c87310-5c6d-4646-85a5-8c468f705e4e" />
+                          <elementDefinition Id="8c0f6f14-82b5-4abb-a0ef-cad693b7ac57" />
                         </stereotypeInstanceHasPropertyInstances>
                       </propertyInstances>
                     </stereotypeInstance>
                   </appliedStereotypesInternal>
-                  <elementDefinition Id="77ef1e00-1f2d-4805-8abd-ebd2925df95c" />
+                  <elementDefinition Id="fd87a73c-957c-45de-9191-aa309dfda2e3" />
+                </operation>
+                <operation Id="f6cb0f01-e98f-46a7-b891-644af629f5ee" name="HandleGetIP" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <referencesInternal>
+                    <reference Id="9ddba3ff-90ad-4623-80e6-8ae0cab9b364" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3DHandleGetIP OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack)])" tag="ViewCode">
+                      <elementDefinition Id="89736123-1af4-4c4f-bcae-90023965f851" />
+                    </reference>
+                  </referencesInternal>
+                  <appliedStereotypesInternal>
+                    <stereotypeInstance Id="90505098-6d31-472a-bd9b-9bb0d99e7160" name="method" profile="CSharpProfile">
+                      <elementDefinition Id="73450e4e-89ef-4a83-8e9c-76978859bc14" />
+                      <propertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="256f8819-5baf-43ca-9d2c-85f2ebd96ffe">
+                          <propertyInstance Id="8bcb8671-3722-4561-8e93-dfcd51c49767" name="ClrAttributes">
+                            <elementDefinition Id="40d11d76-420c-4e11-922f-34dfe4769ebb" />
+                          </propertyInstance>
+                          <elementDefinition Id="03351396-5165-423d-b800-ce5daa6141fa" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="5694f887-e642-497b-b7e3-fe90b1f960b9">
+                          <propertyInstance Id="24246449-7a1a-4319-bfc0-63977d7f7a16" name="IsPartial" value="false">
+                            <elementDefinition Id="88fde0a5-490a-40ff-b9a9-8efe9ff3a202" />
+                          </propertyInstance>
+                          <elementDefinition Id="c8487cd8-b48c-4b48-b6e6-ca73f6d3daa1" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="1530e074-1977-46aa-88cf-49ab6080a2fc">
+                          <propertyInstance Id="27cf3d9f-5a36-4525-acab-97700a209bb9" name="IsUnsafe" value="false">
+                            <elementDefinition Id="faa828f1-40bd-4606-bae9-110c845ae4e1" />
+                          </propertyInstance>
+                          <elementDefinition Id="7332c511-74d0-4beb-9e27-7c3994e19d5a" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="ac202b0f-6f02-4c0f-8f1f-2eb5bb091da0">
+                          <propertyInstance Id="1b65df35-02c6-468c-9eb3-0d99497e6697" name="Inheritance" value="none">
+                            <elementDefinition Id="6de7f6ce-4963-4871-ad8c-4a0c3e185521" />
+                          </propertyInstance>
+                          <elementDefinition Id="9cf47d23-3352-4d4b-bed0-6ae4e54c9dcc" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="5fee3c48-fb28-4f71-8590-748f217ee891">
+                          <propertyInstance Id="fd80846f-c198-4755-9d51-d0b22fcbab06" name="PackageVisibility" value="internal">
+                            <elementDefinition Id="29666b0e-3bce-44a2-8739-f16785ab5228" />
+                          </propertyInstance>
+                          <elementDefinition Id="6777f83b-626e-4a80-accb-485d2aa5b701" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances Id="b6f3ae8d-f912-4c8e-9e85-cf2d6b34d2e6">
+                          <propertyInstance Id="38d0d7c8-168c-4a71-b11c-854b359ccb62" name="params" value="false">
+                            <elementDefinition Id="dad5f423-c600-4ccf-b4f5-9ab1879eff8a" />
+                          </propertyInstance>
+                          <elementDefinition Id="47fd2bd4-fd0f-434c-ac58-78ea34c752de" />
+                        </stereotypeInstanceHasPropertyInstances>
+                      </propertyInstances>
+                    </stereotypeInstance>
+                  </appliedStereotypesInternal>
+                  <elementDefinition Id="d84c2ccd-aad6-4336-be60-6e7645fad9a6" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="3b3189e9-fd92-4d5f-8c56-4a44716bfa08" name="cb" direction="In">
+                        <referencesInternal>
+                          <reference Id="5a74bbf8-b06a-40a7-aa12-b6534a5254ca" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBHandle Member%3D(Name%3DHandleGetIP OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack)]) ParameterIdentifier%3Dcb" tag="ViewCode">
+                            <elementDefinition Id="727f12b0-c382-4e93-afc5-2ca0442d5274" />
+                          </reference>
+                        </referencesInternal>
+                        <elementDefinition Id="fb41b62a-a589-4e9b-89e2-59de31598a1d" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="41228007-bee5-4c64-a63c-a46415c8d29d" LastKnownName="CallBack" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
               </ownedOperationsInternal>
             </class>
@@ -5172,8 +5428,28 @@
       </package>
     </logicalClassDesignerModelHasPackages>
     <packageHasNamedElement>
-      <referencedType Id="a1de2f00-feb2-4877-86a7-2fc0777c0320" name="MySqlConnection" isAbstract="false" isLeaf="false" cachedFullName="Diagrams::MySql::Data::MySqlClient::MySqlConnection">
-        <elementDefinition Id="688e1f15-32b6-4b77-b6c4-8bf26e11a317" />
+      <referencedType Id="cbe15d4b-eef4-4207-879e-50a73ca3cd55" name="IUPnP" isAbstract="false" isLeaf="false" cachedFullName="Diagrams::UPnP_Device::IUPnP">
+        <elementDefinition Id="5e8345eb-2e53-4322-905f-0c07dd7f2ee0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d54d59d3-6c70-491f-9972-b8ce79c0b123" name="XMLWriter" isAbstract="false" isLeaf="false" cachedFullName="Diagrams::XMLHandler::XMLWriter">
+        <elementDefinition Id="912c06e4-3d3f-4486-83e6-1822439c386b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a9900592-48d6-4a34-bcb0-b9b4b3141657" name="Dictionary&lt;String‎, IDBStrategy‎&gt;" isAbstract="false" isLeaf="false" cachedFullName="Diagrams::System::Collections::Generic::Dictionary&lt;String‎, IDBStrategy‎&gt;">
+        <elementDefinition Id="59be9199-5eed-4eea-a7b7-b7daf288cf25" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="95bc0df8-3e61-47ec-8c16-11f07dd67ccc" name="DBLookup" isAbstract="false" isLeaf="false" cachedFullName="Diagrams::DBClasses::DBLookup">
+        <elementDefinition Id="9399c82c-15d3-4cae-8cbd-fbd3a53c7f9e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="12fc7601-7380-4fd9-a74b-78079993812d" name="IPlayqueueHandler" isAbstract="false" isLeaf="false" cachedFullName="Diagrams::PlaybackCtrl::IPlayqueueHandler">
+        <elementDefinition Id="fab8b87c-54c4-4b06-880c-9eae81da3f38" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

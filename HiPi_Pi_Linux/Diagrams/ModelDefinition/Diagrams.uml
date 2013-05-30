@@ -206,24 +206,6 @@
         isActiveClass="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <packageMoniker
-        Id="a4a132b7-2022-4343-badf-834ef8dda702"
-        LastKnownName="DB Lookup package"
-        LastKnownLocation="Package_1744.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
-        Id="ee56c6b8-9045-441d-9836-b412ecb7e3e3"
-        LastKnownName="DBClasses"
-        LastKnownLocation="Package_1746.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
-        Id="18e7c022-ffee-400f-964e-12a2e2d1ff45"
-        LastKnownName="MySql"
-        LastKnownLocation="Package1_1746.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <component
         Id="83c9493b-bafb-4ed6-9c0e-b137c0143103"
         name="Raspberry Pi"
@@ -324,9 +306,15 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <packageMoniker
-        Id="0ffe30c9-b85d-47f1-9add-fe63157a6220"
-        LastKnownName="Package1"
-        LastKnownLocation="Package_0652.uml" />
+        Id="397e8665-5b91-43bf-8454-af2343bcaca2"
+        LastKnownName="DB Handler package"
+        LastKnownLocation="Package_2230.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9aeff0a1-faa3-42cd-ac4b-e48633e5013a"
+        LastKnownName="DBClasses"
+        LastKnownLocation="Package_2231.uml" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -20,7 +20,7 @@
         <referencesInternal>
           <reference
             Id="02abd332-5677-4d3e-8496-9705628bdfb1"
-            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DPlaybackCtrl Type%3DIPlayqueueHandler"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DPlaybackCtrl Type%3DIPlayqueueHandler"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="9aeff0a1-faa3-42cd-ac4b-e48633e5013a"
+  name="DBClasses"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="0f05c106-1737-4dbc-8a39-f930b98b18ca"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DDBClasses"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="7922ad72-399e-484b-b582-fbdc2906c14b"
+        name="IDBStrategy"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="0d1aa912-d2d8-4d00-894a-ed9d8c099a40"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DIDBStrategy"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="fa634d68-3489-4f76-acda-f6804fd70474"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="958e983c-97f2-4add-93b4-e72ea10ab21d">
+                <propertyInstance
+                  Id="4a03b237-1ee3-4c1f-b38c-0c3ca8c6ac71"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="47467f18-43c2-41c7-aaf0-d28a155fd869">
+                <propertyInstance
+                  Id="4ee1804b-a95e-4948-9660-71375e04faa4"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c9a32662-c1ee-400c-b9fb-618f2e490650">
+                <propertyInstance
+                  Id="3cca08d3-9696-4a7f-a609-d6f5938e4799"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3cde540c-a58b-4c83-952d-0e9266380b87">
+                <propertyInstance
+                  Id="028c0a15-65b8-4168-9b77-43639a525672"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9399c82c-15d3-4cae-8cbd-fbd3a53c7f9e"
+        name="DBLookup"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="cc1183ae-7a77-466d-9156-8873510535d1"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2Fbin%2FDebug%2FDBHandling.dll Namespace%3DDBClasses Type%3DDBLookup"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="297719cd-b9cb-44dd-bbfd-5590f962e27b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f6420bcb-7a59-46c7-8aa4-884cbe7bc672">
+                <propertyInstance
+                  Id="659f1235-fa6c-4bff-9754-ebab8599824b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b2a3a73d-553a-4a18-8b58-10cec932fc98">
+                <propertyInstance
+                  Id="1c072fd8-b965-4c69-91e0-24a60c704371"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9a1d38ec-38e0-4278-943f-24fb5110dfa2">
+                <propertyInstance
+                  Id="95723262-2ddf-4738-b525-17bd67fd9836"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="151069be-d73a-4bbe-bba7-06e9e5674331">
+                <propertyInstance
+                  Id="19f6c596-6d3e-487a-acf5-618c1816fba7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="00cf2f19-efe5-4b78-9b4a-c151110b9994">
+                <propertyInstance
+                  Id="d9a8a205-6698-4181-9c41-aefe775ac1d6"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
