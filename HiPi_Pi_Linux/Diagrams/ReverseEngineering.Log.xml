@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 11.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2013-05-29T10:05:23" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '8a0425a6-0a41-4c4c-99ae-7c6488f27538' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::Containers' -  (Package)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::Containers::UPnPArg' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System' -  (Package)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections' -  (Package)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic::List&lt;UPnPArg‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Object' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Timers' -  (Package)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Timers::ElapsedEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Timers::Timer' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device' -  (Package)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::INetworkUtillity' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::InvokeResponseGen' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IRespondStrategy' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP' -  (Package)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Medium" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::IOrder' -  (Interface)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::IOrder::execOrder' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::IOrder::execOrder::argList' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Medium" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order' -  (Class)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::action' -  (Property)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::CallBackFunction' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::CallBackFunction::act' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::CallBackFunction::argList' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::ConnectionTimedOut' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::ConnectionTimedOut::args' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::ConnectionTimedOut::e' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::execOrder' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::execOrder::argList' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::invokeResponseGen' -  (Property)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::Order' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::Order::order' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::Order::utillity' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::timer' -  (Property)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::Order::util' -  (Property)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Medium" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder' -  (Class)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::action' -  (Property)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::DetermineArgs' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::DetermineArgs::actionName' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::DetermineArgs::wholeMessage' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::DetermineOrder' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::DetermineOrder::ctl' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::message' -  (Property)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::orderClass' -  (Property)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::POSTResponder' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::POSTResponder::ctrl' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::Respond' -  (Operation)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::TCP::POSTResponder::Respond::util' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Diagrams::UPnP_Device::TCP::Order to Diagrams::UPnP_Device::TCP::IOrder (InterfaceRealization)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Diagrams::UPnP_Device::TCP::POSTResponder to Diagrams::UPnP_Device::IRespondStrategy (InterfaceRealization)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Diagrams::System::Timers::ElapsedEventArgs to Diagrams::System::EventArgs (Generalization)" />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="High" Text="(3) type(s) fully reverse engineered." />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="High" Text="(9) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2013-05-29T10:05:27" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

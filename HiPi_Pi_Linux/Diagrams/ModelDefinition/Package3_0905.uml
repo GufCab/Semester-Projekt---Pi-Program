@@ -1,66 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
-  Id="b24b8172-9d6b-46b3-91dd-add499548934"
-  name="XMLHandler"
+  Id="6c455a7c-0e6a-49a8-9474-fd031589b278"
+  name="MySqlClient"
   visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <referencesInternal>
     <reference
-      Id="5d66d087-3d16-47c1-acbb-f1cd13ec3a11"
-      handle="viewcode://./CodeSchema_Namespace?Namespace%3DXMLHandler"
+      Id="7a600411-e467-49fc-82af-b7628bef09c3"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DMySql.Data.MySqlClient"
       tag="ViewCode" />
   </referencesInternal>
   <packagedElements>
     <packageHasNamedElement>
       <class
-        Id="912c06e4-3d3f-4486-83e6-1822439c386b"
-        name="XMLWriter"
+        Id="7bd006f3-03cf-4b26-b455-511024c53202"
+        name="MySqlConnection"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <referencesInternal>
           <reference
-            Id="3183ba8e-505f-43e5-9e2a-00a5a7e33670"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DXMLHandler Type%3DXMLWriter"
+            Id="9eaadf2e-3c6e-43b2-b84d-6f9ec17d37ec"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FDBHandling%2FMySqlConnector%2FMySql.Data.dll Namespace%3DMySql.Data.MySqlClient Type%3DMySqlConnection"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="6b7942b6-54c3-4716-ab01-d19ca6195f98"
+            Id="f81dd89c-197d-4f8b-a69f-082bb17a7a55"
             name="class"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="db938b27-1266-4a46-b6c0-5e97f4f2811b">
+                Id="a367925a-4028-449b-b5a7-8c141db8e5e0">
                 <propertyInstance
-                  Id="479fe220-da59-401b-8892-e1297cb49a13"
+                  Id="9fe40e0a-fee7-4334-99fd-59f32ec0f62d"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="ab02cc0a-236a-43b5-af23-69747eb1f627">
+                Id="b511bd5e-d9ff-4efc-8c95-7704cbca6e96">
                 <propertyInstance
-                  Id="e0ca9436-14c9-41f1-b940-9fef89e4399e"
+                  Id="142636d7-fae2-4748-b8e4-1b848e1b2cae"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="1c3ddaf2-59ec-4400-be64-e60f6d5ca39a">
+                Id="0377e089-b0e0-4931-8367-c5963cbf17e6">
                 <propertyInstance
-                  Id="01fc6a04-84d2-4117-8911-0a4aeb10d5f1"
+                  Id="fc7fd5d8-74af-42ff-931f-9a1188e336c1"
                   name="IsStatic"
                   value="False" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="d88f07d0-f090-4848-9b69-0bf4073c6459">
+                Id="853c273e-5d70-44f8-a052-e106460df0c2">
                 <propertyInstance
-                  Id="bdb03f72-2e4e-4372-bc2c-bd42bce055f7"
+                  Id="e873de70-5d50-4490-a215-19f138d04377"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="a68ab4b9-5a91-4a10-9919-3eae84bd8df0">
+                Id="022f7cbe-f718-41bb-b01c-b431fe86e283">
                 <propertyInstance
-                  Id="d8cceb84-b0e3-4cad-b903-e361691995cd"
+                  Id="0d88e183-6091-49fc-869e-4b2d2f25de1a"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>

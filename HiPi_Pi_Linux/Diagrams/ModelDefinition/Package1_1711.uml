@@ -77,7 +77,7 @@
         <referencesInternal>
           <reference
             Id="844ee38f-2775-49af-aff3-a61851e1ec29"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DUPnPEventArgs"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DUPnPEventArgs"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -145,7 +145,7 @@
         <referencesInternal>
           <reference
             Id="f778ca0a-7a51-4ec1-a116-d6f00671399e"
-            handle="viewcode://./CodeSchema_Delegate?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAik%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack"
+            handle="viewcode://./CodeSchema_Delegate?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DCallBack"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -292,6 +292,215 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="5e8345eb-2e53-4322-905f-0c07dd7f2ee0"
+        name="IUPnP"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="d1e4f0a1-aa1d-429b-8170-33768d8cd000"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DIUPnP"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="8ed42c14-84fd-4343-867e-f62d6ce473fc"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f03bceb6-c067-4a3f-b7cd-10f111c7e55b">
+                <propertyInstance
+                  Id="775b7f67-c739-4296-87cc-571877560510"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="85ca944d-724c-4475-af39-f4cc66319d36">
+                <propertyInstance
+                  Id="5c60f179-575e-488a-badf-33c84ab7a79f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="61c4434e-5a34-49b7-915a-ab22202142e8">
+                <propertyInstance
+                  Id="9f0b9466-06a5-4c66-8966-4d3cab04a2cc"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="64c203d0-7001-403e-b1b6-6562dea2bc0d">
+                <propertyInstance
+                  Id="3d31b258-d0b2-4b29-8b98-f1b9bb075590"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="e2069495-3ce0-42e1-9a3f-df3011379974"
+        name="INetworkUtillity"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="b8666f14-84ed-44db-a791-db20a1fd85b7"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DINetworkUtillity"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="db456312-371c-4598-9828-52f5d3e53a30"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3810e9fd-5667-45a7-a5b8-9b6338485237">
+                <propertyInstance
+                  Id="fdccb6c7-f7e8-4cc0-b763-85dc97cf179b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7eecac0d-f600-456c-b86e-d9dee0277cdd">
+                <propertyInstance
+                  Id="d63d67ba-f0da-401a-8a1f-f2d8c442ca18"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7f436e23-dbc7-43e6-b29c-a5138f66ea78">
+                <propertyInstance
+                  Id="e55de952-b0ad-4266-98a1-bcf628df551f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="31688436-a2b3-4e1e-86d4-3767865ab7cb">
+                <propertyInstance
+                  Id="ab033a53-78f4-42cc-b0c2-0c6e82f0563a"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="87ef15d2-9850-4517-94e0-ab00f0ffdffc"
+        name="InvokeResponseGen"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="45d88d20-9235-4bc4-ad6a-d2120eb9b2ec"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DInvokeResponseGen"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a1e81f60-9634-48df-8a70-6ff2c49b8801"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ddb27e87-c4d1-4c63-9908-8ed9b3270a86">
+                <propertyInstance
+                  Id="e7f1b3c8-3d4b-4476-9cd8-62e39552c4f2"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bb2c9c2d-ec06-4673-94b9-5159112fa08e">
+                <propertyInstance
+                  Id="31d8d2d7-1e2a-4406-86f9-43488314081e"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e18e1e5b-bb20-4815-a560-6b88379a6624">
+                <propertyInstance
+                  Id="f17cf6db-4b38-45a6-9759-63ea517bf04a"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8e85de4b-c12e-41f2-ab25-e6a928bdf1f2">
+                <propertyInstance
+                  Id="f201ab7c-0286-46d0-9a0d-fbba44dcf596"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="06e40ecd-13ff-4c23-bcef-854e92b07102">
+                <propertyInstance
+                  Id="fe017b02-9d15-469b-88c3-285d82526349"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="6bb5b3ec-67aa-445c-a352-dad49a90a9ef"
+        name="IRespondStrategy"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="7987e0da-b488-4203-8eb1-87872a095020"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FUPnP_Device%2Fbin%2FDebug%2FUPnP_Device.dll Namespace%3DUPnP_Device Type%3DIRespondStrategy"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ceb3c468-d811-452a-9a06-46566d51db26"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1ba8b0f2-7743-4f36-b782-4c22eca14a35">
+                <propertyInstance
+                  Id="78e1a909-914e-4184-bf33-6dcaf5a3a3a4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f1c11cd7-892e-4a08-a153-f461480ea50c">
+                <propertyInstance
+                  Id="822f0701-9309-44ad-a4a2-92d65be1981f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3fb15317-0225-403b-80e4-94b09a996ac5">
+                <propertyInstance
+                  Id="ab228838-07c4-4044-b7b8-f550a4474988"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9241b393-825f-434d-bb82-c5c25936cde0">
+                <propertyInstance
+                  Id="c08c2db5-2286-44e9-ae22-f6df92994653"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
     </packageHasNamedElement>
   </packagedElements>
 </package>

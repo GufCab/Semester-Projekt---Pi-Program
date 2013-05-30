@@ -305,5 +305,11 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="36b85731-673b-4b8e-b50d-abf09db97a3b"
+        LastKnownName="Timers"
+        LastKnownLocation="Package_1005.uml" />
+    </packageHasNamedElement>
   </packagedElements>
 </package>

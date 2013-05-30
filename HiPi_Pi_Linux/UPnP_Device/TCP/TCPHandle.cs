@@ -9,11 +9,22 @@ using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device
 {
+    /// <summary>
+    /// Interface for Respond Strategy.
+    /// The respons strategy is used in a form of the GoF
+    /// Strategy Pattern, by TCPHandle to appropriately 
+    /// handle and respond to messages 
+    /// </summary>
     public interface IRespondStrategy
     {
         void Respond(INetworkUtillity utillity);
     }
     
+    /// <summary>
+    /// Main class used for handling TCP/HTTP requests
+    /// This class is set up with a basepath to determine, compile time, 
+    /// the base path where the decription files are stored/written.
+    /// </summary>
     public class TCPHandle
     {
         private GetResponseStrategy Strat = new GetResponseStrategy();
@@ -28,6 +39,21 @@ namespace UPnP_Device
 			_pub = new Publisher(ipConf);
         }
 
+        /// <summary>
+        /// For each incoming TCP connection, TCPServer starts
+        /// a new thread with this function as run function.
+        /// 
+        /// This function creates a NetworkUtility with the argument e.
+        /// This is used for handling the TCP communication with the Control Point.
+        /// The function uses GetResponseStrategy.GetStrategy to get a fitting
+        /// strategy to Respond to and handle the incoming message.
+        /// This is an implementation of the GoF strategy pattern.
+        /// </summary>
+        /// <param name="e">
+        /// TcpClient containing the accepted socket connection
+        /// with control point. 
+        /// Sent as object type.
+        /// </param>
         public void HandleHTTP(object e)
         {
             INetworkUtillity util = new NetworkUtillity((TcpClient) e);
@@ -43,10 +69,19 @@ namespace UPnP_Device
 
         
     }
-
+    /// <summary>
+    /// Utility class used for getting a fitting strategy to 
+    /// respond to the Control Point.
+    /// </summary>
     public class GetResponseStrategy
     {
-        //Todo: Comments needed:
+        /// <summary>
+        /// Function returning the strategy, based on order type.
+        /// </summary>
+        /// <param name="received">The entire HTTP message sent with the request</param>
+        /// <param name="BasePath">Path to directory containing the desc.xml files for descriptions</param>
+        /// <param name="pub">The instance of publisher containing all subscribers, used for eventing</param>
+        /// <returns></returns>
         public IRespondStrategy GetStrategy(string received, string BasePath, Publisher pub)
         {
             IRespondStrategy strategy = null;
@@ -63,8 +98,7 @@ namespace UPnP_Device
 
             string[] eq = order.Split(' ');
 
-            //Todo: Should handle subscribe.
-            //Todo: Also, its a problem that startegy is not set at invalid input
+            
             switch (eq[0])
             {
                 case "GET":

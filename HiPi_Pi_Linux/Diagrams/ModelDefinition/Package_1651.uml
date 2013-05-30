@@ -10,4 +10,56 @@
       handle="viewcode://./CodeSchema_Namespace?Namespace%3DPlaybackCtrl"
       tag="ViewCode" />
   </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="fab8b87c-54c4-4b06-880c-9eae81da3f38"
+        name="IPlayqueueHandler"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="02abd332-5677-4d3e-8496-9705628bdfb1"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNikolaj%2FDocuments%2FGitHub%2FSemester-Projekt---Pi-Program%2FHiPi_Pi_Linux%2FPlaybackCtrl%2Fbin%2FDebug%2FPlaybackCtrl.dll Namespace%3DPlaybackCtrl Type%3DIPlayqueueHandler"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="e6c86dea-6a2c-4981-a19f-30d7c3a2bb8a"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dd9a1dfe-afc6-438b-b0ce-6ad6ad1c70bb">
+                <propertyInstance
+                  Id="1645dd59-1698-445a-b87c-cf194a6635a0"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5f5dfc7a-7a6d-4ed0-9f3e-d2ae195cc3f0">
+                <propertyInstance
+                  Id="aaba24d7-4612-4962-97ee-fcac70dfe51f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bc72bce4-79a4-44be-9ba8-752d8fb9178b">
+                <propertyInstance
+                  Id="56f97d2e-b71e-4498-b43a-6b33d36bd48e"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="195529df-2fd9-41ec-b61e-8f1d9428d508">
+                <propertyInstance
+                  Id="ca41035a-eb1c-4c50-9f8d-1113b2139046"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
 </package>

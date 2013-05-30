@@ -32,7 +32,7 @@ namespace PlaybackCtrl
     {
         //Used for keeping track of the current position in the playqueue
         private int _Index;
-		private Mutex mu;
+		private static Mutex mu;
 
         //List containing the Tracks in the playqueue
         private List<ITrack> _Queue; 
@@ -58,7 +58,7 @@ namespace PlaybackCtrl
         /// </summary>
         public PlayqueueHandler()
         {
-            _Index = 0;
+            _Index = 1;
             _Queue = new List<ITrack>();
 			mu = new Mutex();
         }
@@ -75,7 +75,8 @@ namespace PlaybackCtrl
 			{
 				++_Index;
 				mu.ReleaseMutex();
-				return  _Queue [_Index-1];
+
+				return  _Queue [_Index - 1];
                 //Console.WriteLine("Inside GetNextTrack: " + retVal.Title);
 			} 
 			else 
@@ -194,8 +195,9 @@ namespace PlaybackCtrl
         /// <returns>Track at position</returns>
         public ITrack GetCurrentTrack()
         {
-
-            return _Queue[_Index];
+			if(_Index < _Queue.Count)
+            	return _Queue[_Index];
+			return null;
         }
 
         /// <summary>

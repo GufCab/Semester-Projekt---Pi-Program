@@ -70,7 +70,9 @@ namespace PlaybackCtrl
 			TransportState = "TRANSITIONING";
             
 			var myTrack = PlayQueueHandler.GetNextTrack();
-            Player.PlayTrack(myTrack.Path);
+			Console.WriteLine("Next: " + myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName);
+			string nxtPath = myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName;
+            Player.PlayTrack(nxtPath);
 
 			TransportState = "PLAYING";
         }
@@ -83,7 +85,8 @@ namespace PlaybackCtrl
         {
 			TransportState = "TRANSITIONING";
             ITrack myTrack = PlayQueueHandler.GetPrevTrack();
-            Player.PlayTrack(myTrack.Path);
+            string prevPath = myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName;
+            Player.PlayTrack(prevPath);
 			TransportState = "PLAYING";
         }
 
@@ -325,7 +328,8 @@ namespace PlaybackCtrl
 			createdArgs.Add(new UPnPArg("CurrentPosition", GetPos()));
 
 			//createdArgs.Add(new UPnPArg("Duration", PlayQueueHandler.GetCurrentTrack().Duration));
-			createdArgs.Add(new UPnPArg("Duration", "100"));
+			if(PlayQueueHandler.GetCurrentTrack() != null)
+				createdArgs.Add(new UPnPArg("Duration", PlayQueueHandler.GetCurrentTrack().Duration));
 
 			return createdArgs;
 		}

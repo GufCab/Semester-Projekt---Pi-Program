@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="d65ca41b-764f-49d1-b857-86a347b35d55" name="DeploymentDiagram" linkedPackageId="4333dca7-6147-4890-bc7f-718c037135bc" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="0234288b-096d-4ab8-b73e-b16f9ad13804">
+      <profileInstance Id="878913f4-9dda-4669-bfbf-1e5484abe0ec" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="01d87f5f-a7ca-42c4-a1e6-b3bdf6160f85">
+      <profileInstance Id="7f7f1a3e-0750-4c2c-b1d7-eaf26bfb5c6d" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="dfe40059-7475-4658-873a-65b1144a8158">
+      <profileInstance Id="e4bd664e-cf24-421c-834b-242ae5e55cf6" name="CSharpProfile">
+        <elementDefinition Id="3f89d833-3107-42cb-98aa-398f2ff46c6e" />
+      </profileInstance>
+      <elementDefinition Id="474911f8-d052-4b69-8655-48ffab808273" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="1e6f0c7a-9337-4681-aae7-095e5f9c5955" name="PC" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c19bf613-dfa9-40f6-9261-2044df14bbaf" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="87747257-3f2f-4d19-8260-13b2b4564b4e" name="PC applikation" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8df145c8-f6dd-457a-9375-536fb0849c23" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="8601c987-fc51-4b1e-9697-069b40b1a47f" name="MySql Server" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2126f635-9a83-45a4-afc7-204229257e3d" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="ea3e9f1c-d06c-4c64-8c6a-f93c61754577" name="MySql Database" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b7be4aaf-7ba4-42a1-894f-00e3d0732d34" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="c91ca86c-f42b-4879-8ea3-bcba95756407" name="playerlayout.exe" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="622672fc-e553-45d8-bfdf-09eef9a11a81" />
+        <suppliersInternal>
+          <dependency Id="1a433a4c-0546-4ece-b2dd-63dbfd652a69">
+            <componentMoniker Id="325d8637-bb80-447e-919c-dedb838e25ff" LastKnownName="FileSender.dll" />
+            <elementDefinition Id="8fa0cb8d-d524-4867-a8c2-c90bf6372253" />
+          </dependency>
+          <dependency Id="6e4353ed-4ff6-4ff2-9878-02c030099827">
+            <componentMoniker Id="3c5ad6da-6c56-4c12-9f2d-b5f63373a32b" LastKnownName="TemplateSync.dll" />
+            <elementDefinition Id="8a831988-dba5-4a78-9f8d-fb011675cc31" />
+          </dependency>
+          <dependency Id="b6c5cad8-73d8-4c91-8d23-98c18248495c">
+            <componentMoniker Id="edd8ecef-082e-4e10-9aa4-ea0b5ff8615a" LastKnownName="XMLHandler.dll" />
+            <elementDefinition Id="ceec8176-1803-4b74-83d0-baf648ecabf3" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="edd8ecef-082e-4e10-9aa4-ea0b5ff8615a" name="XMLHandler.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c9ac9ec7-4956-47e2-b9e7-126a475497e3" />
+        <suppliersInternal>
+          <dependency Id="77658749-bf26-4f5c-91bd-3a7b593a41f2">
+            <componentMoniker Id="5e954bbc-f66b-4df1-82f8-572c86deed55" LastKnownName="UPnP.dll" />
+            <elementDefinition Id="eddc731f-db1e-444b-a103-bf1160aa3fbd" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="3c5ad6da-6c56-4c12-9f2d-b5f63373a32b" name="TemplateSync.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7b3be487-45ec-4e0e-982d-b53fa7c2c5b7" />
+        <suppliersInternal>
+          <dependency Id="8e4b3d11-6a8d-4f09-9112-ab2e4d2d19d3">
+            <componentMoniker Id="36761eee-f616-4e9d-9f55-34277935a82d" LastKnownName="Live555.dll" />
+            <elementDefinition Id="ec2abc1e-8f14-4f05-9db1-a8d575ee4863" />
+          </dependency>
+          <dependency Id="37cb9aa3-2fd7-4080-8995-9eecb6014689">
+            <componentMoniker Id="fa26fc23-c4a3-4296-8c94-5fc5b39ae8e9" LastKnownName="dbclases.dll" />
+            <elementDefinition Id="73ff1718-1246-4f49-9275-5c16f7d1b037" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="325d8637-bb80-447e-919c-dedb838e25ff" name="FileSender.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d08859b8-72d6-4090-9504-c0dad7259aa2" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="36761eee-f616-4e9d-9f55-34277935a82d" name="Live555.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e707f2b1-b1c3-48fc-9879-5b46b895e019" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="68f51190-0cae-46ce-9696-7808e8e65c1f" name="Containers.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3839cbdf-e450-46e7-8aca-478516b1c9b7" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="d3144bc1-980e-482f-8b86-cc65baacd659" name="UPnP_CP.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e2415c65-6953-4254-9368-b160c6b91742" />
+        <suppliersInternal>
+          <dependency Id="830a0484-6e75-43cc-b228-208b7d223eac">
+            <componentMoniker Id="a6f86409-2aff-4a20-8350-2814ca13ed2b" LastKnownName="UPnP_Device.dll" />
+            <elementDefinition Id="1d93e71d-6bcf-445a-9a73-658a5d4f66ad" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="5e954bbc-f66b-4df1-82f8-572c86deed55" name="UPnP.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b64587ed-854b-4b24-bf3e-b19922676324" />
+        <suppliersInternal>
+          <dependency Id="9b3a94ac-dff6-42c7-ad1b-546943d4ff48">
+            <componentMoniker Id="d3144bc1-980e-482f-8b86-cc65baacd659" LastKnownName="UPnP_CP.dll" />
+            <elementDefinition Id="0dc3762b-fc86-4a2c-ba9c-98c8e1aca1b0" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="fa26fc23-c4a3-4296-8c94-5fc5b39ae8e9" name="dbclases.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2b47b72b-cb52-4541-b542-fca144aa4a1d" />
+        <suppliersInternal>
+          <dependency Id="d10c6ba2-8b66-4f25-91eb-b915fc7117bf">
+            <componentMoniker Id="4d254ac7-36ac-46f7-bf66-b694076bb576" LastKnownName="MetadataReader" />
+            <elementDefinition Id="be4a3a29-1791-4c50-973b-73898fe0eae5" />
+          </dependency>
+          <dependency Id="3eec264b-5b7f-4acc-9a29-7920689f67b7">
+            <componentMoniker Id="80a36625-5449-4483-b05c-2ec63b08e789" LastKnownName="Database.dll" />
+            <elementDefinition Id="3295a6d3-9133-4326-8928-2e69dd8e6773" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="80a36625-5449-4483-b05c-2ec63b08e789" name="Database.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ac2ad078-3016-46a5-a01c-b30860a01a6b" />
+        <suppliersInternal>
+          <dependency Id="a7c1fad1-d0c6-401c-81e3-29f55f1dc725">
+            <componentMoniker Id="8601c987-fc51-4b1e-9697-069b40b1a47f" LastKnownName="MySql Server" />
+            <elementDefinition Id="7a657f8d-5806-411a-964f-e79fa70cacc7" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="4d254ac7-36ac-46f7-bf66-b694076bb576" name="MetadataReader" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6fe57532-f285-4429-9317-9d8bc6359371" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="90846769-5096-49c1-858b-59179c4cccd2" name="Raspberry PI" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="129323d0-b2f3-4e8e-987e-bc37e1a9ecfa" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="58d95a52-35bd-4918-9e43-de1e02fbf628" name="HiPi_Pi" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5140e954-098e-419a-acd6-7fa6bb4f9f37" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="a6f86409-2aff-4a20-8350-2814ca13ed2b" name="UPnP_Device.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ea46a17c-af0f-4620-9b42-8996047d4d45" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="b399bcc6-0a5c-4ad6-ab4c-494ee7798ffb" name="PlaybackCtrl.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="45ff3485-c197-455a-9cad-f48b8c511943" />
+        <suppliersInternal>
+          <dependency Id="c192d99e-d6f2-4df3-8cd0-f5d88a087fb7">
+            <componentMoniker Id="a62269a8-77df-41b9-9538-fd6b6616c1df" LastKnownName="MPlayer.dll" />
+            <elementDefinition Id="51585dd0-9d2f-45f9-9239-fe1bc514ad71" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="a62269a8-77df-41b9-9538-fd6b6616c1df" name="MPlayer.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2b1493f1-b3f8-49f7-8f1e-b992cc97c085" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="6144a3ab-70e6-4cc6-ae3f-211f66bd72c9" name="Main.exe" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f12b40ad-26b9-4f75-a26d-bdf2d84bdc70" />
+        <suppliersInternal>
+          <dependency Id="c5ce1948-9e0d-4cc8-b0cf-e5e7abfee000">
+            <componentMoniker Id="677e3a22-408d-41bc-9b04-542ca4d222b3" LastKnownName="FileSenderServer.dll" />
+            <elementDefinition Id="67975cd4-9092-430a-9e9b-bb6e6ea48f42" />
+          </dependency>
+          <dependency Id="98fba9e1-25b3-4862-9f1d-0511ea09e817">
+            <componentMoniker Id="b399bcc6-0a5c-4ad6-ab4c-494ee7798ffb" LastKnownName="PlaybackCtrl.dll" />
+            <elementDefinition Id="e8cc0de5-d783-4d7b-a0b9-181156eb3409" />
+          </dependency>
+          <dependency Id="870ab091-cbf9-4e4f-b4a2-39e62be4d88c">
+            <componentMoniker Id="35497d09-2309-4e42-bdf8-5a03e1b6b483" LastKnownName="DBHandling.dll" />
+            <elementDefinition Id="b7419543-4f51-4b2f-840e-e4d2d6477a4e" />
+          </dependency>
+          <dependency Id="01f9f5f3-4fae-46b4-8c96-20dc2e8389d8">
+            <componentMoniker Id="e4cf6bb4-d095-457c-8047-db50e1a61d70" LastKnownName="UPnPConfigFactory.dll" />
+            <elementDefinition Id="9c51291f-ab18-4141-9f59-d39d3641b001" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="e4cf6bb4-d095-457c-8047-db50e1a61d70" name="UPnPConfigFactory.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a1d0f2af-4025-4b3b-bb6c-0c4241640b7a" />
+        <suppliersInternal>
+          <dependency Id="cf090b41-b058-45a2-bfc0-3722e0f4be1a">
+            <componentMoniker Id="a6f86409-2aff-4a20-8350-2814ca13ed2b" LastKnownName="UPnP_Device.dll" />
+            <elementDefinition Id="29ca6e94-3652-40ac-a970-1b6198b9edcb" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="35497d09-2309-4e42-bdf8-5a03e1b6b483" name="DBHandling.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4d16bdbe-2528-410e-836f-beed753bd7c4" />
+        <suppliersInternal>
+          <dependency Id="29acade1-cc60-454c-9a44-163d23d9154e">
+            <componentMoniker Id="80e85d94-45c5-4c39-a219-5650995f18ac" LastKnownName="MySql Pi Server" />
+            <elementDefinition Id="ee2ad925-acad-493f-99c0-15d927960c44" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="dc9f6a0e-3911-4549-bf14-11bda4a5a3e7" name="Containers.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3f29b9bb-1d02-4002-8a36-c9ed4cef8d4f" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="677e3a22-408d-41bc-9b04-542ca4d222b3" name="FileSenderServer.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="86b38f44-31f1-4baa-9890-2a54ba319e7f" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="80e85d94-45c5-4c39-a219-5650995f18ac" name="MySql Pi Server" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="577990b8-5072-4b56-b128-13773997fc9d" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="9b07791d-c33e-44c9-b294-9f72227dc8b9" name="MySql Database" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="35081323-fc6c-45d5-9e40-9daf6929147d" />
+      </component>
+    </componentModelHasComponents>
+  </packagedElements>
+  <package Id="4333dca7-6147-4890-bc7f-718c037135bc" name="Diagrams">
+    <elementDefinition Id="f78da2d3-967b-448b-bd01-d4cc077bfb84" />
+  </package>
+</componentModel>

@@ -43,7 +43,7 @@ namespace DBClasses
 				IDBStrategy strat = _strategies [args.Action];
 				strat.Handle (args.Args, cb, _dbXmlWriter, _PQHandler);
 			}
-			else if (args.Action == "GetIPAddress")
+		    else if (args.Action == "GetIPAddress")
 			{
 				Console.WriteLine ("GetIPAddress");
 				HandleGetIP(cb);

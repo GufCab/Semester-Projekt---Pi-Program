@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>Both\PiThreadingDiagram.classdiagram</DependentUpon>
     </Content>
+    <Content Include="DeploymentDiagram.componentdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DeploymentDiagram.componentdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>DeploymentDiagram.componentdiagram</DependentUpon>
+    </Content>
     <Content Include="FileSender\FileSenderServer_FileSenderServer.sequencediagram">
       <SubType>Content</SubType>
     </Content>
@@ -42,6 +49,9 @@
     <Content Include="FileSender\PackageDiagram.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>FileSender\PackageDiagram.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_0905.uml">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package1_1009.uml">
       <SubType>Content</SubType>
@@ -67,6 +77,9 @@
     <Content Include="ModelDefinition\Package1_1719.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package2_0905.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package2_1651.uml">
       <SubType>Content</SubType>
     </Content>
@@ -79,6 +92,9 @@
     <Content Include="ModelDefinition\Package2_1713.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package3_0905.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package3_1651.uml">
       <SubType>Content</SubType>
     </Content>
@@ -88,7 +104,22 @@
     <Content Include="ModelDefinition\Package3_1713.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package4_0905.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package4_1651.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_0905.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1006.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1007.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_1009.uml">
@@ -131,6 +162,13 @@
     <Content Include="UPnP_Device\UDP.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>UPnP_Device\UDP.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Use case 5.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Use case 5.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Use case 5.classdiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\Diagrams.uml">

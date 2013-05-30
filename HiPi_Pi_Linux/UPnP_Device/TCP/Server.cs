@@ -9,7 +9,11 @@ using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.TCP
 {
-    //Todo: Filename should be TCPServer
+    /// <summary>
+    /// This class is used to handle
+    /// incoming Tcp connections and create 
+    /// new threads, handling them.
+    /// </summary>
     public class TcpServer
     {
         //Todo: Buffersize isn't used:
@@ -22,6 +26,12 @@ namespace UPnP_Device.TCP
         private int localPort;
         private string localIp;
 
+        /// <summary>
+        /// Constructor.
+        /// Starts new thread containing the functionality.
+        /// </summary>
+        /// <param name="ipConf">IP configuration from factory</param>
+        /// <param name="BasePath">Path to directory containing service and device descriptions</param>
 		public TcpServer(IIpConfig ipConf, string BasePath)
         {
             localIp = ipConf.IP;
@@ -36,11 +46,15 @@ namespace UPnP_Device.TCP
             serverThread.Start();
         }
 
+        /// <summary>
+        /// Accepts incoming connections and dispatches
+        /// them to new threads, where they are handled 
+        /// with functions defined in TCPHandle.
+        /// </summary>
         private void ServerFunc()
         {
             welcomeSocket.Start();
 
-            //Todo: Nice, MDS.. Comments needed
             while (true)
             {
                 TcpClient client = welcomeSocket.AcceptTcpClient();
