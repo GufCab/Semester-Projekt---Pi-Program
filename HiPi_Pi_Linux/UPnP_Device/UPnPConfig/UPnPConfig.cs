@@ -6,6 +6,10 @@ using System.IO;
 
 namespace UPnP_Device.UPnPConfig
 {
+    /// <summary>
+    /// Interface used to configure UPnP device
+    /// with device related attributes.
+    /// </summary>
     public interface IUPnPConfig
     {
         List<string> NT { get; }
@@ -24,6 +28,14 @@ namespace UPnP_Device.UPnPConfig
         string BasePath { get; set; }
     }
     
+    /// <summary>
+    /// Implements the interface IUPnPConfig.
+    /// 
+    /// Created by the UPnP creator factory.
+    /// See UPnP documentation for description of all values in this.
+    /// 
+    /// Values are loaded in from description files. 
+    /// </summary>
     public class UPnPConfig : IUPnPConfig
     {
         public List<string> NT { get; private set; }
@@ -42,6 +54,11 @@ namespace UPnP_Device.UPnPConfig
         public string BasePath { get; set; }
         
         //Todo: Contructor should take some NT's in some way
+        /// <summary>
+        /// Constructor.
+        /// Sets cacheExpire to default value.
+        /// </summary>
+        /// <param name="path">Path to configuration file</param>
         public UPnPConfig(string path)
         {
             services = new List<string>();
@@ -51,6 +68,12 @@ namespace UPnP_Device.UPnPConfig
             LoadConfig(path);
         }
         
+        /// <summary>
+        /// Overloaded constructor.
+        /// Creates instance with the expire value, that is sent as argument.
+        /// </summary>
+        /// <param name="expireTime">Time until new broadcast of Notify messages</param>
+        /// <param name="path">Path to configuration file</param>
         public UPnPConfig(int expireTime, string path)
         {
             services = new List<string>();
@@ -60,6 +83,10 @@ namespace UPnP_Device.UPnPConfig
             LoadConfig(path);
         }
         
+        /// <summary>
+        /// Load configurations in to a List of strings.
+        /// </summary>
+        /// <param name="path"></param>
         private void LoadConfig(string path)
         {
             using (StreamReader streamReader = new StreamReader(path))
@@ -76,6 +103,10 @@ namespace UPnP_Device.UPnPConfig
             }
         }
 
+        /// <summary>
+        /// Set values of properties to values read from config list.
+        /// </summary>
+        /// <param name="configInfo">Info read from file</param>
         private void SetProperties(List<string> configInfo)
         {
             friendlyName = configInfo[0];
@@ -96,6 +127,9 @@ namespace UPnP_Device.UPnPConfig
             GenerateNT();
         }
         
+        /// <summary>
+        /// Generates NT for UDP multicast.
+        /// </summary>
         private void GenerateNT()
         {
             NT = new List<string>();

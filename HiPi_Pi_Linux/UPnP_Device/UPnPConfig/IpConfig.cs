@@ -8,6 +8,13 @@ using System.Text;
 
 namespace UPnP_Device.UPnPConfig
 {
+    /// <summary>
+    /// Interface for IIpConfig.
+    /// Exposes Get/Set methods for IP, GUID and TCPPort.
+    /// 
+    /// Created by UPnP factory and passed to UPnPDevice to configure
+    /// the IP and ID related properties of the device.
+    /// </summary>
     public interface IIpConfig
     {
         string GUID { get; }
@@ -15,13 +22,24 @@ namespace UPnP_Device.UPnPConfig
 
         int TCPPort { get; }
     }
-
+    /// <summary>
+    /// Implements the IIpConfig interface.
+    /// 
+    /// Created by UPnP factory and passed to UPnP sink devices to configure
+    /// the IP and ID related properties of the device.
+    /// </summary>
     public class SinkIPConfig : IIpConfig
     {
         public string GUID { get; private set; }
         public string IP { get; private set; }
         public int TCPPort { get; private set; }
 
+        /// <summary>
+        /// Constructor
+        /// Takes a network port as argument.
+        /// Gets the devices own IP and GUID through its own methods.
+        /// </summary>
+        /// <param name="tcpportnr">Network Port</param>
         public SinkIPConfig(int tcpportnr)
         {
             GUID = GetGUID();
@@ -29,6 +47,16 @@ namespace UPnP_Device.UPnPConfig
             TCPPort = tcpportnr;
         }
 
+        /// <summary>
+        /// Method to get a GUID.
+        /// If the SinkGUID.key file exists in the relative path ../../config/
+        /// the function will read this file and return the value read, thus 
+        /// ensuring the GUID is kept through reboot.
+        /// 
+        /// If the file does not exist, a new GUID is created and stored in a file
+        /// for later use.
+        /// </summary>
+        /// <returns>GUID for the device</returns>
         private string GetGUID()
         {
 			string g;
@@ -60,6 +88,11 @@ namespace UPnP_Device.UPnPConfig
             return g; //"e22ca7c1-aadc-4d60-b334-2d905bef5be7";
         }
 
+        /// <summary>
+        /// Method to get the devices own IP adress.
+        /// Runs through all the devices IP's and selects one used for InterNetwork.
+        /// </summary>
+        /// <returns>IP Adress as a string</returns>
         private string GetOwnIp()
         {
             string localIP = "";
@@ -76,12 +109,24 @@ namespace UPnP_Device.UPnPConfig
 
     }
 
+    /// <summary>
+    /// Implements the IIpConfig interface.
+    /// 
+    /// Created by UPnP factory and passed to UPnP source devices to configure
+    /// the IP and ID related properties of the device.
+    /// </summary>
     public class SourceIPConfig : IIpConfig
     {
         public string GUID { get; private set; }
         public string IP { get; private set; }
         public int TCPPort { get; private set; }
 
+        /// <summary>
+        /// Constructor
+        /// Takes a network port as argument.
+        /// Gets the devices own IP and GUID through its own methods.
+        /// </summary>
+        /// <param name="tcpportnr">Network Port</param>
         public SourceIPConfig(int tcpportnr)
         {
             GUID = GetGUID();
@@ -89,6 +134,16 @@ namespace UPnP_Device.UPnPConfig
             TCPPort = tcpportnr;
         }
 
+        /// <summary>
+        /// Method to get a GUID.
+        /// If the SinkGUID.key file exists in the relative path ../../config/
+        /// the function will read this file and return the value read, thus 
+        /// ensuring the GUID is kept through reboot.
+        /// 
+        /// If the file does not exist, a new GUID is created and stored in a file
+        /// for later use.
+        /// </summary>
+        /// <returns>GUID for the device</returns>
         private string GetGUID()
         {
             string g;
@@ -120,6 +175,11 @@ namespace UPnP_Device.UPnPConfig
             return g;
         }
 
+        /// <summary>
+        /// Method to get the devices own IP adress.
+        /// Runs through all the devices IP's and selects one used for InterNetwork.
+        /// </summary>
+        /// <returns>IP Adress as a string</returns>
         private string GetOwnIp()
         {
             string localIP = "";

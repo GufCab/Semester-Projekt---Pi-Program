@@ -9,6 +9,9 @@ using UPnP_Device.XML;
 
 namespace UPnP_Device.UPnPConfig
 {
+    /// <summary>
+    /// Interface containing all configuration classes for the UPnP devices.
+    /// </summary>
     public interface IUPnPConfigPackage
     {
        // IXMLWriter XmlWr { get; }
@@ -18,6 +21,11 @@ namespace UPnP_Device.UPnPConfig
         List<string> ServiceConfPaths { get; }
     }
 
+    /// <summary>
+    /// Implements IUPnPConfigPackage. 
+    /// This class is send with all UPnP devices when factory creates instances.
+    /// It is used for configuring each device.
+    /// </summary>
     public class UPnPConfigPackage : IUPnPConfigPackage
     {
         //public IXMLWriter XmlWr { get; private set; }
@@ -25,6 +33,13 @@ namespace UPnP_Device.UPnPConfig
         public IUPnPConfig UpnpConf { get; private set; }
         public List<string> ServiceConfPaths { get; private set; }
         
+        /// <summary>
+        /// Constructor.
+        /// Sets properties to supplied values.
+        /// </summary>
+        /// <param name="ip">IP and ID configuration package</param>
+        /// <param name="upnp">UPnP specific configuration package</param>
+        /// <param name="servicepath">List of paths, containing filepaths to services</param>
         public UPnPConfigPackage(IIpConfig ip, IUPnPConfig upnp, List<string>servicepath)
         {
             IpConf = ip;
