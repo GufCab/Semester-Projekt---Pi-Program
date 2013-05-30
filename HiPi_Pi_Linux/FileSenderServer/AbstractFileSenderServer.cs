@@ -6,6 +6,9 @@ using System.Text;
 
 namespace FileSenderServer
 {
+    /// <summary>
+    /// Abstract "interface" for FileSenderServer
+    /// </summary>
     public abstract class AbstractFileSenderServer
     {
         protected abstract string LocalIpAddress();
