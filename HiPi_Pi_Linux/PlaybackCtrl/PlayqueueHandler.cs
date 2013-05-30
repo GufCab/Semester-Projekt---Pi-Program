@@ -39,7 +39,11 @@ namespace PlaybackCtrl
 
 		private string _PlayQueueChanged;
 
-        //What is this? [Todo]: describe this
+        /// <summary>
+        /// Evented UPnP variable.
+        /// Everytime playqueue changes, PropertyChangedEvent is raised
+        /// and the control point is notified.
+        /// </summary>
 		public string PlayQueueChanged
 		{
 			get{return _PlayQueueChanged;}
@@ -76,7 +80,6 @@ namespace PlaybackCtrl
 				++_Index;
 				mu.ReleaseMutex();
 				return  _Queue [_Index-1];
-                //Console.WriteLine("Inside GetNextTrack: " + retVal.Title);
 			} 
 			else 
 			{
