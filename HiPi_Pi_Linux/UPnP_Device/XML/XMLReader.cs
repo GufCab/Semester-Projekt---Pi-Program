@@ -36,18 +36,4 @@ namespace UPnP_Device.XML
             return args;
         }
     }
-
-
-    //Todo: Should probably be removed:
-    public class Arguments
-    {
-        public Arguments(string name, string value)
-        {
-            _name = name;
-            _value = value;
-        }
-
-        public string _name { set; get; }
-        public string _value { set; get; }
-    }
 }

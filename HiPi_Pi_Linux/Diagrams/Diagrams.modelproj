@@ -107,6 +107,9 @@
     <Content Include="ModelDefinition\Package4_1651.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_0652.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package_1009.uml">
       <SubType>Content</SubType>
     </Content>
@@ -153,6 +156,13 @@
     <Content Include="UPnP_Device\UDP.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>UPnP_Device\UDP.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="XMLPackage.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="XMLPackage.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>XMLPackage.classdiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\Diagrams.uml">
