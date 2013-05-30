@@ -8,8 +8,17 @@ using Containers;
 
 namespace UPnP_Device.XML
 {
+    /// <summary>
+    /// Reads xml received via UPnP
+    /// </summary>
     public class XMLReader
     {
+        /// <summary>
+        /// Reads an xml string and extracts the arguments of the specified function
+        /// </summary>
+        /// <param name="xml">XML string to be read</param>
+        /// <param name="actionName">The action that the reader should look for</param>
+        /// <returns>A list of UPnPArg object that holds the argumentname and argumentvalue</returns>
         public List<UPnPArg> ReadArguments(string xml, string actionName)
         {
             var args = new List<UPnPArg>();

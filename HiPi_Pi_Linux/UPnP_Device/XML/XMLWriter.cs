@@ -8,32 +8,41 @@ using UPnP_Device.UPnPConfig;
 
 namespace UPnP_Device.XML
 {
+    /// <summary>
+    /// Interface that contains the functions needed to make devicedescriptions and servicedescriptions
+    /// </summary>
     public interface IXMLWriter
     {
         void GenDeviceDescription();
         void GenServiceDescription(string type, List<FunctionProperties> functions);
     }
 
+    /// <summary>
+    /// Class that makes the needed xmlfiles to upnp discovery
+    /// </summary>
     public class XMLWriter : IXMLWriter
     {
-        //public string descriptionsPath;
         public string filename = "desc.xml";
         public string AVTransportServicePath = @"AVTransport/serviceDescription/";
         public string RenderingControlServicePath = @"RenderingControl/serviceDescription/";
-        //public string servicePath = "serviceDescription/";
+     
         private IIpConfig _ip;
         private IUPnPConfig _upnp;
-
-        //public XMLWriter(){}
-
+        
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="ip">IP of the upnp device that the device descriptions should be made for</param>
+        /// <param name="upnp">UPnPConfig object that holds the needed data for the descriptions</param>
         public XMLWriter(IIpConfig ip, IUPnPConfig upnp)
         {
             _ip = ip;
             _upnp = upnp;
         }
-
-        //DeviceArchitecture s.51
-        //generates device XML
+        
+        /// <summary>
+        /// Generates the device description in xml format
+        /// </summary>
         public void GenDeviceDescription()
         {
             #region setup
@@ -136,12 +145,14 @@ namespace UPnP_Device.XML
 
             #endregion
             
-            //for debug
-            doc.Save("DeviceDescDebug.xml");
-            
             SaveFile(doc.OuterXml ,"");
         }
 
+        /// <summary>
+        /// Saves the creates xml string to a file
+        /// </summary>
+        /// <param name="xml">The xml string that must be saved</param>
+        /// <param name="servicePath">The path of the service description</param>
         public void SaveFile(string xml, string servicePath)
         {
             string[] s = servicePath.Split(':');
@@ -158,6 +169,11 @@ namespace UPnP_Device.XML
             }
         }
 
+        /// <summary>
+        /// Generates the service description in xml format 
+        /// </summary>
+        /// <param name="type">The type of servicedescription</param>
+        /// <param name="functions">A list of functions that should be listet in the servicedescription</param>
         public void GenServiceDescription(string type, List<FunctionProperties> functions)
         {
             #region setup
@@ -258,9 +274,6 @@ namespace UPnP_Device.XML
             }
 
             #endregion
-
-            //only for debug
-            //doc.Save(type + "Service.xml");
 
             SaveFile(doc.OuterXml, type);
         }

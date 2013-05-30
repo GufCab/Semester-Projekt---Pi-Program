@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Containers
 {
+    /// <summary>
+    /// Interface to container of track info
+    /// </summary>
     public interface ITrack
     {
         string Path { get; set; }       //mappestruktur ifht live555
@@ -20,6 +23,9 @@ namespace Containers
 		string ParentID { get; set; }
     }
 
+    /// <summary>
+    /// Container of track info
+    /// </summary>
     public class Track: ITrack
     {
         public string DeviceIP { get; set; }

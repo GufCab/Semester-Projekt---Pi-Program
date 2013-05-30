@@ -7,16 +7,22 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using Containers;
-using PlaybackCtrl;
 
 namespace XMLReader
 {
+    /// <summary>
+    /// Class that reads the xml that is received by UPnP
+    /// </summary>
     public class XMLReader
     {
+        /// <summary>
+        /// Converts an xml string to a list of containers
+        /// </summary>
+        /// <param name="xml">The xml string that should be converted</param>
+        /// <returns>List of containers</returns>
         public List<Container> containerReader(string xml)
         {
             var xmlDocument = new XmlDocument();
-            //xmlDocument.Load("container.xml");
             xmlDocument.LoadXml(xml);
 
             var tmpList = new List<Container>();
@@ -42,10 +48,14 @@ namespace XMLReader
             return tmpList;
         }
 
+        /// <summary>
+        /// Converts an xml string to a list of containers
+        /// </summary>
+        /// <param name="xml">The xml string that should be converted</param>
+        /// <returns>List of ITracks</returns>
         public List<ITrack> itemReader(string xml)
         {
             var doc = new XmlDocument();
-            //doc.Load("item.xml");
             doc.LoadXml(xml);
 
             var tracks = new List<ITrack>();

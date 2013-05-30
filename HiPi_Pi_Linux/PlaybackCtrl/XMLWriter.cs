@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
 using Containers;
-using PlaybackCtrl;
 using System.Threading;
 
 namespace XMLHandler
 {
+    /// <summary>
+    /// Creates xml from function parametres 
+    /// </summary>
     public class XMLWriter
     {
         private static Mutex mu = new Mutex();
 
+        /// <summary>
+        /// Converts a list of ITracks to an XML document used by UPnP
+        /// </summary>
+        /// <param name="tracks">List of ITracks that is convertet to xml</param>
+        /// <returns>An xml string with the tracks in it</returns>
         public string ConvertITrackToXML(List<ITrack> tracks)
         {
             XmlDocument doc = new XmlDocument();
@@ -34,8 +41,8 @@ namespace XMLHandler
 				++i;
                 XmlElement item = doc.CreateElement("item");
                 root.AppendChild(item);
-                item.SetAttribute("id", i.ToString()); //hvad skal id være? skal den tilføjes til track?
-                item.SetAttribute("parentID", track.ParentID);  //hvor får den parentID fra?
+                item.SetAttribute("id", i.ToString()); 
+                item.SetAttribute("parentID", track.ParentID);
 
                 XmlElement title = doc.CreateElement("dc", "title", "http://purl.org/dc/elements/1.1/");
                 item.AppendChild(title);
@@ -71,11 +78,9 @@ namespace XMLHandler
                 Console.WriteLine ("Path: " + track.Path);
                 Console.WriteLine("Filename: " + track.FileName);
                 string tmpString = track.DeviceIP +"/"+ track.Path  +"/"+ track.FileName;
-                //char[] chArr = new char[]{'/','/'};
-
+                
                 tmpString = tmpString.Replace("//", "/");
-
-				//res.InnerText = track.Protocol + track.DeviceIP +"/" + track.Path+"/"  +track.FileName;
+                
                 res.InnerText = track.Protocol + tmpString;
 				Console.WriteLine("Full path: " + res.InnerText);
             }

@@ -6,11 +6,19 @@ using System.Text;
 
 namespace UPnP_Device.XML
 {
+    /// <summary>
+    /// Reads a configfile and creates a service description from that file
+    /// </summary>
     public class XMLServicesConfig
     {
         public List<FunctionProperties> _functions = new List<FunctionProperties>();
         public string deviceType;
 
+        /// <summary>
+        /// Creates a service description for each string in hte list
+        /// </summary>
+        /// <param name="paths">A list of paths of configfiles</param>
+        /// <param name="writer">The XMLWriter object that creates the service descriptions</param>
         public XMLServicesConfig(List<string> paths, IXMLWriter writer)
         {
             foreach (string path in paths)
@@ -20,8 +28,11 @@ namespace UPnP_Device.XML
                 _functions.Clear();
             }
         }
-
-        //loads configfile and puts lines in list
+        
+        /// <summary>
+        /// Loads configfile and puts lines in list
+        /// </summary>
+        /// <param name="path"></param>
         private void LoadConfig(string path)
         {
             using (StreamReader streamReader = new StreamReader(path))
@@ -40,11 +51,13 @@ namespace UPnP_Device.XML
                 SeperateFunction(lines);
             }
         }
-
-        //seperates functionname from the rest
+        
+        /// <summary>
+        /// Seperates functionname from the restseperates functionname from the rest
+        /// </summary>
+        /// <param name="configInfo"></param>
         private void SeperateFunction(List<string> configInfo)
         {
-            //List<FunctionProperties> functionProperties = new List<FunctionProperties>();
             int i = 0;
 
             foreach (string line in configInfo)
@@ -61,7 +74,9 @@ namespace UPnP_Device.XML
             SeperateArguments();
         }
 
-        //splits each argument
+        /// <summary>
+        /// Splits each argument
+        /// </summary>
         private void SeperateArguments()
         {
             foreach (FunctionProperties functionPropertie in _functions)
@@ -79,7 +94,9 @@ namespace UPnP_Device.XML
             SeperateArgumentInternal();  
         }
 
-        //splits and sets argumentName, Direction and relatedStateVariable
+        /// <summary>
+        /// Splits and sets argumentName, Direction and relatedStateVariable
+        /// </summary>
         private void SeperateArgumentInternal()
         {
             int i = 0;
@@ -107,6 +124,9 @@ namespace UPnP_Device.XML
         }
     }
 
+    /// <summary>
+    /// Container that holds an argumentname and a list of properties
+    /// </summary>
     public class FunctionProperties
     {
         public FunctionProperties()
@@ -122,6 +142,9 @@ namespace UPnP_Device.XML
         public List<string> tmpString { set; get; }
     }
 
+    /// <summary>
+    /// Container that holds the properties
+    /// </summary>
     public class ArgumentProperties
     {
         public string argumentName { get; set; }
@@ -130,5 +153,4 @@ namespace UPnP_Device.XML
         public string sendEventAttribute { get; set; }
         public string dataType { set; get; }
     }
-
 }
