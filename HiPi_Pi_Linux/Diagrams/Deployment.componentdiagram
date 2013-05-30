@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c0cc46d-0fa8-41b8-b938-b5c632a12f43" name="Deployment" linkedPackageId="0d900585-d643-4211-a4f0-bd250c93a9cb" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="aa332b7b-b49b-46eb-a2dc-838e9dd010b1">
+      <profileInstance Id="70852179-716f-4094-b1db-548034b24384" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b053733c-0443-4ba8-8232-2d846ea1ec0e">
+      <profileInstance Id="75c4beb3-a8f8-42b6-8469-6f700c9d936b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c867a2b5-7a36-4755-a858-24dbceaebf86">
+      <profileInstance Id="57b2efb1-b299-4422-8b63-f84b99172fa2" name="CSharpProfile">
+        <elementDefinition Id="3f89d833-3107-42cb-98aa-398f2ff46c6e" />
+      </profileInstance>
+      <elementDefinition Id="474911f8-d052-4b69-8655-48ffab808273" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="5aeb0420-d3a1-4ee3-ab06-7bc64b66047f" name="Raspberry Pi" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="83c9493b-bafb-4ed6-9c0e-b137c0143103" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="1b47bed1-0ec1-47ba-8220-e1f69eabdf7f" name="PC applikation" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="12aaf177-cb58-48ba-a810-f1dc7d129488" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="5cc4bdf3-b4ed-42cb-9812-66ad5b476e3b" name="UPnP_Device.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c8d5754a-d26d-4e50-bbd8-0e4a71ea5aa7" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="f97b17ab-92c8-44d9-8297-fcb6c6fdb5e6" name="UPnP_cp.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="541a060a-448e-442e-956c-7cb4281d64a1" />
+        <suppliersInternal>
+          <dependency Id="e82f57a5-72af-404f-899e-b66b04e56f84">
+            <componentMoniker Id="5cc4bdf3-b4ed-42cb-9812-66ad5b476e3b" LastKnownName="UPnP_Device.dll" />
+            <elementDefinition Id="bcf77117-c0b1-4ee1-a882-df5d770ab796" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="3f71591b-a59e-4b46-9c98-bcfc3ed46a9a" name="PlaybackCtrl.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4943e956-fc47-4a25-93f1-7f170f78c87d" />
+        <suppliersInternal>
+          <dependency Id="a816f2ed-4efb-45bd-ba4b-6e5d89ffd3ad">
+            <componentMoniker Id="55411930-7b98-42fd-875c-dc7761ca7065" LastKnownName="MPlayer.dll" />
+            <elementDefinition Id="1ea6055d-4df9-476f-ae12-1eec464d1603" />
+          </dependency>
+          <dependency Id="aa149800-0ad2-4470-8c06-b358a8a8f6ca">
+            <componentMoniker Id="5cc4bdf3-b4ed-42cb-9812-66ad5b476e3b" LastKnownName="UPnP_Device.dll" />
+            <elementDefinition Id="e2acbc17-8857-4e7e-8d8d-68d828885240" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="55411930-7b98-42fd-875c-dc7761ca7065" name="MPlayer.dll" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="16864056-c6db-4f79-bde0-c0203263da85" />
+      </component>
+    </componentModelHasComponents>
+  </packagedElements>
+  <package Id="0d900585-d643-4211-a4f0-bd250c93a9cb" name="Diagrams">
+    <elementDefinition Id="f78da2d3-967b-448b-bd01-d4cc077bfb84" />
+  </package>
+</componentModel>

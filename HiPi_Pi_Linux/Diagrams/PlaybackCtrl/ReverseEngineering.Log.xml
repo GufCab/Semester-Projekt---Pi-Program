@@ -6,14 +6,29 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2013-05-27T17:20:57" Importance="High" Text="Reverse Engineering Started." />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device' -  (Package)" />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::ActionEventDel' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="Medium" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IUPnP' -  (Interface)" />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IUPnP::ActionEvent' -  (Property)" />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::UPnP_Device::IUPnP::GetIP' -  (Operation)" />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="High" Text="(1) type(s) fully reverse engineered." />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="High" Text="(1) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
-  <Message Timestamp="2013-05-27T17:20:58" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+  <Message Timestamp="2013-05-29T17:46:06" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '8a0425a6-0a41-4c4c-99ae-7c6488f27538' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::Containers' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::Containers::ITrack' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Medium" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup' -  (Class)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup::_con' -  (Property)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup::_conStr' -  (Property)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup::Browse' -  (Operation)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup::Browse::info' -  (Parameter)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup::DBLookup' -  (Operation)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::DBClasses::DBLookup::SetupConnection' -  (Operation)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::MySql' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::MySql::Data' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::MySql::Data::MySqlClient' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::MySql::Data::MySqlClient::MySqlConnection' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Diagrams::System::Collections::Generic::List&lt;ITrack‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="High" Text="(4) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2013-05-29T17:46:08" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
 </Log>

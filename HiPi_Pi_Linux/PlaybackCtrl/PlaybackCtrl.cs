@@ -27,7 +27,7 @@ namespace PlaybackCtrl
 
 
         /// <summary>
-        /// Keeps track of evented variables. String contains current state of the playback and broadcasts it whenever it changes.
+        /// Keeps track of evented variables. String contains current state of the playback and broadcasts whenever it changes.
         /// </summary>
 		public string TransportState
 		{
@@ -43,7 +43,6 @@ namespace PlaybackCtrl
 			}
 			get {return _TransportState; }
 		}
-		//public event PropertyChangedDel propEvent;
 
         /// <summary>
         /// Constructor. Creates Audio Player Wrapper, XMLreader and XMLwriter and subscribes to wrapper and UPnP Sink
@@ -68,12 +67,8 @@ namespace PlaybackCtrl
         private void Next()
         {
 			TransportState = "TRANSITIONING";
-            
 			var myTrack = PlayQueueHandler.GetNextTrack();
-			Console.WriteLine("Next: " + myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName);
-			string nxtPath = myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName;
-            Player.PlayTrack(nxtPath);
-
+            Player.PlayTrack(myTrack.Path);
 			TransportState = "PLAYING";
         }
 
@@ -85,8 +80,7 @@ namespace PlaybackCtrl
         {
 			TransportState = "TRANSITIONING";
             ITrack myTrack = PlayQueueHandler.GetPrevTrack();
-            string prevPath = myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName;
-            Player.PlayTrack(prevPath);
+            Player.PlayTrack(myTrack.Path);
 			TransportState = "PLAYING";
         }
 
@@ -135,10 +129,8 @@ namespace PlaybackCtrl
         /// <param name="retValRef">UPnPArg containing a Track</param>
         private void AddToPlayQueue(ref List<UPnPArg> retValRef)
         {
-            Console.WriteLine("Inside AddToPlayQueue");
             List<ITrack> myTrackList = XMLconverter.itemReader(retValRef[1].ArgVal); //Converts xml file to Track
             PlayQueueHandler.AddToPlayQueue(myTrackList[0]);
-            Console.WriteLine("Inside AddToPlayQueue");
         }
 
         /// <summary>
@@ -206,7 +198,6 @@ namespace PlaybackCtrl
         private void SetVol(ref List<UPnPArg> retValRef)
         {
             Player.SetVolume(Convert.ToInt32(retValRef[2].ArgVal));
-			Console.WriteLine("\nInside Setvol!");
         }
 
 
@@ -236,7 +227,6 @@ namespace PlaybackCtrl
         {
             string action = args.Action;
 			bool CallCB = true;
-			Console.WriteLine(">> Inside UPnPHandler: " + action);
             List<UPnPArg> returnVal = args.Args;
 
             if (action != "Browse")
@@ -314,7 +304,6 @@ namespace PlaybackCtrl
 
 			if(CallCB)
 			{
-		        Console.WriteLine("PlaybackCtrl ready for callback");
 		        cb(returnVal, args.Action);
 			}
         }
@@ -326,10 +315,7 @@ namespace PlaybackCtrl
 		{
 			List<UPnPArg> createdArgs = new List<UPnPArg>();
 			createdArgs.Add(new UPnPArg("CurrentPosition", GetPos()));
-
-			//createdArgs.Add(new UPnPArg("Duration", PlayQueueHandler.GetCurrentTrack().Duration));
-			if(PlayQueueHandler.GetCurrentTrack() != null)
-				createdArgs.Add(new UPnPArg("Duration", PlayQueueHandler.GetCurrentTrack().Duration));
+			createdArgs.Add(new UPnPArg("Duration", "100"));
 
 			return createdArgs;
 		}

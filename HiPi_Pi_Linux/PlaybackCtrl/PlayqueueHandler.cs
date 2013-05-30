@@ -32,14 +32,18 @@ namespace PlaybackCtrl
     {
         //Used for keeping track of the current position in the playqueue
         private int _Index;
-		private static Mutex mu;
+		private Mutex mu;
 
         //List containing the Tracks in the playqueue
         private List<ITrack> _Queue; 
 
 		private string _PlayQueueChanged;
 
-        //What is this? [Todo]: describe this
+        /// <summary>
+        /// Evented UPnP variable.
+        /// Everytime playqueue changes, PropertyChangedEvent is raised
+        /// and the control point is notified.
+        /// </summary>
 		public string PlayQueueChanged
 		{
 			get{return _PlayQueueChanged;}
@@ -58,7 +62,7 @@ namespace PlaybackCtrl
         /// </summary>
         public PlayqueueHandler()
         {
-            _Index = 1;
+            _Index = 0;
             _Queue = new List<ITrack>();
 			mu = new Mutex();
         }
@@ -75,9 +79,7 @@ namespace PlaybackCtrl
 			{
 				++_Index;
 				mu.ReleaseMutex();
-
-				return  _Queue [_Index - 1];
-                //Console.WriteLine("Inside GetNextTrack: " + retVal.Title);
+				return  _Queue [_Index-1];
 			} 
 			else 
 			{
@@ -87,6 +89,7 @@ namespace PlaybackCtrl
 				return dummy;
 			}
         }
+
         /// <summary>
         /// Returns the previous Track in the playqueue unless _Index is at the first position in the playqueue.
         /// If _Index is at the first position in the playqueue (or 0), returns a dummy Track.
@@ -195,9 +198,7 @@ namespace PlaybackCtrl
         /// <returns>Track at position</returns>
         public ITrack GetCurrentTrack()
         {
-			if(_Index < _Queue.Count)
-            	return _Queue[_Index];
-			return null;
+            return _Queue[_Index];
         }
 
         /// <summary>
@@ -206,9 +207,7 @@ namespace PlaybackCtrl
         /// <returns>Integer indicating number of Tracks</returns>
         public int GetNumberOfTracks()
         {
-
             return _Queue.Count;
-
         }
 
         /// <summary>
@@ -217,9 +216,7 @@ namespace PlaybackCtrl
         /// <returns>List of Tracks in playqueue</returns>
 		public List<ITrack> GetQueue ()
 		{
-			
 			return _Queue;
-			
 		}
     }
 }
