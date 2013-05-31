@@ -11,10 +11,13 @@ using XMLReader;
 using XMLHandler;
 using XMLWriter = XMLHandler.XMLWriter;
 
+/// <summary>
+/// The classes in this namespace handle the playqueue and internal communication between the UPnP sink and Audio Player Wrapper.
+/// </summary>
 namespace PlaybackCtrl
 {
     /// <summary>
-    /// This class manages communication between the UPnP sink, PlayqueueHandler and Audio Player Wrapper
+    /// This class manages communication between the UPnP sink, PlayqueueHandler and Audio Player Wrapper.
     /// </summary>
     public class PlaybackControl
     {
