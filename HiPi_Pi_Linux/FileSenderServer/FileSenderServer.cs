@@ -4,6 +4,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
+/// <summary>
+/// Namespace for FileSenderServer.
+/// </summary>
 namespace FileSenderServer
 {
     /// <summary>
