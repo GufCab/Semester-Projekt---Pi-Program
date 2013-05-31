@@ -8,13 +8,22 @@ using MySql.Data.MySqlClient;
 
 namespace DBClasses
 {
+    /// <summary>
+    /// Database access class.
+    /// 
+    /// This is the class that actually accesses the database.
+    /// </summary>
     public class DBLookup
     {
         private string _conStr = "server=127.0.0.1;userid=PiLocal;password=pilocal;database=Piindex";
 		//private string _conStr = "server=192.168.1.100;userid=Hipi;password=pi;database=Piindex";
         private MySqlConnection _con;
 
-
+        /// <summary>
+        /// Browse the database
+        /// </summary>
+        /// <param name="info">Info used for browsing the database</param>
+        /// <returns>List of tracks matching the search criteria</returns>
         public List<ITrack> Browse(string info)
         {            
             List<ITrack> trkList;
@@ -58,9 +67,11 @@ namespace DBClasses
             
         }
         
+        /// <summary>
+        /// Setup the connection to the database.
+        /// </summary>
         private void SetupConnection()
         {
-
             try
             {
                 _con = new MySqlConnection(_conStr);

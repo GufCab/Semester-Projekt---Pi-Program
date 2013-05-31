@@ -12,6 +12,9 @@ using UPnP_Device.UPnPConfig;
 /// </summary>
 namespace UPnP_Device.UDP
 {
+    /// <summary>
+    /// Interface hiding the implementation of the UDPServer functionality
+    /// </summary>
     public interface IUDPServer
     {
         /// <summary>
@@ -21,8 +24,10 @@ namespace UPnP_Device.UDP
     }
 
     /// <summary>
-	/// Handles all UDP actions. Creates multiple threads for sending and receiving
-	/// </summary>
+    /// Class implementing the IUDPServer interface. 
+    /// 
+    /// This class is used to send, receive and handle UDP messages from and to control points.
+    /// </summary>
     public class UDPServer : IUDPServer
     {
         public MulticastSender sender;
