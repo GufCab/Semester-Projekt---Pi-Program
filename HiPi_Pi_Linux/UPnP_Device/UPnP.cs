@@ -9,6 +9,9 @@ using UPnP_Device.XML;
 
 namespace UPnP_Device
 {
+    /// <summary>
+    /// Interface for all UPnP Devices
+    /// </summary>
     public interface IUPnP
     {
         event ActionEventDel ActionEvent;
@@ -16,11 +19,17 @@ namespace UPnP_Device
         
     }
 
+    /// <summary>
+    /// Used for ActionEvents
+    /// </summary>
     public class EventClass
     {
        public  delegate void NewActionEventDel(object e, UPnPEventArgs args, CallBack cb);
     }
 
+    /// <summary>
+    /// UPnP Device class
+    /// </summary>
     public class UPnP : IUPnP
     {
         private IIpConfig IpConf;
@@ -36,6 +45,11 @@ namespace UPnP_Device
         
         public event ActionEventDel ActionEvent = delegate { };
 
+        /// <summary>
+        /// Constructor
+        /// Configures UPnP Device with UPnP config package
+        /// </summary>
+        /// <param name="config">Configuration package</param>
         public UPnP(IUPnPConfigPackage config)
         {
             IpConf = config.IpConf;
@@ -56,17 +70,31 @@ namespace UPnP_Device
 
         }
 
+        /// <summary>
+        /// Subscribe to TcpAction event
+        /// </summary>
         private void SubscribeToUpnpEvents()
         {
             EventContainer.TcpActionEvent += EventHandler_UPnPEvent;
         }
 
+        /// <summary>
+        /// Handler function for TcpActionEvent
+        /// Raises ActionEvent.
+        /// </summary>
+        /// <param name="e">Sender</param>
+        /// <param name="args">UPnP arguments received over TCP</param>
+        /// <param name="callBack">Function to be called to</param>
         void EventHandler_UPnPEvent(object e, UPnPEventArgs args, CallBack callBack)
         {
             
                 ActionEvent(e, args, callBack);
         }
 
+        /// <summary>
+        /// Get IP adress from the configurations package.
+        /// </summary>
+        /// <returns></returns>
 		public string GetIP()
 		{
 			return IpConf.IP;

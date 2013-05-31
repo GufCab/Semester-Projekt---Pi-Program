@@ -5,6 +5,9 @@ using System.Text;
 
 namespace UPnP_Device.UDP
 {
+    /// <summary>
+    /// Used as Debug flag.
+    /// </summary>
     public static class UDP_Debug
     {
         public static bool DEBUG =false;

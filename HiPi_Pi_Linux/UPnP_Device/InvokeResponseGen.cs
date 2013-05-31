@@ -7,8 +7,16 @@ using Containers;
 
 namespace UPnP_Device
 {
+    /// <summary>
+    /// Class used to generate all responses to control point.
+    /// </summary>
     class InvokeResponseGen
     {
+        /// <summary>
+        /// Add HTTP head to Body
+        /// </summary>
+        /// <param name="body">XML body</param>
+        /// <returns>Entire HTTP message</returns>
         private string AppendHead(string body)
         {
 			//body = body.Replace ("&gt;", ">");
@@ -23,6 +31,12 @@ namespace UPnP_Device
             return s + "\r\n" + body;
         }
 
+        /// <summary>
+        /// Function to generate the response.
+        /// </summary>
+        /// <param name="funcName"> UPnP Action to call</param>
+        /// <param name="args">Arguments to pass to the Control point</param>
+        /// <returns>Generated response</returns>
         public string InvokeResponse(string funcName, List<UPnPArg> args)
         {
             XmlDocument doc = new XmlDocument();

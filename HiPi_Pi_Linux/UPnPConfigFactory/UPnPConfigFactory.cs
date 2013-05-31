@@ -6,15 +6,32 @@ using UPnP_Device.UPnPConfig;
 using UPnP_Device;
 using UPnP_Device.XML;
 
+/// <summary>
+/// Namespace for all configuration factory-related members.
+/// </summary>
 namespace UPnPConfigFactory
 {
+    /// <summary>
+    /// Interface for UPnP configuration factories
+    /// Creates the package sent to devices.
+    /// </summary>
     public interface IUPnPConfigFactory
     {
         IUPnPConfigPackage CreatePackage();
     }
 
+    /// <summary>
+    /// Concrete factory implementing the IUPnPConfigFactory.
+    /// This factory is used for creating the config package for Sink devices.
+    /// </summary>
     public class SinkFactory : IUPnPConfigFactory
     {
+        /// <summary>
+        /// Function creating the package
+        /// 
+        /// Reads configuration files and loads them into the package. 
+        /// </summary>
+        /// <returns>Configuration package</returns>
         public IUPnPConfigPackage CreatePackage()
         {
             IIpConfig ip = new SinkIPConfig(52200);
@@ -35,9 +52,18 @@ namespace UPnPConfigFactory
         }
     }
 
-    
+    /// <summary>
+    /// Concrete factory implementing the IUPnPConfigFactory.
+    /// This factory is used for creating the config package for Sink devices.
+    /// </summary>
     public class SourceFactory : IUPnPConfigFactory
     {
+        /// <summary>
+        /// Function creating the package
+        /// 
+        /// Reads configuration files and loads them into the package. 
+        /// </summary>
+        /// <returns>Configuration package</returns>
         public IUPnPConfigPackage CreatePackage()
         {
             SourceIPConfig ipConf = new SourceIPConfig(52100);

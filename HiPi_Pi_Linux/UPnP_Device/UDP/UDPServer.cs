@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading;
 using UPnP_Device.UPnPConfig;
 
+/// <summary>
+/// Namespace containing all UDP related UPnP functionality
+/// </summary>
 namespace UPnP_Device.UDP
 {
     public interface IUDPServer

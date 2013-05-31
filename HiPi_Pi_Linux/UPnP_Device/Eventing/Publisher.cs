@@ -11,6 +11,9 @@ using System.Threading;
 
 namespace UPnP_Device
 {
+    /// <summary>
+    /// This class is used to keep track of subscribing control points. 
+    /// </summary>
 	public class Publisher
 	{
 		public List<Subscriber> _Subscribtions;
@@ -19,7 +22,11 @@ namespace UPnP_Device
 
 		private IIpConfig ipconf;
 
-
+        /// <summary>
+        /// Constructor
+        /// Configured with IIpConfig package.
+        /// </summary>
+        /// <param name="ip">IP Configure package</param>
 		public Publisher (IIpConfig ip)
 		{
 			PropertyChangedEvent.PropEvent += PropertyChangedFunc;
@@ -27,6 +34,11 @@ namespace UPnP_Device
 			_Subscribtions = new List<Subscriber>();
 		}
 
+        /// <summary>
+        /// Add a new subscriber to the list of subscriber
+        /// </summary>
+        /// <param name="uuid">Unique ID for device</param>
+        /// <param name="cburl">location URL for device</param>
 		public void NewSubscriber (string uuid, string cburl)
 		{
 			Console.WriteLine("uuid: " + uuid);
@@ -34,6 +46,11 @@ namespace UPnP_Device
 			_Subscribtions.Add (new Subscriber (uuid, cburl));
 		}
 
+        /// <summary>
+        /// Called whenever an evented variable changes state.
+        /// Not implemented.
+        /// </summary>
+        /// <param name="e">Argument with value and type to be sent to control point</param>
 		public void PropertyChangedFunc (UPnPArg e)
 		{
 			Console.WriteLine (" >> Prop Changed Event! <<");
@@ -54,7 +71,11 @@ namespace UPnP_Device
 				}
 			}*/
 		}
-	
+	    
+        /// <summary>
+        /// Actually send to the control point
+        /// </summary>
+        /// <param name="e"></param>
 		private void SendEventMsg (object e)
 		{
 			Object[] g = (object[]) e;
@@ -84,7 +105,13 @@ namespace UPnP_Device
 			return head + "\r\n" + body;
 		}
 		*/
-
+        /// <summary>
+        /// Create the HTTP head for the event message.
+        /// </summary>
+        /// <param name="sub">Subscriber</param>
+        /// <param name="ipconf">IP Configuration package</param>
+        /// <param name="length">length of body</param>
+        /// <returns></returns>
 		public string EventHead (ISubscriber sub, IIpConfig ipconf, int length)
 		{
 			return  "NOTIFY /" + sub.DeliveryPath + " HTTP/1.1\r\n" + 
@@ -97,6 +124,11 @@ namespace UPnP_Device
 					"SEQ: " + sub.EventNo + "\r\n";
 		}
 
+        /// <summary>
+        /// Function to create event XML body.
+        /// </summary>
+        /// <param name="arg">Argument to convert to XML</param>
+        /// <returns>string of XML body</returns>
 		public string EventBody (UPnPArg arg)
 		{
 			XmlDocument doc = new XmlDocument ();

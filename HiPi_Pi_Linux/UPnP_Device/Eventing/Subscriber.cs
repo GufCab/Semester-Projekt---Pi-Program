@@ -1,9 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-
+/// <summary>
+/// Root namespace for all UPnP namespaces and base classes.
+/// </summary>
 namespace UPnP_Device
 {
+    /// <summary>
+    /// Interface exposing the functionality and public members of Subscribers.
+    /// </summary>
 	public interface ISubscriber
 	{
 		string UUID { get; set; }
@@ -14,6 +19,9 @@ namespace UPnP_Device
 		string DeliveryPath {get;set;}
 	}
 
+    /// <summary>
+    /// Class used to represent a subscribing control point in the system. 
+    /// </summary>
 	public class Subscriber : ISubscriber
 	{
 		public string UUID {get; set;}
@@ -23,7 +31,12 @@ namespace UPnP_Device
 
 
 		private int _EventNo;
-		public int EventNo {
+		
+        /// <summary>
+        /// The number of event sent.
+        /// Wraps around the max value 4294967294
+        /// </summary>
+        public int EventNo {
 			set {
 				if (value >= 4294967294)
 					_EventNo = 1;
@@ -33,7 +46,12 @@ namespace UPnP_Device
 			get { return _EventNo; }
 		}
 
-
+        /// <summary>
+        /// Constructor.
+        /// Creates the constructor with the information needed for generating af response to a control point.
+        /// </summary>
+        /// <param name="uuid">Unique device ID</param>
+        /// <param name="cburl">Device location</param>
 		public Subscriber (string uuid, string cburl)
 		{
 			EventNo = 0;
