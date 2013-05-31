@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/// <summary>
+/// The Containers namespace includes different containers, that is used throughout the whole system as collections of data.
+/// </summary>
 namespace Containers
 {
+
     /// <summary>
     /// Interface to container of track info
     /// </summary>
