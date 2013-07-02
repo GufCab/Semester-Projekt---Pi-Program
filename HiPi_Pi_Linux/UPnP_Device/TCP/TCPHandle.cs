@@ -108,6 +108,7 @@ namespace UPnP_Device
                     strategy = new POSTResponder(received);
                     break;
                 case "SUBSCRIBE":
+					
 					strategy = new SubscribeResponder(pub,received);
                     break;
                 default:

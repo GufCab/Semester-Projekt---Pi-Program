@@ -131,16 +131,28 @@ namespace UPnP_Device
         /// Used to send a string to the Control Point
         /// </summary>
         /// <param name="msg">String to be send</param>
-        public void Send(string msg)
-        {
-			if(TCPDebug.DEBUG) {Console.WriteLine("Sending msg: " + msg);}
-            _stream.Flush();
+        public void Send (string msg)
+		{
+			try
+			{
+				if (TCPDebug.DEBUG)
+				{
+					Console.WriteLine ("Sending msg: " + msg);
+				}
+				_stream.Flush ();
 
-            byte[] sendBuffer = Encoding.UTF8.GetBytes(msg);
 
-            _stream.Write(sendBuffer, 0, sendBuffer.Length);
-			if(TCPDebug.MSG)
-            	Console.WriteLine(">> TCP Message sent");
+				byte[] sendBuffer = Encoding.UTF8.GetBytes (msg);
+
+	            _stream.Write(sendBuffer, 0, sendBuffer.Length);
+				if(TCPDebug.MSG)
+	            	Console.WriteLine(">> TCP Message sent");
+
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine ("Error in NetworkUtil send try-catch");
+			}
         }
     }
 }

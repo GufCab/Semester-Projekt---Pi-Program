@@ -71,7 +71,8 @@ namespace PlaybackCtrl
         {
 			TransportState = "TRANSITIONING";
 			var myTrack = PlayQueueHandler.GetNextTrack();
-            Player.PlayTrack(myTrack.Path);
+			Console.WriteLine(" <<>> Play Path: " + myTrack.Path);
+            Player.PlayTrack(myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName);
 			TransportState = "PLAYING";
         }
 
@@ -83,7 +84,7 @@ namespace PlaybackCtrl
         {
 			TransportState = "TRANSITIONING";
             ITrack myTrack = PlayQueueHandler.GetPrevTrack();
-            Player.PlayTrack(myTrack.Path);
+            Player.PlayTrack(myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName);
 			TransportState = "PLAYING";
         }
 
@@ -95,7 +96,7 @@ namespace PlaybackCtrl
 			if (!Player.GetPaused())
 			{
 				var myTrack = PlayQueueHandler.GetNextTrack ();
-				Player.PlayTrack (myTrack.Path);
+				Player.PlayTrack (myTrack.Protocol + myTrack.DeviceIP + myTrack.Path + myTrack.FileName);
 			}
         }
 
@@ -234,6 +235,7 @@ namespace PlaybackCtrl
 
             if (action != "Browse")
             {
+				Console.WriteLine (" >> Command called: " + args.Action);
 			    switch (args.Action)
                 {
                 case "Play":
@@ -287,13 +289,11 @@ namespace PlaybackCtrl
 					break;
 
                 case "GetPosition":
-                   	returnVal = CreatePosArgs(returnVal);
+                   	returnVal = CreatePosArgs();
                     break;
 
 				case "GetCurrentTrack":
-					returnVal = new List<UPnPArg>();
-					returnVal.Add(new UPnPArg("CurrentTrack",  wr.ConvertITrackToXML(new List<ITrack>() {PlayQueueHandler.GetCurrentTrack()})));
-					returnVal.Add (new UPnPArg("PlayQueueChanged", PlayQueueHandler.PlayQueueChanged));
+					returnVal = GetCurrentTrackArgs();
 					break;
 
 				case "GetIPAddress":
@@ -313,12 +313,33 @@ namespace PlaybackCtrl
 
 
     }
-        //[Todo]:Describe this
- 		private List<UPnPArg> CreatePosArgs (List<UPnPArg> inArgs)
+		private List<UPnPArg> GetCurrentTrackArgs ()
 		{
-			List<UPnPArg> createdArgs = new List<UPnPArg>();
-			createdArgs.Add(new UPnPArg("CurrentPosition", GetPos()));
-			createdArgs.Add(new UPnPArg("Duration", "100"));
+			List<UPnPArg> TempList = new List<UPnPArg> ();
+			if (PlayQueueHandler.ListNotEmpty ())
+			{
+				TempList.Add (new UPnPArg ("CurrentTrack", wr.ConvertITrackToXML (new List<ITrack> () {PlayQueueHandler.GetCurrentTrack()})));
+			}
+
+			TempList.Add (new UPnPArg("PlayQueueChanged", PlayQueueHandler.PlayQueueChanged));
+
+			return TempList;
+		}
+
+        //[Todo]:Describe this
+ 		private List<UPnPArg> CreatePosArgs ()
+		{
+			List<UPnPArg> createdArgs = new List<UPnPArg> ();
+			createdArgs.Add (new UPnPArg ("CurrentPosition", GetPos ()));
+
+			if (PlayQueueHandler.ListNotEmpty ())
+			{
+				createdArgs.Add (new UPnPArg ("Duration", PlayQueueHandler.GetCurrentTrack ().Duration));
+			}
+			else
+			{
+				createdArgs.Add (new UPnPArg ("Duration", "0"));
+			}
 
 			return createdArgs;
 		}
