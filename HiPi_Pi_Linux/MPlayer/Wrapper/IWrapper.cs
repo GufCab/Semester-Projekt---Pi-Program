@@ -1,5 +1,8 @@
 using System;
 
+/// <summary>
+/// This namespace implements all features for the MPlayer, including the wrapper which is used by the rest of the program
+/// </summary>
 namespace MPlayer
 {
     /// <summary>

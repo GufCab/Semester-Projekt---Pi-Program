@@ -7,11 +7,20 @@ using NUnit.Framework;
 using PlaybackCtrl;
 using Containers;
 
+/// <summary>
+/// This namespace contains tests for classes in the PlaybackCtrl namespace
+/// </summary>
 namespace PlaybackCtrlTests
 {
+    /// <summary>
+    /// This testfixture tests the PlayqueueHandler
+    /// </summary>
     [TestFixture]
     class PlayqueueHandlerTests
     {
+        /// <summary>
+        /// This test creates a new PlayqueueHandler and calls GetNumberOfTracks while the playqueue is empty.
+        /// </summary>
         [Test]
         public void GetNumberOfTracks_ExpectedZero()
         {
@@ -19,6 +28,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(0,myQueue.GetNumberOfTracks());
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler and adds a Track to it.
+        /// </summary>
         [Test]
         public void AddToPLayQueue_ExpectedTrackAdded()
         {
@@ -29,6 +41,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(1,myQueue.GetNumberOfTracks());
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler and adds a Track to it, then calls GetNumberOfTracks.
+        /// </summary>
         [Test]
         public void GetNumberOfTracks_ExpectedOne()
         {
@@ -39,6 +54,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(1, myQueue.GetNumberOfTracks());
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds a Track to it, removes the Track and then calls GetNumberOfTracks.
+        /// </summary>
         [Test]
         public void RemoveFromPlayQueue_OneTrackAdded_ExpectedNoTracksLeft()
         {
@@ -50,6 +68,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(0, myQueue.GetNumberOfTracks());
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler and tries to remove a Track from it while it is empty. The lack of Exceptions is due to the data validation in function RemoveFromPlayQueue
+        /// </summary>
         [Test]
         public void RemoveFromPlayQueue_NoTrackAdded_ExpectedNoExceptionThrown()
         {
@@ -57,6 +78,9 @@ namespace PlaybackCtrlTests
             myQueue.RemoveFromPlayQueue(7);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds a Track to it and then calls GetTrack.
+        /// </summary>
         [Test]
         public void GetTrack_OneTrackAdded_TrackReturned()
         {
@@ -69,6 +93,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("TestTrack",returnedTrack.Title);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler and calls GetNextTrack while the playqueue is empty.
+        /// </summary>
         [Test]
         public void GetNextTrack_NoTracksAdded_ExpectedDummyReturned()
         {
@@ -77,6 +104,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("",returnedTrack.Path);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds a Track and calls GetNextTrack.
+        /// </summary>
         [Test]
         public void GetNextTrack_OneTracksAdded_ExpectedTrackReturned()
         {
@@ -88,6 +118,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("TestTrack",returnedTrack.Title);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds 3 unique Tracks to it and calls GetTrack(2) to receive the middle one.
+        /// </summary>
         [Test]
         public void GetTrack_ThreeTracksAdded_ExpectedMiddleTrackReturned()
         {
@@ -105,6 +138,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("Track2",returnedTrack.Title);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler and calls GetTrack(1) while the playqueue is empty.
+        /// </summary>
         [Test]
         public void GetTrack_NoTracksAdded_ExpectedDummyReturned()
         {
@@ -113,6 +149,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("", returnedTrack.Path);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds 3 Tracks and calls GetTrack(4).
+        /// </summary>
         [Test]
         public void GetTrack_ThreeTracksAdded_AttemptedToGetFourth_ExpectedDummyReturned()
         {
@@ -127,6 +166,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("", returnedTrack.Path);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds 3 unique Tracks, call GetNextTrack twice, then calls GetPrevTrack.
+        /// </summary>
         [Test]
         public void GetPrevTrack_ThreeTracksAdded_IndexAtTwo_ExpectedFirstTrackReturned()
         {
@@ -146,6 +188,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("Track1", returnedTrack.Title);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds 3 Tracks to it and calls GetPrevTrack while at index 0.
+        /// </summary>
         [Test]
         public void GetPrevTrack_ThreeTracksAdded_IndexAtZero_ExpectedDummyReturned()
         {
@@ -160,6 +205,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual("", returnedTrack.Path);
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds 3 Tracks, calls GetNextTrack twice and calls GetCurrentTrackIndex.
+        /// </summary>
         [Test]
         public void GetCurrentTrackIndex_ThreeTracksAdded_NextTrackCalledTwice_ExpectedIndexEqualsTwo()
         {
@@ -175,6 +223,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(2,myQueue.GetCurrentTrackIndex());
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds 3 Tracks, calls GetNextTrack twice, GetPrevTrack once and then calls GetCurrentTrackIndex.
+        /// </summary>
         [Test]
         public void GetCurrentTrackIndex_ThreeTracksAdded_NextTrackCalledTwicePrevCalledOnce_ExpectedIndexEqualsTwo()
         {
@@ -191,6 +242,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(1, myQueue.GetCurrentTrackIndex());
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler, adds 2 Tracks to it, calls GetNextTrack five times and then calls GetCurrentTrackIndex.
+        /// </summary>
         [Test]
         public void GetCurrentTrackIndex_TwoTracksAdded_NextTrackCalledFiveTimes_ExpectedIndexEqualsTwo()
         {
@@ -207,6 +261,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(2, myQueue.GetCurrentTrackIndex());
         }
 
+        /// <summary>
+        /// This test creates a new PlayQueueHandler, adds 2 Tracks, calls GetNextTrack and GetPrevTrack a bunch of times and then calls GetCurrentTrackIndex.
+        /// </summary>
         [Test]
         public void GetCurrentTrackIndex_TwoTracksAdded_NextTrackCalledFiveTimesPrevCalledFiveTimesNextCalledFiveTimes_ExpectedIndexEqualsTwo()
         {
@@ -233,6 +290,9 @@ namespace PlaybackCtrlTests
             Assert.AreEqual(2, myQueue.GetCurrentTrackIndex());
         }
 
+        /// <summary>
+        /// This test creates a new PlayqueueHandler and calls GetPrevTrack while playqueue is empty.
+        /// </summary>
         [Test]
         public void GetPrevTrack_NoTracksAdded_ExpectedDummyReturned()
         {

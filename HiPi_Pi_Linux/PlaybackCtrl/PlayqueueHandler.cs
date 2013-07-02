@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace PlaybackCtrl
 {
+	/// <summary>
+	/// This interface contains the needed features to implement a playqueue
+	/// </summary>
     public interface IPlayqueueHandler
     {
         ITrack GetNextTrack();

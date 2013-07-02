@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading;
 using UPnP_Device.UPnPConfig;
 
+/// <summary>
+/// This namespace contains the features for all TCP communication on UPnP
+/// </summary>
 namespace UPnP_Device.TCP
 {
     /// <summary>

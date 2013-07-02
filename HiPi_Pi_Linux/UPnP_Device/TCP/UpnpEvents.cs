@@ -8,6 +8,10 @@ using System.Text;
 //Todo: So everyone knows the required event types.
 namespace UPnP_Device.TCP
 {
+	/// <summary>
+	/// This entire class should be moed to another scope
+	/// Implements the TCP action which invokes action in the rest of the system
+	/// </summary>
     public static class EventContainer
     {
         public delegate void TcpActionDel(object e, UPnPEventArgs args, CallBack cb);

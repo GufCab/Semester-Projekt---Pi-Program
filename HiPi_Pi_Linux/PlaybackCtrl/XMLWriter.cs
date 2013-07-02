@@ -8,6 +8,9 @@ using System.IO;
 using Containers;
 using System.Threading;
 
+/// <summary>
+/// This namespace contains the features for handling outgoing messages in XML
+/// </summary>
 namespace XMLHandler
 {
     /// <summary>

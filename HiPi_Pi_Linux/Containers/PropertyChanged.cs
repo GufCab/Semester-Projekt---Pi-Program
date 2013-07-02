@@ -3,8 +3,11 @@ using System.ComponentModel;
 
 namespace Containers
 {
+	
 	public delegate void PropertyChangedDel(UPnPArg args);
-
+	/// <summary>
+	/// Method to invoke at property changed event
+	/// </summary>
 	public static class PropertyChangedEvent
 	{
 		public static event PropertyChangedDel PropEvent = delegate { };
@@ -20,7 +23,9 @@ namespace Containers
 		}
 	}
 
-
+	/// <summary>
+	/// Container of arguments received and send with UPnP
+	/// </summary>
 	public class UPnPArg
     {
         public string ArgName { get; private set; }
@@ -33,15 +38,19 @@ namespace Containers
         }
     }
 
+	/// <summary>
+	/// Interface for the Property Changed event.
+	/// </summary>
 	public interface IEventChange
 	{
 		event PropertyChangedDel PropertyChangedEvent;
 	}
 
-
+/*
 	public class EventVar
 	{
 
 	}
+*/
 }
 

@@ -9,7 +9,6 @@ using Containers;
 /// <summary>
 /// Namespace containing all XML handling classes.
 /// </summary>
-
 namespace UPnP_Device.XML
 {
     /// <summary>

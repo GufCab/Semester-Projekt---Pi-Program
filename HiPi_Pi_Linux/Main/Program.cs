@@ -10,14 +10,26 @@ using PlaybackCtrl;
 using XMLHandler;
 using FileSenderServer;
 
+/// <summary>
+/// The HiPi_Pi namespace is the general namespace containing main functionality
+/// </summary
+namespace HiPi_Pi
+{}
 
+/// <summary>
+/// This is the namespace for the main thread
+/// </summary>
 namespace Main
 {
+	/// <summary>
+	/// This is the Program main function.
+	/// Runs in the Main thread, and is the entrypoint of the program
+	/// </summary>
     class Program
     {
         static void Main()
         {
-            //something about main
+            //Program entrypoint
             IUPnPConfigFactory sinkfact = new SinkFactory();
             IUPnPConfigFactory sourceFact = new SourceFactory();
 

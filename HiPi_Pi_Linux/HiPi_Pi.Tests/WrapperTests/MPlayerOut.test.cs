@@ -8,8 +8,14 @@ using Rhino.Mocks;
 using NUnit.Framework;
 using MPlayer;
 
+/// <summary>
+/// This namespace contains the unittests of the wrapper
+/// </summary
 namespace HiPi_Pi.Tests.WrapperTests
 {
+	/// <summary>
+	/// Tests for MPlayer
+	/// </summary
     [TestFixture]
     public class MPlayerOutTests : AssertionHelper
     {
@@ -27,3 +33,9 @@ namespace HiPi_Pi.Tests.WrapperTests
         //ToDo Test of Multithreaded systems..
     }
 }
+
+/// <summary>
+/// Containing all the tests of the HiPi_Pi system
+/// </summary
+namespace HiPi_Pi.Tests
+{}

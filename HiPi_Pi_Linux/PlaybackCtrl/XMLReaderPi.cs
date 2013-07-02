@@ -8,6 +8,9 @@ using System.Xml.Linq;
 using System.Xml;
 using Containers;
 
+/// <summary>
+/// This namespace contains features for reading incoming XML messages
+/// </summary>
 namespace XMLReader
 {
     /// <summary>
